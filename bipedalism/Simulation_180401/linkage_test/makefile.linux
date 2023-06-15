@@ -1,0 +1,48 @@
+# makefile for the subprocess objective option
+
+# useful functions
+MKDEPEND    = makedepend
+MKDIR       = mkdir -p
+CP          = cp
+RM          = rm -rf
+MV          = mv
+
+# GNU compiler flags (works with g++ and egcs)
+CXX         = g++
+PRELINK     =
+CXXFLAGS    = -Wall -fexceptions -O3
+CXX_INC_DIR = /usr/include/g++-3/
+LD          = g++ -w
+AR          = ar rv
+INSTALL     = install -c
+
+# set up a compilation rule for gnu make
+.SUFFIXES: .cc
+.cc.o:
+	$(CXX) $(CXXFLAGS) $(INC_DIRS) -c $<
+
+
+DYN_DIR = /home/wis/dynamechs_3.0/
+INC_DIRS= -I. -I../../galib245/ -I$(DYN_DIR)dm -I$(DYN_DIR)dmu -I$(DYN_DIR)dmGL \
+	-I/usr/X11R6/include -I/usr/X11R6/include/GL 
+DYN_LIBS = $(DYN_DIR)dmu/libdmu.a $(DYN_DIR)dmGL/libdmGL.a \
+	$(DYN_DIR)dm/libdm.a 
+LIBS = -lm 
+OPENGL_LIBS = -L/usr/X11R6/lib \
+	-lglut -lGLU -lGL -lX11 -lXmu
+
+all: bipedal_linkage
+	
+bipedal_linkage: \
+bipedal_linkage.o
+	$(CXX) -o $@ $^ $(GA_LIBS) $(DYN_LIBS) $(OPENGL_LIBS) $(LIBS)
+	
+clean:
+	$(RM) bipedal_linkage
+	$(RM) *.o *~ *.bak core *.bck
+
+depend:
+	$(MKDEPEND) -I$(CXX_INC_DIR) $(INC_DIRS) \
+bipedal_linkage.cc
+
+# DO NOT DELETE THIS LINE -- make  depend  depends  on it.

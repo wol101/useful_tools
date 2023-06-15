@@ -1,0 +1,1141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE GAITSYM SYSTEM "gaitsym.dtd">
+
+<GAITSYM>
+
+<!--
+MuscleActivationK from van Leeuwen 1992
+MuscleForcePerUnitArea Umberger et al 2003
+MuscleVMaxFactor Umberger et al 2003 (Fast & Slow)
+Muscle width from Nagano & Gerritsen 2001
+Muscle Fast Twitch Proportion from Umberger et al 2003
+Muscle Density from Umberger et al 2003
+
+Note flexion and extension definitions are the normal human definitions:
+flexion is plantarflexion and extension is dorsiflexion
+-->
+
+<GLOBAL 
+    IntegrationStepsize="1e-5"
+    GravityVector="0.0 0.0 -9.81"
+    GroundPlanarSpringConstant="40000.0"
+    GroundNormalSpringConstant="40000.0"
+    GroundPlanarDamperConstant="400.0"
+    GroundNormalDamperConstant="400.0"
+    GroundStaticFrictionCoeff="2000.0"     
+    GroundKineticFrictionCoeff="1600.0"  
+        
+    BMR="0" 
+    DefaultJointLimitSpringConstant="1000.0" 
+    DefaultJointLimitDamperConstant="100.0" 
+    DefaultJointFriction="0"      
+    DefaultMuscleActivationK="0.17"      
+    DefaultMuscleForcePerUnitArea="250000"  
+    DefaultMuscleVMaxFactor="12"   
+    DefaultMuscleWidth="0.97"
+    DefaultMuscleFastTwitchProportion="0.43"
+    DefaultMuscleDensity="1059.7"
+    DefaultMuscleAerobic="true"
+    DefaultMuscleAllowReverseWork="true"
+    
+    TimeLimit="100"
+    MetabolicEnergyLimit="10000"
+    MechanicalEnergyLimit="0"
+    FitnessType="DistanceTravelled" 
+/>    
+
+<!-- Links -->
+
+<MOBILE_BASE_LINK
+    Name="Torso"
+    GraphicFile="Torso.obj"
+    Scale="1"
+    Mass="50.77"
+    MOI="6.55E-01 0.00E+00 0.00E+00 0.00E+00 5.96E+00 0.00E+00 0.00E+00 0.00E+00 5.66E+00"
+    CM="0.189	0.000	0.000"
+    Position="0.0616284167162195 0.7044160264027586 -0.7044160264027587 0.0616284167162195
+               0.0  0.0  0.77"
+    Velocity="0.00 0.00 0.00      
+               0.50 0.00 0.00"
+    VelocityRange="-2 2 -2 2 -2 2"
+    PositionRange="-1.0 1000 -0.5 0.5 0.4 2.0"        
+    Restriction="None"      
+/>
+
+<REVOLUTE_LINK
+    Name="LeftThigh"
+    GraphicFile="LeftFemur.obj"
+    Scale="1"
+    Mass="9.05"
+    MOI="1.81E-02 0.00E+00 0.00E+00 0.00E+00 2.25E-01 0.00E+00 0.00E+00 0.00E+00 2.25E-01"
+    CM="0.123	0.000	0.000"
+    MDHA="0.600"
+    MDHAlpha="0.0"
+    MDHD="-0.100000"
+    MDHTheta="1.8"
+    InitialJointVelocity="0.0"
+    JointMin="-0.175"
+    JointMax="2.36"
+/>
+
+<REVOLUTE_LINK
+    Name="LeftLeg"
+    GraphicFile="LeftTibiaFibula.obj"
+    Scale="1"
+    Mass="4.80"
+    MOI="4.96E-03 0.00E+00 0.00E+00 0.00E+00 1.22E-01 0.00E+00 0.00E+00 0.00E+00 1.21E-01"
+    CM="0.138	0.000	0.000"
+    MDHA="0.300"
+    MDHAlpha="0.0"
+    MDHD="0.000"
+    MDHTheta="-0.7"
+    InitialJointVelocity="0.0"
+    JointMin="-2.36"
+    JointMax="0.0"
+/>
+
+<REVOLUTE_LINK
+    Name="LeftFoot"
+    GraphicFile="LeftFoot.obj"
+    Scale="1"
+    Mass="2.86"
+    MOI="2.75E-03 0.00E+00 0.00E+00 0.00E+00 4.67E-02 0.00E+00 0.00E+00 0.00E+00 4.56E-02"
+    CM="0.110	0.000	0.000"
+    MDHA="0.315"
+    MDHAlpha="0.0"
+    MDHD="0.000"
+    MDHTheta="1.571"
+    InitialJointVelocity="0.0"
+    JointMin="0.524"
+    JointMax="2.094"
+/>
+
+<REVOLUTE_LINK
+    Name="LeftArm"
+    GraphicFile="LeftHumerus.obj"
+    Scale="1"
+    Mass="8.03"
+    MOI="2.60E-02 0.00E+00 0.00E+00 0.00E+00 4.31E-01 0.00E+00 0.00E+00 0.00E+00 4.22E-01"
+    CM="0.208	0.000	0.000"
+    MDHA="0.000"
+    MDHAlpha="0.0"
+    MDHD="-0.200000"
+    MDHTheta="1.571"
+    InitialJointVelocity="0.0"
+    JointMin="-0.785"
+    JointMax="3.14"
+/>
+
+<REVOLUTE_LINK
+    Name="LeftForearm"
+    GraphicFile="LeftRadiusUlna.obj"
+    Scale="1"
+    Mass="7.57"
+    MOI="1.82E-02 0.00E+00 0.00E+00 0.00E+00 3.54E-01 0.00E+00 0.00E+00 0.00E+00 3.47E-01"
+    CM="0.185	0.000	0.000"
+    MDHA="0.360"
+    MDHAlpha="0.0"
+    MDHD="0.000"
+    MDHTheta="0.0"
+    InitialJointVelocity="0.0"
+    JointMin="0.0"
+    JointMax="2.36"
+/>
+
+<REVOLUTE_LINK
+    Name="LeftHand"
+    GraphicFile="LeftHand.obj"
+    Scale="1"
+    Mass="2.31"
+    MOI="2.32E-02 0.00E+00 0.00E+00 0.00E+00 1.47E-01 0.00E+00 0.00E+00 0.00E+00 1.28E-01"
+    CM="0.198	0.000	0.000"
+    MDHA="0.405"
+    MDHAlpha="0.0"
+    MDHD="0.000"
+    MDHTheta="1.571"
+    InitialJointVelocity="0.0"
+    JointMin="-1.571"
+    JointMax="1.571"
+/>
+
+<REVOLUTE_LINK
+    Name="RightThigh"
+    GraphicFile="RightFemur.obj"
+    Scale="1"
+    Mass="9.05"
+    MOI="1.81E-02 0.00E+00 0.00E+00 0.00E+00 2.25E-01 0.00E+00 0.00E+00 0.00E+00 2.25E-01"
+    CM="0.123	0.000	0.000"
+    MDHA="0.600"
+    MDHAlpha="0.0"
+    MDHD="0.100"
+    MDHTheta="1.8"
+    InitialJointVelocity="0.0"
+    JointMin="-0.175"
+    JointMax="2.36"
+/>
+
+<REVOLUTE_LINK
+    Name="RightLeg"
+    GraphicFile="RightTibiaFibula.obj"
+    Scale="1"
+    Mass="4.80"
+    MOI="4.96E-03 0.00E+00 0.00E+00 0.00E+00 1.22E-01 0.00E+00 0.00E+00 0.00E+00 1.21E-01"
+    CM="0.138	0.000	0.000"
+    MDHA="0.300"
+    MDHAlpha="0.0"
+    MDHD="0.000"
+    MDHTheta="-0.7"
+    InitialJointVelocity="0.0"
+    JointMin="-2.36"
+    JointMax="0.0"
+/>
+
+<REVOLUTE_LINK
+    Name="RightFoot"
+    GraphicFile="RightFoot.obj"
+    Scale="1"
+    Mass="2.86"
+    MOI="2.75E-03 0.00E+00 0.00E+00 0.00E+00 4.67E-02 0.00E+00 0.00E+00 0.00E+00 4.56E-02"
+    CM="0.110	0.000	0.000"
+    MDHA="0.315"
+    MDHAlpha="0.0"
+    MDHD="0.000"
+    MDHTheta="1.571"
+    InitialJointVelocity="0.0"
+    JointMin="0.524"
+    JointMax="2.094"
+/>
+
+<REVOLUTE_LINK
+    Name="RightArm"
+    GraphicFile="RightHumerus.obj"
+    Scale="1"
+    Mass="8.03"
+    MOI="2.60E-02 0.00E+00 0.00E+00 0.00E+00 4.31E-01 0.00E+00 0.00E+00 0.00E+00 4.22E-01"
+    CM="0.208	0.000	0.000"
+    MDHA="0.000"
+    MDHAlpha="0.0"
+    MDHD="0.200"
+    MDHTheta="1.571"
+    InitialJointVelocity="0.0"
+    JointMin="-0.785"
+    JointMax="3.14"
+/>
+
+<REVOLUTE_LINK
+    Name="RightForearm"
+    GraphicFile="RightRadiusUlna.obj"
+    Scale="1"
+    Mass="7.57"
+    MOI="1.82E-02 0.00E+00 0.00E+00 0.00E+00 3.54E-01 0.00E+00 0.00E+00 0.00E+00 3.47E-01"
+    CM="0.185	0.000	0.000"
+    MDHA="0.360"
+    MDHAlpha="0.0"
+    MDHD="0.000"
+    MDHTheta="0.0"
+    InitialJointVelocity="0.0"
+    JointMin="0.0"
+    JointMax="2.36"
+/>
+
+<REVOLUTE_LINK
+    Name="RightHand"
+    GraphicFile="RightHand.obj"
+    Scale="1"
+    Mass="2.31"
+    MOI="2.32E-02 0.00E+00 0.00E+00 0.00E+00 1.47E-01 0.00E+00 0.00E+00 0.00E+00 1.28E-01"
+    CM="0.198	0.000	0.000"
+    MDHA="0.405"
+    MDHAlpha="0.0"
+    MDHD="0.000"
+    MDHTheta="1.571"
+    InitialJointVelocity="0.0"
+    JointMin="-1.571"
+    JointMax="1.571"
+/>
+
+<!--
+Robot
+-->
+
+<ROBOT
+    Name="GaitRobot"
+    RootLink="Torso"
+    LinkPairs="RightThigh Torso
+    RightLeg RightThigh
+    RightFoot RightLeg
+    LeftThigh Torso
+    LeftLeg LeftThigh
+    LeftFoot LeftLeg
+    RightArm Torso
+    RightForearm RightArm
+    RightHand RightForearm
+    LeftArm Torso
+    LeftForearm LeftArm
+    LeftHand LeftForearm"
+/>
+
+<!--
+Muscles
+-->
+
+
+<MUSCLE
+    Type="UmbergerGerritsenMartin"
+    Name="LeftHipExtensor"
+    OriginLinkName="Torso"
+    Origin="0.700000 -0.020000 -0.040000 "
+    InsertionLinkName="LeftThigh"
+    Insertion="0.15    -0.01   0.0"
+    PCA="97.02e-4"
+    FibreLength="12.16e-2"
+    TendonLength="0.1"
+    SerialStrainModel="Square"
+    SerialStrainAtFmax="0.06"
+    ParallelStrainModel="Square"
+    ParallelStrainAtFmax="0.6"
+/>
+
+<MUSCLE
+    Type="UmbergerGerritsenMartin"
+    Name="LeftHipFlexor"
+    OriginLinkName="Torso"
+    Origin="0.460000 0.050000 -0.160000 "
+    InsertionLinkName="LeftThigh"
+    Insertion="0.15    0.015   0.0"
+    PCA="41.85e-4"
+    FibreLength="4.75e-2"
+    TendonLength="0.1"
+    SerialStrainModel="Square"
+    SerialStrainAtFmax="0.06"
+    ParallelStrainModel="Square"
+    ParallelStrainAtFmax="0.6"
+/>
+
+<MUSCLE
+    Type="UmbergerGerritsenMartin"
+    Name="LeftKneeExtensor"
+    OriginLinkName="LeftThigh"
+    Origin="0.18    0.015   0.0"
+    InsertionLinkName="LeftLeg"
+    Insertion="0.07    0.03    0.0"
+    Radius="0.03"
+    PCA="83.69e-4"
+    FibreLength="9.50e-2"
+    TendonLength="0.1"
+    SerialStrainModel="Square"
+    SerialStrainAtFmax="0.06"
+    ParallelStrainModel="Square"
+    ParallelStrainAtFmax="0.6"
+/>
+
+<MUSCLE
+    Type="UmbergerGerritsenMartin"
+    Name="LeftKneeFlexor"
+    OriginLinkName="LeftThigh"
+    Origin="0.18    -0.01   0.0"
+    InsertionLinkName="LeftLeg"
+    Insertion="0.055   -0.03   0.0"
+    Radius="-0.03"
+    PCA="84.48e-4"
+    FibreLength="15.13e-2"
+    TendonLength="0.1"
+    SerialStrainModel="Square"
+    SerialStrainAtFmax="0.06"
+    ParallelStrainModel="Square"
+    ParallelStrainAtFmax="0.6"
+/>
+
+<MUSCLE
+    Type="UmbergerGerritsenMartin"
+    Name="LeftAnkleExtensor"
+    OriginLinkName="LeftLeg"
+    Origin="0.1     0.03    0.0"
+    InsertionLinkName="LeftFoot"
+    Insertion="0.04   -0.01     0.0"
+    PCA="21.52e-4"
+    FibreLength="14.52e-2"
+    TendonLength="0.1"
+    SerialStrainModel="Square"
+    SerialStrainAtFmax="0.06"
+    ParallelStrainModel="Square"
+    ParallelStrainAtFmax="0.6"
+/>
+
+<MUSCLE
+    Type="UmbergerGerritsenMartin"
+    Name="LeftAnkleFlexor"
+    OriginLinkName="LeftLeg"
+    Origin="0.1     0.0     0.0"
+    InsertionLinkName="LeftFoot"
+    Insertion="-0.05   -0.01     0.0"
+    PCA="82.72e-4"
+    FibreLength="24.46e-2"
+    TendonLength="0.1"
+    SerialStrainModel="Square"
+    SerialStrainAtFmax="0.06"
+    ParallelStrainModel="Square"
+    ParallelStrainAtFmax="0.6"
+/>
+
+<MUSCLE
+    Type="UmbergerGerritsenMartin"
+    Name="LeftShoulderExtensor"
+    OriginLinkName="Torso"
+    Origin="0.200000 -0.060000 -0.100000 "
+    InsertionLinkName="LeftArm"
+    Insertion="0.04    -0.015  0.0"
+    PCA="38.30e-4"
+    FibreLength="32.86e-2"
+    TendonLength="0.1"
+    SerialStrainModel="Square"
+    SerialStrainAtFmax="0.06"
+    ParallelStrainModel="Square"
+    ParallelStrainAtFmax="0.6"
+/>
+
+<MUSCLE
+    Type="UmbergerGerritsenMartin"
+    Name="LeftShoulderFlexor"
+    OriginLinkName="Torso"
+    Origin="-0.050000 0.000000 -0.100000 "
+    InsertionLinkName="LeftArm"
+    Insertion="0.04    0.015   0.0"
+    PCA="56.34e-4"
+    FibreLength="15.63e-2"
+    TendonLength="0.1"
+    SerialStrainModel="Square"
+    SerialStrainAtFmax="0.06"
+    ParallelStrainModel="Square"
+    ParallelStrainAtFmax="0.6"
+/>
+
+<MUSCLE
+    Type="UmbergerGerritsenMartin"
+    Name="LeftElbowExtensor"
+    OriginLinkName="LeftArm"
+    Origin="0.13    -0.050  0.0"
+    InsertionLinkName="LeftForearm"
+    Insertion="0.0     -0.030  0.0"
+    Radius="-0.03"
+    PCA="66.50e-4"
+    FibreLength="13.67e-2"
+    TendonLength="0.1"
+    SerialStrainModel="Square"
+    SerialStrainAtFmax="0.06"
+    ParallelStrainModel="Square"
+    ParallelStrainAtFmax="0.6"
+/>
+
+<MUSCLE
+    Type="UmbergerGerritsenMartin"
+    Name="LeftElbowFlexor"
+    OriginLinkName="LeftArm"
+    Origin="0.13    0.005   0.0"
+    InsertionLinkName="LeftForearm"
+    Insertion="0.015   0.015   0.0"
+    Radius="0.02"
+    PCA="98.10e-4"
+    FibreLength="18.39e-2"
+    TendonLength="0.1"
+    SerialStrainModel="Square"
+    SerialStrainAtFmax="0.06"
+    ParallelStrainModel="Square"
+    ParallelStrainAtFmax="0.6"
+/>
+
+<MUSCLE
+    Type="UmbergerGerritsenMartin"
+    Name="LeftWristExtensor"
+    OriginLinkName="LeftForearm"
+    Origin="0.2     0.01    0.0"
+    InsertionLinkName="LeftHand"
+    Insertion="0.02    0.015   0.0"
+    Radius="0.02"
+    PCA="41.58e-4"
+    FibreLength="10.93e-2"
+    TendonLength="0.1"
+    SerialStrainModel="Square"
+    SerialStrainAtFmax="0.06"
+    ParallelStrainModel="Square"
+    ParallelStrainAtFmax="0.6"
+/>
+
+<MUSCLE
+    Type="UmbergerGerritsenMartin"
+    Name="LeftWristFlexor"
+    OriginLinkName="LeftForearm"
+    Origin="0.2     -0.014  0.0"
+    InsertionLinkName="LeftHand"
+    Insertion="0.02    -0.02   0.0"
+    Radius="-0.02"
+    PCA="89.77e-4"
+    FibreLength="12.34e-2"
+    TendonLength="0.1"
+    SerialStrainModel="Square"
+    SerialStrainAtFmax="0.06"
+    ParallelStrainModel="Square"
+    ParallelStrainAtFmax="0.6"
+/>
+
+
+<MUSCLE
+    Type="UmbergerGerritsenMartin"
+    Name="RightHipExtensor"
+    OriginLinkName="Torso"
+    Origin="0.7     -0.02   0.04"
+    InsertionLinkName="RightThigh"
+    Insertion="0.15    -0.01   0.0"
+    PCA="97.02e-4"
+    FibreLength="12.16e-2"
+    TendonLength="0.1"
+    SerialStrainModel="Square"
+    SerialStrainAtFmax="0.06"
+    ParallelStrainModel="Square"
+    ParallelStrainAtFmax="0.6"
+/>
+
+<MUSCLE
+    Type="UmbergerGerritsenMartin"
+    Name="RightHipFlexor"
+    OriginLinkName="Torso"
+    Origin="0.46    0.05     0.16"
+    InsertionLinkName="RightThigh"
+    Insertion="0.15    0.015   0.0"
+    PCA="41.85e-4"
+    FibreLength="4.75e-2"
+    TendonLength="0.1"
+    SerialStrainModel="Square"
+    SerialStrainAtFmax="0.06"
+    ParallelStrainModel="Square"
+    ParallelStrainAtFmax="0.6"
+/>
+
+<MUSCLE
+    Type="UmbergerGerritsenMartin"
+    Name="RightKneeExtensor"
+    OriginLinkName="RightThigh"
+    Origin="0.18    0.015   0.0"
+    InsertionLinkName="RightLeg"
+    Insertion="0.07    0.03    0.0"
+    Radius="0.03"
+    PCA="83.69e-4"
+    FibreLength="9.50e-2"
+    TendonLength="0.1"
+    SerialStrainModel="Square"
+    SerialStrainAtFmax="0.06"
+    ParallelStrainModel="Square"
+    ParallelStrainAtFmax="0.6"
+/>
+
+<MUSCLE
+    Type="UmbergerGerritsenMartin"
+    Name="RightKneeFlexor"
+    OriginLinkName="RightThigh"
+    Origin="0.18    -0.01   0.0"
+    InsertionLinkName="RightLeg"
+    Insertion="0.055   -0.03   0.0"
+    Radius="-0.03"
+    PCA="84.48e-4"
+    FibreLength="15.13e-2"
+    TendonLength="0.1"
+    SerialStrainModel="Square"
+    SerialStrainAtFmax="0.06"
+    ParallelStrainModel="Square"
+    ParallelStrainAtFmax="0.6"
+/>
+
+<MUSCLE
+    Type="UmbergerGerritsenMartin"
+    Name="RightAnkleExtensor"
+    OriginLinkName="RightLeg"
+    Origin="0.1     0.03    0.0"
+    InsertionLinkName="RightFoot"
+    Insertion="0.04   -0.01     0.0"
+    PCA="21.52e-4"
+    FibreLength="14.52e-2"
+    TendonLength="0.1"
+    SerialStrainModel="Square"
+    SerialStrainAtFmax="0.06"
+    ParallelStrainModel="Square"
+    ParallelStrainAtFmax="0.6"
+/>
+
+<MUSCLE
+    Type="UmbergerGerritsenMartin"
+    Name="RightAnkleFlexor"
+    OriginLinkName="RightLeg"
+    Origin="0.1     0.0     0.0"
+    InsertionLinkName="RightFoot"
+    Insertion="-0.05   -0.01     0.0"
+    PCA="82.72e-4"
+    FibreLength="24.46e-2"
+    TendonLength="0.1"
+    SerialStrainModel="Square"
+    SerialStrainAtFmax="0.06"
+    ParallelStrainModel="Square"
+    ParallelStrainAtFmax="0.6"
+/>
+
+<MUSCLE
+    Type="UmbergerGerritsenMartin"
+    Name="RightShoulderExtensor"
+    OriginLinkName="Torso"
+    Origin="0.2    -0.06   0.1"
+    InsertionLinkName="RightArm"
+    Insertion="0.04    -0.015  0.0"
+    PCA="38.30e-4"
+    FibreLength="32.86e-2"
+    TendonLength="0.1"
+    SerialStrainModel="Square"
+    SerialStrainAtFmax="0.06"
+    ParallelStrainModel="Square"
+    ParallelStrainAtFmax="0.6"
+/>
+
+<MUSCLE
+    Type="UmbergerGerritsenMartin"
+    Name="RightShoulderFlexor"
+    OriginLinkName="Torso"
+    Origin="-0.05    0.0    0.1"
+    InsertionLinkName="RightArm"
+    Insertion="0.04    0.015   0.0"
+    PCA="56.34e-4"
+    FibreLength="15.63e-2"
+    TendonLength="0.1"
+    SerialStrainModel="Square"
+    SerialStrainAtFmax="0.06"
+    ParallelStrainModel="Square"
+    ParallelStrainAtFmax="0.6"
+/>
+
+<MUSCLE
+    Type="UmbergerGerritsenMartin"
+    Name="RightElbowExtensor"
+    OriginLinkName="RightArm"
+    Origin="0.13    -0.050  0.0"
+    InsertionLinkName="RightForearm"
+    Insertion="0.0     -0.030  0.0"
+    Radius="-0.03"
+    PCA="66.50e-4"
+    FibreLength="13.67e-2"
+    TendonLength="0.1"
+    SerialStrainModel="Square"
+    SerialStrainAtFmax="0.06"
+    ParallelStrainModel="Square"
+    ParallelStrainAtFmax="0.6"
+/>
+
+<MUSCLE
+    Type="UmbergerGerritsenMartin"
+    Name="RightElbowFlexor"
+    OriginLinkName="RightArm"
+    Origin="0.13    0.005   0.0"
+    InsertionLinkName="RightForearm"
+    Insertion="0.015   0.015   0.0"
+    Radius="0.02"
+    PCA="98.10e-4"
+    FibreLength="18.39e-2"
+    TendonLength="0.1"
+    SerialStrainModel="Square"
+    SerialStrainAtFmax="0.06"
+    ParallelStrainModel="Square"
+    ParallelStrainAtFmax="0.6"
+/>
+
+<MUSCLE
+    Type="UmbergerGerritsenMartin"
+    Name="RightWristExtensor"
+    OriginLinkName="RightForearm"
+    Origin="0.2     0.01    0.0"
+    InsertionLinkName="RightHand"
+    Insertion="0.02    0.015   0.0"
+    Radius="0.02"
+    PCA="41.58e-4"
+    FibreLength="10.93e-2"
+    TendonLength="0.1"
+    SerialStrainModel="Square"
+    SerialStrainAtFmax="0.06"
+    ParallelStrainModel="Square"
+    ParallelStrainAtFmax="0.6"
+/>
+
+<MUSCLE
+    Type="UmbergerGerritsenMartin"
+    Name="RightWristFlexor"
+    OriginLinkName="RightForearm"
+    Origin="0.2     -0.014  0.0"
+    InsertionLinkName="RightHand"
+    Insertion="0.02    -0.02   0.0"
+    Radius="-0.02"
+    PCA="89.77e-4"
+    FibreLength="12.34e-2"
+    TendonLength="0.1"
+    SerialStrainModel="Square"
+    SerialStrainAtFmax="0.06"
+    ParallelStrainModel="Square"
+    ParallelStrainAtFmax="0.6"
+/>
+
+
+
+<!--
+Contact Models
+-->
+
+
+<CONTACT
+    Name="LeftFootContact"
+    LinkName="LeftFoot"
+    ContactPositions="-0.050000 -0.050000 0.050000 -0.050000 -0.050000 -0.050000 0.100000 -0.050000 0.100000 0.100000 -0.050000 -0.050000 0.200000 -0.050000 0.050000 0.200000 -0.050000 -0.050000 "
+/>
+
+<CONTACT
+    Name="LeftHandContact"
+    LinkName="LeftHand"
+    ContactPositions="0.000000 -0.050000 0.050000 0.000000 -0.050000 -0.050000 0.150000 -0.050000 0.100000 0.150000 -0.050000 -0.050000 0.250000 -0.050000 0.050000 0.250000 -0.050000 -0.050000 "
+/>
+
+<CONTACT
+    Name="RightFootContact"
+    LinkName="RightFoot"
+    ContactPositions="
+-0.05   -0.05   -0.05
+-0.05   -0.05   0.05
+0.10    -0.05   -0.10
+0.10    -0.05   0.05
+0.20    -0.05   -0.05
+0.20    -0.05   0.05
+"
+/>
+
+<CONTACT
+    Name="RightHandContact"
+    LinkName="RightHand"
+    ContactPositions="
+0.0     -0.05   -0.05
+0.0     -0.05   0.05
+0.15    -0.05   -0.10
+0.15    -0.05   0.05
+0.25    -0.05   -0.05
+0.25    -0.05   0.05
+"
+/>
+
+<!--
+Drivers
+-->
+<!-- duration value pairs -->
+
+<!--
+Encoding is (44 genes)
+g0 - relative phase delay of forelimbs (0 to 1)
+g1 - half cycle time
+g2 - part 0 relative duration hindlimbs
+g3 - part 1 relative duration hindlimbs
+g4 - part 2 relative duration hindlimbs
+g5 - part 0 relative duration forelimbs
+g6 - part 1 relative duration forelimbs
+g7 - part 2 relative duration forelimbs
+g8 - part 0 right hip driver
+g9 - part 1 right hip driver
+g10 - part 2 right hip driver
+g11 - part 0 right knee driver
+g12 - part 1 right knee driver
+g13 - part 2 right knee driver
+g14 - part 0 right ankle driver
+g15 - part 1 right ankle driver
+g16 - part 2 right ankle driver
+g17 - part 0 right shoulder driver
+g18 - part 1 right shoulder driver
+g19 - part 2 right shoulder driver
+g20 - part 0 right elbow driver
+g21 - part 1 right elbow driver
+g22 - part 2 right elbow driver
+g23 - part 0 right wrist driver
+g24 - part 1 right wrist driver
+g25 - part 2 right wrist driver
+g26 - part 0 left hip driver
+g27 - part 1 left hip driver
+g28 - part 2 left hip driver
+g29 - part 0 left knee driver
+g30 - part 1 left knee driver
+g31 - part 2 left knee driver
+g32 - part 0 left ankle driver
+g33 - part 1 left ankle driver
+g34 - part 2 left ankle driver
+g35 - part 0 left shoulder driver
+g36 - part 1 left shoulder driver
+g37 - part 2 left shoulder driver
+g38 - part 0 left elbow driver
+g39 - part 1 left elbow driver
+g40 - part 2 left elbow driver
+g41 - part 0 left wrist driver
+g42 - part 1 left wrist driver
+g43 - part 2 left wrist driver
+-->
+
+<CYCLIC_DRIVER
+    Name="RightHipExtensorDriver"
+    Target="RightHipExtensor"
+    PhaseDelay="0"
+    DurationValuePairs=
+    "
+    [[g(1)*g(2)/(g(2)+g(3)+g(4))]] [[if(g(8)<0,-1*g(8),0)]]
+    [[g(1)*g(3)/(g(2)+g(3)+g(4))]] [[if(g(9)<0,-1*g(9),0)]]
+    [[g(1)*g(4)/(g(2)+g(3)+g(4))]] [[if(g(10)<0,-1*g(10),0)]]
+    [[g(1)*g(2)/(g(2)+g(3)+g(4))]] [[if(g(26)<0,-1*g(26),0)]]
+    [[g(1)*g(3)/(g(2)+g(3)+g(4))]] [[if(g(27)<0,-1*g(27),0)]]
+    [[g(1)*g(4)/(g(2)+g(3)+g(4))]] [[if(g(28)<0,-1*g(28),0)]]
+    "
+/>
+
+<CYCLIC_DRIVER
+    Name="RightHipFlexorDriver"
+    Target="RightHipFlexor"
+    PhaseDelay="0"
+    DurationValuePairs=
+    "
+    [[g(1)*g(2)/(g(2)+g(3)+g(4))]] [[if(g(8)>0,g(8),0)]]
+    [[g(1)*g(3)/(g(2)+g(3)+g(4))]] [[if(g(9)>0,g(9),0)]]
+    [[g(1)*g(4)/(g(2)+g(3)+g(4))]] [[if(g(10)>0,g(10),0)]]
+    [[g(1)*g(2)/(g(2)+g(3)+g(4))]] [[if(g(26)>0,g(26),0)]]
+    [[g(1)*g(3)/(g(2)+g(3)+g(4))]] [[if(g(27)>0,g(27),0)]]
+    [[g(1)*g(4)/(g(2)+g(3)+g(4))]] [[if(g(28)>0,g(28),0)]]
+    "
+/>
+
+<CYCLIC_DRIVER
+    Name="RightKneeExtensorDriver"
+    Target="RightKneeExtensor"
+    PhaseDelay="0"
+    DurationValuePairs=
+    "
+    [[g(1)*g(2)/(g(2)+g(3)+g(4))]] [[if(g(11)<0,-1*g(11),0)]]
+    [[g(1)*g(3)/(g(2)+g(3)+g(4))]] [[if(g(12)<0,-1*g(12),0)]]
+    [[g(1)*g(4)/(g(2)+g(3)+g(4))]] [[if(g(13)<0,-1*g(13),0)]]
+    [[g(1)*g(2)/(g(2)+g(3)+g(4))]] [[if(g(29)<0,-1*g(29),0)]]
+    [[g(1)*g(3)/(g(2)+g(3)+g(4))]] [[if(g(30)<0,-1*g(30),0)]]
+    [[g(1)*g(4)/(g(2)+g(3)+g(4))]] [[if(g(31)<0,-1*g(31),0)]]
+    "
+/>
+
+<CYCLIC_DRIVER
+    Name="RightKneeFlexorDriver"
+    Target="RightKneeFlexor"
+    PhaseDelay="0"
+    DurationValuePairs=
+    "
+    [[g(1)*g(2)/(g(2)+g(3)+g(4))]] [[if(g(11)>0,g(11),0)]]
+    [[g(1)*g(3)/(g(2)+g(3)+g(4))]] [[if(g(12)>0,g(12),0)]]
+    [[g(1)*g(4)/(g(2)+g(3)+g(4))]] [[if(g(13)>0,g(13),0)]]
+    [[g(1)*g(2)/(g(2)+g(3)+g(4))]] [[if(g(29)>0,g(29),0)]]
+    [[g(1)*g(3)/(g(2)+g(3)+g(4))]] [[if(g(30)>0,g(30),0)]]
+    [[g(1)*g(4)/(g(2)+g(3)+g(4))]] [[if(g(31)>0,g(31),0)]]
+    "
+/>
+
+<CYCLIC_DRIVER
+    Name="RightAnkleExtensorDriver"
+    Target="RightAnkleExtensor"
+    PhaseDelay="0"
+    DurationValuePairs=
+    "
+    [[g(1)*g(2)/(g(2)+g(3)+g(4))]] [[if(g(14)<0,-1*g(14),0)]]
+    [[g(1)*g(3)/(g(2)+g(3)+g(4))]] [[if(g(15)<0,-1*g(15),0)]]
+    [[g(1)*g(4)/(g(2)+g(3)+g(4))]] [[if(g(16)<0,-1*g(16),0)]]
+    [[g(1)*g(2)/(g(2)+g(3)+g(4))]] [[if(g(32)<0,-1*g(32),0)]]
+    [[g(1)*g(3)/(g(2)+g(3)+g(4))]] [[if(g(33)<0,-1*g(33),0)]]
+    [[g(1)*g(4)/(g(2)+g(3)+g(4))]] [[if(g(34)<0,-1*g(34),0)]]
+    "
+/>
+
+<CYCLIC_DRIVER
+    Name="RightAnkleFlexorDriver"
+    Target="RightAnkleFlexor"
+    PhaseDelay="0"
+    DurationValuePairs=
+    "
+    [[g(1)*g(2)/(g(2)+g(3)+g(4))]] [[if(g(14)>0,g(14),0)]]
+    [[g(1)*g(3)/(g(2)+g(3)+g(4))]] [[if(g(15)>0,g(15),0)]]
+    [[g(1)*g(4)/(g(2)+g(3)+g(4))]] [[if(g(16)>0,g(16),0)]]
+    [[g(1)*g(2)/(g(2)+g(3)+g(4))]] [[if(g(32)>0,g(32),0)]]
+    [[g(1)*g(3)/(g(2)+g(3)+g(4))]] [[if(g(33)>0,g(33),0)]]
+    [[g(1)*g(4)/(g(2)+g(3)+g(4))]] [[if(g(34)>0,g(34),0)]]
+    "
+/>
+
+<CYCLIC_DRIVER
+    Name="RightShoulderExtensorDriver"
+    Target="RightShoulderExtensor"
+    PhaseDelay="[[g(0)]]"
+    DurationValuePairs=
+    "
+    [[g(1)*g(5)/(g(5)+g(6)+g(7))]] [[if(g(17)<0,-1*g(17),0)]]
+    [[g(1)*g(6)/(g(5)+g(6)+g(7))]] [[if(g(18)<0,-1*g(18),0)]]
+    [[g(1)*g(7)/(g(5)+g(6)+g(7))]] [[if(g(19)<0,-1*g(19),0)]]
+    [[g(1)*g(5)/(g(5)+g(6)+g(7))]] [[if(g(35)<0,-1*g(35),0)]]
+    [[g(1)*g(6)/(g(5)+g(6)+g(7))]] [[if(g(36)<0,-1*g(36),0)]]
+    [[g(1)*g(7)/(g(5)+g(6)+g(7))]] [[if(g(37)<0,-1*g(37),0)]]
+    "
+/>
+
+<CYCLIC_DRIVER
+    Name="RightShoulderFlexorDriver"
+    Target="RightShoulderFlexor"
+    PhaseDelay="[[g(0)]]"
+    DurationValuePairs=
+    "
+    [[g(1)*g(5)/(g(5)+g(6)+g(7))]] [[if(g(17)>0,g(17),0)]]
+    [[g(1)*g(6)/(g(5)+g(6)+g(7))]] [[if(g(18)>0,g(18),0)]]
+    [[g(1)*g(7)/(g(5)+g(6)+g(7))]] [[if(g(19)>0,g(19),0)]]
+    [[g(1)*g(5)/(g(5)+g(6)+g(7))]] [[if(g(35)>0,g(35),0)]]
+    [[g(1)*g(6)/(g(5)+g(6)+g(7))]] [[if(g(36)>0,g(36),0)]]
+    [[g(1)*g(7)/(g(5)+g(6)+g(7))]] [[if(g(37)>0,g(37),0)]]
+    "
+/>
+
+<CYCLIC_DRIVER
+    Name="RightElbowExtensorDriver"
+    Target="RightElbowExtensor"
+    PhaseDelay="[[g(0)]]"
+    DurationValuePairs=
+    "
+    [[g(1)*g(5)/(g(5)+g(6)+g(7))]] [[if(g(20)<0,-1*g(20),0)]]
+    [[g(1)*g(6)/(g(5)+g(6)+g(7))]] [[if(g(21)<0,-1*g(21),0)]]
+    [[g(1)*g(7)/(g(5)+g(6)+g(7))]] [[if(g(22)<0,-1*g(22),0)]]
+    [[g(1)*g(5)/(g(5)+g(6)+g(7))]] [[if(g(38)<0,-1*g(38),0)]]
+    [[g(1)*g(6)/(g(5)+g(6)+g(7))]] [[if(g(39)<0,-1*g(39),0)]]
+    [[g(1)*g(7)/(g(5)+g(6)+g(7))]] [[if(g(40)<0,-1*g(40),0)]]
+    "
+/>
+
+<CYCLIC_DRIVER
+    Name="RightElbowFlexorDriver"
+    Target="RightElbowFlexor"
+    PhaseDelay="[[g(0)]]"
+    DurationValuePairs=
+    "
+    [[g(1)*g(5)/(g(5)+g(6)+g(7))]] [[if(g(20)>0,g(20),0)]]
+    [[g(1)*g(6)/(g(5)+g(6)+g(7))]] [[if(g(21)>0,g(21),0)]]
+    [[g(1)*g(7)/(g(5)+g(6)+g(7))]] [[if(g(22)>0,g(22),0)]]
+    [[g(1)*g(5)/(g(5)+g(6)+g(7))]] [[if(g(38)>0,g(38),0)]]
+    [[g(1)*g(6)/(g(5)+g(6)+g(7))]] [[if(g(39)>0,g(39),0)]]
+    [[g(1)*g(7)/(g(5)+g(6)+g(7))]] [[if(g(40)>0,g(40),0)]]
+    "
+/>
+
+<CYCLIC_DRIVER
+    Name="RightWristExtensorDriver"
+    Target="RightWristExtensor"
+    PhaseDelay="[[g(0)]]"
+    DurationValuePairs=
+    "
+    [[g(1)*g(5)/(g(5)+g(6)+g(7))]] [[if(g(23)<0,-1*g(23),0)]]
+    [[g(1)*g(6)/(g(5)+g(6)+g(7))]] [[if(g(24)<0,-1*g(24),0)]]
+    [[g(1)*g(7)/(g(5)+g(6)+g(7))]] [[if(g(25)<0,-1*g(25),0)]]
+    [[g(1)*g(5)/(g(5)+g(6)+g(7))]] [[if(g(41)<0,-1*g(41),0)]]
+    [[g(1)*g(6)/(g(5)+g(6)+g(7))]] [[if(g(42)<0,-1*g(42),0)]]
+    [[g(1)*g(7)/(g(5)+g(6)+g(7))]] [[if(g(43)<0,-1*g(43),0)]]
+    "
+/>
+
+<CYCLIC_DRIVER
+    Name="RightWristFlexorDriver"
+    Target="RightWristFlexor"
+    PhaseDelay="[[g(0)]]"
+    DurationValuePairs=
+    "
+    [[g(1)*g(5)/(g(5)+g(6)+g(7))]] [[if(g(23)<0,-1*g(23),0)]]
+    [[g(1)*g(6)/(g(5)+g(6)+g(7))]] [[if(g(24)<0,-1*g(24),0)]]
+    [[g(1)*g(7)/(g(5)+g(6)+g(7))]] [[if(g(25)<0,-1*g(25),0)]]
+    [[g(1)*g(5)/(g(5)+g(6)+g(7))]] [[if(g(41)<0,-1*g(41),0)]]
+    [[g(1)*g(6)/(g(5)+g(6)+g(7))]] [[if(g(42)<0,-1*g(42),0)]]
+    [[g(1)*g(7)/(g(5)+g(6)+g(7))]] [[if(g(43)<0,-1*g(43),0)]]
+    "
+/>
+
+
+
+<CYCLIC_DRIVER
+    Name="LeftHipExtensorDriver"
+    Target="LeftHipExtensor"
+    PhaseDelay="0"
+    DurationValuePairs=
+    "
+    [[g(1)*g(2)/(g(2)+g(3)+g(4))]] [[if(g(26)<0,-1*g(26),0)]]
+    [[g(1)*g(3)/(g(2)+g(3)+g(4))]] [[if(g(27)<0,-1*g(27),0)]]
+    [[g(1)*g(4)/(g(2)+g(3)+g(4))]] [[if(g(28)<0,-1*g(28),0)]]
+    [[g(1)*g(2)/(g(2)+g(3)+g(4))]] [[if(g(8)<0,-1*g(8),0)]]
+    [[g(1)*g(3)/(g(2)+g(3)+g(4))]] [[if(g(9)<0,-1*g(9),0)]]
+    [[g(1)*g(4)/(g(2)+g(3)+g(4))]] [[if(g(10)<0,-1*g(10),0)]]
+    "
+/>
+
+<CYCLIC_DRIVER
+    Name="LeftHipFlexorDriver"
+    Target="LeftHipFlexor"
+    PhaseDelay="0"
+    DurationValuePairs=
+    "
+    [[g(1)*g(2)/(g(2)+g(3)+g(4))]] [[if(g(26)>0,g(26),0)]]
+    [[g(1)*g(3)/(g(2)+g(3)+g(4))]] [[if(g(27)>0,g(27),0)]]
+    [[g(1)*g(4)/(g(2)+g(3)+g(4))]] [[if(g(28)>0,g(28),0)]]
+    [[g(1)*g(2)/(g(2)+g(3)+g(4))]] [[if(g(8)>0,g(8),0)]]
+    [[g(1)*g(3)/(g(2)+g(3)+g(4))]] [[if(g(9)>0,g(9),0)]]
+    [[g(1)*g(4)/(g(2)+g(3)+g(4))]] [[if(g(10)>0,g(10),0)]]
+    "
+/>
+
+<CYCLIC_DRIVER
+    Name="LeftKneeExtensorDriver"
+    Target="LeftKneeExtensor"
+    PhaseDelay="0"
+    DurationValuePairs=
+    "
+    [[g(1)*g(2)/(g(2)+g(3)+g(4))]] [[if(g(29)<0,-1*g(29),0)]]
+    [[g(1)*g(3)/(g(2)+g(3)+g(4))]] [[if(g(30)<0,-1*g(30),0)]]
+    [[g(1)*g(4)/(g(2)+g(3)+g(4))]] [[if(g(31)<0,-1*g(31),0)]]
+    [[g(1)*g(2)/(g(2)+g(3)+g(4))]] [[if(g(11)<0,-1*g(11),0)]]
+    [[g(1)*g(3)/(g(2)+g(3)+g(4))]] [[if(g(12)<0,-1*g(12),0)]]
+    [[g(1)*g(4)/(g(2)+g(3)+g(4))]] [[if(g(13)<0,-1*g(13),0)]]
+    "
+/>
+
+<CYCLIC_DRIVER
+    Name="LeftKneeFlexorDriver"
+    Target="LeftKneeFlexor"
+    PhaseDelay="0"
+    DurationValuePairs=
+    "
+    [[g(1)*g(2)/(g(2)+g(3)+g(4))]] [[if(g(29)>0,g(29),0)]]
+    [[g(1)*g(3)/(g(2)+g(3)+g(4))]] [[if(g(30)>0,g(30),0)]]
+    [[g(1)*g(4)/(g(2)+g(3)+g(4))]] [[if(g(31)>0,g(31),0)]]
+    [[g(1)*g(2)/(g(2)+g(3)+g(4))]] [[if(g(11)>0,g(11),0)]]
+    [[g(1)*g(3)/(g(2)+g(3)+g(4))]] [[if(g(12)>0,g(12),0)]]
+    [[g(1)*g(4)/(g(2)+g(3)+g(4))]] [[if(g(13)>0,g(13),0)]]
+    "
+/>
+
+<CYCLIC_DRIVER
+    Name="LeftAnkleExtensorDriver"
+    Target="LeftAnkleExtensor"
+    PhaseDelay="0"
+    DurationValuePairs=
+    "
+    [[g(1)*g(2)/(g(2)+g(3)+g(4))]] [[if(g(32)<0,-1*g(32),0)]]
+    [[g(1)*g(3)/(g(2)+g(3)+g(4))]] [[if(g(33)<0,-1*g(33),0)]]
+    [[g(1)*g(4)/(g(2)+g(3)+g(4))]] [[if(g(34)<0,-1*g(34),0)]]
+    [[g(1)*g(2)/(g(2)+g(3)+g(4))]] [[if(g(14)<0,-1*g(14),0)]]
+    [[g(1)*g(3)/(g(2)+g(3)+g(4))]] [[if(g(15)<0,-1*g(15),0)]]
+    [[g(1)*g(4)/(g(2)+g(3)+g(4))]] [[if(g(16)<0,-1*g(16),0)]]
+    "
+/>
+
+<CYCLIC_DRIVER
+    Name="LeftAnkleFlexorDriver"
+    Target="LeftAnkleFlexor"
+    PhaseDelay="0"
+    DurationValuePairs=
+    "
+    [[g(1)*g(2)/(g(2)+g(3)+g(4))]] [[if(g(32)>0,g(32),0)]]
+    [[g(1)*g(3)/(g(2)+g(3)+g(4))]] [[if(g(33)>0,g(33),0)]]
+    [[g(1)*g(4)/(g(2)+g(3)+g(4))]] [[if(g(34)>0,g(34),0)]]
+    [[g(1)*g(2)/(g(2)+g(3)+g(4))]] [[if(g(14)>0,g(14),0)]]
+    [[g(1)*g(3)/(g(2)+g(3)+g(4))]] [[if(g(15)>0,g(15),0)]]
+    [[g(1)*g(4)/(g(2)+g(3)+g(4))]] [[if(g(16)>0,g(16),0)]]
+    "
+/>
+
+<CYCLIC_DRIVER
+    Name="LeftShoulderExtensorDriver"
+    Target="LeftShoulderExtensor"
+    PhaseDelay="[[g(0)]]"
+    DurationValuePairs=
+    "
+    [[g(1)*g(5)/(g(5)+g(6)+g(7))]] [[if(g(35)<0,-1*g(35),0)]]
+    [[g(1)*g(6)/(g(5)+g(6)+g(7))]] [[if(g(36)<0,-1*g(36),0)]]
+    [[g(1)*g(7)/(g(5)+g(6)+g(7))]] [[if(g(37)<0,-1*g(37),0)]]
+    [[g(1)*g(5)/(g(5)+g(6)+g(7))]] [[if(g(17)<0,-1*g(17),0)]]
+    [[g(1)*g(6)/(g(5)+g(6)+g(7))]] [[if(g(18)<0,-1*g(18),0)]]
+    [[g(1)*g(7)/(g(5)+g(6)+g(7))]] [[if(g(19)<0,-1*g(19),0)]]
+    "
+/>
+
+<CYCLIC_DRIVER
+    Name="LeftShoulderFlexorDriver"
+    Target="LeftShoulderFlexor"
+    PhaseDelay="[[g(0)]]"
+    DurationValuePairs=
+    "
+    [[g(1)*g(5)/(g(5)+g(6)+g(7))]] [[if(g(35)>0,g(35),0)]]
+    [[g(1)*g(6)/(g(5)+g(6)+g(7))]] [[if(g(36)>0,g(36),0)]]
+    [[g(1)*g(7)/(g(5)+g(6)+g(7))]] [[if(g(37)>0,g(37),0)]]
+    [[g(1)*g(5)/(g(5)+g(6)+g(7))]] [[if(g(17)>0,g(17),0)]]
+    [[g(1)*g(6)/(g(5)+g(6)+g(7))]] [[if(g(18)>0,g(18),0)]]
+    [[g(1)*g(7)/(g(5)+g(6)+g(7))]] [[if(g(19)>0,g(19),0)]]
+    "
+/>
+
+<CYCLIC_DRIVER
+    Name="LeftElbowExtensorDriver"
+    Target="LeftElbowExtensor"
+    PhaseDelay="[[g(0)]]"
+    DurationValuePairs=
+    "
+    [[g(1)*g(5)/(g(5)+g(6)+g(7))]] [[if(g(38)<0,-1*g(38),0)]]
+    [[g(1)*g(6)/(g(5)+g(6)+g(7))]] [[if(g(39)<0,-1*g(39),0)]]
+    [[g(1)*g(7)/(g(5)+g(6)+g(7))]] [[if(g(40)<0,-1*g(40),0)]]
+    [[g(1)*g(5)/(g(5)+g(6)+g(7))]] [[if(g(20)<0,-1*g(20),0)]]
+    [[g(1)*g(6)/(g(5)+g(6)+g(7))]] [[if(g(21)<0,-1*g(21),0)]]
+    [[g(1)*g(7)/(g(5)+g(6)+g(7))]] [[if(g(22)<0,-1*g(22),0)]]
+    "
+/>
+
+<CYCLIC_DRIVER
+    Name="LeftElbowFlexorDriver"
+    Target="LeftElbowFlexor"
+    PhaseDelay="[[g(0)]]"
+    DurationValuePairs=
+    "
+    [[g(1)*g(5)/(g(5)+g(6)+g(7))]] [[if(g(38)>0,g(38),0)]]
+    [[g(1)*g(6)/(g(5)+g(6)+g(7))]] [[if(g(39)>0,g(39),0)]]
+    [[g(1)*g(7)/(g(5)+g(6)+g(7))]] [[if(g(40)>0,g(40),0)]]
+    [[g(1)*g(5)/(g(5)+g(6)+g(7))]] [[if(g(20)>0,g(20),0)]]
+    [[g(1)*g(6)/(g(5)+g(6)+g(7))]] [[if(g(21)>0,g(21),0)]]
+    [[g(1)*g(7)/(g(5)+g(6)+g(7))]] [[if(g(22)>0,g(22),0)]]
+    "
+/>
+
+<CYCLIC_DRIVER
+    Name="LeftWristExtensorDriver"
+    Target="LeftWristExtensor"
+    PhaseDelay="[[g(0)]]"
+    DurationValuePairs=
+    "
+    [[g(1)*g(5)/(g(5)+g(6)+g(7))]] [[if(g(41)<0,-1*g(41),0)]]
+    [[g(1)*g(6)/(g(5)+g(6)+g(7))]] [[if(g(42)<0,-1*g(42),0)]]
+    [[g(1)*g(7)/(g(5)+g(6)+g(7))]] [[if(g(43)<0,-1*g(43),0)]]
+    [[g(1)*g(5)/(g(5)+g(6)+g(7))]] [[if(g(23)<0,-1*g(23),0)]]
+    [[g(1)*g(6)/(g(5)+g(6)+g(7))]] [[if(g(24)<0,-1*g(24),0)]]
+    [[g(1)*g(7)/(g(5)+g(6)+g(7))]] [[if(g(25)<0,-1*g(25),0)]]
+    "
+/>
+
+<CYCLIC_DRIVER
+    Name="LeftWristFlexorDriver"
+    Target="LeftWristFlexor"
+    PhaseDelay="[[g(0)]]"
+    DurationValuePairs=
+    "
+    [[g(1)*g(5)/(g(5)+g(6)+g(7))]] [[if(g(41)<0,-1*g(41),0)]]
+    [[g(1)*g(6)/(g(5)+g(6)+g(7))]] [[if(g(42)<0,-1*g(42),0)]]
+    [[g(1)*g(7)/(g(5)+g(6)+g(7))]] [[if(g(43)<0,-1*g(43),0)]]
+    [[g(1)*g(5)/(g(5)+g(6)+g(7))]] [[if(g(23)<0,-1*g(23),0)]]
+    [[g(1)*g(6)/(g(5)+g(6)+g(7))]] [[if(g(24)<0,-1*g(24),0)]]
+    [[g(1)*g(7)/(g(5)+g(6)+g(7))]] [[if(g(25)<0,-1*g(25),0)]]
+    "
+/>
+
+
+</GAITSYM>

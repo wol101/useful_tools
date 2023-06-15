@@ -1,0 +1,12 @@
+LeftHipExtensorController	500	0
+LeftHipFlexorController	500	500
+LeftKneeExtensorController	500	1000
+LeftKneeFlexorController	500	1500
+LeftAnkleExtensorController	500	2000
+LeftAnkleFlexorController	500	2500
+RightHipExtensorController	500	3000
+RightHipFlexorController	500	3500
+RightKneeExtensorController	500	4000
+RightKneeFlexorController	500	4500
+RightAnkleExtensorController	500	5000
+RightAnkleFlexorController	500	5500

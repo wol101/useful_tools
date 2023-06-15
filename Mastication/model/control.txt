@@ -1,0 +1,808 @@
+exptTemporalisOrigin00
+kLeftTemporalisOrigin 0.004200 0.050700 0.058000
+kRightTemporalisOrigin 0.004200 -0.050700 0.058000
+exptTemporalisOrigin01
+kLeftTemporalisOrigin 0.004200 0.050700 0.078000
+kRightTemporalisOrigin 0.004200 -0.050700 0.078000
+exptTemporalisOrigin02
+kLeftTemporalisOrigin 0.004200 0.050700 0.098000
+kRightTemporalisOrigin 0.004200 -0.050700 0.098000
+exptTemporalisOrigin03
+kLeftTemporalisOrigin 0.004200 0.060700 0.058000
+kRightTemporalisOrigin 0.004200 -0.060700 0.058000
+exptTemporalisOrigin04
+kLeftTemporalisOrigin 0.004200 0.060700 0.078000
+kRightTemporalisOrigin 0.004200 -0.060700 0.078000
+exptTemporalisOrigin05
+kLeftTemporalisOrigin 0.004200 0.060700 0.098000
+kRightTemporalisOrigin 0.004200 -0.060700 0.098000
+exptTemporalisOrigin06
+kLeftTemporalisOrigin 0.004200 0.070700 0.058000
+kRightTemporalisOrigin 0.004200 -0.070700 0.058000
+exptTemporalisOrigin07
+kLeftTemporalisOrigin 0.004200 0.070700 0.078000
+kRightTemporalisOrigin 0.004200 -0.070700 0.078000
+exptTemporalisOrigin08
+kLeftTemporalisOrigin 0.004200 0.070700 0.098000
+kRightTemporalisOrigin 0.004200 -0.070700 0.098000
+exptTemporalisOrigin09
+kLeftTemporalisOrigin 0.024200 0.050700 0.058000
+kRightTemporalisOrigin 0.024200 -0.050700 0.058000
+exptTemporalisOrigin10
+kLeftTemporalisOrigin 0.024200 0.050700 0.078000
+kRightTemporalisOrigin 0.024200 -0.050700 0.078000
+exptTemporalisOrigin11
+kLeftTemporalisOrigin 0.024200 0.050700 0.098000
+kRightTemporalisOrigin 0.024200 -0.050700 0.098000
+exptTemporalisOrigin12
+kLeftTemporalisOrigin 0.024200 0.060700 0.058000
+kRightTemporalisOrigin 0.024200 -0.060700 0.058000
+exptTemporalisOrigin13
+kLeftTemporalisOrigin 0.024200 0.060700 0.078000
+kRightTemporalisOrigin 0.024200 -0.060700 0.078000
+exptTemporalisOrigin14
+kLeftTemporalisOrigin 0.024200 0.060700 0.098000
+kRightTemporalisOrigin 0.024200 -0.060700 0.098000
+exptTemporalisOrigin15
+kLeftTemporalisOrigin 0.024200 0.070700 0.058000
+kRightTemporalisOrigin 0.024200 -0.070700 0.058000
+exptTemporalisOrigin16
+kLeftTemporalisOrigin 0.024200 0.070700 0.078000
+kRightTemporalisOrigin 0.024200 -0.070700 0.078000
+exptTemporalisOrigin17
+kLeftTemporalisOrigin 0.024200 0.070700 0.098000
+kRightTemporalisOrigin 0.024200 -0.070700 0.098000
+exptTemporalisOrigin18
+kLeftTemporalisOrigin 0.044200 0.050700 0.058000
+kRightTemporalisOrigin 0.044200 -0.050700 0.058000
+exptTemporalisOrigin19
+kLeftTemporalisOrigin 0.044200 0.050700 0.078000
+kRightTemporalisOrigin 0.044200 -0.050700 0.078000
+exptTemporalisOrigin20
+kLeftTemporalisOrigin 0.044200 0.050700 0.098000
+kRightTemporalisOrigin 0.044200 -0.050700 0.098000
+exptTemporalisOrigin21
+kLeftTemporalisOrigin 0.044200 0.060700 0.058000
+kRightTemporalisOrigin 0.044200 -0.060700 0.058000
+exptTemporalisOrigin22
+kLeftTemporalisOrigin 0.044200 0.060700 0.078000
+kRightTemporalisOrigin 0.044200 -0.060700 0.078000
+exptTemporalisOrigin23
+kLeftTemporalisOrigin 0.044200 0.060700 0.098000
+kRightTemporalisOrigin 0.044200 -0.060700 0.098000
+exptTemporalisOrigin24
+kLeftTemporalisOrigin 0.044200 0.070700 0.058000
+kRightTemporalisOrigin 0.044200 -0.070700 0.058000
+exptTemporalisOrigin25
+kLeftTemporalisOrigin 0.044200 0.070700 0.078000
+kRightTemporalisOrigin 0.044200 -0.070700 0.078000
+exptTemporalisOrigin26
+kLeftTemporalisOrigin 0.044200 0.070700 0.098000
+kRightTemporalisOrigin 0.044200 -0.070700 0.098000
+exptMasseterOrigin00
+kLeftMasseterOrigin 0.024000 0.049800 -0.007300
+kRightMasseterOrigin 0.024000 -0.049800 -0.007300
+exptMasseterOrigin01
+kLeftMasseterOrigin 0.024000 0.049800 0.002700
+kRightMasseterOrigin 0.024000 -0.049800 0.002700
+exptMasseterOrigin02
+kLeftMasseterOrigin 0.024000 0.049800 0.012700
+kRightMasseterOrigin 0.024000 -0.049800 0.012700
+exptMasseterOrigin03
+kLeftMasseterOrigin 0.024000 0.059800 -0.007300
+kRightMasseterOrigin 0.024000 -0.059800 -0.007300
+exptMasseterOrigin04
+kLeftMasseterOrigin 0.024000 0.059800 0.002700
+kRightMasseterOrigin 0.024000 -0.059800 0.002700
+exptMasseterOrigin05
+kLeftMasseterOrigin 0.024000 0.059800 0.012700
+kRightMasseterOrigin 0.024000 -0.059800 0.012700
+exptMasseterOrigin06
+kLeftMasseterOrigin 0.024000 0.069800 -0.007300
+kRightMasseterOrigin 0.024000 -0.069800 -0.007300
+exptMasseterOrigin07
+kLeftMasseterOrigin 0.024000 0.069800 0.002700
+kRightMasseterOrigin 0.024000 -0.069800 0.002700
+exptMasseterOrigin08
+kLeftMasseterOrigin 0.024000 0.069800 0.012700
+kRightMasseterOrigin 0.024000 -0.069800 0.012700
+exptMasseterOrigin09
+kLeftMasseterOrigin 0.044000 0.049800 -0.007300
+kRightMasseterOrigin 0.044000 -0.049800 -0.007300
+exptMasseterOrigin10
+kLeftMasseterOrigin 0.044000 0.049800 0.002700
+kRightMasseterOrigin 0.044000 -0.049800 0.002700
+exptMasseterOrigin11
+kLeftMasseterOrigin 0.044000 0.049800 0.012700
+kRightMasseterOrigin 0.044000 -0.049800 0.012700
+exptMasseterOrigin12
+kLeftMasseterOrigin 0.044000 0.059800 -0.007300
+kRightMasseterOrigin 0.044000 -0.059800 -0.007300
+exptMasseterOrigin13
+kLeftMasseterOrigin 0.044000 0.059800 0.002700
+kRightMasseterOrigin 0.044000 -0.059800 0.002700
+exptMasseterOrigin14
+kLeftMasseterOrigin 0.044000 0.059800 0.012700
+kRightMasseterOrigin 0.044000 -0.059800 0.012700
+exptMasseterOrigin15
+kLeftMasseterOrigin 0.044000 0.069800 -0.007300
+kRightMasseterOrigin 0.044000 -0.069800 -0.007300
+exptMasseterOrigin16
+kLeftMasseterOrigin 0.044000 0.069800 0.002700
+kRightMasseterOrigin 0.044000 -0.069800 0.002700
+exptMasseterOrigin17
+kLeftMasseterOrigin 0.044000 0.069800 0.012700
+kRightMasseterOrigin 0.044000 -0.069800 0.012700
+exptMasseterOrigin18
+kLeftMasseterOrigin 0.064000 0.049800 -0.007300
+kRightMasseterOrigin 0.064000 -0.049800 -0.007300
+exptMasseterOrigin19
+kLeftMasseterOrigin 0.064000 0.049800 0.002700
+kRightMasseterOrigin 0.064000 -0.049800 0.002700
+exptMasseterOrigin20
+kLeftMasseterOrigin 0.064000 0.049800 0.012700
+kRightMasseterOrigin 0.064000 -0.049800 0.012700
+exptMasseterOrigin21
+kLeftMasseterOrigin 0.064000 0.059800 -0.007300
+kRightMasseterOrigin 0.064000 -0.059800 -0.007300
+exptMasseterOrigin22
+kLeftMasseterOrigin 0.064000 0.059800 0.002700
+kRightMasseterOrigin 0.064000 -0.059800 0.002700
+exptMasseterOrigin23
+kLeftMasseterOrigin 0.064000 0.059800 0.012700
+kRightMasseterOrigin 0.064000 -0.059800 0.012700
+exptMasseterOrigin24
+kLeftMasseterOrigin 0.064000 0.069800 -0.007300
+kRightMasseterOrigin 0.064000 -0.069800 -0.007300
+exptMasseterOrigin25
+kLeftMasseterOrigin 0.064000 0.069800 0.002700
+kRightMasseterOrigin 0.064000 -0.069800 0.002700
+exptMasseterOrigin26
+kLeftMasseterOrigin 0.064000 0.069800 0.012700
+kRightMasseterOrigin 0.064000 -0.069800 0.012700
+exptMedialPterygoidOrigin00
+kLeftMedialPterygoidOrigin 0.023000 0.008400 -0.015000
+kRightMedialPterygoidOrigin 0.023000 -0.008400 -0.015000
+exptMedialPterygoidOrigin01
+kLeftMedialPterygoidOrigin 0.023000 0.008400 -0.010000
+kRightMedialPterygoidOrigin 0.023000 -0.008400 -0.010000
+exptMedialPterygoidOrigin02
+kLeftMedialPterygoidOrigin 0.023000 0.008400 -0.005000
+kRightMedialPterygoidOrigin 0.023000 -0.008400 -0.005000
+exptMedialPterygoidOrigin03
+kLeftMedialPterygoidOrigin 0.023000 0.013400 -0.015000
+kRightMedialPterygoidOrigin 0.023000 -0.013400 -0.015000
+exptMedialPterygoidOrigin04
+kLeftMedialPterygoidOrigin 0.023000 0.013400 -0.010000
+kRightMedialPterygoidOrigin 0.023000 -0.013400 -0.010000
+exptMedialPterygoidOrigin05
+kLeftMedialPterygoidOrigin 0.023000 0.013400 -0.005000
+kRightMedialPterygoidOrigin 0.023000 -0.013400 -0.005000
+exptMedialPterygoidOrigin06
+kLeftMedialPterygoidOrigin 0.023000 0.018400 -0.015000
+kRightMedialPterygoidOrigin 0.023000 -0.018400 -0.015000
+exptMedialPterygoidOrigin07
+kLeftMedialPterygoidOrigin 0.023000 0.018400 -0.010000
+kRightMedialPterygoidOrigin 0.023000 -0.018400 -0.010000
+exptMedialPterygoidOrigin08
+kLeftMedialPterygoidOrigin 0.023000 0.018400 -0.005000
+kRightMedialPterygoidOrigin 0.023000 -0.018400 -0.005000
+exptMedialPterygoidOrigin09
+kLeftMedialPterygoidOrigin 0.028000 0.008400 -0.015000
+kRightMedialPterygoidOrigin 0.028000 -0.008400 -0.015000
+exptMedialPterygoidOrigin10
+kLeftMedialPterygoidOrigin 0.028000 0.008400 -0.010000
+kRightMedialPterygoidOrigin 0.028000 -0.008400 -0.010000
+exptMedialPterygoidOrigin11
+kLeftMedialPterygoidOrigin 0.028000 0.008400 -0.005000
+kRightMedialPterygoidOrigin 0.028000 -0.008400 -0.005000
+exptMedialPterygoidOrigin12
+kLeftMedialPterygoidOrigin 0.028000 0.013400 -0.015000
+kRightMedialPterygoidOrigin 0.028000 -0.013400 -0.015000
+exptMedialPterygoidOrigin13
+kLeftMedialPterygoidOrigin 0.028000 0.013400 -0.010000
+kRightMedialPterygoidOrigin 0.028000 -0.013400 -0.010000
+exptMedialPterygoidOrigin14
+kLeftMedialPterygoidOrigin 0.028000 0.013400 -0.005000
+kRightMedialPterygoidOrigin 0.028000 -0.013400 -0.005000
+exptMedialPterygoidOrigin15
+kLeftMedialPterygoidOrigin 0.028000 0.018400 -0.015000
+kRightMedialPterygoidOrigin 0.028000 -0.018400 -0.015000
+exptMedialPterygoidOrigin16
+kLeftMedialPterygoidOrigin 0.028000 0.018400 -0.010000
+kRightMedialPterygoidOrigin 0.028000 -0.018400 -0.010000
+exptMedialPterygoidOrigin17
+kLeftMedialPterygoidOrigin 0.028000 0.018400 -0.005000
+kRightMedialPterygoidOrigin 0.028000 -0.018400 -0.005000
+exptMedialPterygoidOrigin18
+kLeftMedialPterygoidOrigin 0.033000 0.008400 -0.015000
+kRightMedialPterygoidOrigin 0.033000 -0.008400 -0.015000
+exptMedialPterygoidOrigin19
+kLeftMedialPterygoidOrigin 0.033000 0.008400 -0.010000
+kRightMedialPterygoidOrigin 0.033000 -0.008400 -0.010000
+exptMedialPterygoidOrigin20
+kLeftMedialPterygoidOrigin 0.033000 0.008400 -0.005000
+kRightMedialPterygoidOrigin 0.033000 -0.008400 -0.005000
+exptMedialPterygoidOrigin21
+kLeftMedialPterygoidOrigin 0.033000 0.013400 -0.015000
+kRightMedialPterygoidOrigin 0.033000 -0.013400 -0.015000
+exptMedialPterygoidOrigin22
+kLeftMedialPterygoidOrigin 0.033000 0.013400 -0.010000
+kRightMedialPterygoidOrigin 0.033000 -0.013400 -0.010000
+exptMedialPterygoidOrigin23
+kLeftMedialPterygoidOrigin 0.033000 0.013400 -0.005000
+kRightMedialPterygoidOrigin 0.033000 -0.013400 -0.005000
+exptMedialPterygoidOrigin24
+kLeftMedialPterygoidOrigin 0.033000 0.018400 -0.015000
+kRightMedialPterygoidOrigin 0.033000 -0.018400 -0.015000
+exptMedialPterygoidOrigin25
+kLeftMedialPterygoidOrigin 0.033000 0.018400 -0.010000
+kRightMedialPterygoidOrigin 0.033000 -0.018400 -0.010000
+exptMedialPterygoidOrigin26
+kLeftMedialPterygoidOrigin 0.033000 0.018400 -0.005000
+kRightMedialPterygoidOrigin 0.033000 -0.018400 -0.005000
+exptLateralPterygoidOrigin00
+kLeftLateralPterygoidOrigin 0.022900 0.015400 -0.013600
+kRightLateralPterygoidOrigin 0.022900 -0.015400 -0.013600
+exptLateralPterygoidOrigin01
+kLeftLateralPterygoidOrigin 0.022900 0.015400 -0.008600
+kRightLateralPterygoidOrigin 0.022900 -0.015400 -0.008600
+exptLateralPterygoidOrigin02
+kLeftLateralPterygoidOrigin 0.022900 0.015400 -0.003600
+kRightLateralPterygoidOrigin 0.022900 -0.015400 -0.003600
+exptLateralPterygoidOrigin03
+kLeftLateralPterygoidOrigin 0.022900 0.020400 -0.013600
+kRightLateralPterygoidOrigin 0.022900 -0.020400 -0.013600
+exptLateralPterygoidOrigin04
+kLeftLateralPterygoidOrigin 0.022900 0.020400 -0.008600
+kRightLateralPterygoidOrigin 0.022900 -0.020400 -0.008600
+exptLateralPterygoidOrigin05
+kLeftLateralPterygoidOrigin 0.022900 0.020400 -0.003600
+kRightLateralPterygoidOrigin 0.022900 -0.020400 -0.003600
+exptLateralPterygoidOrigin06
+kLeftLateralPterygoidOrigin 0.022900 0.025400 -0.013600
+kRightLateralPterygoidOrigin 0.022900 -0.025400 -0.013600
+exptLateralPterygoidOrigin07
+kLeftLateralPterygoidOrigin 0.022900 0.025400 -0.008600
+kRightLateralPterygoidOrigin 0.022900 -0.025400 -0.008600
+exptLateralPterygoidOrigin08
+kLeftLateralPterygoidOrigin 0.022900 0.025400 -0.003600
+kRightLateralPterygoidOrigin 0.022900 -0.025400 -0.003600
+exptLateralPterygoidOrigin09
+kLeftLateralPterygoidOrigin 0.027900 0.015400 -0.013600
+kRightLateralPterygoidOrigin 0.027900 -0.015400 -0.013600
+exptLateralPterygoidOrigin10
+kLeftLateralPterygoidOrigin 0.027900 0.015400 -0.008600
+kRightLateralPterygoidOrigin 0.027900 -0.015400 -0.008600
+exptLateralPterygoidOrigin11
+kLeftLateralPterygoidOrigin 0.027900 0.015400 -0.003600
+kRightLateralPterygoidOrigin 0.027900 -0.015400 -0.003600
+exptLateralPterygoidOrigin12
+kLeftLateralPterygoidOrigin 0.027900 0.020400 -0.013600
+kRightLateralPterygoidOrigin 0.027900 -0.020400 -0.013600
+exptLateralPterygoidOrigin13
+kLeftLateralPterygoidOrigin 0.027900 0.020400 -0.008600
+kRightLateralPterygoidOrigin 0.027900 -0.020400 -0.008600
+exptLateralPterygoidOrigin14
+kLeftLateralPterygoidOrigin 0.027900 0.020400 -0.003600
+kRightLateralPterygoidOrigin 0.027900 -0.020400 -0.003600
+exptLateralPterygoidOrigin15
+kLeftLateralPterygoidOrigin 0.027900 0.025400 -0.013600
+kRightLateralPterygoidOrigin 0.027900 -0.025400 -0.013600
+exptLateralPterygoidOrigin16
+kLeftLateralPterygoidOrigin 0.027900 0.025400 -0.008600
+kRightLateralPterygoidOrigin 0.027900 -0.025400 -0.008600
+exptLateralPterygoidOrigin17
+kLeftLateralPterygoidOrigin 0.027900 0.025400 -0.003600
+kRightLateralPterygoidOrigin 0.027900 -0.025400 -0.003600
+exptLateralPterygoidOrigin18
+kLeftLateralPterygoidOrigin 0.032900 0.015400 -0.013600
+kRightLateralPterygoidOrigin 0.032900 -0.015400 -0.013600
+exptLateralPterygoidOrigin19
+kLeftLateralPterygoidOrigin 0.032900 0.015400 -0.008600
+kRightLateralPterygoidOrigin 0.032900 -0.015400 -0.008600
+exptLateralPterygoidOrigin20
+kLeftLateralPterygoidOrigin 0.032900 0.015400 -0.003600
+kRightLateralPterygoidOrigin 0.032900 -0.015400 -0.003600
+exptLateralPterygoidOrigin21
+kLeftLateralPterygoidOrigin 0.032900 0.020400 -0.013600
+kRightLateralPterygoidOrigin 0.032900 -0.020400 -0.013600
+exptLateralPterygoidOrigin22
+kLeftLateralPterygoidOrigin 0.032900 0.020400 -0.008600
+kRightLateralPterygoidOrigin 0.032900 -0.020400 -0.008600
+exptLateralPterygoidOrigin23
+kLeftLateralPterygoidOrigin 0.032900 0.020400 -0.003600
+kRightLateralPterygoidOrigin 0.032900 -0.020400 -0.003600
+exptLateralPterygoidOrigin24
+kLeftLateralPterygoidOrigin 0.032900 0.025400 -0.013600
+kRightLateralPterygoidOrigin 0.032900 -0.025400 -0.013600
+exptLateralPterygoidOrigin25
+kLeftLateralPterygoidOrigin 0.032900 0.025400 -0.008600
+kRightLateralPterygoidOrigin 0.032900 -0.025400 -0.008600
+exptLateralPterygoidOrigin26
+kLeftLateralPterygoidOrigin 0.032900 0.025400 -0.003600
+kRightLateralPterygoidOrigin 0.032900 -0.025400 -0.003600
+exptTemporalisInsertion00
+kLeftTemporalisInsertion 0.030400 0.040900 -0.005600
+kRightTemporalisInsertion 0.030400 -0.040900 -0.005600
+exptTemporalisInsertion01
+kLeftTemporalisInsertion 0.030400 0.040900 -0.000600
+kRightTemporalisInsertion 0.030400 -0.040900 -0.000600
+exptTemporalisInsertion02
+kLeftTemporalisInsertion 0.030400 0.040900 0.004400
+kRightTemporalisInsertion 0.030400 -0.040900 0.004400
+exptTemporalisInsertion03
+kLeftTemporalisInsertion 0.030400 0.045900 -0.005600
+kRightTemporalisInsertion 0.030400 -0.045900 -0.005600
+exptTemporalisInsertion04
+kLeftTemporalisInsertion 0.030400 0.045900 -0.000600
+kRightTemporalisInsertion 0.030400 -0.045900 -0.000600
+exptTemporalisInsertion05
+kLeftTemporalisInsertion 0.030400 0.045900 0.004400
+kRightTemporalisInsertion 0.030400 -0.045900 0.004400
+exptTemporalisInsertion06
+kLeftTemporalisInsertion 0.030400 0.050900 -0.005600
+kRightTemporalisInsertion 0.030400 -0.050900 -0.005600
+exptTemporalisInsertion07
+kLeftTemporalisInsertion 0.030400 0.050900 -0.000600
+kRightTemporalisInsertion 0.030400 -0.050900 -0.000600
+exptTemporalisInsertion08
+kLeftTemporalisInsertion 0.030400 0.050900 0.004400
+kRightTemporalisInsertion 0.030400 -0.050900 0.004400
+exptTemporalisInsertion09
+kLeftTemporalisInsertion 0.035400 0.040900 -0.005600
+kRightTemporalisInsertion 0.035400 -0.040900 -0.005600
+exptTemporalisInsertion10
+kLeftTemporalisInsertion 0.035400 0.040900 -0.000600
+kRightTemporalisInsertion 0.035400 -0.040900 -0.000600
+exptTemporalisInsertion11
+kLeftTemporalisInsertion 0.035400 0.040900 0.004400
+kRightTemporalisInsertion 0.035400 -0.040900 0.004400
+exptTemporalisInsertion12
+kLeftTemporalisInsertion 0.035400 0.045900 -0.005600
+kRightTemporalisInsertion 0.035400 -0.045900 -0.005600
+exptTemporalisInsertion13
+kLeftTemporalisInsertion 0.035400 0.045900 -0.000600
+kRightTemporalisInsertion 0.035400 -0.045900 -0.000600
+exptTemporalisInsertion14
+kLeftTemporalisInsertion 0.035400 0.045900 0.004400
+kRightTemporalisInsertion 0.035400 -0.045900 0.004400
+exptTemporalisInsertion15
+kLeftTemporalisInsertion 0.035400 0.050900 -0.005600
+kRightTemporalisInsertion 0.035400 -0.050900 -0.005600
+exptTemporalisInsertion16
+kLeftTemporalisInsertion 0.035400 0.050900 -0.000600
+kRightTemporalisInsertion 0.035400 -0.050900 -0.000600
+exptTemporalisInsertion17
+kLeftTemporalisInsertion 0.035400 0.050900 0.004400
+kRightTemporalisInsertion 0.035400 -0.050900 0.004400
+exptTemporalisInsertion18
+kLeftTemporalisInsertion 0.040400 0.040900 -0.005600
+kRightTemporalisInsertion 0.040400 -0.040900 -0.005600
+exptTemporalisInsertion19
+kLeftTemporalisInsertion 0.040400 0.040900 -0.000600
+kRightTemporalisInsertion 0.040400 -0.040900 -0.000600
+exptTemporalisInsertion20
+kLeftTemporalisInsertion 0.040400 0.040900 0.004400
+kRightTemporalisInsertion 0.040400 -0.040900 0.004400
+exptTemporalisInsertion21
+kLeftTemporalisInsertion 0.040400 0.045900 -0.005600
+kRightTemporalisInsertion 0.040400 -0.045900 -0.005600
+exptTemporalisInsertion22
+kLeftTemporalisInsertion 0.040400 0.045900 -0.000600
+kRightTemporalisInsertion 0.040400 -0.045900 -0.000600
+exptTemporalisInsertion23
+kLeftTemporalisInsertion 0.040400 0.045900 0.004400
+kRightTemporalisInsertion 0.040400 -0.045900 0.004400
+exptTemporalisInsertion24
+kLeftTemporalisInsertion 0.040400 0.050900 -0.005600
+kRightTemporalisInsertion 0.040400 -0.050900 -0.005600
+exptTemporalisInsertion25
+kLeftTemporalisInsertion 0.040400 0.050900 -0.000600
+kRightTemporalisInsertion 0.040400 -0.050900 -0.000600
+exptTemporalisInsertion26
+kLeftTemporalisInsertion 0.040400 0.050900 0.004400
+kRightTemporalisInsertion 0.040400 -0.050900 0.004400
+exptMasseterInsertion00
+kLeftMasseterInsertion -0.008300 0.037000 -0.063900
+kRightMasseterInsertion -0.008300 -0.037000 -0.063900
+exptMasseterInsertion01
+kLeftMasseterInsertion -0.008300 0.037000 -0.053900
+kRightMasseterInsertion -0.008300 -0.037000 -0.053900
+exptMasseterInsertion02
+kLeftMasseterInsertion -0.008300 0.037000 -0.043900
+kRightMasseterInsertion -0.008300 -0.037000 -0.043900
+exptMasseterInsertion03
+kLeftMasseterInsertion -0.008300 0.047000 -0.063900
+kRightMasseterInsertion -0.008300 -0.047000 -0.063900
+exptMasseterInsertion04
+kLeftMasseterInsertion -0.008300 0.047000 -0.053900
+kRightMasseterInsertion -0.008300 -0.047000 -0.053900
+exptMasseterInsertion05
+kLeftMasseterInsertion -0.008300 0.047000 -0.043900
+kRightMasseterInsertion -0.008300 -0.047000 -0.043900
+exptMasseterInsertion06
+kLeftMasseterInsertion -0.008300 0.057000 -0.063900
+kRightMasseterInsertion -0.008300 -0.057000 -0.063900
+exptMasseterInsertion07
+kLeftMasseterInsertion -0.008300 0.057000 -0.053900
+kRightMasseterInsertion -0.008300 -0.057000 -0.053900
+exptMasseterInsertion08
+kLeftMasseterInsertion -0.008300 0.057000 -0.043900
+kRightMasseterInsertion -0.008300 -0.057000 -0.043900
+exptMasseterInsertion09
+kLeftMasseterInsertion 0.011700 0.037000 -0.063900
+kRightMasseterInsertion 0.011700 -0.037000 -0.063900
+exptMasseterInsertion10
+kLeftMasseterInsertion 0.011700 0.037000 -0.053900
+kRightMasseterInsertion 0.011700 -0.037000 -0.053900
+exptMasseterInsertion11
+kLeftMasseterInsertion 0.011700 0.037000 -0.043900
+kRightMasseterInsertion 0.011700 -0.037000 -0.043900
+exptMasseterInsertion12
+kLeftMasseterInsertion 0.011700 0.047000 -0.063900
+kRightMasseterInsertion 0.011700 -0.047000 -0.063900
+exptMasseterInsertion13
+kLeftMasseterInsertion 0.011700 0.047000 -0.053900
+kRightMasseterInsertion 0.011700 -0.047000 -0.053900
+exptMasseterInsertion14
+kLeftMasseterInsertion 0.011700 0.047000 -0.043900
+kRightMasseterInsertion 0.011700 -0.047000 -0.043900
+exptMasseterInsertion15
+kLeftMasseterInsertion 0.011700 0.057000 -0.063900
+kRightMasseterInsertion 0.011700 -0.057000 -0.063900
+exptMasseterInsertion16
+kLeftMasseterInsertion 0.011700 0.057000 -0.053900
+kRightMasseterInsertion 0.011700 -0.057000 -0.053900
+exptMasseterInsertion17
+kLeftMasseterInsertion 0.011700 0.057000 -0.043900
+kRightMasseterInsertion 0.011700 -0.057000 -0.043900
+exptMasseterInsertion18
+kLeftMasseterInsertion 0.031700 0.037000 -0.063900
+kRightMasseterInsertion 0.031700 -0.037000 -0.063900
+exptMasseterInsertion19
+kLeftMasseterInsertion 0.031700 0.037000 -0.053900
+kRightMasseterInsertion 0.031700 -0.037000 -0.053900
+exptMasseterInsertion20
+kLeftMasseterInsertion 0.031700 0.037000 -0.043900
+kRightMasseterInsertion 0.031700 -0.037000 -0.043900
+exptMasseterInsertion21
+kLeftMasseterInsertion 0.031700 0.047000 -0.063900
+kRightMasseterInsertion 0.031700 -0.047000 -0.063900
+exptMasseterInsertion22
+kLeftMasseterInsertion 0.031700 0.047000 -0.053900
+kRightMasseterInsertion 0.031700 -0.047000 -0.053900
+exptMasseterInsertion23
+kLeftMasseterInsertion 0.031700 0.047000 -0.043900
+kRightMasseterInsertion 0.031700 -0.047000 -0.043900
+exptMasseterInsertion24
+kLeftMasseterInsertion 0.031700 0.057000 -0.063900
+kRightMasseterInsertion 0.031700 -0.057000 -0.063900
+exptMasseterInsertion25
+kLeftMasseterInsertion 0.031700 0.057000 -0.053900
+kRightMasseterInsertion 0.031700 -0.057000 -0.053900
+exptMasseterInsertion26
+kLeftMasseterInsertion 0.031700 0.057000 -0.043900
+kRightMasseterInsertion 0.031700 -0.057000 -0.043900
+exptMedialPterygoidInsertion00
+kLeftMedialPterygoidInsertion 0.000600 0.039300 -0.047200
+kRightMedialPterygoidInsertion 0.000600 -0.039300 -0.047200
+exptMedialPterygoidInsertion01
+kLeftMedialPterygoidInsertion 0.000600 0.039300 -0.042200
+kRightMedialPterygoidInsertion 0.000600 -0.039300 -0.042200
+exptMedialPterygoidInsertion02
+kLeftMedialPterygoidInsertion 0.000600 0.039300 -0.037200
+kRightMedialPterygoidInsertion 0.000600 -0.039300 -0.037200
+exptMedialPterygoidInsertion03
+kLeftMedialPterygoidInsertion 0.000600 0.044300 -0.047200
+kRightMedialPterygoidInsertion 0.000600 -0.044300 -0.047200
+exptMedialPterygoidInsertion04
+kLeftMedialPterygoidInsertion 0.000600 0.044300 -0.042200
+kRightMedialPterygoidInsertion 0.000600 -0.044300 -0.042200
+exptMedialPterygoidInsertion05
+kLeftMedialPterygoidInsertion 0.000600 0.044300 -0.037200
+kRightMedialPterygoidInsertion 0.000600 -0.044300 -0.037200
+exptMedialPterygoidInsertion06
+kLeftMedialPterygoidInsertion 0.000600 0.049300 -0.047200
+kRightMedialPterygoidInsertion 0.000600 -0.049300 -0.047200
+exptMedialPterygoidInsertion07
+kLeftMedialPterygoidInsertion 0.000600 0.049300 -0.042200
+kRightMedialPterygoidInsertion 0.000600 -0.049300 -0.042200
+exptMedialPterygoidInsertion08
+kLeftMedialPterygoidInsertion 0.000600 0.049300 -0.037200
+kRightMedialPterygoidInsertion 0.000600 -0.049300 -0.037200
+exptMedialPterygoidInsertion09
+kLeftMedialPterygoidInsertion 0.005600 0.039300 -0.047200
+kRightMedialPterygoidInsertion 0.005600 -0.039300 -0.047200
+exptMedialPterygoidInsertion10
+kLeftMedialPterygoidInsertion 0.005600 0.039300 -0.042200
+kRightMedialPterygoidInsertion 0.005600 -0.039300 -0.042200
+exptMedialPterygoidInsertion11
+kLeftMedialPterygoidInsertion 0.005600 0.039300 -0.037200
+kRightMedialPterygoidInsertion 0.005600 -0.039300 -0.037200
+exptMedialPterygoidInsertion12
+kLeftMedialPterygoidInsertion 0.005600 0.044300 -0.047200
+kRightMedialPterygoidInsertion 0.005600 -0.044300 -0.047200
+exptMedialPterygoidInsertion13
+kLeftMedialPterygoidInsertion 0.005600 0.044300 -0.042200
+kRightMedialPterygoidInsertion 0.005600 -0.044300 -0.042200
+exptMedialPterygoidInsertion14
+kLeftMedialPterygoidInsertion 0.005600 0.044300 -0.037200
+kRightMedialPterygoidInsertion 0.005600 -0.044300 -0.037200
+exptMedialPterygoidInsertion15
+kLeftMedialPterygoidInsertion 0.005600 0.049300 -0.047200
+kRightMedialPterygoidInsertion 0.005600 -0.049300 -0.047200
+exptMedialPterygoidInsertion16
+kLeftMedialPterygoidInsertion 0.005600 0.049300 -0.042200
+kRightMedialPterygoidInsertion 0.005600 -0.049300 -0.042200
+exptMedialPterygoidInsertion17
+kLeftMedialPterygoidInsertion 0.005600 0.049300 -0.037200
+kRightMedialPterygoidInsertion 0.005600 -0.049300 -0.037200
+exptMedialPterygoidInsertion18
+kLeftMedialPterygoidInsertion 0.010600 0.039300 -0.047200
+kRightMedialPterygoidInsertion 0.010600 -0.039300 -0.047200
+exptMedialPterygoidInsertion19
+kLeftMedialPterygoidInsertion 0.010600 0.039300 -0.042200
+kRightMedialPterygoidInsertion 0.010600 -0.039300 -0.042200
+exptMedialPterygoidInsertion20
+kLeftMedialPterygoidInsertion 0.010600 0.039300 -0.037200
+kRightMedialPterygoidInsertion 0.010600 -0.039300 -0.037200
+exptMedialPterygoidInsertion21
+kLeftMedialPterygoidInsertion 0.010600 0.044300 -0.047200
+kRightMedialPterygoidInsertion 0.010600 -0.044300 -0.047200
+exptMedialPterygoidInsertion22
+kLeftMedialPterygoidInsertion 0.010600 0.044300 -0.042200
+kRightMedialPterygoidInsertion 0.010600 -0.044300 -0.042200
+exptMedialPterygoidInsertion23
+kLeftMedialPterygoidInsertion 0.010600 0.044300 -0.037200
+kRightMedialPterygoidInsertion 0.010600 -0.044300 -0.037200
+exptMedialPterygoidInsertion24
+kLeftMedialPterygoidInsertion 0.010600 0.049300 -0.047200
+kRightMedialPterygoidInsertion 0.010600 -0.049300 -0.047200
+exptMedialPterygoidInsertion25
+kLeftMedialPterygoidInsertion 0.010600 0.049300 -0.042200
+kRightMedialPterygoidInsertion 0.010600 -0.049300 -0.042200
+exptMedialPterygoidInsertion26
+kLeftMedialPterygoidInsertion 0.010600 0.049300 -0.037200
+kRightMedialPterygoidInsertion 0.010600 -0.049300 -0.037200
+exptLateralPterygoidInsertion00
+kLeftLateralPterygoidInsertion 0.003700 0.038200 -0.016800
+kRightLateralPterygoidInsertion 0.003700 -0.038200 -0.016800
+exptLateralPterygoidInsertion01
+kLeftLateralPterygoidInsertion 0.003700 0.038200 -0.011800
+kRightLateralPterygoidInsertion 0.003700 -0.038200 -0.011800
+exptLateralPterygoidInsertion02
+kLeftLateralPterygoidInsertion 0.003700 0.038200 -0.006800
+kRightLateralPterygoidInsertion 0.003700 -0.038200 -0.006800
+exptLateralPterygoidInsertion03
+kLeftLateralPterygoidInsertion 0.003700 0.043200 -0.016800
+kRightLateralPterygoidInsertion 0.003700 -0.043200 -0.016800
+exptLateralPterygoidInsertion04
+kLeftLateralPterygoidInsertion 0.003700 0.043200 -0.011800
+kRightLateralPterygoidInsertion 0.003700 -0.043200 -0.011800
+exptLateralPterygoidInsertion05
+kLeftLateralPterygoidInsertion 0.003700 0.043200 -0.006800
+kRightLateralPterygoidInsertion 0.003700 -0.043200 -0.006800
+exptLateralPterygoidInsertion06
+kLeftLateralPterygoidInsertion 0.003700 0.048200 -0.016800
+kRightLateralPterygoidInsertion 0.003700 -0.048200 -0.016800
+exptLateralPterygoidInsertion07
+kLeftLateralPterygoidInsertion 0.003700 0.048200 -0.011800
+kRightLateralPterygoidInsertion 0.003700 -0.048200 -0.011800
+exptLateralPterygoidInsertion08
+kLeftLateralPterygoidInsertion 0.003700 0.048200 -0.006800
+kRightLateralPterygoidInsertion 0.003700 -0.048200 -0.006800
+exptLateralPterygoidInsertion09
+kLeftLateralPterygoidInsertion 0.008700 0.038200 -0.016800
+kRightLateralPterygoidInsertion 0.008700 -0.038200 -0.016800
+exptLateralPterygoidInsertion10
+kLeftLateralPterygoidInsertion 0.008700 0.038200 -0.011800
+kRightLateralPterygoidInsertion 0.008700 -0.038200 -0.011800
+exptLateralPterygoidInsertion11
+kLeftLateralPterygoidInsertion 0.008700 0.038200 -0.006800
+kRightLateralPterygoidInsertion 0.008700 -0.038200 -0.006800
+exptLateralPterygoidInsertion12
+kLeftLateralPterygoidInsertion 0.008700 0.043200 -0.016800
+kRightLateralPterygoidInsertion 0.008700 -0.043200 -0.016800
+exptLateralPterygoidInsertion13
+kLeftLateralPterygoidInsertion 0.008700 0.043200 -0.011800
+kRightLateralPterygoidInsertion 0.008700 -0.043200 -0.011800
+exptLateralPterygoidInsertion14
+kLeftLateralPterygoidInsertion 0.008700 0.043200 -0.006800
+kRightLateralPterygoidInsertion 0.008700 -0.043200 -0.006800
+exptLateralPterygoidInsertion15
+kLeftLateralPterygoidInsertion 0.008700 0.048200 -0.016800
+kRightLateralPterygoidInsertion 0.008700 -0.048200 -0.016800
+exptLateralPterygoidInsertion16
+kLeftLateralPterygoidInsertion 0.008700 0.048200 -0.011800
+kRightLateralPterygoidInsertion 0.008700 -0.048200 -0.011800
+exptLateralPterygoidInsertion17
+kLeftLateralPterygoidInsertion 0.008700 0.048200 -0.006800
+kRightLateralPterygoidInsertion 0.008700 -0.048200 -0.006800
+exptLateralPterygoidInsertion18
+kLeftLateralPterygoidInsertion 0.013700 0.038200 -0.016800
+kRightLateralPterygoidInsertion 0.013700 -0.038200 -0.016800
+exptLateralPterygoidInsertion19
+kLeftLateralPterygoidInsertion 0.013700 0.038200 -0.011800
+kRightLateralPterygoidInsertion 0.013700 -0.038200 -0.011800
+exptLateralPterygoidInsertion20
+kLeftLateralPterygoidInsertion 0.013700 0.038200 -0.006800
+kRightLateralPterygoidInsertion 0.013700 -0.038200 -0.006800
+exptLateralPterygoidInsertion21
+kLeftLateralPterygoidInsertion 0.013700 0.043200 -0.016800
+kRightLateralPterygoidInsertion 0.013700 -0.043200 -0.016800
+exptLateralPterygoidInsertion22
+kLeftLateralPterygoidInsertion 0.013700 0.043200 -0.011800
+kRightLateralPterygoidInsertion 0.013700 -0.043200 -0.011800
+exptLateralPterygoidInsertion23
+kLeftLateralPterygoidInsertion 0.013700 0.043200 -0.006800
+kRightLateralPterygoidInsertion 0.013700 -0.043200 -0.006800
+exptLateralPterygoidInsertion24
+kLeftLateralPterygoidInsertion 0.013700 0.048200 -0.016800
+kRightLateralPterygoidInsertion 0.013700 -0.048200 -0.016800
+exptLateralPterygoidInsertion25
+kLeftLateralPterygoidInsertion 0.013700 0.048200 -0.011800
+kRightLateralPterygoidInsertion 0.013700 -0.048200 -0.011800
+exptLateralPterygoidInsertion26
+kLeftLateralPterygoidInsertion 0.013700 0.048200 -0.006800
+kRightLateralPterygoidInsertion 0.013700 -0.048200 -0.006800
+exptToothSpringConstant00
+ToothSpringConstant 250000.000000
+exptTMJSpringConstant00
+kLeftTMJSpringConstant 25000.000000
+kRightTMJSpringConstant 25000.000000
+exptToothSpringConstant01
+ToothSpringConstant 500000.000000
+exptTMJSpringConstant01
+kLeftTMJSpringConstant 50000.000000
+kRightTMJSpringConstant 50000.000000
+exptToothSpringConstant02
+ToothSpringConstant 1000000.000000
+exptTMJSpringConstant02
+kLeftTMJSpringConstant 100000.000000
+kRightTMJSpringConstant 100000.000000
+exptToothSpringConstant03
+ToothSpringConstant 2000000.000000
+exptTMJSpringConstant03
+kLeftTMJSpringConstant 200000.000000
+kRightTMJSpringConstant 200000.000000
+exptToothSpringConstant04
+ToothSpringConstant 4000000.000000
+exptTMJSpringConstant04
+kLeftTMJSpringConstant 400000.000000
+kRightTMJSpringConstant 400000.000000
+exptTMJPosition00
+kLeftTMJOrigin 0.002600 0.043100 -0.004800
+kLeftTMJInsertion 0.002600 0.043100 -0.004800
+kRightTMJOrigin 0.002600 -0.043100 -0.004800
+kRightTMJInsertion 0.002600 -0.043100 -0.004800
+exptTMJPosition01
+kLeftTMJOrigin 0.002600 0.043100 0.000200
+kLeftTMJInsertion 0.002600 0.043100 0.000200
+kRightTMJOrigin 0.002600 -0.043100 0.000200
+kRightTMJInsertion 0.002600 -0.043100 0.000200
+exptTMJPosition02
+kLeftTMJOrigin 0.002600 0.043100 0.005200
+kLeftTMJInsertion 0.002600 0.043100 0.005200
+kRightTMJOrigin 0.002600 -0.043100 0.005200
+kRightTMJInsertion 0.002600 -0.043100 0.005200
+exptTMJPosition03
+kLeftTMJOrigin 0.002600 0.048100 -0.004800
+kLeftTMJInsertion 0.002600 0.048100 -0.004800
+kRightTMJOrigin 0.002600 -0.048100 -0.004800
+kRightTMJInsertion 0.002600 -0.048100 -0.004800
+exptTMJPosition04
+kLeftTMJOrigin 0.002600 0.048100 0.000200
+kLeftTMJInsertion 0.002600 0.048100 0.000200
+kRightTMJOrigin 0.002600 -0.048100 0.000200
+kRightTMJInsertion 0.002600 -0.048100 0.000200
+exptTMJPosition05
+kLeftTMJOrigin 0.002600 0.048100 0.005200
+kLeftTMJInsertion 0.002600 0.048100 0.005200
+kRightTMJOrigin 0.002600 -0.048100 0.005200
+kRightTMJInsertion 0.002600 -0.048100 0.005200
+exptTMJPosition06
+kLeftTMJOrigin 0.002600 0.053100 -0.004800
+kLeftTMJInsertion 0.002600 0.053100 -0.004800
+kRightTMJOrigin 0.002600 -0.053100 -0.004800
+kRightTMJInsertion 0.002600 -0.053100 -0.004800
+exptTMJPosition07
+kLeftTMJOrigin 0.002600 0.053100 0.000200
+kLeftTMJInsertion 0.002600 0.053100 0.000200
+kRightTMJOrigin 0.002600 -0.053100 0.000200
+kRightTMJInsertion 0.002600 -0.053100 0.000200
+exptTMJPosition08
+kLeftTMJOrigin 0.002600 0.053100 0.005200
+kLeftTMJInsertion 0.002600 0.053100 0.005200
+kRightTMJOrigin 0.002600 -0.053100 0.005200
+kRightTMJInsertion 0.002600 -0.053100 0.005200
+exptTMJPosition09
+kLeftTMJOrigin 0.007600 0.043100 -0.004800
+kLeftTMJInsertion 0.007600 0.043100 -0.004800
+kRightTMJOrigin 0.007600 -0.043100 -0.004800
+kRightTMJInsertion 0.007600 -0.043100 -0.004800
+exptTMJPosition10
+kLeftTMJOrigin 0.007600 0.043100 0.000200
+kLeftTMJInsertion 0.007600 0.043100 0.000200
+kRightTMJOrigin 0.007600 -0.043100 0.000200
+kRightTMJInsertion 0.007600 -0.043100 0.000200
+exptTMJPosition11
+kLeftTMJOrigin 0.007600 0.043100 0.005200
+kLeftTMJInsertion 0.007600 0.043100 0.005200
+kRightTMJOrigin 0.007600 -0.043100 0.005200
+kRightTMJInsertion 0.007600 -0.043100 0.005200
+exptTMJPosition12
+kLeftTMJOrigin 0.007600 0.048100 -0.004800
+kLeftTMJInsertion 0.007600 0.048100 -0.004800
+kRightTMJOrigin 0.007600 -0.048100 -0.004800
+kRightTMJInsertion 0.007600 -0.048100 -0.004800
+exptTMJPosition13
+kLeftTMJOrigin 0.007600 0.048100 0.000200
+kLeftTMJInsertion 0.007600 0.048100 0.000200
+kRightTMJOrigin 0.007600 -0.048100 0.000200
+kRightTMJInsertion 0.007600 -0.048100 0.000200
+exptTMJPosition14
+kLeftTMJOrigin 0.007600 0.048100 0.005200
+kLeftTMJInsertion 0.007600 0.048100 0.005200
+kRightTMJOrigin 0.007600 -0.048100 0.005200
+kRightTMJInsertion 0.007600 -0.048100 0.005200
+exptTMJPosition15
+kLeftTMJOrigin 0.007600 0.053100 -0.004800
+kLeftTMJInsertion 0.007600 0.053100 -0.004800
+kRightTMJOrigin 0.007600 -0.053100 -0.004800
+kRightTMJInsertion 0.007600 -0.053100 -0.004800
+exptTMJPosition16
+kLeftTMJOrigin 0.007600 0.053100 0.000200
+kLeftTMJInsertion 0.007600 0.053100 0.000200
+kRightTMJOrigin 0.007600 -0.053100 0.000200
+kRightTMJInsertion 0.007600 -0.053100 0.000200
+exptTMJPosition17
+kLeftTMJOrigin 0.007600 0.053100 0.005200
+kLeftTMJInsertion 0.007600 0.053100 0.005200
+kRightTMJOrigin 0.007600 -0.053100 0.005200
+kRightTMJInsertion 0.007600 -0.053100 0.005200
+exptTMJPosition18
+kLeftTMJOrigin 0.012600 0.043100 -0.004800
+kLeftTMJInsertion 0.012600 0.043100 -0.004800
+kRightTMJOrigin 0.012600 -0.043100 -0.004800
+kRightTMJInsertion 0.012600 -0.043100 -0.004800
+exptTMJPosition19
+kLeftTMJOrigin 0.012600 0.043100 0.000200
+kLeftTMJInsertion 0.012600 0.043100 0.000200
+kRightTMJOrigin 0.012600 -0.043100 0.000200
+kRightTMJInsertion 0.012600 -0.043100 0.000200
+exptTMJPosition20
+kLeftTMJOrigin 0.012600 0.043100 0.005200
+kLeftTMJInsertion 0.012600 0.043100 0.005200
+kRightTMJOrigin 0.012600 -0.043100 0.005200
+kRightTMJInsertion 0.012600 -0.043100 0.005200
+exptTMJPosition21
+kLeftTMJOrigin 0.012600 0.048100 -0.004800
+kLeftTMJInsertion 0.012600 0.048100 -0.004800
+kRightTMJOrigin 0.012600 -0.048100 -0.004800
+kRightTMJInsertion 0.012600 -0.048100 -0.004800
+exptTMJPosition22
+kLeftTMJOrigin 0.012600 0.048100 0.000200
+kLeftTMJInsertion 0.012600 0.048100 0.000200
+kRightTMJOrigin 0.012600 -0.048100 0.000200
+kRightTMJInsertion 0.012600 -0.048100 0.000200
+exptTMJPosition23
+kLeftTMJOrigin 0.012600 0.048100 0.005200
+kLeftTMJInsertion 0.012600 0.048100 0.005200
+kRightTMJOrigin 0.012600 -0.048100 0.005200
+kRightTMJInsertion 0.012600 -0.048100 0.005200
+exptTMJPosition24
+kLeftTMJOrigin 0.012600 0.053100 -0.004800
+kLeftTMJInsertion 0.012600 0.053100 -0.004800
+kRightTMJOrigin 0.012600 -0.053100 -0.004800
+kRightTMJInsertion 0.012600 -0.053100 -0.004800
+exptTMJPosition25
+kLeftTMJOrigin 0.012600 0.053100 0.000200
+kLeftTMJInsertion 0.012600 0.053100 0.000200
+kRightTMJOrigin 0.012600 -0.053100 0.000200
+kRightTMJInsertion 0.012600 -0.053100 0.000200
+exptTMJPosition26
+kLeftTMJOrigin 0.012600 0.053100 0.005200
+kLeftTMJInsertion 0.012600 0.053100 0.005200
+kRightTMJOrigin 0.012600 -0.053100 0.005200
+kRightTMJInsertion 0.012600 -0.053100 0.005200

@@ -1,0 +1,17 @@
+genomeLength                120
+runLimit                    10
+innerLoop                   5
+outerLoop                   1000
+lowerBound                  -1.0
+upperBound                  1.0
+gaussianSD                  0.5
+populationSize              500
+nPopulations                5
+nReplacement                50
+nMigration                  2
+pMutation                   0.8
+pCrossover                  0.8
+mutationType                CustomisedMutator
+crossoverType               UniformCrossover
+gaType                      SimpleGA
+outputPopFlag               0

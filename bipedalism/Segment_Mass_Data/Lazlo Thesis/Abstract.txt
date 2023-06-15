@@ -1,0 +1,15 @@
+Controlling Bipedal Locomotion for Computer Animation
+
+Master of Applied Science, 1996 
+
+Joseph Laszlo 
+
+Department of Electrical and Computer Engineering 
+
+University of Toronto 
+
+
+ABSTRACT
+
+Some seemingly simple behaviours such as human walking are difficult to model because of their inherent instability. This thesis proposes an approach to generating balanced 3D walking motions  for physically-based computer animations by viewing the motions as a sequence of discrete cycles in state space. First, a mechanism to stabilize open loop walking motions is presented. Once this 
+basic "balance" mechanism is in place, the underlying open loop motion can then be modified to generate variations on the basic walking gait. In addition to other interesting variations, the speed, stride rate and direction of a walk can each be controlled. These variations can be parameterized and potentially used to provide the animated character with the ability to perform autonomous motions such as following a path specified by the animator. While this work is somewhat specific to physically-based animation, some of the underlying ideas may prove useful in other disciplines such as robotics and biomechanics. 

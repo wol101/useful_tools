@@ -1,0 +1,65 @@
+#include <stdio.h>
+#include <iostream.h>
+#include <iomanip.h>
+#include <fstream.h>
+#include <assert.h>
+
+#include <ga/ga.h>
+#include <ga/GARealGenome.h>
+#include <ga/GARealGenome.C>
+#include <ga/GAPopulation.h>
+
+#include "Fitness.h"
+
+
+int main(int argc, char ** argv)
+{
+	char *genomeFilenamePtr = 0;
+	bool outputKineticsFlag = false;
+	bool outputTargetAndAchievedFlag = false;
+	float score;
+	GARealGenome genome(0, GARealAlleleSet());
+	int i;
+	Fitness myFitness;
+	
+	// do some simple stuff with command line arguments
+	
+	for (i = 1; i < argc; i++)
+	{
+		if (strcmp(argv[i], "--kinetics") == 0)
+			outputKineticsFlag = true;
+		
+		if (strcmp(argv[i], "--target") == 0)
+			outputTargetAndAchievedFlag = true;
+		
+		if (strcmp(argv[i], "--genome") == 0)
+		{
+			i++;
+			if (i >= argc) return 1;
+			genomeFilenamePtr = argv[i];
+		}
+	}
+
+	ifstream inFile;
+	if (genomeFilenamePtr)
+		inFile.open(genomeFilenamePtr);
+		else inFile.open("genome.tmp");
+	if (inFile.bad()) return 1;
+	inFile >> genome;
+	inFile.close();
+
+	if (outputKineticsFlag) myFitness.SetKineticsFileName("OutputKinetics.dat");
+	if (outputTargetAndAchievedFlag) myFitness.SetTargetAndAchievedFileName("TargetAndAchieved.dat");
+	myFitness.SetTrajectoryFileName("TargetTrajectory.dat");
+	myFitness.ReadInitialisationData();
+	myFitness.SetGenome(&genome);
+									
+	score = (float)myFitness.CalculateFitness();
+	
+	ofstream outFile("score.tmp");
+	if (outFile.bad()) return 1;
+	outFile << score;
+	outFile.close();
+	
+	return 0;
+}

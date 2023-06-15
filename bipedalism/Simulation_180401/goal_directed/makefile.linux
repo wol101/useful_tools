@@ -1,0 +1,633 @@
+# makefile for the subprocess objective option
+
+# useful functions
+MKDEPEND    = makedepend
+MKDIR       = mkdir -p
+CP          = cp
+RM          = rm -rf
+MV          = mv
+
+# GNU compiler flags (works with g++ and egcs)
+CXX         = g++
+PRELINK     =
+CXXFLAGS    = -Wall -fexceptions -O3
+CXX_INC_DIR = /usr/include/g++-3/
+LD          = g++ -w
+AR          = ar rv
+INSTALL     = install -c                       
+
+# IRIX 6.x with new 32-bit libraries                                            
+#CXX         = CC
+#CXXFLAGS    = -g -fullwarn -n32 -DUSE_OLD_STREAMS -ptused 
+#CXX_INC_DIR = /usr/include/CC
+#LD          = ld
+#AR          = ar rv
+#INSTALL     = bsdinst -c
+
+# set up a compilation rule for gnu make
+.SUFFIXES: .cc
+.cc.o:
+	$(CXX) $(CXXFLAGS) $(INC_DIRS) -c $<
+
+
+DYN_DIR = /home/wis/dynamechs/
+GA_DIR = /home/wis/galib/
+INC_DIRS= -I. -I$(GA_DIR) -I$(DYN_DIR)dm -I$(DYN_DIR)dmu -I$(DYN_DIR)dmGL \
+	-I/usr/X11R6/include/ -I/usr/X11R6/include/GL/
+DYN_LIBS = $(DYN_DIR)dmu/libdmu.a $(DYN_DIR)dmGL/libdmGL.a \
+	$(DYN_DIR)dm/libdm.a 
+LIBS = -lm 
+OPENGL_LIBS = -L/usr/X11R6/lib \
+	-lglut -lGLU -lGL -lX11 -lXmu
+GA_LIBS = $(GA_DIR)ga/libga.a
+
+all: ga objective
+	
+objective: \
+Simulation.o           Fitness.o              ModifiedContactModel.o\
+Controller.o           SinController.o        StepController.o\
+ControllerList.o       LoadFile.o             ObjectiveMain.o\
+LoggedForce.o          Util.o                 SquareController.o\
+ForceList.o            MuscleModel.o          strtok.o
+	$(CXX) -o $@ $^ $(GA_LIBS) $(DYN_LIBS) $(OPENGL_LIBS) $(LIBS)
+
+ga: \
+GA.o        Util.o              Objective.o
+	$(CXX) -o $@ $^ $(GA_LIBS) $(DYN_LIBS) $(OPENGL_LIBS) $(LIBS)
+
+clean:
+	$(RM) ga objective
+	$(RM) *.o *~ *.bak core *.bck
+
+depend:
+	$(MKDEPEND) -fmakefile.linux -I$(CXX_INC_DIR) $(INC_DIRS) \
+GA.cc                   ObjectiveMain.cc        ModifiedContactModel.cc\
+Controller.cc           Simulation.cc           StepController.cc\
+ControllerList.cc       LoadFile.cc             SinController.cc\
+Fitness.cc              LoggedForce.cc          Objective.cc\
+ForceList.cc            MuscleModel.cc          Util.cc\
+SquareController.cc
+
+# DO NOT DELETE THIS LINE -- make  depend  depends  on it.
+
+GA.o: /usr/include/stdio.h /usr/include/features.h /usr/include/sys/cdefs.h
+GA.o: /usr/include/gnu/stubs.h
+GA.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stddef.h
+GA.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stdarg.h
+GA.o: /usr/include/bits/types.h /usr/include/libio.h /usr/include/_G_config.h
+GA.o: /usr/include/bits/stdio_lim.h /usr/include/g++-3/iostream.h
+GA.o: /usr/include/g++-3/streambuf.h /usr/include/g++-3/iomanip.h
+GA.o: /usr/include/g++-3/fstream.h /usr/include/assert.h
+GA.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/exception
+GA.o: /usr/include/stdlib.h /usr/include/sys/types.h /usr/include/time.h
+GA.o: /usr/include/endian.h /usr/include/bits/endian.h
+GA.o: /usr/include/sys/select.h /usr/include/bits/select.h
+GA.o: /usr/include/bits/sigset.h /usr/include/sys/sysmacros.h
+GA.o: /usr/include/alloca.h /home/wis/galib/ga/ga.h
+GA.o: /home/wis/galib/ga/gaconfig.h /usr/include/g++-3/iostream
+GA.o: /usr/include/g++-3/fstream /home/wis/galib/ga/GASimpleGA.h
+GA.o: /home/wis/galib/ga/GABaseGA.h /usr/include/string.h
+GA.o: /home/wis/galib/ga/gaid.h /home/wis/galib/ga/GAParameter.h
+GA.o: /home/wis/galib/ga/gatypes.h /home/wis/galib/ga/GAStatistics.h
+GA.o: /home/wis/galib/ga/GAGenome.h /home/wis/galib/ga/gaerror.h
+GA.o: /home/wis/galib/ga/GAEvalData.h /home/wis/galib/ga/GAPopulation.h
+GA.o: /home/wis/galib/ga/GASelector.h /home/wis/galib/ga/GAScaling.h
+GA.o: /home/wis/galib/ga/GASStateGA.h /home/wis/galib/ga/GAIncGA.h
+GA.o: /home/wis/galib/ga/GADemeGA.h /home/wis/galib/ga/GADCrowdingGA.h
+GA.o: /home/wis/galib/ga/GA1DBinStrGenome.h /home/wis/galib/ga/GABinStr.h
+GA.o: /home/wis/galib/ga/garandom.h /home/wis/galib/ga/GA2DBinStrGenome.h
+GA.o: /home/wis/galib/ga/GA3DBinStrGenome.h
+GA.o: /home/wis/galib/ga/GABin2DecGenome.h /home/wis/galib/ga/gabincvt.h
+GA.o: /home/wis/galib/ga/GA1DArrayGenome.h /home/wis/galib/ga/GAArray.h
+GA.o: /home/wis/galib/ga/GAAllele.h /home/wis/galib/ga/GAAllele.C
+GA.o: /home/wis/galib/ga/GA1DArrayGenome.C /home/wis/galib/ga/GAMask.h
+GA.o: /home/wis/galib/ga/GA2DArrayGenome.h
+GA.o: /home/wis/galib/ga/GA2DArrayGenome.C
+GA.o: /home/wis/galib/ga/GA3DArrayGenome.h
+GA.o: /home/wis/galib/ga/GA3DArrayGenome.C /home/wis/galib/ga/GAListGenome.h
+GA.o: /home/wis/galib/ga/GAList.h /home/wis/galib/ga/GAListBASE.h
+GA.o: /home/wis/galib/ga/GANode.h /home/wis/galib/ga/GAList.C
+GA.o: /home/wis/galib/ga/GAListGenome.C /home/wis/galib/ga/GATreeGenome.h
+GA.o: /home/wis/galib/ga/GATree.h /home/wis/galib/ga/GATreeBASE.h
+GA.o: /home/wis/galib/ga/GATree.C /home/wis/galib/ga/GATreeGenome.C
+GA.o: /home/wis/galib/ga/GARealGenome.h /home/wis/galib/ga/GARealGenome.C
+GA.o: Util.h /usr/include/math.h /usr/include/bits/huge_val.h
+GA.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+GA.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/float.h
+ObjectiveMain.o: /usr/include/stdio.h /usr/include/features.h
+ObjectiveMain.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+ObjectiveMain.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stddef.h
+ObjectiveMain.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stdarg.h
+ObjectiveMain.o: /usr/include/bits/types.h /usr/include/libio.h
+ObjectiveMain.o: /usr/include/_G_config.h /usr/include/bits/stdio_lim.h
+ObjectiveMain.o: /usr/include/g++-3/iostream.h /usr/include/g++-3/streambuf.h
+ObjectiveMain.o: /usr/include/g++-3/iomanip.h /usr/include/g++-3/fstream.h
+ObjectiveMain.o: /usr/include/assert.h /usr/include/unistd.h
+ObjectiveMain.o: /usr/include/bits/posix_opt.h /usr/include/bits/confname.h
+ObjectiveMain.o: /usr/include/getopt.h /usr/X11R6/include/GL/glut.h
+ObjectiveMain.o: /usr/X11R6/include/GL/gl.h /usr/X11R6/include/GL/glu.h
+ObjectiveMain.o: /home/wis/dynamechs/dmGL/dmGLTime.h
+ObjectiveMain.o: /home/wis/dynamechs/dmGL/dmGL.h /usr/X11R6/include/GL/gl.h
+ObjectiveMain.o: /usr/X11R6/include/GL/glu.h /usr/include/math.h
+ObjectiveMain.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+ObjectiveMain.o: /usr/include/bits/mathcalls.h
+ObjectiveMain.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/float.h
+ObjectiveMain.o: /usr/include/stdlib.h /usr/include/sys/types.h
+ObjectiveMain.o: /usr/include/time.h /usr/include/endian.h
+ObjectiveMain.o: /usr/include/bits/endian.h /usr/include/sys/select.h
+ObjectiveMain.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+ObjectiveMain.o: /usr/include/sys/sysmacros.h /usr/include/alloca.h
+ObjectiveMain.o: /usr/include/sys/time.h /usr/include/bits/time.h
+ObjectiveMain.o: /home/wis/dynamechs/dmGL/dmGLMouse.h
+ObjectiveMain.o: /home/wis/dynamechs/dmGL/dmGLPolarCamera_zup.h
+ObjectiveMain.o: /home/wis/dynamechs/dmGL/dmGLPolarCamera.h
+ObjectiveMain.o: /home/wis/dynamechs/dmGL/dmGLCamera.h
+ObjectiveMain.o: /home/wis/dynamechs/dm/dmEnvironment.h
+ObjectiveMain.o: /home/wis/dynamechs/dm/dm.h /usr/include/string.h
+ObjectiveMain.o: /home/wis/dynamechs/dm/dmObject.h
+ObjectiveMain.o: /home/wis/dynamechs/dm/dmArticulation.h
+ObjectiveMain.o: /home/wis/dynamechs/dm/dmLink.h
+ObjectiveMain.o: /home/wis/dynamechs/dm/dmSystem.h /usr/include/g++-3/vector
+ObjectiveMain.o: /usr/include/g++-3/stl_algobase.h
+ObjectiveMain.o: /usr/include/g++-3/stl_config.h
+ObjectiveMain.o: /usr/include/g++-3/stl_relops.h
+ObjectiveMain.o: /usr/include/g++-3/stl_pair.h
+ObjectiveMain.o: /usr/include/g++-3/type_traits.h /usr/include/limits.h
+ObjectiveMain.o: /usr/include/bits/posix1_lim.h /usr/include/bits/local_lim.h
+ObjectiveMain.o: /usr/include/linux/limits.h /usr/include/bits/posix2_lim.h
+ObjectiveMain.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/new.h
+ObjectiveMain.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/new
+ObjectiveMain.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/exception
+ObjectiveMain.o: /usr/include/g++-3/stl_iterator.h
+ObjectiveMain.o: /usr/include/g++-3/stl_alloc.h
+ObjectiveMain.o: /usr/include/g++-3/stl_construct.h
+ObjectiveMain.o: /usr/include/g++-3/stl_uninitialized.h
+ObjectiveMain.o: /usr/include/g++-3/stl_vector.h
+ObjectiveMain.o: /usr/include/g++-3/stl_bvector.h Fitness.h Util.h
+ObjectiveMain.o: Simulation.h ForceList.h Controller.h ControllerList.h
+ModifiedContactModel.o: /home/wis/dynamechs/dm/dm.h
+ModifiedContactModel.o: /usr/include/g++-3/iostream.h
+ModifiedContactModel.o: /usr/include/g++-3/streambuf.h /usr/include/libio.h
+ModifiedContactModel.o: /usr/include/_G_config.h /usr/include/bits/types.h
+ModifiedContactModel.o: /usr/include/features.h /usr/include/sys/cdefs.h
+ModifiedContactModel.o: /usr/include/gnu/stubs.h
+ModifiedContactModel.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stddef.h
+ModifiedContactModel.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stdarg.h
+ModifiedContactModel.o: /usr/include/g++-3/iomanip.h
+ModifiedContactModel.o: /usr/include/g++-3/fstream.h /usr/include/math.h
+ModifiedContactModel.o: /usr/include/bits/huge_val.h
+ModifiedContactModel.o: /usr/include/bits/mathdef.h
+ModifiedContactModel.o: /usr/include/bits/mathcalls.h
+ModifiedContactModel.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/float.h
+ModifiedContactModel.o: /usr/include/stdlib.h /usr/include/sys/types.h
+ModifiedContactModel.o: /usr/include/time.h /usr/include/endian.h
+ModifiedContactModel.o: /usr/include/bits/endian.h /usr/include/sys/select.h
+ModifiedContactModel.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+ModifiedContactModel.o: /usr/include/sys/sysmacros.h /usr/include/alloca.h
+ModifiedContactModel.o: /usr/include/string.h
+ModifiedContactModel.o: /home/wis/dynamechs/dm/dmForce.h
+ModifiedContactModel.o: /home/wis/dynamechs/dm/dmObject.h
+ModifiedContactModel.o: /home/wis/dynamechs/dm/dmEnvironment.h ForceList.h
+ModifiedContactModel.o: /usr/include/g++-3/vector
+ModifiedContactModel.o: /usr/include/g++-3/stl_algobase.h
+ModifiedContactModel.o: /usr/include/g++-3/stl_config.h
+ModifiedContactModel.o: /usr/include/g++-3/stl_relops.h
+ModifiedContactModel.o: /usr/include/g++-3/stl_pair.h
+ModifiedContactModel.o: /usr/include/g++-3/type_traits.h
+ModifiedContactModel.o: /usr/include/limits.h /usr/include/bits/posix1_lim.h
+ModifiedContactModel.o: /usr/include/bits/local_lim.h
+ModifiedContactModel.o: /usr/include/linux/limits.h
+ModifiedContactModel.o: /usr/include/bits/posix2_lim.h
+ModifiedContactModel.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/new.h
+ModifiedContactModel.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/new
+ModifiedContactModel.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/exception
+ModifiedContactModel.o: /usr/include/g++-3/stl_iterator.h
+ModifiedContactModel.o: /usr/include/g++-3/stl_alloc.h /usr/include/assert.h
+ModifiedContactModel.o: /usr/include/g++-3/stl_construct.h
+ModifiedContactModel.o: /usr/include/g++-3/stl_uninitialized.h
+ModifiedContactModel.o: /usr/include/g++-3/stl_vector.h
+ModifiedContactModel.o: /usr/include/g++-3/stl_bvector.h Simulation.h
+ModifiedContactModel.o: /usr/X11R6/include/GL/gl.h ModifiedContactModel.h
+ModifiedContactModel.o: ./LoggedForce.h
+Controller.o: /usr/include/g++-3/iostream.h /usr/include/g++-3/streambuf.h
+Controller.o: /usr/include/libio.h /usr/include/_G_config.h
+Controller.o: /usr/include/bits/types.h /usr/include/features.h
+Controller.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+Controller.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stddef.h
+Controller.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stdarg.h
+Controller.o: /usr/include/g++-3/iomanip.h /usr/include/g++-3/fstream.h
+Controller.o: Controller.h /home/wis/dynamechs/dm/dmObject.h
+Controller.o: /home/wis/dynamechs/dm/dm.h /usr/include/math.h
+Controller.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+Controller.o: /usr/include/bits/mathcalls.h
+Controller.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/float.h
+Controller.o: /usr/include/stdlib.h /usr/include/sys/types.h
+Controller.o: /usr/include/time.h /usr/include/endian.h
+Controller.o: /usr/include/bits/endian.h /usr/include/sys/select.h
+Controller.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+Controller.o: /usr/include/sys/sysmacros.h /usr/include/alloca.h
+Controller.o: /usr/include/string.h ControllerList.h
+Controller.o: /usr/include/g++-3/vector /usr/include/g++-3/stl_algobase.h
+Controller.o: /usr/include/g++-3/stl_config.h /usr/include/g++-3/stl_relops.h
+Controller.o: /usr/include/g++-3/stl_pair.h /usr/include/g++-3/type_traits.h
+Controller.o: /usr/include/limits.h /usr/include/bits/posix1_lim.h
+Controller.o: /usr/include/bits/local_lim.h /usr/include/linux/limits.h
+Controller.o: /usr/include/bits/posix2_lim.h
+Controller.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/new.h
+Controller.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/new
+Controller.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/exception
+Controller.o: /usr/include/g++-3/stl_iterator.h
+Controller.o: /usr/include/g++-3/stl_alloc.h /usr/include/assert.h
+Controller.o: /usr/include/g++-3/stl_construct.h
+Controller.o: /usr/include/g++-3/stl_uninitialized.h
+Controller.o: /usr/include/g++-3/stl_vector.h
+Controller.o: /usr/include/g++-3/stl_bvector.h Simulation.h
+Controller.o: /usr/X11R6/include/GL/gl.h
+Simulation.o: /home/wis/dynamechs/dm/dm.h /usr/include/g++-3/iostream.h
+Simulation.o: /usr/include/g++-3/streambuf.h /usr/include/libio.h
+Simulation.o: /usr/include/_G_config.h /usr/include/bits/types.h
+Simulation.o: /usr/include/features.h /usr/include/sys/cdefs.h
+Simulation.o: /usr/include/gnu/stubs.h
+Simulation.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stddef.h
+Simulation.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stdarg.h
+Simulation.o: /usr/include/g++-3/iomanip.h /usr/include/g++-3/fstream.h
+Simulation.o: /usr/include/math.h /usr/include/bits/huge_val.h
+Simulation.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+Simulation.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/float.h
+Simulation.o: /usr/include/stdlib.h /usr/include/sys/types.h
+Simulation.o: /usr/include/time.h /usr/include/endian.h
+Simulation.o: /usr/include/bits/endian.h /usr/include/sys/select.h
+Simulation.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+Simulation.o: /usr/include/sys/sysmacros.h /usr/include/alloca.h
+Simulation.o: /usr/include/string.h /home/wis/dynamechs/dm/dmSystem.h
+Simulation.o: /home/wis/dynamechs/dm/dmObject.h
+Simulation.o: /home/wis/dynamechs/dm/dmEnvironment.h
+Simulation.o: /home/wis/dynamechs/dm/dmArticulation.h
+Simulation.o: /home/wis/dynamechs/dm/dmLink.h /usr/include/g++-3/vector
+Simulation.o: /usr/include/g++-3/stl_algobase.h
+Simulation.o: /usr/include/g++-3/stl_config.h /usr/include/g++-3/stl_relops.h
+Simulation.o: /usr/include/g++-3/stl_pair.h /usr/include/g++-3/type_traits.h
+Simulation.o: /usr/include/limits.h /usr/include/bits/posix1_lim.h
+Simulation.o: /usr/include/bits/local_lim.h /usr/include/linux/limits.h
+Simulation.o: /usr/include/bits/posix2_lim.h
+Simulation.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/new.h
+Simulation.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/new
+Simulation.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/exception
+Simulation.o: /usr/include/g++-3/stl_iterator.h
+Simulation.o: /usr/include/g++-3/stl_alloc.h /usr/include/assert.h
+Simulation.o: /usr/include/g++-3/stl_construct.h
+Simulation.o: /usr/include/g++-3/stl_uninitialized.h
+Simulation.o: /usr/include/g++-3/stl_vector.h
+Simulation.o: /usr/include/g++-3/stl_bvector.h
+Simulation.o: /home/wis/dynamechs/dm/dmIntegrator.h
+Simulation.o: /home/wis/dynamechs/dm/dmIntegEuler.h
+Simulation.o: /home/wis/dynamechs/dmu/dmu.h LoadFile.h ForceList.h
+Simulation.o: ControllerList.h Simulation.h /usr/X11R6/include/GL/gl.h
+StepController.o: /usr/include/math.h /usr/include/features.h
+StepController.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+StepController.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+StepController.o: /usr/include/bits/mathcalls.h
+StepController.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/float.h
+StepController.o: /usr/include/assert.h StepController.h Controller.h
+StepController.o: /home/wis/dynamechs/dm/dmObject.h
+StepController.o: /home/wis/dynamechs/dm/dm.h /usr/include/g++-3/iostream.h
+StepController.o: /usr/include/g++-3/streambuf.h /usr/include/libio.h
+StepController.o: /usr/include/_G_config.h /usr/include/bits/types.h
+StepController.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stddef.h
+StepController.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stdarg.h
+StepController.o: /usr/include/g++-3/iomanip.h /usr/include/g++-3/fstream.h
+StepController.o: /usr/include/stdlib.h /usr/include/sys/types.h
+StepController.o: /usr/include/time.h /usr/include/endian.h
+StepController.o: /usr/include/bits/endian.h /usr/include/sys/select.h
+StepController.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+StepController.o: /usr/include/sys/sysmacros.h /usr/include/alloca.h
+StepController.o: /usr/include/string.h
+ControllerList.o: /usr/include/g++-3/vector /usr/include/g++-3/stl_algobase.h
+ControllerList.o: /usr/include/g++-3/stl_config.h /usr/include/_G_config.h
+ControllerList.o: /usr/include/bits/types.h /usr/include/features.h
+ControllerList.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+ControllerList.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stddef.h
+ControllerList.o: /usr/include/g++-3/stl_relops.h
+ControllerList.o: /usr/include/g++-3/stl_pair.h
+ControllerList.o: /usr/include/g++-3/type_traits.h /usr/include/string.h
+ControllerList.o: /usr/include/limits.h /usr/include/bits/posix1_lim.h
+ControllerList.o: /usr/include/bits/local_lim.h /usr/include/linux/limits.h
+ControllerList.o: /usr/include/bits/posix2_lim.h /usr/include/stdlib.h
+ControllerList.o: /usr/include/sys/types.h /usr/include/time.h
+ControllerList.o: /usr/include/endian.h /usr/include/bits/endian.h
+ControllerList.o: /usr/include/sys/select.h /usr/include/bits/select.h
+ControllerList.o: /usr/include/bits/sigset.h /usr/include/sys/sysmacros.h
+ControllerList.o: /usr/include/alloca.h
+ControllerList.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/new.h
+ControllerList.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/new
+ControllerList.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/exception
+ControllerList.o: /usr/include/g++-3/iostream.h
+ControllerList.o: /usr/include/g++-3/streambuf.h /usr/include/libio.h
+ControllerList.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stdarg.h
+ControllerList.o: /usr/include/g++-3/stl_iterator.h
+ControllerList.o: /usr/include/g++-3/stl_alloc.h /usr/include/assert.h
+ControllerList.o: /usr/include/g++-3/stl_construct.h
+ControllerList.o: /usr/include/g++-3/stl_uninitialized.h
+ControllerList.o: /usr/include/g++-3/stl_vector.h
+ControllerList.o: /usr/include/g++-3/stl_bvector.h Controller.h
+ControllerList.o: /home/wis/dynamechs/dm/dmObject.h
+ControllerList.o: /home/wis/dynamechs/dm/dm.h /usr/include/g++-3/iomanip.h
+ControllerList.o: /usr/include/g++-3/fstream.h /usr/include/math.h
+ControllerList.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+ControllerList.o: /usr/include/bits/mathcalls.h
+ControllerList.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/float.h
+ControllerList.o: ControllerList.h
+LoadFile.o: /home/wis/dynamechs/dm/dm.h /usr/include/g++-3/iostream.h
+LoadFile.o: /usr/include/g++-3/streambuf.h /usr/include/libio.h
+LoadFile.o: /usr/include/_G_config.h /usr/include/bits/types.h
+LoadFile.o: /usr/include/features.h /usr/include/sys/cdefs.h
+LoadFile.o: /usr/include/gnu/stubs.h
+LoadFile.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stddef.h
+LoadFile.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stdarg.h
+LoadFile.o: /usr/include/g++-3/iomanip.h /usr/include/g++-3/fstream.h
+LoadFile.o: /usr/include/math.h /usr/include/bits/huge_val.h
+LoadFile.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+LoadFile.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/float.h
+LoadFile.o: /usr/include/stdlib.h /usr/include/sys/types.h
+LoadFile.o: /usr/include/time.h /usr/include/endian.h
+LoadFile.o: /usr/include/bits/endian.h /usr/include/sys/select.h
+LoadFile.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+LoadFile.o: /usr/include/sys/sysmacros.h /usr/include/alloca.h
+LoadFile.o: /usr/include/string.h /usr/X11R6/include/GL/gl.h
+LoadFile.o: /home/wis/dynamechs/dm/dmObject.h
+LoadFile.o: /home/wis/dynamechs/dm/dmSystem.h
+LoadFile.o: /home/wis/dynamechs/dm/dmArticulation.h
+LoadFile.o: /home/wis/dynamechs/dm/dmLink.h /usr/include/g++-3/vector
+LoadFile.o: /usr/include/g++-3/stl_algobase.h /usr/include/g++-3/stl_config.h
+LoadFile.o: /usr/include/g++-3/stl_relops.h /usr/include/g++-3/stl_pair.h
+LoadFile.o: /usr/include/g++-3/type_traits.h /usr/include/limits.h
+LoadFile.o: /usr/include/bits/posix1_lim.h /usr/include/bits/local_lim.h
+LoadFile.o: /usr/include/linux/limits.h /usr/include/bits/posix2_lim.h
+LoadFile.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/new.h
+LoadFile.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/new
+LoadFile.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/exception
+LoadFile.o: /usr/include/g++-3/stl_iterator.h /usr/include/g++-3/stl_alloc.h
+LoadFile.o: /usr/include/assert.h /usr/include/g++-3/stl_construct.h
+LoadFile.o: /usr/include/g++-3/stl_uninitialized.h
+LoadFile.o: /usr/include/g++-3/stl_vector.h /usr/include/g++-3/stl_bvector.h
+LoadFile.o: /home/wis/dynamechs/dm/dmZScrewTxLink.h
+LoadFile.o: /home/wis/dynamechs/dm/dmMDHLink.h
+LoadFile.o: /home/wis/dynamechs/dm/dmRigidBody.h
+LoadFile.o: /home/wis/dynamechs/dm/dmForce.h
+LoadFile.o: /home/wis/dynamechs/dm/dmActuator.h
+LoadFile.o: /home/wis/dynamechs/dm/dmRevoluteLink.h
+LoadFile.o: /home/wis/dynamechs/dm/dmPrismaticLink.h
+LoadFile.o: /home/wis/dynamechs/dm/dmSphericalLink.h
+LoadFile.o: /home/wis/dynamechs/dm/dmMobileBaseLink.h
+LoadFile.o: /home/wis/dynamechs/dm/dmRevDCMotor.h
+LoadFile.o: /home/wis/dynamechs/dm/dmContactModel.h
+LoadFile.o: /home/wis/dynamechs/dm/dmEnvironment.h
+LoadFile.o: /home/wis/dynamechs/dmu/dmLoadFile.h
+LoadFile.o: /home/wis/dynamechs/dmu/dmu.h
+LoadFile.o: /home/wis/dynamechs/dmu/glLoadModels.h LoadFile.h SinController.h
+LoadFile.o: Controller.h SquareController.h MuscleModel.h ./LoggedForce.h
+LoadFile.o: Simulation.h ModifiedContactModel.h StepController.h
+SinController.o: /usr/include/math.h /usr/include/features.h
+SinController.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+SinController.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+SinController.o: /usr/include/bits/mathcalls.h
+SinController.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/float.h
+SinController.o: /usr/include/assert.h SinController.h Controller.h
+SinController.o: /home/wis/dynamechs/dm/dmObject.h
+SinController.o: /home/wis/dynamechs/dm/dm.h /usr/include/g++-3/iostream.h
+SinController.o: /usr/include/g++-3/streambuf.h /usr/include/libio.h
+SinController.o: /usr/include/_G_config.h /usr/include/bits/types.h
+SinController.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stddef.h
+SinController.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stdarg.h
+SinController.o: /usr/include/g++-3/iomanip.h /usr/include/g++-3/fstream.h
+SinController.o: /usr/include/stdlib.h /usr/include/sys/types.h
+SinController.o: /usr/include/time.h /usr/include/endian.h
+SinController.o: /usr/include/bits/endian.h /usr/include/sys/select.h
+SinController.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+SinController.o: /usr/include/sys/sysmacros.h /usr/include/alloca.h
+SinController.o: /usr/include/string.h
+Fitness.o: /usr/include/stdio.h /usr/include/features.h
+Fitness.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+Fitness.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stddef.h
+Fitness.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stdarg.h
+Fitness.o: /usr/include/bits/types.h /usr/include/libio.h
+Fitness.o: /usr/include/_G_config.h /usr/include/bits/stdio_lim.h
+Fitness.o: /usr/include/g++-3/iostream.h /usr/include/g++-3/streambuf.h
+Fitness.o: /usr/include/g++-3/iomanip.h /usr/include/g++-3/fstream.h
+Fitness.o: /usr/include/assert.h /usr/include/g++-3/vector
+Fitness.o: /usr/include/g++-3/stl_algobase.h /usr/include/g++-3/stl_config.h
+Fitness.o: /usr/include/g++-3/stl_relops.h /usr/include/g++-3/stl_pair.h
+Fitness.o: /usr/include/g++-3/type_traits.h /usr/include/string.h
+Fitness.o: /usr/include/limits.h /usr/include/bits/posix1_lim.h
+Fitness.o: /usr/include/bits/local_lim.h /usr/include/linux/limits.h
+Fitness.o: /usr/include/bits/posix2_lim.h /usr/include/stdlib.h
+Fitness.o: /usr/include/sys/types.h /usr/include/time.h /usr/include/endian.h
+Fitness.o: /usr/include/bits/endian.h /usr/include/sys/select.h
+Fitness.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+Fitness.o: /usr/include/sys/sysmacros.h /usr/include/alloca.h
+Fitness.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/new.h
+Fitness.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/new
+Fitness.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/exception
+Fitness.o: /usr/include/g++-3/stl_iterator.h /usr/include/g++-3/stl_alloc.h
+Fitness.o: /usr/include/g++-3/stl_construct.h
+Fitness.o: /usr/include/g++-3/stl_uninitialized.h
+Fitness.o: /usr/include/g++-3/stl_vector.h /usr/include/g++-3/stl_bvector.h
+Fitness.o: /usr/include/math.h /usr/include/bits/huge_val.h
+Fitness.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+Fitness.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/float.h
+Fitness.o: /usr/X11R6/include/GL/glut.h /usr/X11R6/include/GL/gl.h
+Fitness.o: /usr/X11R6/include/GL/glu.h /home/wis/dynamechs/dmGL/dmGLTime.h
+Fitness.o: /home/wis/dynamechs/dmGL/dmGL.h /usr/X11R6/include/GL/gl.h
+Fitness.o: /usr/X11R6/include/GL/glu.h /usr/include/sys/time.h
+Fitness.o: /usr/include/bits/time.h /home/wis/dynamechs/dmGL/dmGLMouse.h
+Fitness.o: /home/wis/dynamechs/dmGL/dmGLPolarCamera_zup.h
+Fitness.o: /home/wis/dynamechs/dmGL/dmGLPolarCamera.h
+Fitness.o: /home/wis/dynamechs/dmGL/dmGLCamera.h
+Fitness.o: /home/wis/dynamechs/dm/dmEnvironment.h /home/wis/dynamechs/dm/dm.h
+Fitness.o: /home/wis/dynamechs/dm/dmObject.h
+Fitness.o: /home/wis/dynamechs/dm/dmArticulation.h
+Fitness.o: /home/wis/dynamechs/dm/dmLink.h /home/wis/dynamechs/dm/dmSystem.h
+Fitness.o: /home/wis/dynamechs/dm/dmMobileBaseLink.h
+Fitness.o: /home/wis/dynamechs/dm/dmRigidBody.h
+Fitness.o: /home/wis/dynamechs/dm/dmForce.h /home/wis/dynamechs/dmu/dmu.h
+Fitness.o: ForceList.h Simulation.h Controller.h ControllerList.h
+Fitness.o: ./LoggedForce.h Util.h Fitness.h ModifiedContactModel.h
+LoggedForce.o: /usr/include/stdio.h /usr/include/features.h
+LoggedForce.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+LoggedForce.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stddef.h
+LoggedForce.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stdarg.h
+LoggedForce.o: /usr/include/bits/types.h /usr/include/libio.h
+LoggedForce.o: /usr/include/_G_config.h /usr/include/bits/stdio_lim.h
+LoggedForce.o: /usr/include/g++-3/iostream.h /usr/include/g++-3/streambuf.h
+LoggedForce.o: /usr/include/g++-3/iomanip.h /usr/include/g++-3/fstream.h
+LoggedForce.o: /usr/include/assert.h /usr/include/string.h
+LoggedForce.o: /home/wis/dynamechs/dm/dm.h /usr/include/math.h
+LoggedForce.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+LoggedForce.o: /usr/include/bits/mathcalls.h
+LoggedForce.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/float.h
+LoggedForce.o: /usr/include/stdlib.h /usr/include/sys/types.h
+LoggedForce.o: /usr/include/time.h /usr/include/endian.h
+LoggedForce.o: /usr/include/bits/endian.h /usr/include/sys/select.h
+LoggedForce.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+LoggedForce.o: /usr/include/sys/sysmacros.h /usr/include/alloca.h
+LoggedForce.o: /home/wis/dynamechs/dm/dmForce.h
+LoggedForce.o: /home/wis/dynamechs/dm/dmObject.h ./LoggedForce.h
+Objective.o: /usr/include/stdio.h /usr/include/features.h
+Objective.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+Objective.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stddef.h
+Objective.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stdarg.h
+Objective.o: /usr/include/bits/types.h /usr/include/libio.h
+Objective.o: /usr/include/_G_config.h /usr/include/bits/stdio_lim.h
+Objective.o: /usr/include/g++-3/iostream.h /usr/include/g++-3/streambuf.h
+Objective.o: /usr/include/g++-3/iomanip.h /usr/include/g++-3/fstream.h
+Objective.o: /usr/include/assert.h /home/wis/galib/ga/ga.h
+Objective.o: /home/wis/galib/ga/gaconfig.h /usr/include/g++-3/iostream
+Objective.o: /usr/include/g++-3/fstream /home/wis/galib/ga/GASimpleGA.h
+Objective.o: /home/wis/galib/ga/GABaseGA.h /usr/include/string.h
+Objective.o: /home/wis/galib/ga/gaid.h /home/wis/galib/ga/GAParameter.h
+Objective.o: /home/wis/galib/ga/gatypes.h /home/wis/galib/ga/GAStatistics.h
+Objective.o: /home/wis/galib/ga/GAGenome.h /usr/include/stdlib.h
+Objective.o: /usr/include/sys/types.h /usr/include/time.h
+Objective.o: /usr/include/endian.h /usr/include/bits/endian.h
+Objective.o: /usr/include/sys/select.h /usr/include/bits/select.h
+Objective.o: /usr/include/bits/sigset.h /usr/include/sys/sysmacros.h
+Objective.o: /usr/include/alloca.h /home/wis/galib/ga/gaerror.h
+Objective.o: /home/wis/galib/ga/GAEvalData.h
+Objective.o: /home/wis/galib/ga/GAPopulation.h
+Objective.o: /home/wis/galib/ga/GASelector.h /home/wis/galib/ga/GAScaling.h
+Objective.o: /home/wis/galib/ga/GASStateGA.h /home/wis/galib/ga/GAIncGA.h
+Objective.o: /home/wis/galib/ga/GADemeGA.h /home/wis/galib/ga/GADCrowdingGA.h
+Objective.o: /home/wis/galib/ga/GA1DBinStrGenome.h
+Objective.o: /home/wis/galib/ga/GABinStr.h /home/wis/galib/ga/garandom.h
+Objective.o: /home/wis/galib/ga/GA2DBinStrGenome.h
+Objective.o: /home/wis/galib/ga/GA3DBinStrGenome.h
+Objective.o: /home/wis/galib/ga/GABin2DecGenome.h
+Objective.o: /home/wis/galib/ga/gabincvt.h
+Objective.o: /home/wis/galib/ga/GA1DArrayGenome.h
+Objective.o: /home/wis/galib/ga/GAArray.h /home/wis/galib/ga/GAAllele.h
+Objective.o: /home/wis/galib/ga/GAAllele.C
+Objective.o: /home/wis/galib/ga/GA1DArrayGenome.C /home/wis/galib/ga/GAMask.h
+Objective.o: /home/wis/galib/ga/GA2DArrayGenome.h
+Objective.o: /home/wis/galib/ga/GA2DArrayGenome.C
+Objective.o: /home/wis/galib/ga/GA3DArrayGenome.h
+Objective.o: /home/wis/galib/ga/GA3DArrayGenome.C
+Objective.o: /home/wis/galib/ga/GAListGenome.h /home/wis/galib/ga/GAList.h
+Objective.o: /home/wis/galib/ga/GAListBASE.h /home/wis/galib/ga/GANode.h
+Objective.o: /home/wis/galib/ga/GAList.C /home/wis/galib/ga/GAListGenome.C
+Objective.o: /home/wis/galib/ga/GATreeGenome.h /home/wis/galib/ga/GATree.h
+Objective.o: /home/wis/galib/ga/GATreeBASE.h /home/wis/galib/ga/GATree.C
+Objective.o: /home/wis/galib/ga/GATreeGenome.C
+Objective.o: /home/wis/galib/ga/GARealGenome.h Util.h /usr/include/math.h
+Objective.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+Objective.o: /usr/include/bits/mathcalls.h
+Objective.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/float.h
+ForceList.o: /usr/include/g++-3/vector /usr/include/g++-3/stl_algobase.h
+ForceList.o: /usr/include/g++-3/stl_config.h /usr/include/_G_config.h
+ForceList.o: /usr/include/bits/types.h /usr/include/features.h
+ForceList.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+ForceList.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stddef.h
+ForceList.o: /usr/include/g++-3/stl_relops.h /usr/include/g++-3/stl_pair.h
+ForceList.o: /usr/include/g++-3/type_traits.h /usr/include/string.h
+ForceList.o: /usr/include/limits.h /usr/include/bits/posix1_lim.h
+ForceList.o: /usr/include/bits/local_lim.h /usr/include/linux/limits.h
+ForceList.o: /usr/include/bits/posix2_lim.h /usr/include/stdlib.h
+ForceList.o: /usr/include/sys/types.h /usr/include/time.h
+ForceList.o: /usr/include/endian.h /usr/include/bits/endian.h
+ForceList.o: /usr/include/sys/select.h /usr/include/bits/select.h
+ForceList.o: /usr/include/bits/sigset.h /usr/include/sys/sysmacros.h
+ForceList.o: /usr/include/alloca.h
+ForceList.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/new.h
+ForceList.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/new
+ForceList.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/exception
+ForceList.o: /usr/include/g++-3/iostream.h /usr/include/g++-3/streambuf.h
+ForceList.o: /usr/include/libio.h
+ForceList.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stdarg.h
+ForceList.o: /usr/include/g++-3/stl_iterator.h /usr/include/g++-3/stl_alloc.h
+ForceList.o: /usr/include/assert.h /usr/include/g++-3/stl_construct.h
+ForceList.o: /usr/include/g++-3/stl_uninitialized.h
+ForceList.o: /usr/include/g++-3/stl_vector.h /usr/include/g++-3/stl_bvector.h
+ForceList.o: /home/wis/dynamechs/dm/dmForce.h /home/wis/dynamechs/dm/dm.h
+ForceList.o: /usr/include/g++-3/iomanip.h /usr/include/g++-3/fstream.h
+ForceList.o: /usr/include/math.h /usr/include/bits/huge_val.h
+ForceList.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+ForceList.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/float.h
+ForceList.o: /home/wis/dynamechs/dm/dmObject.h ForceList.h
+MuscleModel.o: /home/wis/dynamechs/dm/dm.h /usr/include/g++-3/iostream.h
+MuscleModel.o: /usr/include/g++-3/streambuf.h /usr/include/libio.h
+MuscleModel.o: /usr/include/_G_config.h /usr/include/bits/types.h
+MuscleModel.o: /usr/include/features.h /usr/include/sys/cdefs.h
+MuscleModel.o: /usr/include/gnu/stubs.h
+MuscleModel.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stddef.h
+MuscleModel.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stdarg.h
+MuscleModel.o: /usr/include/g++-3/iomanip.h /usr/include/g++-3/fstream.h
+MuscleModel.o: /usr/include/math.h /usr/include/bits/huge_val.h
+MuscleModel.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+MuscleModel.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/float.h
+MuscleModel.o: /usr/include/stdlib.h /usr/include/sys/types.h
+MuscleModel.o: /usr/include/time.h /usr/include/endian.h
+MuscleModel.o: /usr/include/bits/endian.h /usr/include/sys/select.h
+MuscleModel.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+MuscleModel.o: /usr/include/sys/sysmacros.h /usr/include/alloca.h
+MuscleModel.o: /usr/include/string.h /home/wis/dynamechs/dmu/dmu.h
+MuscleModel.o: /home/wis/dynamechs/dm/dmForce.h
+MuscleModel.o: /home/wis/dynamechs/dm/dmObject.h
+MuscleModel.o: /home/wis/dynamechs/dm/dmArticulation.h
+MuscleModel.o: /home/wis/dynamechs/dm/dmLink.h
+MuscleModel.o: /home/wis/dynamechs/dm/dmSystem.h /usr/include/g++-3/vector
+MuscleModel.o: /usr/include/g++-3/stl_algobase.h
+MuscleModel.o: /usr/include/g++-3/stl_config.h
+MuscleModel.o: /usr/include/g++-3/stl_relops.h /usr/include/g++-3/stl_pair.h
+MuscleModel.o: /usr/include/g++-3/type_traits.h /usr/include/limits.h
+MuscleModel.o: /usr/include/bits/posix1_lim.h /usr/include/bits/local_lim.h
+MuscleModel.o: /usr/include/linux/limits.h /usr/include/bits/posix2_lim.h
+MuscleModel.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/new.h
+MuscleModel.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/new
+MuscleModel.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/exception
+MuscleModel.o: /usr/include/g++-3/stl_iterator.h
+MuscleModel.o: /usr/include/g++-3/stl_alloc.h /usr/include/assert.h
+MuscleModel.o: /usr/include/g++-3/stl_construct.h
+MuscleModel.o: /usr/include/g++-3/stl_uninitialized.h
+MuscleModel.o: /usr/include/g++-3/stl_vector.h
+MuscleModel.o: /usr/include/g++-3/stl_bvector.h /usr/X11R6/include/GL/gl.h
+MuscleModel.o: MuscleModel.h ./LoggedForce.h Controller.h Util.h ForceList.h
+MuscleModel.o: Simulation.h
+Util.o: /usr/include/math.h /usr/include/features.h /usr/include/sys/cdefs.h
+Util.o: /usr/include/gnu/stubs.h /usr/include/bits/huge_val.h
+Util.o: /usr/include/bits/mathdef.h /usr/include/bits/mathcalls.h
+Util.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/float.h
+Util.o: /usr/include/stdio.h
+Util.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stddef.h
+Util.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stdarg.h
+Util.o: /usr/include/bits/types.h /usr/include/libio.h
+Util.o: /usr/include/_G_config.h /usr/include/bits/stdio_lim.h
+Util.o: /usr/include/g++-3/iostream.h /usr/include/g++-3/streambuf.h
+Util.o: /usr/include/g++-3/iomanip.h /usr/include/g++-3/fstream.h
+Util.o: /usr/include/assert.h /usr/include/string.h /usr/include/errno.h
+Util.o: /usr/include/bits/errno.h /usr/include/linux/errno.h
+Util.o: /usr/include/asm/errno.h /usr/include/sys/types.h /usr/include/time.h
+Util.o: /usr/include/endian.h /usr/include/bits/endian.h
+Util.o: /usr/include/sys/select.h /usr/include/bits/select.h
+Util.o: /usr/include/bits/sigset.h /usr/include/sys/sysmacros.h
+Util.o: /usr/include/sys/wait.h /usr/include/bits/waitflags.h
+Util.o: /usr/include/bits/waitstatus.h /usr/include/bits/siginfo.h
+Util.o: /usr/include/unistd.h /usr/include/bits/posix_opt.h
+Util.o: /usr/include/bits/confname.h /usr/include/getopt.h Util.h
+SquareController.o: /usr/include/math.h /usr/include/features.h
+SquareController.o: /usr/include/sys/cdefs.h /usr/include/gnu/stubs.h
+SquareController.o: /usr/include/bits/huge_val.h /usr/include/bits/mathdef.h
+SquareController.o: /usr/include/bits/mathcalls.h
+SquareController.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/float.h
+SquareController.o: /usr/include/assert.h SquareController.h Controller.h
+SquareController.o: /home/wis/dynamechs/dm/dmObject.h
+SquareController.o: /home/wis/dynamechs/dm/dm.h /usr/include/g++-3/iostream.h
+SquareController.o: /usr/include/g++-3/streambuf.h /usr/include/libio.h
+SquareController.o: /usr/include/_G_config.h /usr/include/bits/types.h
+SquareController.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stddef.h
+SquareController.o: /usr/lib/gcc-lib/i586-mandrake-linux/2.95.3/include/stdarg.h
+SquareController.o: /usr/include/g++-3/iomanip.h /usr/include/g++-3/fstream.h
+SquareController.o: /usr/include/stdlib.h /usr/include/sys/types.h
+SquareController.o: /usr/include/time.h /usr/include/endian.h
+SquareController.o: /usr/include/bits/endian.h /usr/include/sys/select.h
+SquareController.o: /usr/include/bits/select.h /usr/include/bits/sigset.h
+SquareController.o: /usr/include/sys/sysmacros.h /usr/include/alloca.h
+SquareController.o: /usr/include/string.h

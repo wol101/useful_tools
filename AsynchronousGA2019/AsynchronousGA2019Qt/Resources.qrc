@@ -1,0 +1,19 @@
+<!DOCTYPE RCC><RCC version="1.0">
+<qresource>
+    <file>Images/add.png</file>
+    <file>Images/copy.png</file>
+    <file>Images/cut.png</file>
+    <file>Images/font.png</file>
+    <file>Images/exit.png</file>
+    <file>Images/new.png</file>
+    <file>Images/open.png</file>
+    <file>Images/paste.png</file>
+    <file>Images/preferences.png</file>
+    <file>Images/redo.png</file>
+    <file>Images/remove.png</file>
+    <file>Images/save-as.png</file>
+    <file>Images/save.png</file>
+    <file>Images/undo.png</file>
+    <file>Images/icon_design.png</file>
+</qresource>
+</RCC>

@@ -1,0 +1,19 @@
+# Basic nmake file
+# compile with  "nmake.exe /f nmakefile"
+# needs visual studio environmental variables from %VS120COMNTOOLS%\vsvars32.bat
+
+INC_DIRS = -I "..\GaitSym2016\src" -I "..\GaitSym2016\exprtk" -I "..\GaitSym2016\rapidxml-1.13"
+#LIBRARIES = /link /LIBPATH:$(MY_LIBS) mylibrary.lib
+
+apply_genome: apply_genome.obj XMLConverter.obj DataFile.obj
+	cl /Feapply_genome apply_genome.obj XMLConverter.obj DataFile.obj $(LIBRARIES)
+
+apply_genome.obj: apply_genome.cpp
+	cl /EHsc /c apply_genome.cpp /D WINDOWSXX $(INC_DIRS)
+
+XMLConverter.obj: ..\GaitSym2016\src\XMLConverter.cpp
+	cl /EHsc /c ..\GaitSym2016\src\XMLConverter.cpp /D WINDOWSXX $(INC_DIRS)
+
+DataFile.obj: ..\GaitSym2016\src\DataFile.cpp
+	cl /EHsc /c ..\GaitSym2016\src\DataFile.cpp /D WINDOWSXX $(INC_DIRS)
+

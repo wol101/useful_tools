@@ -1,0 +1,15 @@
+ReadOBJFile sample "complex_sample.obj"
+
+SortByGroup sample
+
+ConvertGroupsToObjects sample
+
+Stats sample
+
+Triangulate sample
+
+Voxelize sample .1 .1 .1
+
+Concatenate sample sample
+
+SetDisplay samples

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE MERGEXML SYSTEM "mergexml.dtd">
+
+<MERGEXML>
+
+<MERGETAG 
+    Name="GLOBAL" 
+    MergeAttributes="IntegrationStepSize GravityVector ERP CFM ContactMaxCorrectingVel ContactSurfaceLayer BMR TimeLimit MetabolicEnergyLimit MechanicalEnergyLimit"
+/>
+
+<MERGETAG 
+    Name="ENVIRONMENT"
+    MergeAttributes="Plane"
+/>
+    
+<MERGETAG
+    Name="BODY"
+    MatchAttributes="ID" 
+    MergeAttributes="Scale Mass MOI Position Quaternion LinearVelocity AngularVelocity"
+/>
+
+<MERGETAG 
+    Name="JOINT"
+    MatchAttributes="ID Type Body1ID Body2ID"
+    MergeAttributes="HingeAnchor HingeAxis StartAngleReference ParamLoStop ParamHiStop"
+/>
+ 
+<MERGETAG
+    Name="GEOM"
+    MatchAttributes="ID Type BodyID"
+    MergeAttributes="Position= Quaternion Radius Length"
+/>
+
+<MERGETAG
+    Name="MUSCLE"
+    MatchAttributes="ID Type Strap OriginBodyID InsertionBodyID"
+    MergeAttributes="Origin Insertion PCA FibreLength TendonLength SerialStrainAtFmax ParallelStrainAtFmax 
+        CylinderPosition CylinderRadius CylinderQuaternion Midpoint
+        ForcePerUnitArea VMaxFactor Width FastTwitchProportion MuscleDensity"
+/>
+
+</MERGEXML>

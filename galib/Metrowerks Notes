@@ -1,0 +1,9 @@
+Metrowerks Notes
+
+For some bizarre reason, Metrowerks is giving link errors when comparing enumerated types
+saying that the required operator== is undefined. This has been fixed in some cases by
+explicitly casting the enum to an int. This shouldn't be necessay but nor should it do
+any harm either. I had to do it so many times that I've not commented the changes except
+at the top of the file.
+
+WIS - 21/9/00

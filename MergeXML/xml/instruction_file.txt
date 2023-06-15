@@ -1,0 +1,52 @@
+# read in the two XML files
+
+ReadXMLFile ga_framework "human.xml"
+
+ReadXMLFile modelstate "ModelState_2.32334253071.xml"
+
+# merge the two files
+
+Merge ga_framework modelstate BODY ID Position 1.0
+Merge ga_framework modelstate BODY ID Quaternion 1.0
+Merge ga_framework modelstate BODY ID LinearVelocity 1.0
+Merge ga_framework modelstate BODY ID AngularVelocity 1.0
+
+Merge ga_framework modelstate JOINT ID HingeAnchor 1.0
+Merge ga_framework modelstate JOINT ID HingeAxis 1.0
+Merge ga_framework modelstate JOINT ID StartAngleReference 1.0
+
+# shift the x values so the torso is back over the origin
+
+Operate ga_framework v(0)-3.2927080945401892 BODY ID Torso Position 0
+Operate ga_framework v(0)-3.2927080945401892 BODY ID RightThigh Position 0
+Operate ga_framework v(0)-3.2927080945401892 BODY ID RightLeg Position 0
+Operate ga_framework v(0)-3.2927080945401892 BODY ID RightFoot Position 0
+Operate ga_framework v(0)-3.2927080945401892 BODY ID LeftThigh Position 0
+Operate ga_framework v(0)-3.2927080945401892 BODY ID LeftLeg Position 0
+Operate ga_framework v(0)-3.2927080945401892 BODY ID LeftFoot Position 0
+Operate ga_framework v(0)-3.2927080945401892 JOINT ID RightHip HingeAnchor 0
+Operate ga_framework v(0)-3.2927080945401892 JOINT ID RightKnee HingeAnchor 0
+Operate ga_framework v(0)-3.2927080945401892 JOINT ID RightAnkle HingeAnchor 0
+Operate ga_framework v(0)-3.2927080945401892 JOINT ID LeftHip HingeAnchor 0
+Operate ga_framework v(0)-3.2927080945401892 JOINT ID LeftKnee HingeAnchor 0
+Operate ga_framework v(0)-3.2927080945401892 JOINT ID LeftAnkle HingeAnchor 0
+
+# shift the y values so the torso is back over the origin
+
+Operate ga_framework v(0)+0.057567498303370504 BODY ID Torso Position 1
+Operate ga_framework v(0)+0.057567498303370504 BODY ID RightThigh Position 1
+Operate ga_framework v(0)+0.057567498303370504 BODY ID RightLeg Position 1
+Operate ga_framework v(0)+0.057567498303370504 BODY ID RightFoot Position 1
+Operate ga_framework v(0)+0.057567498303370504 BODY ID LeftThigh Position 1
+Operate ga_framework v(0)+0.057567498303370504 BODY ID LeftLeg Position 1
+Operate ga_framework v(0)+0.057567498303370504 BODY ID LeftFoot Position 1
+Operate ga_framework v(0)+0.057567498303370504 JOINT ID RightHip HingeAnchor 1
+Operate ga_framework v(0)+0.057567498303370504 JOINT ID RightKnee HingeAnchor 1
+Operate ga_framework v(0)+0.057567498303370504 JOINT ID RightAnkle HingeAnchor 1
+Operate ga_framework v(0)+0.057567498303370504 JOINT ID LeftHip HingeAnchor 1
+Operate ga_framework v(0)+0.057567498303370504 JOINT ID LeftKnee HingeAnchor 1
+Operate ga_framework v(0)+0.057567498303370504 JOINT ID LeftAnkle HingeAnchor 1
+
+# write out the merged file
+
+WriteXMLFile ga_framework "MergedFile2.xml"

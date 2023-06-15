@@ -1,0 +1,269 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 42;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5F5FA7CF10C88FDD00AF12AF /* libxml2.2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F5FA7CE10C88FDD00AF12AF /* libxml2.2.dylib */; };
+		5FD2883E0A510B4900BC0C78 /* DataFile.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5FD288330A510B4900BC0C78 /* DataFile.cpp */; };
+		5FD2883F0A510B4900BC0C78 /* DataFile.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5FD288340A510B4900BC0C78 /* DataFile.h */; };
+		5FD288400A510B4900BC0C78 /* ExpressionParser.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5FD288350A510B4900BC0C78 /* ExpressionParser.cpp */; };
+		5FD288410A510B4900BC0C78 /* ExpressionParser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5FD288360A510B4900BC0C78 /* ExpressionParser.h */; };
+		5FD288430A510B4900BC0C78 /* MergeXML.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5FD288380A510B4900BC0C78 /* MergeXML.cpp */; };
+		5FD288440A510B4900BC0C78 /* Util.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5FD288390A510B4900BC0C78 /* Util.h */; };
+		5FD288450A510B4900BC0C78 /* XMLContainer.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5FD2883A0A510B4900BC0C78 /* XMLContainer.cpp */; };
+		5FD288460A510B4900BC0C78 /* XMLContainer.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5FD2883B0A510B4900BC0C78 /* XMLContainer.h */; };
+		5FD288470A510B4900BC0C78 /* XMLContainerList.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5FD2883C0A510B4900BC0C78 /* XMLContainerList.cpp */; };
+		5FD288480A510B4900BC0C78 /* XMLContainerList.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 5FD2883D0A510B4900BC0C78 /* XMLContainerList.h */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		8DD76F690486A84900D96B5E /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 8;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				5FD2883F0A510B4900BC0C78 /* DataFile.h in CopyFiles */,
+				5FD288410A510B4900BC0C78 /* ExpressionParser.h in CopyFiles */,
+				5FD288440A510B4900BC0C78 /* Util.h in CopyFiles */,
+				5FD288460A510B4900BC0C78 /* XMLContainer.h in CopyFiles */,
+				5FD288480A510B4900BC0C78 /* XMLContainerList.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
+/* Begin PBXFileReference section */
+		5F5FA7CE10C88FDD00AF12AF /* libxml2.2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.2.dylib; path = /usr/lib/libxml2.2.dylib; sourceTree = "<absolute>"; };
+		5FD288330A510B4900BC0C78 /* DataFile.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = DataFile.cpp; sourceTree = "<group>"; };
+		5FD288340A510B4900BC0C78 /* DataFile.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = DataFile.h; sourceTree = "<group>"; };
+		5FD288350A510B4900BC0C78 /* ExpressionParser.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = ExpressionParser.cpp; sourceTree = "<group>"; };
+		5FD288360A510B4900BC0C78 /* ExpressionParser.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = ExpressionParser.h; sourceTree = "<group>"; };
+		5FD288370A510B4900BC0C78 /* makefile */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
+		5FD288380A510B4900BC0C78 /* MergeXML.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = MergeXML.cpp; sourceTree = "<group>"; };
+		5FD288390A510B4900BC0C78 /* Util.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = Util.h; sourceTree = "<group>"; };
+		5FD2883A0A510B4900BC0C78 /* XMLContainer.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = XMLContainer.cpp; sourceTree = "<group>"; };
+		5FD2883B0A510B4900BC0C78 /* XMLContainer.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = XMLContainer.h; sourceTree = "<group>"; };
+		5FD2883C0A510B4900BC0C78 /* XMLContainerList.cpp */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = XMLContainerList.cpp; sourceTree = "<group>"; };
+		5FD2883D0A510B4900BC0C78 /* XMLContainerList.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = XMLContainerList.h; sourceTree = "<group>"; };
+		5FD2884B0A510C7400BC0C78 /* MergeXML */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = MergeXML; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8DD76F660486A84900D96B5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F5FA7CF10C88FDD00AF12AF /* libxml2.2.dylib in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		08FB7794FE84155DC02AAC07 /* MergeXML */ = {
+			isa = PBXGroup;
+			children = (
+				5FD288320A510B4900BC0C78 /* src */,
+				5FD288490A510BA700BC0C78 /* Other */,
+				5F5FA7CB10C88F9800AF12AF /* lib */,
+				1AB674ADFE9D54B511CA2CBB /* Products */,
+			);
+			name = MergeXML;
+			sourceTree = "<group>";
+		};
+		1AB674ADFE9D54B511CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5FD2884B0A510C7400BC0C78 /* MergeXML */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		5F5FA7CB10C88F9800AF12AF /* lib */ = {
+			isa = PBXGroup;
+			children = (
+				5F5FA7CE10C88FDD00AF12AF /* libxml2.2.dylib */,
+			);
+			name = lib;
+			sourceTree = "<group>";
+		};
+		5FD288320A510B4900BC0C78 /* src */ = {
+			isa = PBXGroup;
+			children = (
+				5FD288330A510B4900BC0C78 /* DataFile.cpp */,
+				5FD288340A510B4900BC0C78 /* DataFile.h */,
+				5FD288350A510B4900BC0C78 /* ExpressionParser.cpp */,
+				5FD288360A510B4900BC0C78 /* ExpressionParser.h */,
+				5FD288380A510B4900BC0C78 /* MergeXML.cpp */,
+				5FD288390A510B4900BC0C78 /* Util.h */,
+				5FD2883A0A510B4900BC0C78 /* XMLContainer.cpp */,
+				5FD2883B0A510B4900BC0C78 /* XMLContainer.h */,
+				5FD2883C0A510B4900BC0C78 /* XMLContainerList.cpp */,
+				5FD2883D0A510B4900BC0C78 /* XMLContainerList.h */,
+			);
+			path = src;
+			sourceTree = "<group>";
+		};
+		5FD288490A510BA700BC0C78 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				5FD288370A510B4900BC0C78 /* makefile */,
+			);
+			name = Other;
+			path = src;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8DD76F620486A84900D96B5E /* MergeXML */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1DEB923108733DC60010E9CD /* Build configuration list for PBXNativeTarget "MergeXML" */;
+			buildPhases = (
+				8DD76F640486A84900D96B5E /* Sources */,
+				8DD76F660486A84900D96B5E /* Frameworks */,
+				8DD76F690486A84900D96B5E /* CopyFiles */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = MergeXML;
+			productInstallPath = "$(HOME)/bin";
+			productName = MergeXML;
+			productReference = 5FD2884B0A510C7400BC0C78 /* MergeXML */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			buildConfigurationList = 1DEB923508733DC60010E9CD /* Build configuration list for PBXProject "MergeXML" */;
+			compatibilityVersion = "Xcode 2.4";
+			hasScannedForEncodings = 1;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 08FB7794FE84155DC02AAC07 /* MergeXML */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8DD76F620486A84900D96B5E /* MergeXML */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8DD76F640486A84900D96B5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5FD2883E0A510B4900BC0C78 /* DataFile.cpp in Sources */,
+				5FD288400A510B4900BC0C78 /* ExpressionParser.cpp in Sources */,
+				5FD288430A510B4900BC0C78 /* MergeXML.cpp in Sources */,
+				5FD288450A510B4900BC0C78 /* XMLContainer.cpp in Sources */,
+				5FD288470A510B4900BC0C78 /* XMLContainerList.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		1DEB923208733DC60010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/include/libxml2,
+				);
+				INSTALL_PATH = "$(HOME)/bin";
+				LIBRARY_SEARCH_PATHS = "$(inherited)";
+				PRODUCT_NAME = MergeXML;
+				ZERO_LINK = YES;
+			};
+			name = Debug;
+		};
+		1DEB923308733DC60010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = (
+					ppc,
+					i386,
+				);
+				GCC_GENERATE_DEBUGGING_SYMBOLS = NO;
+				GCC_MODEL_TUNING = G5;
+				HEADER_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/include,
+					/usr/local/include/libxml2,
+				);
+				INSTALL_PATH = "$(HOME)/bin";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					/usr/local/lib,
+				);
+				PRODUCT_NAME = MergeXML;
+			};
+			name = Release;
+		};
+		1DEB923608733DC60010E9CD /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				PREBINDING = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = Debug;
+		};
+		1DEB923708733DC60010E9CD /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				HEADER_SEARCH_PATHS = /usr/include/libxml2;
+				PREBINDING = NO;
+				SDKROOT = /Developer/SDKs/MacOSX10.4u.sdk;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		1DEB923108733DC60010E9CD /* Build configuration list for PBXNativeTarget "MergeXML" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB923208733DC60010E9CD /* Debug */,
+				1DEB923308733DC60010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		1DEB923508733DC60010E9CD /* Build configuration list for PBXProject "MergeXML" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1DEB923608733DC60010E9CD /* Debug */,
+				1DEB923708733DC60010E9CD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}

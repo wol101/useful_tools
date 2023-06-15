@@ -1,0 +1,167 @@
+REFERENCES	
+	
+Learning Alias Level One, R.R.Donnelley publisher, 1995. 
+
+R. McN. Alexander. The Gaits of Bipedal and Quadrupedal Animals. International Journal or Robotics Research, 3(2):49-59, Summer 1984. 
+
+W. W. Armstrong, M. Green and R. Lake. Near-real-time control of human figure models. Graphics Interface '86,pages 147-151, 1986. 
+
+J. Auslanderet, A. Fukunaga, H. Partovi, J. Christensen, L. Hsu, P. Reiss, A. Shuman, J. Marks, J. T. Ngo. Further experience with controller-based automatic motion synthesis for articulated figures. ACM Transactions on Graphics, pages 311- 336, October 1995. 
+
+N. Badler, K. H. Manoocherhri and G. Walters. Articulated figure positioning by multiple constraints. IEEE Computer Graphics and Applications, 7(6):28-38, June 1987.	
+
+N. I. Badler, C. B. Phillips and B. L. Webber. Simulating Humans: Computer Graphics Animation and Control. Oxford University Press, 1993. 
+
+R. Boulic, N. Magnenat-Thalmann and D. Thalmann. A global human walking model with real-time kinematic personification. The Visual Computer, 6:344-358, 1990. 
+
+L. S. Brotman and A. N. Netravali. Motion interpolation by optimal control. Proceedings of SIGGRAPH 88.InACM Computer Graphics, 22(4):309-315, August 1988. 
+
+A. Bruderlin and T. W. Calvert. Goal-Directed, Dynamic Animation of Human Walking. Proceedings of SIGGRAPH 89.InACM Computer Graphics, 23(3):233-242, July 1989. 
+
+A. Bruderlin and T. W. Calvert. Interactive Animation of Personalized Human Locomotion. Graphics Interface '93, pages 17-23, 1993. 
+
+A. Bruderlin and T. W. Calvert. Knowledge-Driven, Interactive Animation of Human Running. Graphics Interface '96, pages 213-221, 1996. 
+
+A. Bruderlin and L. Williams. Motion Signal Processing. Proceedings of SIGGRAPH 95.InACM Computer Graphics, pages 97-104, August 1995. 
+
+N. Burtnyk and M. Wein. Computer generated keyframe animation. Journal of the Society of Motion Picture and Television Engineers, 80(3):149-153, March 1971. 
+
+P. H. Channon, S. H. Hopkins and D. T. Pham. Derivation of optimal walking motions for a bipedal walking robot. Robotica, 10:165-172, 1992. 
+
+M. F. Cohen. Interactive spacetime control for animation. Proceedings of SIGGRAPH 92.InACM Computer Graphics, 26(2):293-302, July 1992. 
+
+C. Csuri. Real time film animation. IEEE Convention Digest, pages 42-43, March BWU.	 
+
+J. Furusho and M. Masubuchi. A Theoretically Motivated Reduced Order Model for the Control of Dynamic Biped Locomotion. Journal of Dynamic Systems, Measurement and Control, 109:155-163, June 1987. 
+
+B. Friedland. Control System Design:An Introduction to State-Space Methods. McGraw-Hill, 1986. 
+
+J. Furusho and A. Sano. Sensor-Based Control of a Nine-Link Biped. International Journal of Robotics Research, 9(2):83-98, April 1990. 
+
+M. Girard and A. A. Maciejewski. Computational modeling for the computer animation of legged figures. Proceedings of SIGGRAPH '85. In Computer Graphics. pages 263-270, July 1985. 
+	
+R. Grzeszczuk and D. Terzopoulos. Automated Learning of Muscle-Actuated Locomotion through Control Abstraction. Proceedings of SIGGRAPH '95. In Computer Graphics. pages 63-70, August 1995. 
+
+H. Hemami and R. L. Farnsworth. Postural and Gait Stability of a Planar Five Link Biped by Simulation. IEEE Transactions on Automatic Control, pages 452-458, June BXA.	 
+
+J. K. Hodgins. Biped Gait Transitions. Proceedings of the International Conference on Robotics and Automation, pages 2092-2097, April 1991. 
+
+H. M. Hmam and D. A. Lawrence. Biped Control Via Nonlinear Dynamics. 29th Allerton Conference on Communication, Control, and Computing, October, 1991. 
+
+D. Halliday and R. Resnick. Fundamentals of Physics. John Wiley & Sons, 1986. 
+
+J. K.Hodgins, P. K. Sweeney and D. G. Lawrence. Generating Natural-looking Motion for Computer Animation. Graphics Interface '92, pages 265-272, 1992. 
+
+J. K. Hodgins, W. L. Wooten, D. C. Brogan and J. F. O'Brien. Animating Human Athletics. Proceedings of SIGGRAPH 95. InACM Computer Graphics.pages 71-78, August 1995. 
+
+V. T. Inman, H. J. Ralston and F. Todd. Human walking. Williams & Wilkins, Baltimore, 1981. 
+
+M. Girard and A. A. Maciejewski. Computational modelling for the computer animation of legged figures. Proceedings of the IEEE International Conference on Robotics and Automation, pages 1405-1411, Sacramento, CA, April 1991. 
+
+S. Kajita and K. Tani. Study of Dynamic Biped Locomotion on Rugged Terrain. Proceedings of the IEEE International Conference on Robotics and Automation, pages 1405-1411, Sacramento, CA, April 1991. 
+
+R. Kim. Automatic Motion Synthesis using Pose Controllers. M.A.Sc. Thesis, University of Toronto, Department of Electrical Engineering, 1994. 
+
+S. Kitamura, Y. Kurematsu and M. Iwata. Motion generation of a biped locomotive robot using an inverted pendulum model and neural networks. IEEE, pages 3308-3312, 1990. 
+
+D. H. Kochanek and R. H. Bartels. Interpolating splines for keyframe animation. Graphics Interface, pages 41-42, 1984. 
+
+H. Ko and N. I. Badler. Straight Line Walking Animation Based on Kinematic Generalization that Preserves the Original Characteristics. Graphics Interface '93, pages 9-16, 1993. 
+
+J. U. Korein and N. I. Badler. Techniques for Generating the Goal-directed Motion of Articulated Structures. IEEE Computer Graphics and Applications, pages 71-81, November 1982. 
+
+J. Lasseter. Principles of traditional animation applied to 3D computer animation. Proceedings of SIGGRAPH '87. In ACM Computer Graphics. 21(4):35-44, July BXK.	 
+
+Z. Liu, S. J. Gortler and M. Cohen. Hierarhical Spacetime Control. Proceedings of SIGGRAPH '94. In ACM Computer Graphics. pages 35-42, 1994. 
+
+N. Magnenat-Thalmann and D. Thalmann. Computer Animation: Theory and  Practice. Springer-Verlag, 1985. 
+
+T. McGeer. Powered flight, child's play, silly wheels and walking machines. Proceedings of the IEEE International Conference on Robotics and Automation, pages 1592-1597, 1989. 
+
+T. McGeer. Passive walking with knees. Proceedings of the IEEE International Conference on Robotics and Automation, pages 1640-1645, 1990. 
+
+T. McGeer. Passive bipedal running. Proceedings of the Royal Society of London,  Vol B.240, 1990. pp. 107-134. 
+	
+M. McKenna and D. Zeltzer. Dynamic Simulation of Autonomous Legged Locomotion. Proceedings of SIGGRAPH 90.InACM Computer Graphics, 24(4):29-38, August 1990. 
+
+T. A. McMahon. Mechanics of Locomotion. International Journal of Robotics Research, 3(2):4-28, Summer 1984. 
+
+L. Mezie. Sparta, a procedure-oriented programming language for the manipulation of arbitrary line drawings. Fourth Congress of the International Federation for Information Processing, pages 96-102, August 1968. 
+
+G. S. P. Miller. The Motion Dynamic of Snakes and Worms. Proceedings of SIGGRAPH 88.InACM Computer Graphics, 22(4):169-187, August 1988. 
+
+S. Mochon and T. A. McMahon. Ballistic walking. Journal of Biomechanics, 13:49- 57, 1980. 
+
+H. Miura and I. Shimoyama. Dynamic Walk of a Biped. International Journal of Robotics Research, 3(2):60-74, Summer 1984. 
+
+J. T. Ngo and J. Marks. Spacetime constraints revisited. Proceedings of SIGGRAPH 93. InACM Computer Graphics.??(?):343-350, August 1993. 
+
+M. G. Pandy and N. Berme. Quantitative assessment of gait determinants during single stance via a three-dimensional model - Part 1. Normal gait. Journal of Biomechanics.22(6-7):717-724, 1989. 
+
+M. H. Raibert. Running With Symmetry. International Journal of Robotics Research.5(4):3-19, Winter 1986. 
+
+M. H. Raibert, H. B. Brown and M. Chepponis. Experiments in Balance with a 3D One-Legged Hopping Machine. International Journal or Robotics Research.3(2):75-92, Summer 1984. 
+
+M. H. Raibert, M. Chepponis and H. B. Brown. Running on Four Legs As Though They Were One. IEEE Journal of Robotics and Automation.RA-2(2):70-82, June BXJ.	 
+
+M. H. Raibert and J. K. Hodgins. Animation f Dynamic Legged Locomotion. Proceedings of SIGGRAPH 91. InACM Computer Graphics.25(4):349-358, August 1991. 
+
+A. W. Salatian and Y. F. Zheng. Gait Synthesis for a Biped Robot Climbing Sloping Surfaces Using Neural Networks, Part I: Static Learning. Proceedings of the 1992 International Conference on Robotics and Automation. pages 2601-2606, Nice, France, May 1992. 
+
+S. Seigler, R. Seliktar and W. Hyman. Simulation of human gait with the aid of a simple mechanical model. Journal of Biomechanics. 15:415-425, 1982. 
+
+K. Sims. Evolving Virtual Creatures. Proceedings of SIGGRAPH '94. In Computer Graphics. pages 43-50, July 1994. 
+
+Burr Snider. Rocket Science. Wired Magazine, November 1995. 
+
+S. N. Steketee and N. I. Badler. Parametric Keyframe Interpolation Incorporating Kinetic Adjustment and Phrasing. Proceedings of SIGGRAPH '85. In Computer Graphics. 19(3):255-262, July 1985. 
+
+A. J. Stewart and J. F. Cremer. Beyond Keyframing: An Algorithmic Approach to Animation. Graphics Interface '92. pages 273-281, 1992. 
+
+D. Sturman. Interactive keyframe animation of 3-d artificial models. Graphics Interface. pages 35-40, 1984. 
+
+D. H. Sutherland L. Cooper and D. Daniel. The role of the ankle plantarflexors in normal walking. Journal of Bone and Joint Surgery. (A) 62:354-363, 1980. 
+
+M.W. Spong and M. Vidyasagar. Robot Dynamics & Control. John Wiley & Sons, 1989. 
+
+A. Takanishi, M. Ishida, Y., Yamazaki and I. Kato. The realization of dynamic walking by the biped walking robot WL-10RD. Proceedings of the 1985 ICAR. pages 459-466, 1985. 
+
+M. A. Townsend. Biped gait stabilization via foot placement. Journal of Biomechanics. 18(1):21-38, 1985. 
+
+M. A. Townsend and A. Seireg. The synthesis of bipedal locomotion. Journal of Biomechanics. 5:71-83, 1972. 
+
+M. A. Townsend and T. C. Tai. Biomechanics and modelling of bipedal climbing and descending. Journal of Biomechanics. 9:227-239, 1976. 
+
+M. Unuma, K. Anjyo and R. Takeuchi. Fourier Principles for Emotion-based Human Figure Animation. Proceedings of SIGGRAPH '95. In Computer Graphics. pages 91-96, August 1995. 
+
+M. van de Panne. Motion Synthesis for Simulation-Based Animation. M.A.Sc. Thesis, University of Toronto, Department of Electrical Engineering, 1989. 
+
+M. van de Panne and E. Fiume. Sensor-Actuator Networks. Proceedings of SIGGRAPH 93. InACM Computer Graphics.pages 335-342, August 1993. 
+
+M. van de Panne, A. Lamouret. Guided Optimization for Balanced Locomotion, Sixth Eurographics Workshop on Animation and Simulation, Sept. 2-3, 1995. 
+
+M. van de Panne, E. Fiume and Z. G. Vranesic. A Controller for the Dynamic Walk of a Biped Across Variable Terrain. Proceedings of 31st Conference on Decision and Control. pages 2668-2673, December 1992. 
+
+M. van de Panne. Parameterized gait synthesis, IEEE Computer Graphics and Applications, v16 (Mar. 1996), pages 40-49. 
+
+M. van de Panne, R. Kim, and E. Fiume. Synthesizing Parameterized Motions, Fifth Eurographics Workshop on Animation and Simulation, Sept. 17-18, 1994. 
+
+M. van de Panne, R. Kim, and E. Fiume. Virtual Wind-Up Toys, Proceedings of Graphics Interface '94, May 1994, 208-215. 
+
+M. Vukobratovic and D. Juricic. Contribution to the synthesis of biped gait. IEEE Transactions on Biomedical Engineering. 16:1-6, 1969. 
+
+M. Vukobratovic and Y. Stepanenko. On the stability of anthropomorphic systems. Math. Biosci. 15:1-37, 1972. 
+
+W. L. Wooten, J. K. Hodgins. Simulation of Human Diving. Proceedings of Graphics Interface 95. pages 1-9, 1995. 
+
+J. Wilhelms. Virya - A motion control editor for kinematic and dynamic animation. Proceedings of Graphics Interface '86. pages 141-146, 1986. 
+
+A. Witkin and M. Kass. Spacetime Constraints. Proceedings of SIGGRAPH 88. In
+
+ACM Computer Graphics, 22(4):159-168, August 1988. 
+
+A. Witkin and Z. Popovic. Motion Warping. Proceedings of SIGGRAPH 95. In ACM Computer Graphics, pages 105-108159-168, August 1995. 
+
+D. Zeltzer. Motor Control Techniques for Figure Animation. IEEE Computer Graphics and Applications, 2(9):53-59, November 1982. 
+
+Y. F. Zheng and J. Shen. Gait Synthesis for the SD-2 Biped robot to Climb Sloping Surface. IEEE Transactions on Robotics and Automation, 6(1):53-59, February BXN.	 

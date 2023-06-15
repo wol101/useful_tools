@@ -1,0 +1,29 @@
+# OBJMangler parameter file to display the lucy skeletal model
+
+ReadOBJFile pelvis scaled_to_lucy/pelvis.obj          
+ReadOBJFile left_femur scaled_to_lucy/left_femur.obj      
+ReadOBJFile right_femur scaled_to_lucy/right_femur.obj
+ReadOBJFile left_tib_fib scaled_to_lucy/left_tib_fib.obj
+ReadOBJFile right_tib_fib scaled_to_lucy/right_tib_fib.obj
+ReadOBJFile left_foot scaled_to_lucy/left_foot.obj       
+ReadOBJFile right_foot scaled_to_lucy/right_foot.obj
+
+Move left_femur 0 0 -0.0605
+Move right_femur 0 0 0.0605
+
+Move left_tib_fib 0.252 0 -0.0605
+Move right_tib_fib 0.252 0 0.0605
+
+Move left_foot 0.517 0 -0.0605
+Move right_foot 0.517 0 0.0605
+
+CreateNew skeleton
+Concatenate skeleton pelvis
+Concatenate skeleton left_femur
+Concatenate skeleton right_femur
+Concatenate skeleton left_tib_fib
+Concatenate skeleton right_tib_fib
+Concatenate skeleton left_foot
+Concatenate skeleton right_foot
+
+SetDisplay skeleton

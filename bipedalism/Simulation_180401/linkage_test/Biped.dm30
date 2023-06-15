@@ -1,0 +1,185 @@
+# DynaMechs V 3.0 ascii
+# tree parameter file
+# mass parameters should be treated as approximate
+# (very approximate for the torso)
+
+Articulation 
+{
+    Name              	""
+    Graphics_Model    	""
+    Position          	0.0	0.0	0.0
+    Orientation_Quat  	0.0	0.0	0.0 	1.0
+
+    MobileBaseLink 
+    {
+	Name                    	"torso"
+	Graphics_Model  		"torso.xan"
+
+	Mass           			51.8
+	Inertia                 	0.44    0.0     0.0
+					0.0 	0.99    0.0
+					0.0	0.0     0.99
+	Center_of_Gravity       	0.0	0.0     0.0
+
+	Number_of_Contact_Points         0
+
+	Position                	2.0    	5.0    	3.0
+	Orientation_Quat        	0.5     0.5     -0.5     0.5
+	Velocity                	0.0     0.0     0.0     0.0     0.0     0.0
+    }
+
+# left leg
+    Branch 
+    {
+	RevoluteLink 
+	{
+	    Name                	"left_thigh"
+	    Graphics_Model      	"left_thigh.xan"
+
+	    Mass                	8.35
+	    Inertia             	0.025   0.0     0.0
+					0.0     0.49    0.0
+					0.0     0.0     0.49
+	    Center_of_Gravity   	0.198   0.0     0.0
+
+	    Number_of_Contact_Points	0
+	    
+	    MDH_Parameters      	0.4     0.0    -0.0835     0.7
+	    Initial_Joint_Velocity      0.0
+	    Joint_Limits                -0.175  2.09   
+	    Joint_Limit_Spring_Constant	50.0
+	    Joint_Limit_Damper_Constant 5.0
+
+	    Actuator_Type        	0
+	    Joint_Friction       	0.35
+	}
+
+	RevoluteLink 
+	{
+	    Name                	"left_calf"
+	    Graphics_Model      	"left_calf.xan"
+
+	    Mass                	4.16
+	    Inertia             	0.007    0.0     0.0
+					0.0      0.25    0.0
+					0.0      0.0     0.25
+	    Center_of_Gravity   	0.215    0.0     0.0
+
+	    Number_of_Contact_Points	0
+
+	    MDH_Parameters      	0.396     0.0    0.0     -0.7
+	    Initial_Joint_Velocity      0.0
+	    Joint_Limits        	-2.09     0.0
+	    Joint_Limit_Spring_Constant	50.0
+	    Joint_Limit_Damper_Constant	5.0
+
+	    Actuator_Type       	0
+	    Joint_Friction       	0.35
+	}
+
+	RevoluteLink 
+	{
+	    Name                	"left_foot"
+	    Graphics_Model      	"left_foot.xan"
+
+	    Mass                	1.20
+	    Inertia             	0.023   0.0      0.0
+					0.0     0.0018   0.0
+					0.0     0.0      0.023
+	    Center_of_Gravity   	0.0   	0.115    0.0
+
+	    Number_of_Contact_Points	 4
+	    Contact_Locations		 0.05   0.0  	-0.044
+					 0.05   0.0   	0.044
+					 0.05   0.20 	-0.044
+					 0.05   0.20  	0.044
+ 
+	    MDH_Parameters      	0.43     0.0    0.0     0.0
+	    Initial_Joint_Velocity      0.0
+	    Joint_Limits        	-0.698  0.576 
+	    Joint_Limit_Spring_Constant	50.0
+	    Joint_Limit_Damper_Constant	5.0
+
+	    Actuator_Type        	0
+	    Joint_Friction       	0.35
+	}
+    }
+
+# right leg
+    Branch 
+    {
+	RevoluteLink 
+	{
+	    Name                	"right_thigh"
+	    Graphics_Model      	"right_thigh.xan"
+
+	    Mass                	8.35
+	    Inertia             	0.025   0.0     0.0
+					0.0     0.49    0.0
+					0.0     0.0     0.49
+	    Center_of_Gravity   	0.198   0.0     0.0
+
+	    Number_of_Contact_Points	0
+	    
+	    MDH_Parameters      	0.4     0.0    0.0835     0.7
+	    Initial_Joint_Velocity      0.0
+	    Joint_Limits                -0.175  2.09   
+	    Joint_Limit_Spring_Constant	50.0
+	    Joint_Limit_Damper_Constant 5.0
+
+	    Actuator_Type        	0
+	    Joint_Friction       	0.35
+	}
+
+	RevoluteLink 
+	{
+	    Name                	"right_calf"
+	    Graphics_Model      	"right_calf.xan"
+
+	    Mass                	4.16
+	    Inertia             	0.007    0.0     0.0
+					0.0      0.25    0.0
+					0.0      0.0     0.25
+	    Center_of_Gravity   	0.215    0.0     0.0
+
+	    Number_of_Contact_Points	0
+
+	    MDH_Parameters      	0.396     0.0    0.0     -0.7
+	    Initial_Joint_Velocity      0.0
+	    Joint_Limits        	-2.09     0.0
+	    Joint_Limit_Spring_Constant	50.0
+	    Joint_Limit_Damper_Constant	5.0
+
+	    Actuator_Type       	0
+	    Joint_Friction       	0.35
+	}
+
+	RevoluteLink 
+	{
+	    Name                	"right_foot"
+	    Graphics_Model      	"right_foot.xan"
+
+	    Mass                	1.20
+	    Inertia             	0.023   0.0      0.0
+					0.0     0.0018   0.0
+					0.0     0.0      0.023
+	    Center_of_Gravity   	0.0   	0.115    0.0
+
+	    Number_of_Contact_Points	 4
+	    Contact_Locations		 0.05   0.0  	-0.044
+					 0.05   0.0   	0.044
+					 0.05   0.20 	-0.044
+					 0.05   0.20  	0.044
+ 
+	    MDH_Parameters      	0.43     0.0    0.0     0.0
+	    Initial_Joint_Velocity      0.0
+	    Joint_Limits        	-0.698  0.576 
+	    Joint_Limit_Spring_Constant	50.0
+	    Joint_Limit_Damper_Constant	5.0
+
+	    Actuator_Type        	0
+	    Joint_Friction       	0.35
+	}
+    }
+
+}

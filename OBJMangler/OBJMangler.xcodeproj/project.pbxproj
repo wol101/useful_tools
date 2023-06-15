@@ -1,0 +1,321 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		5F7092130BE9EDF0007BC1F6 /* FacetedObject.cc in Sources */ = {isa = PBXBuildFile; fileRef = F5D5A3610475542B01A80001 /* FacetedObject.cc */; };
+		5F7092140BE9EDF0007BC1F6 /* FacetedObjectList.cc in Sources */ = {isa = PBXBuildFile; fileRef = F5D5A35F0475542B01A80001 /* FacetedObjectList.cc */; };
+		5F7092150BE9EDF1007BC1F6 /* GLUIRoutines.cc in Sources */ = {isa = PBXBuildFile; fileRef = F5D5A35D0475542B01A80001 /* GLUIRoutines.cc */; };
+		5F7092160BE9EDF2007BC1F6 /* heapsort.c in Sources */ = {isa = PBXBuildFile; fileRef = F5D5A3760475544E01A80001 /* heapsort.c */; };
+		5F7092170BE9EDF3007BC1F6 /* Intersection.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5D5A35B0475542B01A80001 /* Intersection.cpp */; };
+		5F7092180BE9EDF4007BC1F6 /* l3ds.cc in Sources */ = {isa = PBXBuildFile; fileRef = 5FBF78D40AF6954100322076 /* l3ds.cc */; };
+		5F70921A0BE9EDF6007BC1F6 /* merge.c in Sources */ = {isa = PBXBuildFile; fileRef = F5D5A3780475544E01A80001 /* merge.c */; };
+		5F70921B0BE9EDF7007BC1F6 /* MyFace.cc in Sources */ = {isa = PBXBuildFile; fileRef = F5D5A3590475542B01A80001 /* MyFace.cc */; };
+		5F70921C0BE9EDF9007BC1F6 /* OBJMangler.cc in Sources */ = {isa = PBXBuildFile; fileRef = F5D5A3630475542B01A80001 /* OBJMangler.cc */; };
+		5F70921D0BE9EDFA007BC1F6 /* qsort.c in Sources */ = {isa = PBXBuildFile; fileRef = F5D5A37A0475544E01A80001 /* qsort.c */; };
+		5F70921E0BE9EDFA007BC1F6 /* Shapes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = F5D5A3560475542B01A80001 /* Shapes.cpp */; };
+		5F70921F0BE9EDFC007BC1F6 /* TextFile.cc in Sources */ = {isa = PBXBuildFile; fileRef = F5D5A3540475542B01A80001 /* TextFile.cc */; };
+		5F7092200BE9EDFD007BC1F6 /* VoxelObject.cc in Sources */ = {isa = PBXBuildFile; fileRef = F5D5A382047581CD01A80001 /* VoxelObject.cc */; };
+		5F7092350BE9EE1F007BC1F6 /* libglui.a in Frameworks */ = {isa = PBXBuildFile; fileRef = F51899A104769D0101A80001 /* libglui.a */; };
+		5F7092C20BE9EE3B007BC1F6 /* GLUT.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F518997704769CAB01A80001 /* GLUT.framework */; };
+		5F7092C30BE9EE3C007BC1F6 /* OpenGL.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = F518998C04769CBB01A80001 /* OpenGL.framework */; };
+		5F7E87410F5DD57E0088CCA0 /* libANN.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5F7E87400F5DD57E0088CCA0 /* libANN.a */; };
+		5FC175940F5C181500767065 /* libode.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 5FC175930F5C181500767065 /* libode.a */; };
+		5FD072510FB70B55005B2E58 /* Dicom.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5FD072500FB70B55005B2E58 /* Dicom.cpp */; };
+		5FECBF0E0F5D40B5000FC176 /* MarchingCubes.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 5FECBF0D0F5D40B5000FC176 /* MarchingCubes.cpp */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		5F70920C0BE9EDB9007BC1F6 /* OBJMangler */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = OBJMangler; sourceTree = BUILT_PRODUCTS_DIR; };
+		5F7E87400F5DD57E0088CCA0 /* libANN.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libANN.a; path = ../../lib/libANN.a; sourceTree = SOURCE_ROOT; };
+		5FBF78D40AF6954100322076 /* l3ds.cc */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.cpp.cpp; path = l3ds.cc; sourceTree = "<group>"; };
+		5FBF78D50AF6954100322076 /* l3ds.h */ = {isa = PBXFileReference; fileEncoding = 30; lastKnownFileType = sourcecode.c.h; path = l3ds.h; sourceTree = "<group>"; };
+		5FC175930F5C181500767065 /* libode.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libode.a; path = ../../lib/libode.a; sourceTree = SOURCE_ROOT; };
+		5FD0724F0FB70B55005B2E58 /* Dicom.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Dicom.h; sourceTree = "<group>"; };
+		5FD072500FB70B55005B2E58 /* Dicom.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Dicom.cpp; sourceTree = "<group>"; };
+		5FE3E6B00F5FD16900760515 /* MyVertex.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MyVertex.h; sourceTree = "<group>"; };
+		5FECBF0C0F5D40B5000FC176 /* MarchingCubes.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MarchingCubes.h; sourceTree = "<group>"; };
+		5FECBF0D0F5D40B5000FC176 /* MarchingCubes.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = MarchingCubes.cpp; sourceTree = "<group>"; };
+		C6859E8B029090EE04C91782 /* OBJMangler.1 */ = {isa = PBXFileReference; lastKnownFileType = text.man; path = OBJMangler.1; sourceTree = "<group>"; };
+		F518997704769CAB01A80001 /* GLUT.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = GLUT.framework; path = /System/Library/Frameworks/GLUT.framework; sourceTree = "<absolute>"; };
+		F518998C04769CBB01A80001 /* OpenGL.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OpenGL.framework; path = /System/Library/Frameworks/OpenGL.framework; sourceTree = "<absolute>"; };
+		F51899A104769D0101A80001 /* libglui.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libglui.a; path = ../../lib/libglui.a; sourceTree = "<group>"; };
+		F5189B2B0476C2D101A80001 /* makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
+		F5BD828E0478014301A80001 /* makefile */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.make; path = makefile; sourceTree = "<group>"; };
+		F5D5A3530475542B01A80001 /* TextFile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TextFile.h; sourceTree = "<group>"; };
+		F5D5A3540475542B01A80001 /* TextFile.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = TextFile.cc; sourceTree = "<group>"; };
+		F5D5A3550475542B01A80001 /* Shapes.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Shapes.h; sourceTree = "<group>"; };
+		F5D5A3560475542B01A80001 /* Shapes.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Shapes.cpp; sourceTree = "<group>"; };
+		F5D5A3570475542B01A80001 /* mymath.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = mymath.h; sourceTree = "<group>"; };
+		F5D5A3580475542B01A80001 /* MyFace.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MyFace.h; sourceTree = "<group>"; };
+		F5D5A3590475542B01A80001 /* MyFace.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = MyFace.cc; sourceTree = "<group>"; };
+		F5D5A35A0475542B01A80001 /* Intersection.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Intersection.h; sourceTree = "<group>"; };
+		F5D5A35B0475542B01A80001 /* Intersection.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Intersection.cpp; sourceTree = "<group>"; };
+		F5D5A35C0475542B01A80001 /* GLUIRoutines.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = GLUIRoutines.h; sourceTree = "<group>"; };
+		F5D5A35D0475542B01A80001 /* GLUIRoutines.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = GLUIRoutines.cc; sourceTree = "<group>"; };
+		F5D5A35E0475542B01A80001 /* FacetedObjectList.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FacetedObjectList.h; sourceTree = "<group>"; };
+		F5D5A35F0475542B01A80001 /* FacetedObjectList.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = FacetedObjectList.cc; sourceTree = "<group>"; };
+		F5D5A3600475542B01A80001 /* FacetedObject.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FacetedObject.h; sourceTree = "<group>"; };
+		F5D5A3610475542B01A80001 /* FacetedObject.cc */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FacetedObject.cc; sourceTree = "<group>"; tabWidth = 8; usesTabs = 0; };
+		F5D5A3620475542B01A80001 /* Debug.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Debug.h; sourceTree = "<group>"; };
+		F5D5A3630475542B01A80001 /* OBJMangler.cc */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = OBJMangler.cc; sourceTree = "<group>"; };
+		F5D5A3760475544E01A80001 /* heapsort.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = heapsort.c; sourceTree = "<group>"; };
+		F5D5A3780475544E01A80001 /* merge.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = merge.c; sourceTree = "<group>"; };
+		F5D5A37A0475544E01A80001 /* qsort.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = qsort.c; sourceTree = "<group>"; };
+		F5D5A37B0475544E01A80001 /* sort.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sort.h; sourceTree = "<group>"; };
+		F5D5A382047581CD01A80001 /* VoxelObject.cc */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.cpp.cpp; path = VoxelObject.cc; sourceTree = "<group>"; tabWidth = 8; usesTabs = 0; };
+		F5D5A384047581EC01A80001 /* VoxelObject.h */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.c.h; path = VoxelObject.h; sourceTree = "<group>"; tabWidth = 8; usesTabs = 0; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		5F70920A0BE9EDB9007BC1F6 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F7092350BE9EE1F007BC1F6 /* libglui.a in Frameworks */,
+				5F7092C20BE9EE3B007BC1F6 /* GLUT.framework in Frameworks */,
+				5F7092C30BE9EE3C007BC1F6 /* OpenGL.framework in Frameworks */,
+				5FC175940F5C181500767065 /* libode.a in Frameworks */,
+				5F7E87410F5DD57E0088CCA0 /* libANN.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		0249A662FF388D9811CA2CEA /* External Frameworks and Libraries */ = {
+			isa = PBXGroup;
+			children = (
+				5F7E87400F5DD57E0088CCA0 /* libANN.a */,
+				F51899A104769D0101A80001 /* libglui.a */,
+				5FC175930F5C181500767065 /* libode.a */,
+				F518997704769CAB01A80001 /* GLUT.framework */,
+				F518998C04769CBB01A80001 /* OpenGL.framework */,
+			);
+			name = "External Frameworks and Libraries";
+			sourceTree = "<group>";
+		};
+		08FB7794FE84155DC02AAC07 /* OBJMangler */ = {
+			isa = PBXGroup;
+			children = (
+				08FB7795FE84155DC02AAC07 /* Source */,
+				F5189B2A0476C2AE01A80001 /* Unix */,
+				C6859E8C029090F304C91782 /* Documentation */,
+				0249A662FF388D9811CA2CEA /* External Frameworks and Libraries */,
+				1AB674ADFE9D54B511CA2CBB /* Products */,
+			);
+			name = OBJMangler;
+			sourceTree = "<group>";
+		};
+		08FB7795FE84155DC02AAC07 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				F5D5A3530475542B01A80001 /* TextFile.h */,
+				F5D5A3540475542B01A80001 /* TextFile.cc */,
+				F5D5A3550475542B01A80001 /* Shapes.h */,
+				F5D5A3560475542B01A80001 /* Shapes.cpp */,
+				F5D5A3570475542B01A80001 /* mymath.h */,
+				F5D5A3580475542B01A80001 /* MyFace.h */,
+				F5D5A3590475542B01A80001 /* MyFace.cc */,
+				F5D5A35A0475542B01A80001 /* Intersection.h */,
+				F5D5A35B0475542B01A80001 /* Intersection.cpp */,
+				F5D5A35C0475542B01A80001 /* GLUIRoutines.h */,
+				F5D5A35D0475542B01A80001 /* GLUIRoutines.cc */,
+				F5D5A35E0475542B01A80001 /* FacetedObjectList.h */,
+				F5D5A35F0475542B01A80001 /* FacetedObjectList.cc */,
+				F5D5A3600475542B01A80001 /* FacetedObject.h */,
+				F5D5A3610475542B01A80001 /* FacetedObject.cc */,
+				F5D5A3620475542B01A80001 /* Debug.h */,
+				F5D5A3630475542B01A80001 /* OBJMangler.cc */,
+				F5D5A384047581EC01A80001 /* VoxelObject.h */,
+				F5D5A382047581CD01A80001 /* VoxelObject.cc */,
+				5FBF78D40AF6954100322076 /* l3ds.cc */,
+				5FBF78D50AF6954100322076 /* l3ds.h */,
+				F5D5A3750475544E01A80001 /* sort */,
+				5FECBF0C0F5D40B5000FC176 /* MarchingCubes.h */,
+				5FECBF0D0F5D40B5000FC176 /* MarchingCubes.cpp */,
+				5FE3E6B00F5FD16900760515 /* MyVertex.h */,
+				5FD0724F0FB70B55005B2E58 /* Dicom.h */,
+				5FD072500FB70B55005B2E58 /* Dicom.cpp */,
+			);
+			name = Source;
+			sourceTree = "<group>";
+		};
+		1AB674ADFE9D54B511CA2CBB /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				5F70920C0BE9EDB9007BC1F6 /* OBJMangler */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C6859E8C029090F304C91782 /* Documentation */ = {
+			isa = PBXGroup;
+			children = (
+				C6859E8B029090EE04C91782 /* OBJMangler.1 */,
+			);
+			name = Documentation;
+			sourceTree = "<group>";
+		};
+		F5189B2A0476C2AE01A80001 /* Unix */ = {
+			isa = PBXGroup;
+			children = (
+				F5189B2B0476C2D101A80001 /* makefile */,
+			);
+			name = Unix;
+			sourceTree = "<group>";
+		};
+		F5D5A3750475544E01A80001 /* sort */ = {
+			isa = PBXGroup;
+			children = (
+				F5D5A3760475544E01A80001 /* heapsort.c */,
+				F5D5A3780475544E01A80001 /* merge.c */,
+				F5D5A37A0475544E01A80001 /* qsort.c */,
+				F5D5A37B0475544E01A80001 /* sort.h */,
+				F5BD828E0478014301A80001 /* makefile */,
+			);
+			path = sort;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		5F70920B0BE9EDB9007BC1F6 /* OBJMangler */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 5F70920E0BE9EDD7007BC1F6 /* Build configuration list for PBXNativeTarget "OBJMangler" */;
+			buildPhases = (
+				5F7092090BE9EDB9007BC1F6 /* Sources */,
+				5F70920A0BE9EDB9007BC1F6 /* Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = OBJMangler;
+			productName = OBJMangler;
+			productReference = 5F70920C0BE9EDB9007BC1F6 /* OBJMangler */;
+			productType = "com.apple.product-type.tool";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		08FB7793FE84155DC02AAC07 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0450;
+			};
+			buildConfigurationList = 5FBF78C10AF6925700322076 /* Build configuration list for PBXProject "OBJMangler" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				English,
+				Japanese,
+				French,
+				German,
+			);
+			mainGroup = 08FB7794FE84155DC02AAC07 /* OBJMangler */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				5F70920B0BE9EDB9007BC1F6 /* OBJMangler */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXSourcesBuildPhase section */
+		5F7092090BE9EDB9007BC1F6 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				5F7092130BE9EDF0007BC1F6 /* FacetedObject.cc in Sources */,
+				5F7092140BE9EDF0007BC1F6 /* FacetedObjectList.cc in Sources */,
+				5F7092150BE9EDF1007BC1F6 /* GLUIRoutines.cc in Sources */,
+				5F7092160BE9EDF2007BC1F6 /* heapsort.c in Sources */,
+				5F7092170BE9EDF3007BC1F6 /* Intersection.cpp in Sources */,
+				5F7092180BE9EDF4007BC1F6 /* l3ds.cc in Sources */,
+				5F70921A0BE9EDF6007BC1F6 /* merge.c in Sources */,
+				5F70921B0BE9EDF7007BC1F6 /* MyFace.cc in Sources */,
+				5F70921C0BE9EDF9007BC1F6 /* OBJMangler.cc in Sources */,
+				5F70921D0BE9EDFA007BC1F6 /* qsort.c in Sources */,
+				5F70921E0BE9EDFA007BC1F6 /* Shapes.cpp in Sources */,
+				5F70921F0BE9EDFC007BC1F6 /* TextFile.cc in Sources */,
+				5F7092200BE9EDFD007BC1F6 /* VoxelObject.cc in Sources */,
+				5FECBF0E0F5D40B5000FC176 /* MarchingCubes.cpp in Sources */,
+				5FD072510FB70B55005B2E58 /* Dicom.cpp in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		5F70920F0BE9EDD7007BC1F6 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_GENERATE_DEBUGGING_SYMBOLS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					dTRIMESH_ENABLED,
+					dDOUBLE,
+					USE_ODE,
+				);
+				HEADER_SEARCH_PATHS = (
+					/System/Library/Frameworks/GLUT.framework/Headers/,
+					/System/Library/Frameworks/OpenGL.framework/Headers/,
+				);
+				INSTALL_PATH = "$(HOME)/bin";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_1)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1)",
+					"$(LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2)",
+				);
+				LIBRARY_SEARCH_PATHS_QUOTED_1 = "\"$(SRCROOT)/../../lib\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_1 = "\"$(SRCROOT)/../../lib\"";
+				LIBRARY_SEARCH_PATHS_QUOTED_FOR_TARGET_2 = "\"$(SRCROOT)/../../lib\"";
+				PRODUCT_NAME = OBJMangler;
+				USER_HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../../include/glui\" \"$(SRCROOT)/../../include";
+				ZERO_LINK = YES;
+			};
+			name = Development;
+		};
+		5FBF78C20AF6925700322076 /* Development */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_64_BIT)";
+				HEADER_SEARCH_PATHS = "";
+				ONLY_ACTIVE_ARCH = YES;
+				USER_HEADER_SEARCH_PATHS = "";
+			};
+			name = Development;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		5F70920E0BE9EDD7007BC1F6 /* Build configuration list for PBXNativeTarget "OBJMangler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5F70920F0BE9EDD7007BC1F6 /* Development */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Development;
+		};
+		5FBF78C10AF6925700322076 /* Build configuration list for PBXProject "OBJMangler" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				5FBF78C20AF6925700322076 /* Development */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Development;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 08FB7793FE84155DC02AAC07 /* Project object */;
+}

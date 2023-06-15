@@ -1,0 +1,203 @@
+(***********************************************************************
+
+                    Mathematica-Compatible Notebook
+
+This notebook can be used on any computer system with Mathematica 4.0,
+MathReader 4.0, or any compatible application. The data for the notebook 
+starts with the line containing stars above.
+
+To get the notebook into a Mathematica-compatible application, do one of 
+the following:
+
+* Save the data starting with the line of stars above into a file
+  with a name ending in .nb, then open the file inside the application;
+
+* Copy the data starting with the line of stars above to the
+  clipboard, then use the Paste menu command inside the application.
+
+Data for notebooks contains only printable 7-bit ASCII and can be
+sent directly in email or through ftp in text mode.  Newlines can be
+CR, LF or CRLF (Unix, Macintosh or MS-DOS style).
+
+NOTE: If you modify the data for this notebook not in a Mathematica-
+compatible application, you must delete the line below containing the 
+word CacheID, otherwise Mathematica-compatible applications may try to 
+use invalid cache data.
+
+For more information on notebooks and Mathematica-compatible 
+applications, contact Wolfram Research:
+  web: http://www.wolfram.com
+  email: info@wolfram.com
+  phone: +1-217-398-0700 (U.S.)
+
+Notebook reader applications are available free of charge from 
+Wolfram Research.
+***********************************************************************)
+
+(*CacheID: 232*)
+
+
+(*NotebookFileLineBreakTest
+NotebookFileLineBreakTest*)
+(*NotebookOptionsPosition[      4983,        151]*)
+(*NotebookOutlinePosition[      5657,        175]*)
+(*  CellTagsIndexPosition[      5613,        171]*)
+(*WindowFrame->Normal*)
+
+
+
+Notebook[{
+
+Cell[CellGroupData[{
+Cell["Point inside Cuboid problem", "Title"],
+
+Cell["Use the parametric forms for a cuboid:", "Text"],
+
+Cell[TextData[{
+  "Cuboid:\n\t ",
+  Cell[BoxData[
+      \(TraditionalForm\`P\&_\_C\)]],
+  " = ",
+  Cell[BoxData[
+      \(TraditionalForm\`O\&_\_C\)]],
+  " + a",
+  Cell[BoxData[
+      \(TraditionalForm\`A\&_\)]],
+  " + b",
+  Cell[BoxData[
+      \(TraditionalForm\`B\&_\)]],
+  " + c",
+  Cell[BoxData[
+      \(TraditionalForm\`C\&_\)]],
+  "\n"
+}], "Text"],
+
+Cell[TextData[{
+  "A point is in a cuboid when ",
+  Cell[BoxData[
+      \(TraditionalForm\`P\&_\)]],
+  " == ",
+  Cell[BoxData[
+      \(TraditionalForm\`P\&_\_C\)]],
+  ", and 0 \[LessEqual]a \[LessEqual] 1, 0 \[LessEqual]b \[LessEqual] 1, 0 \
+\[LessEqual]c \[LessEqual] 1"
+}], "Text"],
+
+Cell["\<\Convert to cartesian representation to produce 3 simultaneous \equations in x, y and z\\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(Solve[{x \[Equal] Ox + a\ Ax + b\ Bx + c\ Cx, 
+        y \[Equal] Oy + a\ Ay + b\ By + c\ Cy, 
+        z \[Equal] Oz + a\ Az + b\ Bz + c\ Cz}, {a, b, c}]\)], "Input"],
+
+Cell[BoxData[
+    \({{a \[Rule] \(-\(\((\(-Bz\)\ Cy\ Ox + By\ Cz\ Ox + Bz\ Cx\ Oy - 
+                  Bx\ Cz\ Oy - By\ Cx\ Oz + Bx\ Cy\ Oz + Bz\ Cy\ x - 
+                  By\ Cz\ x - Bz\ Cx\ y + Bx\ Cz\ y + By\ Cx\ z - 
+                  Bx\ Cy\ z)\)/\((\(-Az\)\ By\ Cx + Ay\ Bz\ Cx + Az\ Bx\ Cy - 
+                  Ax\ Bz\ Cy - Ay\ Bx\ Cz + Ax\ By\ Cz)\)\)\), 
+        b \[Rule] \(-\(\((\(-Az\)\ Cy\ Ox + Ay\ Cz\ Ox + Az\ Cx\ Oy - 
+                  Ax\ Cz\ Oy - Ay\ Cx\ Oz + Ax\ Cy\ Oz + Az\ Cy\ x - 
+                  Ay\ Cz\ x - Az\ Cx\ y + Ax\ Cz\ y + Ay\ Cx\ z - 
+                  Ax\ Cy\ z)\)/\((Az\ By\ Cx - Ay\ Bz\ Cx - Az\ Bx\ Cy + 
+                  Ax\ Bz\ Cy + Ay\ Bx\ Cz - Ax\ By\ Cz)\)\)\), 
+        c \[Rule] \(-\(\((\(-Az\)\ By\ Ox + Ay\ Bz\ Ox + Az\ Bx\ Oy - 
+                  Ax\ Bz\ Oy - Ay\ Bx\ Oz + Ax\ By\ Oz + Az\ By\ x - 
+                  Ay\ Bz\ x - Az\ Bx\ y + Ax\ Bz\ y + Ay\ Bx\ z - 
+                  Ax\ By\ z)\)/\((\(-Az\)\ By\ Cx + Ay\ Bz\ Cx + Az\ Bx\ Cy - 
+                  Ax\ Bz\ Cy - Ay\ Bx\ Cz + Ax\ By\ Cz)\)\)\)}}\)], "Output"]
+}, Open  ]],
+
+Cell["\<\
+This allows me to calculate a, b, and c. They can then be checked \
+to see if they are within range.\
+\>", "Text"],
+
+Cell[CellGroupData[{
+
+Cell[BoxData[
+    \(CForm[%]\)], "Input"],
+
+Cell["\<\
+List(List(Rule(a,-((-(Bz*Cy*Ox) + By*Cz*Ox + 
+          Bz*Cx*Oy - Bx*Cz*Oy - By*Cx*Oz + 
+          Bx*Cy*Oz + Bz*Cy*x - By*Cz*x - 
+          Bz*Cx*y + Bx*Cz*y + By*Cx*z - Bx*Cy*z
+          )/
+        (-(Az*By*Cx) + Ay*Bz*Cx + Az*Bx*Cy - 
+          Ax*Bz*Cy - Ay*Bx*Cz + Ax*By*Cz))),
+    Rule(b,-((-(Az*Cy*Ox) + Ay*Cz*Ox + 
+          Az*Cx*Oy - Ax*Cz*Oy - Ay*Cx*Oz + 
+          Ax*Cy*Oz + Az*Cy*x - Ay*Cz*x - 
+          Az*Cx*y + Ax*Cz*y + Ay*Cx*z - Ax*Cy*z
+          )/
+        (Az*By*Cx - Ay*Bz*Cx - Az*Bx*Cy + 
+          Ax*Bz*Cy + Ay*Bx*Cz - Ax*By*Cz))),
+    Rule(c,-((-(Az*By*Ox) + Ay*Bz*Ox + 
+          Az*Bx*Oy - Ax*Bz*Oy - Ay*Bx*Oz + 
+          Ax*By*Oz + Az*By*x - Ay*Bz*x - 
+          Az*Bx*y + Ax*Bz*y + Ay*Bx*z - Ax*By*z
+          )/
+        (-(Az*By*Cx) + Ay*Bz*Cx + Az*Bx*Cy - 
+          Ax*Bz*Cy - Ay*Bx*Cz + Ax*By*Cz)))))\
+\>", "Output"]
+}, Open  ]]
+}, Open  ]]
+},
+FrontEndVersion->"4.0 for Microsoft Windows",
+ScreenRectangle->{{0, 1280}, {0, 555}},
+WindowSize->{925, 472},
+WindowMargins->{{19, Automatic}, {Automatic, 7}},
+Magnification->1.5
+]
+
+
+(***********************************************************************
+Cached data follows.  If you edit this Notebook file directly, not using
+Mathematica, you must remove the line containing CacheID at the top of 
+the file.  The cache data will then be recreated when you save this file 
+from within Mathematica.
+***********************************************************************)
+
+(*CellTagsOutline
+CellTagsIndex->{}
+*)
+
+(*CellTagsIndex
+CellTagsIndex->{}
+*)
+
+(*NotebookFileOutline
+Notebook[{
+
+Cell[CellGroupData[{
+Cell[1739, 51, 44, 0, 171, "Title"],
+Cell[1786, 53, 54, 0, 47, "Text"],
+Cell[1843, 55, 352, 17, 99, "Text"],
+Cell[2198, 74, 283, 9, 47, "Text"],
+Cell[2484, 85, 111, 3, 47, "Text"],
+
+Cell[CellGroupData[{
+Cell[2620, 92, 186, 3, 68, "Input"],
+Cell[2809, 97, 1075, 15, 241, "Output"]
+}, Open  ]],
+Cell[3899, 115, 124, 3, 47, "Text"],
+
+Cell[CellGroupData[{
+Cell[4048, 122, 41, 1, 42, "Input"],
+Cell[4092, 125, 863, 22, 499, "Output"]
+}, Open  ]]
+}, Open  ]]
+}
+]
+*)
+
+
+
+
+(***********************************************************************
+End of Mathematica Notebook file.
+***********************************************************************)
+

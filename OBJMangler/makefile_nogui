@@ -1,0 +1,67 @@
+# makefile for the subprocess objective option
+
+# get the system name
+SYSTEM = $(shell uname)
+
+# change this in shell to -g for debug and -O3 for optimisation
+OPT_FLAGS ?= -O3 -ffast-math
+
+ifeq ($(SYSTEM),Linux)
+# GNU compiler flags 
+CXXFLAGS    = -Wall -fexceptions $(OPT_FLAGS) $(EXTRA_FLAGS)
+# extras for Beowulf compilation
+ifeq ($(HOSTNAME),ulgbc1.liv.ac.uk)
+OPT_FLAGS = -O3 -ffast-math -march=k6
+endif
+ifeq ($(HOSTNAME),microlith)
+#OPT_FLAGS += -march=opteron
+OPT_FLAGS = -O3 -ffast-math
+endif
+endif
+
+ifeq ($(SYSTEM),Darwin)
+# GNU compiler flags (works with g++ and egcs)
+CXXFLAGS    = -Wall -fexceptions $(OPT_FLAGS) $(EXTRA_FLAGS)
+# suggested by linker
+LDFLAGS = -Xlinker -bind_at_load 
+ifeq ($(OPT_FLAGS), -g)
+LIBS = -lMallocDebug
+endif
+endif
+
+ifeq ($(SYSTEM),CYGWIN_NT-5.1)
+# GNU compiler flags 
+CXXFLAGS = -Wall -fexceptions $(OPT_FLAGS) $(EXTRA_FLAGS)
+endif
+
+
+# set up a compilation rule for gnu make
+.SUFFIXES: .cc
+.cc.o:
+	$(CXX) $(CXXFLAGS) $(INC_DIRS) -c $<
+
+
+INC_DIRS= -I. -I$(HOME)/Unix/include 
+LIBS ?= -L$(HOME)/Unix/lib -lode -lANN -lpthread -lm 
+BIN_DEST ?= $(HOME)/Unix/bin/
+EXTRA_FLAGS = -DUSE_ODE -DdDOUBLE -DdTRIMESH_ENABLED -DNO_GUI
+
+all: sort/sortlib.a OBJMangler
+
+sort/sortlib.a:
+	(cd sort; make)
+
+OBJMangler: \
+FacetedObject.o MyFace.o OBJMangler.o TextFile.o \
+Shapes.o Intersection.o VoxelObject.o FacetedObjectList.o l3ds.o \
+MarchingCubes.o Dicom.o
+	$(CXX) $(LDFLAGS) -o $@ $^ $(OPENGL_LIBS) $(LIBS)
+
+clean:
+	rm -f OBJMangler
+	rm -f *.o *~ *.bak core *.bck *.tmp *.exe
+	rm -rf ii_files
+
+install: OBJMangler
+	cp -f OBJMangler $(BIN_DEST)
+

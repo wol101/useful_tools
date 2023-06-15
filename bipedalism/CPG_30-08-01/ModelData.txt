@@ -1,0 +1,330 @@
+ModelData.txt
+This file contains the required segment parameters for the model
+
+The file is read in a very free format - it is simply searched for
+a keyword and then the next token or tokens are used as the values.
+This will go horribly wrong if keywords are used in comments
+
+Keywords can be temporarily 'commented out' by adding or deleting a
+letter. I usually just add an underscore at the beginning
+
+-------------------------------------------
+General Modelling Parameters
+-------------------------------------------
+kIntegrationStepsize                0.0002
+
+
+-------------------------------------------
+Environment Information
+-------------------------------------------
+kGravityVector			    0.0   0.0   -9.81
+kTerrainDataFilename                "Terrain.dat"
+kGroundPlanarSpringConstant         20000.0
+kGroundNormalSpringConstant         20000.0
+kGroundPlanarDamperConstant         200.0
+kGroundNormalDamperConstant         200.0
+kGroundStaticFrictionCoeff          1000.0      u_s
+kGroundKineticFrictionCoeff         800.0       u_k - Should be smaller than us
+
+Human values from Delph's model (see the ISB website)
+and Lazlo's thesis for CM and MOI
+used Mathematica and parallel axis theorem to adjust
+for required CM
+
+some generic values
+
+kDefaultJointLimitSpringConstant    1000.0 
+kDefaultJointLimitDamperConstant    100.0 
+kDefaultJointFriction               0.01        previous value 0.35 
+kDefaultMuscleActivationK           0.17        van Leeuwen 1992
+kDefaultMuscleForcePerUnitArea      200000      Winter - non-pennate value
+kDefaultMuscleVMaxFactor            6           Winter - animal max
+
+-------------------------------------------
+Links
+-------------------------------------------
+
+-------------------------------------------
+Torso
+-------------------------------------------
+kTorsoPartName      "Torso" 
+kTorsoGraphicFile   "Torso.xan" 
+kTorsoMass          51.8 
+kTorsoMOI           0.44  0.00  0.00  
+                    0.00  0.99  0.00  
+                    0.00  0.00  0.99   
+kTorsoCG            0.00  0.00  0.00  
+kTorsoPosition      0.5  0.5  -0.5  0.5  
+                    5.0  5.0  1.27             orientation in first 4 & position in last 3
+kTorsoVelocity      0.0  0.0  0.0              
+                    0.0  0.0  0.0              angular velocities in first 3 & translational velocities in last 3
+                    
+-------------------------------------------
+Left Thigh
+-------------------------------------------
+kLeftThighPartName                  "LeftThigh" 
+kLeftThighGraphicFile               "LeftThigh.xan" 
+kLeftThighMass                      8.35 
+kLeftThighMOI                       0.025   0.00    0.00  
+                                    0.00    0.49    0.00  
+                                    0.00    0.00    0.49   
+kLeftThighCG                        0.198   0.00    0.00  
+kLeftThighMDHA                      0.4 
+kLeftThighMDHAlpha                  0.0 
+kLeftThighMDHD                      0.0 
+kLeftThighMDHTheta                  0.0 
+kLeftThighInitialJointVelocity      0.0 
+kLeftThighJointMin                  -0.175  realistic (-10 degrees)
+kLeftThighJointMax                  1.57    fairly realistic (90 degrees)
+kLeftThighJointLimitSpringConstant  -1 
+kLeftThighJointLimitDamperConstant  -1 
+kLeftThighJointFriction             -1 
+
+-------------------------------------------
+Right Thigh
+-------------------------------------------
+kRightThighPartName                 "RightThigh" 
+kRightThighGraphicFile              "RightThigh.xan" 
+kRightThighMass                     8.35 
+kRightThighMOI                      0.025   0.00    0.00  
+                                    0.00    0.49    0.00  
+                                    0.00    0.00    0.49   
+kRightThighCG                       0.198   0.00    0.00  
+kRightThighMDHA                     0.4 
+kRightThighMDHAlpha                 0.0 
+kRightThighMDHD                     0.0 
+kRightThighMDHTheta                 0.0 
+kRightThighInitialJointVelocity     0.0 
+kRightThighJointMin                 -0.175  realistic (-10 degrees)
+kRightThighJointMax                 1.57    fairly realistic (90 degrees)
+kRightThighJointLimitSpringConstant -1 
+kRightThighJointLimitDamperConstant -1 
+kRightThighJointFriction            -1 
+
+-------------------------------------------
+Left Leg
+-------------------------------------------
+kLeftLegPartName                    "LeftLeg" 
+kLeftLegGraphicFile                 "LeftLeg.xan" 
+kLeftLegMass                        4.16 
+kLeftLegMOI                         0.007   0.00    0.00  
+                                    0.00    0.25    0.00  
+                                    0.00    0.00    0.25   
+kLeftLegCG                          0.215   0.00    0.00  
+kLeftLegMDHA                        0.396 
+kLeftLegMDHAlpha                    0.0 
+kLeftLegMDHD                        0.0 
+kLeftLegMDHTheta                    0.0 
+kLeftLegInitialJointVelocity        0.0 
+kLeftLegJointMin                    -1.57  fairly realistic (90 degrees)
+kLeftLegJointMax                    0.00 
+kLeftLegJointLimitSpringConstant    -1 
+kLeftLegJointLimitDamperConstant    -1 
+kLeftLegJointFriction               -1 
+
+-------------------------------------------
+Right Leg
+-------------------------------------------
+kRightLegPartName                   "RightLeg" 
+kRightLegGraphicFile                "RightLeg.xan" 
+kRightLegMass                       4.16 
+kRightLegMOI                        0.007   0.00    0.00  
+                                    0.00    0.25    0.00  
+                                    0.00    0.00    0.25   
+kRightLegCG                         0.215   0.00    0.00  
+kRightLegMDHA                       0.396 
+kRightLegMDHAlpha                   0.0 
+kRightLegMDHD                       0.0 
+kRightLegMDHTheta                   0.0 
+kRightLegInitialJointVelocity       0.0 
+kRightLegJointMin                   -1.57  fairly realistic (90 degrees)
+kRightLegJointMax                   0.00 
+kRightLegJointLimitSpringConstant   -1 
+kRightLegJointLimitDamperConstant   -1 
+kRightLegJointFriction              -1 
+
+-------------------------------------------
+Left Foot
+-------------------------------------------
+kLeftFootPartName                   "LeftFoot" 
+kLeftFootGraphicFile                "LeftFoot.xan" 
+kLeftFootMass                       1.20 
+kLeftFootMOI                        0.023   0.00    0.00  
+                                    0.00    0.0018  0.00  
+                                    0.00    0.00    0.023   
+kLeftFootCG                         0.00    0.115   0.00  
+kLeftFootMDHA                       0.43 
+kLeftFootMDHAlpha                   0.0 
+kLeftFootMDHD                       0.0 
+kLeftFootMDHTheta                   0.0 
+kLeftFootInitialJointVelocity       0.0 
+kLeftFootJointMin                   -1.047 plantar flexion (60 degrees)
+kLeftFootJointMax                   0.576 dorsiflexion (30 degrees)
+kLeftFootJointLimitSpringConstant   -1 
+kLeftFootJointLimitDamperConstant   -1 
+kLeftFootJointFriction              -1 
+
+-------------------------------------------
+Right Foot
+-------------------------------------------
+kRightFootPartName                  "RightFoot" 
+kRightFootGraphicFile               "RightFoot.xan" 
+kRightFootMass                      1.20 
+kRightFootMOI                       0.023   0.00    0.00  
+                                    0.00    0.0018  0.00  
+                                    0.00    0.00    0.023   
+kRightFootCG                        0.00    0.115   0.00  
+kRightFootMDHA                      0.43 
+kRightFootMDHAlpha                  0.0 
+kRightFootMDHD                      0.0 
+kRightFootMDHTheta                  0.0 
+kRightFootInitialJointVelocity      0.0 
+kRightFootJointMin                  -1.047 plantar flexion (60 degrees)
+kRightFootJointMax                  0.576 dorsiflexion (30 degrees) 
+kRightFootJointLimitSpringConstant  -1 
+kRightFootJointLimitDamperConstant  -1 
+kRightFootJointFriction             -1 
+
+-------------------------------------------
+Muscles
+-------------------------------------------
+
+-------------------------------------------
+Left Hip Extensor
+-------------------------------------------
+kLeftHipExtensorName                "LeftHipExtensor" 
+kLeftHipExtensorOrigin              0.452   -0.076    0.0  
+kLeftHipExtensorInsertion           0.30    0.005     0.0  
+kLeftHipExtensorPCA                 0.009
+kLeftHipExtensorLength              0.26
+
+-------------------------------------------
+Left Hip Flexor
+-------------------------------------------
+kLeftHipFlexorName                  "LeftHipFlexor" 
+kLeftHipFlexorOrigin                0.319   0.071     0.0  
+kLeftHipFlexorInsertion             0.16    0.029     0.0  
+kLeftHipFlexorPCA                   0.009
+kLeftHipFlexorLength                0.24
+
+-------------------------------------------
+Right Hip Extensor
+-------------------------------------------
+kRightHipExtensorName               "RightHipExtensor" 
+kRightHipExtensorOrigin             0.452   -0.076    0.0  
+kRightHipExtensorInsertion          0.30    0.005     0.0  
+kRightHipExtensorPCA                0.009
+kRightHipExtensorLength             0.26
+
+-------------------------------------------
+Right Hip Flexor
+-------------------------------------------
+kRightHipFlexorName                 "RightHipFlexor" 
+kRightHipFlexorOrigin               0.319   0.071     0.0  
+kRightHipFlexorInsertion            0.16    0.029     0.0  
+kRightHipFlexorPCA                  0.009
+kRightHipFlexorLength               0.24
+
+-------------------------------------------
+Left Knee Extensor
+-------------------------------------------
+kLeftKneeExtensorName               "LeftKneeExtensor" 
+kLeftKneeExtensorOrigin             0.25    0.029   0.0
+kLeftKneeExtensorMidPoint           0.43    0.06   0.0  
+kLeftKneeExtensorInsertion          0.076   0.043   0.0  
+kLeftKneeExtensorPCA                0.008
+kLeftKneeExtensorLength             0.23
+
+-------------------------------------------
+Left Knee Flexor
+-------------------------------------------
+kLeftKneeFlexorName                 "LeftKneeFlexor" 
+kLeftKneeFlexorOrigin               0.25    -0.00   0.0  
+kLeftKneeFlexorMidPoint             0.396    -0.03   0.0
+kLeftKneeFlexorInsertion            0.08    -0.01   0.0  
+kLeftKneeFlexorPCA                  0.008
+kLeftKneeFlexorLength               0.23
+
+-------------------------------------------
+Right Knee Extensor
+-------------------------------------------
+kRightKneeExtensorName              "RightKneeExtensor" 
+kRightKneeExtensorOrigin            0.25    0.029  0.0  
+kRightKneeExtensorMidPoint          0.43    0.06  0.0  
+kRightKneeExtensorInsertion         0.076   0.043  0.0  
+kRightKneeExtensorPCA               0.008
+kRightKneeExtensorLength            0.23
+
+-------------------------------------------
+Right Knee Flexor
+-------------------------------------------
+kRightKneeFlexorName                "RightKneeFlexor" 
+kRightKneeFlexorOrigin              0.25  -0.00   0.0  
+kRightKneeFlexorMidPoint            0.396  -0.03   0.0
+kRightKneeFlexorInsertion           0.08  -0.01   0.0  
+kRightKneeFlexorPCA                 0.008
+kRightKneeFlexorLength              0.23
+
+-------------------------------------------
+Left Ankle Extensor (dorsiflexion)
+-------------------------------------------
+kLeftAnkleExtensorName              "LeftAnkleExtensor" 
+kLeftAnkleExtensorOrigin            0.14  0.033  0.0  
+kLeftAnkleExtensorInsertion         0.0  0.057  0.0  
+kLeftAnkleExtensorPCA               0.007
+kLeftAnkleExtensorLength            0.29
+
+-------------------------------------------
+Left Ankle Flexor (plantarflexion)
+-------------------------------------------
+kLeftAnkleFlexorName                "LeftAnkleFlexor" 
+kLeftAnkleFlexorOrigin              0.057  -0.029   0.0  
+kLeftAnkleFlexorInsertion           0.038  -0.057   0.0  
+kLeftAnkleFlexorPCA                 0.007
+kLeftAnkleFlexorLength              0.41
+
+-------------------------------------------
+Right Ankle Extensor (dorsiflexion)
+-------------------------------------------
+kRightAnkleExtensorName             "RightAnkleExtensor" 
+kRightAnkleExtensorOrigin           0.14  0.033  0.0  
+kRightAnkleExtensorInsertion        0.0   0.057  0.0  
+kRightAnkleExtensorPCA              0.007
+kRightAnkleExtensorLength           0.29
+
+-------------------------------------------
+Right Ankle Flexor (plantarflexion)
+-------------------------------------------
+kRightAnkleFlexorName               "RightAnkleFlexor" 
+kRightAnkleFlexorOrigin             0.057  -0.029   0.0  
+kRightAnkleFlexorInsertion          0.038  -0.057   0.0  
+kRightAnkleFlexorPCA                0.007
+kRightAnkleFlexorLength             0.41
+
+-------------------------------------------
+Contact Models
+-------------------------------------------
+
+-------------------------------------------
+Left Foot
+-------------------------------------------
+kLeftFootContactName                "LeftFootContact" 
+kLeftFootNumContactPoints           4 
+kLeftFootContactPositions   
+                                    0.05  -0.05  -0.044  
+                                    0.05  -0.05   0.044  
+                                    0.05   0.15  -0.044  
+                                    0.05   0.15   0.044   
+
+-------------------------------------------
+Right Foot
+-------------------------------------------
+
+kRightFootContactName               "RightFootContact" 
+kRightFootNumContactPoints          4 
+kRightFootContactPositions   
+                                    0.05  -0.05  -0.044  
+                                    0.05  -0.05   0.044  
+                                    0.05   0.15  -0.044  
+                                    0.05   0.15   0.044   
+

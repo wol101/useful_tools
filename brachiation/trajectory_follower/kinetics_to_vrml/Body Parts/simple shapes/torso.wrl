@@ -1,0 +1,157 @@
+#VRML V2.0 utf8
+
+#Creator formZ v 3.6.5
+#Date 05:17:12 PM Friday, March 23, 2001
+#User Edinburgh University:Biomedical Sciences:Z-0100-0039976
+
+DEF activeview Viewpoint {
+	fieldOfView 0.785398
+	jump TRUE
+	orientation 0.881412 0.236174 0.409065 1.1598
+	position 16.5989 -28.7502 19.1668
+	description "activeview"
+}
+DEF Color_1 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 0.381476 0.30518 0.762951
+	}
+}
+DEF Color_2 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 0.686656 0.30518 0.244144
+	}
+}
+DEF Color_3 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 0.183108 0.762951 0.30518
+	}
+}
+DEF Color_4 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 0.183108 0.457771 0.831067
+	}
+}
+DEF Color_5 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 0.457771 0.457771 0.15259
+	}
+}
+DEF Color_6 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 0.457771 0.30518 0.762951
+	}
+}
+DEF Color_7 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 1 0 0
+	}
+}
+DEF Color_8 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 0.762951 0.183108 0.762951
+	}
+}
+DEF Color_9 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 0.791669 0.793469 0.582925
+	}
+}
+DEF Color_10 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 0.762951 0.684092 0.55082
+	}
+}
+DEF Color_11 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 0.500008 0.500008 0.500008
+	}
+}
+DEF Color_12 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 0.786328 0.79205 0.809216
+	}
+}
+DEF Color_13 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 1 1 1
+	}
+}
+DEF Color_14 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 0.582193 0.650095 0.487953
+	}
+}
+DEF Color_15 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 0.541695 0.601236 0.762951
+	}
+}
+DEF Color_16 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 0.142809 0.230442 0.427634
+	}
+}
+DEF light_1 DirectionalLight {
+	ambientIntensity 0
+	color 1 1 1
+	direction -0.762853 0.321595 -0.560921
+	intensity 1
+	on TRUE
+}
+DEF object_5 Transform {
+	children [
+		Shape {
+			geometry IndexedFaceSet {
+				coord Coordinate {
+					point [
+						-3 -2 1 
+						-3 -2 -1 
+						-3 2 -1 
+						-3 2 1 
+						3 -2 1 
+						3 2 1 
+						3 2 -1 
+						3 -2 -1 
+					]
+				}
+				ccw TRUE
+				colorIndex []
+				colorPerVertex FALSE
+				convex FALSE
+				texCoordIndex []
+				coordIndex [
+					0 3 2 1 -1 
+					4 7 6 5 -1 
+					0 4 5 3 -1 
+					3 5 6 2 -1 
+					2 6 7 1 -1 
+					1 7 4 0 -1 
+				]
+				creaseAngle 0
+				normalIndex []
+				normalPerVertex TRUE
+				solid FALSE
+				texCoordIndex []
+			}
+			appearance USE Color_1
+		}
+	]
+	bboxCenter 0 0 0
+	bboxSize -1 -1 -1
+}

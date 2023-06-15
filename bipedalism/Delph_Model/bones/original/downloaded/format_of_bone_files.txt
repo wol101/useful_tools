@@ -1,0 +1,42 @@
+FORMAT OF BONE FILES
+
+In the musculoskeletal modeling software, a body segment consists of
+one or more bones.  The bones that make up each body segment are 
+specified as shown in the following example.
+
+beginsegment   FEMUR
+name   right_femur
+files:  1
+filenames:   r_femur.dat
+endsegment
+
+The files listed in the definitions of the body segments (e.g.  
+r_femur.dat) define the polygon meshes that describe the bone surfaces.
+These files list the 3D coordinates of the polygon vertices (in a 
+vertex list) and define how the vertices are connected to form polygons 
+(in a polygon list).  The reference frame that is associated with each 
+body segment serves as the coordinate system for the polygon vertices.  
+The first number on each line of the polygon list specifies the number 
+of vertices in the polygon; the rest of the numbers on the line are the 
+vertices in that polygon.  For example, the first polygon in the 
+polygon list has three vertices, which are the first three vertices in 
+the vertex list.  The format of the bone files is shown below.
+
+260       290                (number of vertices, number of polygons)
+
+VERTEX LIST CONTAINS VERTICES (X,Y,Z) AND VERTEX NORMALS (X,Y,Z)
+(Xvert     Yvert       Zvert )   (Xnorm     Ynorm      Znorm)
+-0.014     -0.013    -0.016      -0.418     -0.416     -0.806
+-0.000      0.009    -0.020        0.087      0.092     -0.991
+-0.013      0.003    -0.020       -0.505      0.195     -0.840
+ ..
+ ..
+
+POLYGON LIST
+3     1 2 3                 
+3     2 3 4      
+4     3 4 7  8   
+4     4 5 13 12              
+4     5 6 14 13   
+ ..
+ ..

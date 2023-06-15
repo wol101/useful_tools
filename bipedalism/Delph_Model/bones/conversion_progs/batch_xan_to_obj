@@ -1,0 +1,5 @@
+#!/bin/sh
+for i
+do
+        ./xan_to_obj < "$i" > "$i".obj
+done

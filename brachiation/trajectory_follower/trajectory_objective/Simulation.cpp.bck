@@ -1,0 +1,120 @@
+// Simulation.cpp - this simulation object is used to encapsulate
+// a dynamechs simulation
+
+// this is an encapsulated version of the main routine used in most of Scott McMillan's examples
+// with various bits and pieces added and removed and moved.
+
+// modified by wis to include a specific definintion of the model
+// to allow me to customise things a bit more easily
+
+#include <dm.h>					 // DynaMechs typedefs, globals, etc.
+#include <dmSystem.h>				 // DynaMechs simulation code.
+#include <dmEnvironment.h>
+#include <dmArticulation.h>
+#include <dmIntegrator.h>
+#include <dmIntegEuler.h>
+
+#include <dmu.h>
+
+#include "Bar.h"
+#include "LoadFile.h"
+#include "ForceList.h"
+#include "ControllerList.h"
+
+#include "Simulation.h"
+
+Simulation::Simulation()
+{
+	// set some variables
+	m_SimulationTime = 0;
+	m_Bar = 0;
+	m_ForceList = 0;
+	m_Robot = 0;
+	m_Integrator = 0;
+	m_ControllerList = 0;
+	m_IDT = 0;
+	m_UseGraphics = true;
+	m_ReadControllerDataFromFile = true;
+}
+
+//----------------------------------------------------------------------------
+Simulation::~Simulation()
+{
+	// get rid of all those memory alloactions
+	if (m_Bar)
+		delete m_Bar;
+	if (m_ForceList)
+		delete m_ForceList;
+	if (m_Integrator)
+		delete m_Integrator;
+	if (m_Robot)
+		delete m_Robot;
+	if (m_ControllerList)
+		delete m_ControllerList;
+}
+
+
+//----------------------------------------------------------------------------
+void Simulation::Load(char *filename)
+{
+	char env_flname[FILENAME_SIZE];
+	char bar_flname[FILENAME_SIZE];
+	char robot_flname[FILENAME_SIZE];
+
+
+	// load robot stuff
+	ifstream cfg_ptr;
+	cfg_ptr.open(filename);
+
+	// Read simulation timing information.
+	readConfigParameterLabel(cfg_ptr, "Integration_Stepsize");
+	cfg_ptr >> m_IDT;
+
+// ===========================================================================
+// Initialize DynaMechs environment - must occur before any linkage systems
+
+// the envoronment is a static (one copy) object
+
+	readConfigParameterLabel(cfg_ptr, "Environment_Parameter_File");
+	readFilename(cfg_ptr, env_flname);
+	dmEnvironment *environment = dmuLoadFile_env(env_flname);
+	if (m_UseGraphics())
+		environment->drawInit();
+	dmEnvironment::setEnvironment(environment);
+
+	// read the bar details
+	readConfigParameterLabel(cfg_ptr, "Bar_Definition_File");
+	readFilename(cfg_ptr, bar_flname);
+	m_Bar = new Bar(bar_flname);
+	if (m_UseGraphics())
+		m_Bar->InitGraphics("bar.xan");
+
+// create the ForceList
+
+	m_ForceList = new ForceList();
+
+// create the controller list
+
+	m_ControllerList = new ControllerList();
+
+// ===========================================================================
+// Initialize a DynaMechs linkage system
+	readConfigParameterLabel(cfg_ptr, "Robot_Parameter_File");
+	readFilename(cfg_ptr, robot_flname);
+
+	dmSystem *sys = LoadFile(robot_flname);
+	m_Robot = dynamic_cast < dmArticulation * >(sys);
+
+	m_Integrator = (dmIntegrator *) new dmIntegEuler();
+	m_Integrator->setSystem(m_Robot);
+}
+
+
+//----------------------------------------------------------------------------
+void Simulation::UpdateSimulation()
+{
+	m_Integrator->simulate(m_IDT);
+
+	m_SimulationTime += m_IDT;
+}
+

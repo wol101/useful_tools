@@ -1,0 +1,84 @@
+#CXXFLAGS = -g -O0 -DdDOUBLE -DEXPERIMENTAL
+CXXFLAGS = -ffast-math -O3 -DdDOUBLE -DUSE_GAUL
+LDFLAGS  = 
+CXX      = g++
+CC       = gcc
+
+LIBS = -L"$(HOME)/Unix/lib" -lode -lxml2 -lpthread -lm -lz 
+INC_DIRS = -Igaul/src -Igaul/util -I../GaitSymODE/src -I"$(HOME)/Unix/include" -I/usr/include/libxml2
+
+MPISRC = main.cpp
+
+GAULSRC = \
+ga_bitstring.cpp  ga_de.cpp                     ga_optim.cpp         ga_seed.cpp              ga_tabu.cpp\
+ga_chromo.cpp     ga_deterministiccrowding.cpp  ga_qsort.cpp         ga_select.cpp            ga_utility.cpp\
+ga_climbing.cpp   ga_gradient.cpp               ga_randomsearch.cpp  ga_similarity.cpp\
+ga_compare.cpp    ga_intrinsics.cpp             ga_rank.cpp          ga_simplex.cpp\
+ga_core.cpp       ga_io.cpp                     ga_replace.cpp       ga_stats.cpp\
+ga_crossover.cpp  ga_mutate.cpp                 ga_sa.cpp            ga_systematicsearch.cpp
+
+GAULUTIL = \
+avltree.cpp        linkedlist.cpp  memory_chunks.cpp  nn_util.cpp      table_util.cpp\
+compatibility.cpp  log_util.cpp    memory_util.cpp    random_util.cpp  timer_util.cpp
+
+GAITSYMSRC = \
+BallJoint.cpp                   ExpressionFunTransform3D.cpp    HingeJoint.cpp                  Simulation.cpp\
+Body.cpp                        ExpressionMat.cpp               IrrlichtRoutines.cpp            SphereGeom.cpp\
+CappedCylinderGeom.cpp          ExpressionParser.cpp            Joint.cpp                       StepDriver.cpp\
+Contact.cpp                     ExpressionRef.cpp               MAMuscle.cpp                    Strap.cpp\
+CyclicDriver.cpp                ExpressionVar.cpp               MAMuscleComplete.cpp            StrokeFont.cpp\
+CylinderWrapStrap.cpp           ExpressionVec.cpp               MAMuscleExtended.cpp            PositionReporter.cpp\
+DampedSpringMuscle.cpp          Face.cpp                        TIFFWrite.cpp\
+DataFile.cpp                    FacetedConicSegment.cpp         Marker.cpp                      ThreePointStrap.cpp\
+DataTarget.cpp                  FacetedObject.cpp               Muscle.cpp                      TorqueReporter.cpp\
+DataTargetQuaternion.cpp        FacetedPolyline.cpp             NPointStrap.cpp                 TrimeshGeom.cpp\
+DataTargetScalar.cpp            FacetedSphere.cpp               NamedObject.cpp                 TwoPointStrap.cpp\
+DataTargetVector.cpp            FixedJoint.cpp                  ObjectiveMain.cpp               UniversalJoint.cpp\
+Driver.cpp                      FloatingHingeJoint.cpp          UGMMuscle.cpp                   SwingClearanceAbortReporter.cpp\
+Environment.cpp                 GLUIRoutines.cpp                PlaneGeom.cpp                   Util.cpp\
+ErrorHandler.cpp                GLUtils.cpp                     RayGeom.cpp                     XMLConverter.cpp\
+ExpressionFolder.cpp            Geom.cpp                        Reporter.cpp                    fec.cpp\
+Controller.cpp                  PIDMuscleLength.cpp             Drivable.cpp                    AMotorJoint.cpp\
+TwoCylinderWrapStrap.cpp        SliderJoint.cpp                 BoxGeom.cpp                     BoxCarDriver.cpp\
+StackedBoxCarDriver.cpp
+
+MPIOBJ = $(addsuffix .o, $(basename $(MPISRC) ) )
+GAULSRCOBJ = $(addsuffix .o, $(basename $(GAULSRC) ) )
+GAULUTILOBJ = $(addsuffix .o, $(basename $(GAULUTIL) ) )
+GAITSYMOBJ = $(addsuffix .o, $(basename $(GAITSYMSRC) ) )
+
+all: directories binaries 
+
+directories: bin obj
+ 
+binaries: bin/GaitSymGaul
+
+obj: 
+	-mkdir obj
+	-mkdir obj/gaitsym
+	-mkdir obj/mpi
+	-mkdir obj/gaulsrc
+	-mkdir obj/gaulutil
+
+bin: 
+	-mkdir bin
+
+obj/gaulsrc/%.o : gaul/src/%.cpp
+	$(CXX) $(CXXFLAGS) $(INC_DIRS)  -c $< -o $@
+
+obj/gaulutil/%.o : gaul/util/%.cpp
+	$(CXX) $(CXXFLAGS) $(INC_DIRS)  -c $< -o $@
+
+obj/gaitsym/%.o : ../GaitSymODE/src/%.cpp
+	$(CXX) $(CXXFLAGS) $(INC_DIRS)  -c $< -o $@
+
+obj/mpi/%.o : %.cpp
+	$(CXX) $(CXXFLAGS) $(INC_DIRS)  -c $< -o $@
+
+bin/GaitSymGaul: $(addprefix obj/gaitsym/, $(GAITSYMOBJ) ) $(addprefix obj/mpi/, $(MPIOBJ) ) \
+$(addprefix obj/gaulsrc/, $(GAULSRCOBJ) ) $(addprefix obj/gaulutil/, $(GAULUTILOBJ) )
+	$(CXX) $(LDFLAGS) -o $@ $^ $(LIBS)
+        
+clean:
+	rm -rf obj bin
+	rm -f *~ *.bak *.bck *.tmp *.o 

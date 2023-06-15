@@ -1,0 +1,6 @@
+innerLoop	20
+outerLoop	400
+lowerBound	-1.0
+upperBound	1.0
+genomeLength 220
+runLimit	20

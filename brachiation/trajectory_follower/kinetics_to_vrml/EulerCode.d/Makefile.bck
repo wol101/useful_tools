@@ -1,0 +1,18 @@
+CC = cc -g
+
+all: EulerSample test1 test2
+
+test1: test1.o EulerAngles.o
+	$(CC) -o test1 test1.o EulerAngles.o -lm
+
+test2: test2.o EulerAngles.o
+	$(CC) -o test2 test2.o EulerAngles.o -lm
+
+EulerSample: EulerSample.o EulerAngles.o
+	$(CC) -o EulerSample EulerSample.o EulerAngles.o -lm
+
+clean:
+	rm -f *.o EulerSample
+
+EulerAngles.o: EulerAngles.h QuatTypes.h
+EulerSample.o: EulerAngles.h QuatTypes.h

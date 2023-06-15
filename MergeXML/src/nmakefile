@@ -1,0 +1,26 @@
+# Basic nmake file
+# compile with  "nmake.exe /f nmakefile"
+# needs visual studio environmental variables from %VS120COMNTOOLS%\vsvars32.bat
+
+INC_DIRS = -I "..\..\GaitSym2016\src" -I "..\..\GaitSym2016\exprtk" -I "..\..\GaitSym2016\rapidxml-1.13"
+#LIBRARIES = /link /LIBPATH:$(MY_LIBS) mylibrary.lib
+
+mergexml: MergeExpressionParser.obj MergeXML.obj XMLContainer.obj XMLContainerList.obj DataFile.obj
+	cl /Femergexml MergeExpressionParser.obj MergeXML.obj XMLContainer.obj XMLContainerList.obj DataFile.obj $(LIBRARIES)
+
+MergeExpressionParser.obj: MergeExpressionParser.cpp
+	cl /EHsc /c MergeExpressionParser.cpp /D WINDOWSXX $(INC_DIRS)
+
+MergeXML.obj: MergeXML.cpp
+	cl /EHsc /c MergeXML.cpp /D WINDOWSXX $(INC_DIRS)
+
+XMLContainer.obj: XMLContainer.cpp
+	cl /EHsc /c XMLContainer.cpp /D WINDOWSXX $(INC_DIRS)
+
+XMLContainerList.obj: XMLContainerList.cpp
+	cl /EHsc /c XMLContainerList.cpp /D WINDOWSXX $(INC_DIRS)
+
+DataFile.obj: ..\..\GaitSym2016\src\DataFile.cpp
+	cl /EHsc /c ..\..\GaitSym2016\src\DataFile.cpp /D WINDOWSXX $(INC_DIRS)
+
+

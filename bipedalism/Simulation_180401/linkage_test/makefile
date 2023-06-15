@@ -1,0 +1,83 @@
+# makefile for the subprocess objective option
+
+# useful functions
+MKDEPEND    = makedepend
+MKDIR       = mkdir -p
+CP          = cp
+RM          = rm -rf
+MV          = mv
+
+# IRIX 6.x with new 32-bit libraries
+CXX         = CC
+CXXFLAGS    = -g -fullwarn -n32 -DUSE_OLD_STREAMS -ptused -DINLINE_OBJECTIVE
+CXX_INC_DIR = /usr/include/CC
+LD          = ld
+AR          = ar rv
+INSTALL     = bsdinst -c
+
+# set up a compilation rule for gnu make
+.SUFFIXES: .cc
+.cc.o:
+	$(CXX) $(CXXFLAGS) $(INC_DIRS) -c $<
+
+
+DYN_DIR = /users/ws/Gibbon_Simulation/dynamechs_3.0/
+INC_DIRS= -I. -I../../galib245/ -I$(DYN_DIR)dm -I$(DYN_DIR)dmu -I$(DYN_DIR)dmGL \
+	-I/usr/include/GL -I/usr/share/src/OpenGL/toolkits/include/GL
+DYN_LIBS = $(DYN_DIR)dmu/libdmu.a $(DYN_DIR)dmGL/libdmGL.a \
+	$(DYN_DIR)dm/libdm.a 
+LIBS = -lm 
+OPENGL_LIBS =  -L/usr/share/src/OpenGL/toolkits/lib32 \
+	-lglut -lGLU -lGL -lX11 -lXmu
+
+all: bipedal_linkage
+	
+bipedal_linkage: \
+bipedal_linkage.o
+	$(CXX) -o $@ $^ $(GA_LIBS) $(DYN_LIBS) $(OPENGL_LIBS) $(LIBS)
+	
+clean:
+	$(RM) bipedal_linkage
+	$(RM) *.o *~ *.bak core *.bck
+
+depend:
+	$(MKDEPEND) -I$(CXX_INC_DIR) $(INC_DIRS) \
+bipedal_linkage.cc
+
+# DO NOT DELETE THIS LINE -- make  depend  depends  on it.
+
+bipedal_linkage.o: /usr/share/src/OpenGL/toolkits/include/GL/glut.h
+bipedal_linkage.o: /usr/include/GL/gl.h /usr/include/GL/glu.h
+bipedal_linkage.o: /users/ws/Gibbon_Simulation/dynamechs_3.0/dmGL/dmGLTime.h
+bipedal_linkage.o: /users/ws/Gibbon_Simulation/dynamechs_3.0/dmGL/dmGL.h
+bipedal_linkage.o: /usr/include/CC/iostream.h /usr/include/memory.h
+bipedal_linkage.o: /usr/include/stddef.h /usr/include/sgidefs.h
+bipedal_linkage.o: /usr/include/CC/iomanip.h /usr/include/CC/generic.h
+bipedal_linkage.o: /usr/include/GL/gl.h /usr/include/GL/glu.h
+bipedal_linkage.o: /usr/include/math.h /usr/include/standards.h
+bipedal_linkage.o: /usr/include/stdlib.h /usr/include/sys/time.h
+bipedal_linkage.o: /users/ws/Gibbon_Simulation/dynamechs_3.0/dmGL/dmGLMouse.h
+bipedal_linkage.o: /users/ws/Gibbon_Simulation/dynamechs_3.0/dmGL/dmGLPolarCamera_zup.h
+bipedal_linkage.o: /users/ws/Gibbon_Simulation/dynamechs_3.0/dmGL/dmGLPolarCamera.h
+bipedal_linkage.o: /users/ws/Gibbon_Simulation/dynamechs_3.0/dmGL/dmGLCamera.h
+bipedal_linkage.o: /users/ws/Gibbon_Simulation/dynamechs_3.0/dm/dm.h
+bipedal_linkage.o: /usr/include/CC/fstream.h /usr/include/string.h
+bipedal_linkage.o: /users/ws/Gibbon_Simulation/dynamechs_3.0/dm/dmSystem.h
+bipedal_linkage.o: /users/ws/Gibbon_Simulation/dynamechs_3.0/dm/dmObject.h
+bipedal_linkage.o: /users/ws/Gibbon_Simulation/dynamechs_3.0/dm/dmArticulation.h
+bipedal_linkage.o: /users/ws/Gibbon_Simulation/dynamechs_3.0/dm/dmLink.h
+bipedal_linkage.o: /usr/include/CC/vector /usr/include/CC/stl_range_errors.h
+bipedal_linkage.o: /usr/include/CC/stl_config.h
+bipedal_linkage.o: /usr/include/CC/stl_algobase.h
+bipedal_linkage.o: /usr/include/CC/stl_relops.h /usr/include/CC/stl_pair.h
+bipedal_linkage.o: /usr/include/CC/type_traits.h /usr/include/limits.h
+bipedal_linkage.o: /usr/include/CC/new.h /usr/include/CC/stl_iterator_base.h
+bipedal_linkage.o: /usr/include/CC/stl_iterator.h /usr/include/CC/stl_alloc.h
+bipedal_linkage.o: /usr/include/stdio.h /usr/include/assert.h
+bipedal_linkage.o: /usr/include/CC/stl_construct.h
+bipedal_linkage.o: /usr/include/CC/stl_uninitialized.h
+bipedal_linkage.o: /usr/include/CC/stl_vector.h /usr/include/CC/stl_bvector.h
+bipedal_linkage.o: /users/ws/Gibbon_Simulation/dynamechs_3.0/dm/dmEnvironment.h
+bipedal_linkage.o: /users/ws/Gibbon_Simulation/dynamechs_3.0/dm/dmIntegRK4.h
+bipedal_linkage.o: /users/ws/Gibbon_Simulation/dynamechs_3.0/dm/dmIntegrator.h
+bipedal_linkage.o: /users/ws/Gibbon_Simulation/dynamechs_3.0/dmu/dmu.h

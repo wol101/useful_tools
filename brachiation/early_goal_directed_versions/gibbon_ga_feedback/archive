@@ -1,0 +1,20 @@
+#!/bin/sh
+
+if ( test $# != 1 ) then
+	echo "Usage:"
+	echo "archive directory"
+	exit 1
+fi
+
+mkdir "$1"
+if ( test  -d "$1" ) then
+	mv -i Best_* $1
+	mv -i Pop_* $1
+	mv -i nohup.out $1
+	mv -i generations.dat $1
+	cp -i StartingPopulation.dat $1
+	cp -i Parameters.dat $1
+	cp -i ControlFile.dat $1
+	cp -i gene_mapping.dat $1
+	cp -i gibbon.cfg gibbon.dm30ext bar.dat gibbon.env terrain.dat $1
+fi

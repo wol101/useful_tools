@@ -1,0 +1,15 @@
+
+CXX = mpicxx
+CXXFLAGS = -O3
+
+all: mpiw 
+
+mpiw: mpiw.o
+	$(CXX) $(CXXFLAGS) $(LDLIBS) -o $@ $^
+        
+%.o: %.c
+	$(CXX) $(CXXFLAGS) $(INCLUDE) -c -o $@ $^ 
+
+clean:
+	rm -f *~ *.bak *.bck *.tmp *.o mpiw.sh* mpiw
+

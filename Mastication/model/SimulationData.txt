@@ -1,0 +1,155 @@
+-------------------------------------------			
+General Modelling Parameters			
+-------------------------------------------			
+kIntegrationStepsize	0.000001		
+
+-------------------------------------------			
+Environment Information			
+-------------------------------------------			
+kGravityVector	0	0	-9.81
+kGroundPlanarSpringConstant	200000		
+kGroundNormalSpringConstant	200000		
+kGroundPlanarDamperConstant	2000		
+kGroundNormalDamperConstant	2000		
+kGroundStaticFrictionCoeff	1000	u_s	
+kGroundKineticFrictionCoeff	800	u_k	Should be smaller than u_s
+
+Some generic values		
+
+kDefaultJointLimitSpringConstant	200000	
+kDefaultJointLimitDamperConstant	20000	
+kDefaultJointFriction	0.01	
+
+-------------------------------------------		
+Links		
+-------------------------------------------		
+
+-------------------------------------------		
+Skull		
+-------------------------------------------		
+kSkullPartName	Skull	
+kSkullGraphicFile	Skull.obj	1
+kSkullMass	1000	Treat as a 1m sphere - it does not move in this simulation anyway I = 2*MR^2/5
+kSkullMOI	100	0	0			
+	0	100	0			
+	0	0	100			
+kSkullCG	0	0	0			
+kSkullPosition	0	0	0	1		
+	0	0	0	Orientation Quaternion followed by position vector		
+kSkullVelocity	0	0	0			
+	0	0	0	Angular velocity followed by linear		
+
+kSkullVelocityRange	-1000	1000	-1000	1000	-1000	1000
+kSkullPositionRange	-50	50	-50	50	-50	50
+
+-------------------------------------------						
+Mandible						
+-------------------------------------------						
+kMandiblePartName	Mandible					
+kMandibleGraphicFile	Mandible.obj	1				
+kMandibleMass	0.34					
+kMandibleMOI	0.001262394	0	0.000664115			
+	0	0.00159872	0			
+	0.000664115	0	0.00172872			
+kMandibleCG	0.0436	0	-0.0448			
+kMandiblePosition	0	0	0	1		
+	0	0	0	Orientation Quaternion followed by position vector		
+kMandibleVelocity	0	0	0			
+	0	0	0	Angular velocity followed by linear		
+
+kMandibleVelocityRange	-50	50	-50	50	-50	50
+kMandiblePositionRange	-50	50	-50	50	-50	50
+
+-------------------------------------------						
+Muscles						
+-------------------------------------------			
+
+-------------------------------------------			
+LeftTemporalis			
+-------------------------------------------			
+kLeftTemporalisName	LeftTemporalis		
+kLeftTemporalisOrigin	0.0242	0.0607	0.078
+kLeftTemporalisInsertion	0.0354	0.0459	-0.0006
+
+-------------------------------------------			
+RightTemporalis			
+-------------------------------------------			
+kRightTemporalisName	RightTemporalis		
+kRightTemporalisOrigin	0.0242	-0.0607	0.078
+kRightTemporalisInsertion	0.0354	-0.0459	-0.0006
+
+-------------------------------------------			
+LeftMasseter			
+-------------------------------------------			
+kLeftMasseterName	LeftMasseter		
+kLeftMasseterOrigin	0.044	0.0598	0.0027
+kLeftMasseterInsertion	0.0117	0.047	-0.0539
+
+-------------------------------------------			
+RightMasseter			
+-------------------------------------------			
+kRightMasseterName	RightMasseter		
+kRightMasseterOrigin	0.044	-0.0598	0.0027
+kRightMasseterInsertion	0.0117	-0.047	-0.0539
+
+-------------------------------------------			
+LeftMedialPterygoid			
+-------------------------------------------			
+kLeftMedialPterygoidName	LeftMedialPterygoid		
+kLeftMedialPterygoidOrigin	0.028	0.0134	-0.01
+kLeftMedialPterygoidInsertion	0.0056	0.0443	-0.0422
+
+-------------------------------------------			
+RightMedialPterygoid			
+-------------------------------------------			
+kRightMedialPterygoidName	RightMedialPterygoid		
+kRightMedialPterygoidOrigin	0.028	-0.0134	-0.01
+kRightMedialPterygoidInsertion	0.0056	-0.0443	-0.0422
+
+-------------------------------------------			
+LeftLateralPterygoid			
+-------------------------------------------			
+kLeftLateralPterygoidName	LeftLateralPterygoid		
+kLeftLateralPterygoidOrigin	0.0279	0.0204	-0.0086
+kLeftLateralPterygoidInsertion	0.0087	0.0432	-0.0118
+
+-------------------------------------------			
+RightLateralPterygoid			
+-------------------------------------------			
+kRightLateralPterygoidName	RightLateralPterygoid		
+kRightLateralPterygoidOrigin	0.0279	-0.0204	-0.0086
+kRightLateralPterygoidInsertion	0.0087	-0.0432	-0.0118
+
+-------------------------------------------			
+Springs			
+-------------------------------------------			
+
+-------------------------------------------			
+Tooth			
+-------------------------------------------			
+kToothName	Tooth		
+kToothOrigin	0.0506	0.0212	-0.0432
+kToothInsertion	0.0506	0.0212	-0.0432
+kToothLength	0		
+kToothDamping	100		
+kToothSpringConstant	1000000		
+
+-------------------------------------------			
+LeftTMJ			
+-------------------------------------------			
+kLeftTMJName	LeftTMJ		
+kLeftTMJOrigin	0.0076	0.0481	0.0002
+kLeftTMJInsertion	0.0076	0.0481	0.0002
+kLeftTMJLength	0		
+kLeftTMJDamping	100		
+kLeftTMJSpringConstant	100000		
+
+-------------------------------------------			
+RightTMJ			
+-------------------------------------------			
+kRightTMJName	RightTMJ		
+kRightTMJOrigin	0.0076	-0.0481	0.0002
+kRightTMJInsertion	0.0076	-0.0481	0.0002
+kRightTMJLength	0		
+kRightTMJDamping	100		
+kRightTMJSpringConstant	100000		

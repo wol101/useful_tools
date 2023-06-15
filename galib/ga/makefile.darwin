@@ -1,0 +1,509 @@
+# -*- Mode: makefile -*-
+# Copyright (c) 1994-1996 Massachusetts Institute of Technology
+# Copyright (c) 1996-1999 Matthew Wall
+# -----------------------------------------------------------------------------
+
+include ../makevars.darwin
+include makefile.sources
+
+INC_DIRS= -I..
+
+$(LIB): $(OBJS) 
+	$(PRELINK)
+	$(AR) $(LIB) $?
+	ranlib $(LIB)
+	@echo $(LIB) is now up-to-date
+.C.a:;
+
+clean:
+	$(RM) $(LIB)
+	$(RM) *.o *~ *.bak core ii_files ptrepository
+	$(RM) vc60.* ga.lib
+
+install:: $(LIB)
+	$(INSTALL) $(LIB) $(LIB_DEST_DIR)
+	$(RM) $(HDR_DEST_DIR)/ga; $(MKDIR) $(HDR_DEST_DIR)/ga
+	$(CP) $(HDRS) $(TMPL_SRCS) ../VERSION $(HDR_DEST_DIR)/ga
+
+remove:
+	$(RM) $(LIB_DEST_DIR)/$(LIB) $(HDR_DEST_DIR)/ga
+
+depend:
+	$(MKDEPEND) -fmakefile.darwin -I$(CXX_INC_DIR) $(INC_DIRS) $(SRCS)
+
+# DO NOT DELETE THIS LINE -- make depend depends on it.
+
+garandom.o: ../ga/garandom.h /usr/include/stdlib.h
+garandom.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+garandom.o: /usr/include/sys/cdefs.h ../ga/gatypes.h ../ga/gaconfig.h
+garandom.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+garandom.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+garandom.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+garandom.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+garandom.o: /usr/include/sys/types.h /usr/include/machine/types.h
+garandom.o: /usr/include/ppc/types.h /usr/include/machine/endian.h
+garandom.o: /usr/include/ppc/endian.h /usr/include/stddef.h
+garandom.o: /usr/include/stdarg.h
+garandom.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h /usr/include/time.h
+garandom.o: /usr/include/machine/limits.h /usr/include/ppc/limits.h
+garandom.o: /usr/include/math.h /usr/include/string.h /usr/include/unistd.h
+garandom.o: /usr/include/sys/unistd.h /usr/include/signal.h
+garandom.o: /usr/include/sys/signal.h /usr/include/machine/signal.h
+garandom.o: /usr/include/ppc/signal.h
+gaerror.o: /usr/include/string.h /usr/include/machine/ansi.h
+gaerror.o: /usr/include/ppc/ansi.h /usr/include/sys/cdefs.h ../ga/gaerror.h
+gaerror.o: ../ga/gatypes.h ../ga/gaconfig.h
+gaerror.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+gaerror.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+gaerror.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+gaerror.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+gaerror.o: /usr/include/sys/types.h /usr/include/machine/types.h
+gaerror.o: /usr/include/ppc/types.h /usr/include/machine/endian.h
+gaerror.o: /usr/include/ppc/endian.h /usr/include/stddef.h
+gaerror.o: /usr/include/stdarg.h /usr/include/gcc/darwin/2.95.2/g++/fstream.h
+gaerror.o: /usr/include/stdio.h
+GAParameter.o: /usr/include/stdlib.h /usr/include/machine/ansi.h
+GAParameter.o: /usr/include/ppc/ansi.h /usr/include/sys/cdefs.h
+GAParameter.o: /usr/include/string.h /usr/include/ctype.h
+GAParameter.o: /usr/include/runetype.h ../ga/gaconfig.h
+GAParameter.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GAParameter.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GAParameter.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GAParameter.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+GAParameter.o: /usr/include/sys/types.h /usr/include/machine/types.h
+GAParameter.o: /usr/include/ppc/types.h /usr/include/machine/endian.h
+GAParameter.o: /usr/include/ppc/endian.h /usr/include/stddef.h
+GAParameter.o: /usr/include/stdarg.h
+GAParameter.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h ../ga/gaerror.h
+GAParameter.o: ../ga/gatypes.h ../ga/GAParameter.h
+GAStatistics.o: /usr/include/string.h /usr/include/machine/ansi.h
+GAStatistics.o: /usr/include/ppc/ansi.h /usr/include/sys/cdefs.h
+GAStatistics.o: ../ga/gaerror.h ../ga/gatypes.h ../ga/gaconfig.h
+GAStatistics.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GAStatistics.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GAStatistics.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GAStatistics.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+GAStatistics.o: /usr/include/sys/types.h /usr/include/machine/types.h
+GAStatistics.o: /usr/include/ppc/types.h /usr/include/machine/endian.h
+GAStatistics.o: /usr/include/ppc/endian.h /usr/include/stddef.h
+GAStatistics.o: /usr/include/stdarg.h
+GAStatistics.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h
+GAStatistics.o: ../ga/GAStatistics.h ../ga/GAGenome.h /usr/include/stdlib.h
+GAStatistics.o: ../ga/gaid.h ../ga/GAEvalData.h ../ga/GAPopulation.h
+GAStatistics.o: ../ga/GASelector.h ../ga/GAScaling.h
+GABaseGA.o: /usr/include/stdio.h /usr/include/sys/types.h
+GABaseGA.o: /usr/include/sys/cdefs.h /usr/include/machine/types.h
+GABaseGA.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+GABaseGA.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+GABaseGA.o: /usr/include/ppc/endian.h /usr/include/string.h ../ga/GABaseGA.h
+GABaseGA.o: ../ga/gaconfig.h /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GABaseGA.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GABaseGA.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GABaseGA.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+GABaseGA.o: /usr/include/stddef.h /usr/include/stdarg.h
+GABaseGA.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h ../ga/gaid.h
+GABaseGA.o: ../ga/GAParameter.h ../ga/gatypes.h ../ga/GAStatistics.h
+GABaseGA.o: ../ga/GAGenome.h /usr/include/stdlib.h ../ga/gaerror.h
+GABaseGA.o: ../ga/GAEvalData.h ../ga/GAPopulation.h ../ga/GASelector.h
+GABaseGA.o: ../ga/GAScaling.h ../ga/garandom.h ../ga/gaversion.h
+GASStateGA.o: ../ga/GASStateGA.h ../ga/GABaseGA.h /usr/include/stdio.h
+GASStateGA.o: /usr/include/sys/types.h /usr/include/sys/cdefs.h
+GASStateGA.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+GASStateGA.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+GASStateGA.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+GASStateGA.o: /usr/include/string.h ../ga/gaconfig.h
+GASStateGA.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GASStateGA.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GASStateGA.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GASStateGA.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+GASStateGA.o: /usr/include/stddef.h /usr/include/stdarg.h
+GASStateGA.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h ../ga/gaid.h
+GASStateGA.o: ../ga/GAParameter.h ../ga/gatypes.h ../ga/GAStatistics.h
+GASStateGA.o: ../ga/GAGenome.h /usr/include/stdlib.h ../ga/gaerror.h
+GASStateGA.o: ../ga/GAEvalData.h ../ga/GAPopulation.h ../ga/GASelector.h
+GASStateGA.o: ../ga/GAScaling.h ../ga/garandom.h
+GASimpleGA.o: ../ga/GASimpleGA.h ../ga/GABaseGA.h /usr/include/stdio.h
+GASimpleGA.o: /usr/include/sys/types.h /usr/include/sys/cdefs.h
+GASimpleGA.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+GASimpleGA.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+GASimpleGA.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+GASimpleGA.o: /usr/include/string.h ../ga/gaconfig.h
+GASimpleGA.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GASimpleGA.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GASimpleGA.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GASimpleGA.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+GASimpleGA.o: /usr/include/stddef.h /usr/include/stdarg.h
+GASimpleGA.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h ../ga/gaid.h
+GASimpleGA.o: ../ga/GAParameter.h ../ga/gatypes.h ../ga/GAStatistics.h
+GASimpleGA.o: ../ga/GAGenome.h /usr/include/stdlib.h ../ga/gaerror.h
+GASimpleGA.o: ../ga/GAEvalData.h ../ga/GAPopulation.h ../ga/GASelector.h
+GASimpleGA.o: ../ga/GAScaling.h ../ga/garandom.h
+GAIncGA.o: ../ga/GAIncGA.h ../ga/GABaseGA.h /usr/include/stdio.h
+GAIncGA.o: /usr/include/sys/types.h /usr/include/sys/cdefs.h
+GAIncGA.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+GAIncGA.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+GAIncGA.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+GAIncGA.o: /usr/include/string.h ../ga/gaconfig.h
+GAIncGA.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GAIncGA.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GAIncGA.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GAIncGA.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+GAIncGA.o: /usr/include/stddef.h /usr/include/stdarg.h
+GAIncGA.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h ../ga/gaid.h
+GAIncGA.o: ../ga/GAParameter.h ../ga/gatypes.h ../ga/GAStatistics.h
+GAIncGA.o: ../ga/GAGenome.h /usr/include/stdlib.h ../ga/gaerror.h
+GAIncGA.o: ../ga/GAEvalData.h ../ga/GAPopulation.h ../ga/GASelector.h
+GAIncGA.o: ../ga/GAScaling.h ../ga/garandom.h
+GADemeGA.o: ../ga/garandom.h /usr/include/stdlib.h
+GADemeGA.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+GADemeGA.o: /usr/include/sys/cdefs.h ../ga/gatypes.h ../ga/gaconfig.h
+GADemeGA.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GADemeGA.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GADemeGA.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GADemeGA.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+GADemeGA.o: /usr/include/sys/types.h /usr/include/machine/types.h
+GADemeGA.o: /usr/include/ppc/types.h /usr/include/machine/endian.h
+GADemeGA.o: /usr/include/ppc/endian.h /usr/include/stddef.h
+GADemeGA.o: /usr/include/stdarg.h
+GADemeGA.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h ../ga/GADemeGA.h
+GADemeGA.o: ../ga/GABaseGA.h /usr/include/stdio.h /usr/include/string.h
+GADemeGA.o: ../ga/gaid.h ../ga/GAParameter.h ../ga/GAStatistics.h
+GADemeGA.o: ../ga/GAGenome.h ../ga/gaerror.h ../ga/GAEvalData.h
+GADemeGA.o: ../ga/GAPopulation.h ../ga/GASelector.h ../ga/GAScaling.h
+GADCrowdingGA.o: GADCrowdingGA.h ../ga/GABaseGA.h /usr/include/stdio.h
+GADCrowdingGA.o: /usr/include/sys/types.h /usr/include/sys/cdefs.h
+GADCrowdingGA.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+GADCrowdingGA.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+GADCrowdingGA.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+GADCrowdingGA.o: /usr/include/string.h ../ga/gaconfig.h
+GADCrowdingGA.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GADCrowdingGA.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GADCrowdingGA.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GADCrowdingGA.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+GADCrowdingGA.o: /usr/include/stddef.h /usr/include/stdarg.h
+GADCrowdingGA.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h ../ga/gaid.h
+GADCrowdingGA.o: ../ga/GAParameter.h ../ga/gatypes.h ../ga/GAStatistics.h
+GADCrowdingGA.o: ../ga/GAGenome.h /usr/include/stdlib.h ../ga/gaerror.h
+GADCrowdingGA.o: ../ga/GAEvalData.h ../ga/GAPopulation.h ../ga/GASelector.h
+GADCrowdingGA.o: ../ga/GAScaling.h GAList.h ../ga/GAListBASE.h ../ga/GANode.h
+GADCrowdingGA.o: ../ga/GAList.C ../ga/GAList.h garandom.h
+GASelector.o: ../ga/gaconfig.h /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GASelector.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GASelector.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GASelector.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+GASelector.o: /usr/include/sys/types.h /usr/include/sys/cdefs.h
+GASelector.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+GASelector.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+GASelector.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+GASelector.o: /usr/include/stddef.h /usr/include/stdarg.h
+GASelector.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h
+GASelector.o: ../ga/GAPopulation.h ../ga/gaid.h ../ga/GASelector.h
+GASelector.o: /usr/include/string.h ../ga/GAScaling.h ../ga/gatypes.h
+GASelector.o: ../ga/GAGenome.h /usr/include/stdlib.h ../ga/gaerror.h
+GASelector.o: ../ga/GAEvalData.h ../ga/garandom.h
+GAScaling.o: /usr/include/math.h /usr/include/sys/cdefs.h ../ga/gaerror.h
+GAScaling.o: ../ga/gatypes.h ../ga/gaconfig.h
+GAScaling.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GAScaling.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GAScaling.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GAScaling.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+GAScaling.o: /usr/include/sys/types.h /usr/include/machine/types.h
+GAScaling.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+GAScaling.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+GAScaling.o: /usr/include/ppc/endian.h /usr/include/stddef.h
+GAScaling.o: /usr/include/stdarg.h
+GAScaling.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h ../ga/GAScaling.h
+GAScaling.o: /usr/include/string.h ../ga/gaid.h ../ga/GAGenome.h
+GAScaling.o: /usr/include/stdlib.h ../ga/GAEvalData.h ../ga/GAPopulation.h
+GAScaling.o: ../ga/GASelector.h ../ga/GABaseGA.h /usr/include/stdio.h
+GAScaling.o: ../ga/GAParameter.h ../ga/GAStatistics.h
+GAPopulation.o: /usr/include/string.h /usr/include/machine/ansi.h
+GAPopulation.o: /usr/include/ppc/ansi.h /usr/include/sys/cdefs.h
+GAPopulation.o: /usr/include/math.h ../ga/GAPopulation.h ../ga/gaconfig.h
+GAPopulation.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GAPopulation.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GAPopulation.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GAPopulation.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+GAPopulation.o: /usr/include/sys/types.h /usr/include/machine/types.h
+GAPopulation.o: /usr/include/ppc/types.h /usr/include/machine/endian.h
+GAPopulation.o: /usr/include/ppc/endian.h /usr/include/stddef.h
+GAPopulation.o: /usr/include/stdarg.h
+GAPopulation.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h ../ga/gaid.h
+GAPopulation.o: ../ga/GASelector.h ../ga/GAScaling.h ../ga/gatypes.h
+GAPopulation.o: ../ga/GAGenome.h /usr/include/stdlib.h ../ga/gaerror.h
+GAPopulation.o: ../ga/GAEvalData.h ../ga/garandom.h ../ga/GABaseGA.h
+GAPopulation.o: /usr/include/stdio.h ../ga/GAParameter.h ../ga/GAStatistics.h
+GAGenome.o: ../ga/GAGenome.h /usr/include/stdlib.h
+GAGenome.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+GAGenome.o: /usr/include/sys/cdefs.h /usr/include/string.h ../ga/gaid.h
+GAGenome.o: ../ga/gaconfig.h /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GAGenome.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GAGenome.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GAGenome.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+GAGenome.o: /usr/include/sys/types.h /usr/include/machine/types.h
+GAGenome.o: /usr/include/ppc/types.h /usr/include/machine/endian.h
+GAGenome.o: /usr/include/ppc/endian.h /usr/include/stddef.h
+GAGenome.o: /usr/include/stdarg.h
+GAGenome.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h ../ga/gaerror.h
+GAGenome.o: ../ga/gatypes.h ../ga/GAEvalData.h
+GABinStr.o: /usr/include/stdio.h /usr/include/sys/types.h
+GABinStr.o: /usr/include/sys/cdefs.h /usr/include/machine/types.h
+GABinStr.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+GABinStr.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+GABinStr.o: /usr/include/ppc/endian.h /usr/include/stdlib.h
+GABinStr.o: /usr/include/string.h ../ga/gaerror.h ../ga/gatypes.h
+GABinStr.o: ../ga/gaconfig.h /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GABinStr.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GABinStr.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GABinStr.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+GABinStr.o: /usr/include/stddef.h /usr/include/stdarg.h
+GABinStr.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h ../ga/GABinStr.h
+GABinStr.o: ../ga/garandom.h
+gabincvt.o: /usr/include/stdio.h /usr/include/sys/types.h
+gabincvt.o: /usr/include/sys/cdefs.h /usr/include/machine/types.h
+gabincvt.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+gabincvt.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+gabincvt.o: /usr/include/ppc/endian.h /usr/include/limits.h
+gabincvt.o: /usr/include/machine/limits.h /usr/include/ppc/limits.h
+gabincvt.o: /usr/include/sys/syslimits.h /usr/include/string.h
+gabincvt.o: ../ga/gaconfig.h /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+gabincvt.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+gabincvt.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+gabincvt.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+gabincvt.o: /usr/include/stddef.h /usr/include/stdarg.h
+gabincvt.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h ../ga/gaerror.h
+gabincvt.o: ../ga/gatypes.h ../ga/gabincvt.h
+GAAllele.o: /usr/include/string.h /usr/include/machine/ansi.h
+GAAllele.o: /usr/include/ppc/ansi.h /usr/include/sys/cdefs.h ../ga/GAAllele.h
+GAAllele.o: ../ga/gaconfig.h /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GAAllele.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GAAllele.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GAAllele.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+GAAllele.o: /usr/include/sys/types.h /usr/include/machine/types.h
+GAAllele.o: /usr/include/ppc/types.h /usr/include/machine/endian.h
+GAAllele.o: /usr/include/ppc/endian.h /usr/include/stddef.h
+GAAllele.o: /usr/include/stdarg.h
+GAAllele.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h ../ga/garandom.h
+GAAllele.o: /usr/include/stdlib.h ../ga/gatypes.h ../ga/GAAllele.C
+GAAllele.o: ../ga/gaerror.h
+GAStringGenome.o: ../ga/GAStringGenome.h ../ga/GAAllele.h
+GAStringGenome.o: /usr/include/string.h /usr/include/machine/ansi.h
+GAStringGenome.o: /usr/include/ppc/ansi.h /usr/include/sys/cdefs.h
+GAStringGenome.o: ../ga/gaconfig.h
+GAStringGenome.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GAStringGenome.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GAStringGenome.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GAStringGenome.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+GAStringGenome.o: /usr/include/sys/types.h /usr/include/machine/types.h
+GAStringGenome.o: /usr/include/ppc/types.h /usr/include/machine/endian.h
+GAStringGenome.o: /usr/include/ppc/endian.h /usr/include/stddef.h
+GAStringGenome.o: /usr/include/stdarg.h
+GAStringGenome.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h
+GAStringGenome.o: ../ga/garandom.h /usr/include/stdlib.h ../ga/gatypes.h
+GAStringGenome.o: ../ga/GAAllele.C ../ga/GA1DArrayGenome.h ../ga/GAArray.h
+GAStringGenome.o: ../ga/GAGenome.h ../ga/gaid.h ../ga/gaerror.h
+GAStringGenome.o: ../ga/GAEvalData.h ../ga/GA1DArrayGenome.C
+GAStringGenome.o: /usr/include/stdio.h ../ga/GAMask.h
+GARealGenome.o: ../ga/GAAllele.C ../ga/GA1DArrayGenome.C /usr/include/stdio.h
+GARealGenome.o: /usr/include/sys/types.h /usr/include/sys/cdefs.h
+GARealGenome.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+GARealGenome.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+GARealGenome.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+GARealGenome.o: /usr/include/stdlib.h /usr/include/string.h ../ga/garandom.h
+GARealGenome.o: ../ga/gatypes.h ../ga/gaconfig.h
+GARealGenome.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GARealGenome.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GARealGenome.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GARealGenome.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+GARealGenome.o: /usr/include/stddef.h /usr/include/stdarg.h
+GARealGenome.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h
+GARealGenome.o: ../ga/GA1DArrayGenome.h ../ga/GAArray.h ../ga/GAGenome.h
+GARealGenome.o: ../ga/gaid.h ../ga/gaerror.h ../ga/GAEvalData.h
+GARealGenome.o: ../ga/GAAllele.h ../ga/GAMask.h
+GA1DBinStrGenome.o: /usr/include/stdio.h /usr/include/sys/types.h
+GA1DBinStrGenome.o: /usr/include/sys/cdefs.h /usr/include/machine/types.h
+GA1DBinStrGenome.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+GA1DBinStrGenome.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+GA1DBinStrGenome.o: /usr/include/ppc/endian.h /usr/include/stdlib.h
+GA1DBinStrGenome.o: /usr/include/ctype.h /usr/include/runetype.h
+GA1DBinStrGenome.o: /usr/include/string.h ../ga/gaerror.h ../ga/gatypes.h
+GA1DBinStrGenome.o: ../ga/gaconfig.h
+GA1DBinStrGenome.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GA1DBinStrGenome.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GA1DBinStrGenome.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GA1DBinStrGenome.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+GA1DBinStrGenome.o: /usr/include/stddef.h /usr/include/stdarg.h
+GA1DBinStrGenome.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h
+GA1DBinStrGenome.o: ../ga/garandom.h ../ga/GA1DBinStrGenome.h
+GA1DBinStrGenome.o: ../ga/GABinStr.h ../ga/GAGenome.h ../ga/gaid.h
+GA1DBinStrGenome.o: ../ga/GAEvalData.h ../ga/GAMask.h
+GA2DBinStrGenome.o: /usr/include/stdio.h /usr/include/sys/types.h
+GA2DBinStrGenome.o: /usr/include/sys/cdefs.h /usr/include/machine/types.h
+GA2DBinStrGenome.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+GA2DBinStrGenome.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+GA2DBinStrGenome.o: /usr/include/ppc/endian.h /usr/include/stdlib.h
+GA2DBinStrGenome.o: /usr/include/ctype.h /usr/include/runetype.h
+GA2DBinStrGenome.o: /usr/include/string.h ../ga/gaerror.h ../ga/gatypes.h
+GA2DBinStrGenome.o: ../ga/gaconfig.h
+GA2DBinStrGenome.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GA2DBinStrGenome.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GA2DBinStrGenome.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GA2DBinStrGenome.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+GA2DBinStrGenome.o: /usr/include/stddef.h /usr/include/stdarg.h
+GA2DBinStrGenome.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h
+GA2DBinStrGenome.o: ../ga/garandom.h ../ga/GA2DBinStrGenome.h
+GA2DBinStrGenome.o: ../ga/GABinStr.h ../ga/GAGenome.h ../ga/gaid.h
+GA2DBinStrGenome.o: ../ga/GAEvalData.h ../ga/GAMask.h
+GA3DBinStrGenome.o: /usr/include/stdio.h /usr/include/sys/types.h
+GA3DBinStrGenome.o: /usr/include/sys/cdefs.h /usr/include/machine/types.h
+GA3DBinStrGenome.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+GA3DBinStrGenome.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+GA3DBinStrGenome.o: /usr/include/ppc/endian.h /usr/include/stdlib.h
+GA3DBinStrGenome.o: /usr/include/ctype.h /usr/include/runetype.h
+GA3DBinStrGenome.o: /usr/include/string.h ../ga/gaerror.h ../ga/gatypes.h
+GA3DBinStrGenome.o: ../ga/gaconfig.h
+GA3DBinStrGenome.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GA3DBinStrGenome.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GA3DBinStrGenome.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GA3DBinStrGenome.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+GA3DBinStrGenome.o: /usr/include/stddef.h /usr/include/stdarg.h
+GA3DBinStrGenome.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h
+GA3DBinStrGenome.o: ../ga/garandom.h ../ga/GA3DBinStrGenome.h
+GA3DBinStrGenome.o: ../ga/GABinStr.h ../ga/GAGenome.h ../ga/gaid.h
+GA3DBinStrGenome.o: ../ga/GAEvalData.h ../ga/GAMask.h
+GABin2DecGenome.o: /usr/include/stdio.h /usr/include/sys/types.h
+GABin2DecGenome.o: /usr/include/sys/cdefs.h /usr/include/machine/types.h
+GABin2DecGenome.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+GABin2DecGenome.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+GABin2DecGenome.o: /usr/include/ppc/endian.h /usr/include/stdlib.h
+GABin2DecGenome.o: /usr/include/ctype.h /usr/include/runetype.h
+GABin2DecGenome.o: /usr/include/string.h ../ga/gaerror.h ../ga/gatypes.h
+GABin2DecGenome.o: ../ga/gaconfig.h
+GABin2DecGenome.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GABin2DecGenome.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GABin2DecGenome.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GABin2DecGenome.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+GABin2DecGenome.o: /usr/include/stddef.h /usr/include/stdarg.h
+GABin2DecGenome.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h
+GABin2DecGenome.o: ../ga/GABin2DecGenome.h ../ga/GA1DBinStrGenome.h
+GABin2DecGenome.o: ../ga/GABinStr.h ../ga/garandom.h ../ga/GAGenome.h
+GABin2DecGenome.o: ../ga/gaid.h ../ga/GAEvalData.h ../ga/gabincvt.h
+GA1DArrayGenome.o: /usr/include/stdio.h /usr/include/sys/types.h
+GA1DArrayGenome.o: /usr/include/sys/cdefs.h /usr/include/machine/types.h
+GA1DArrayGenome.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+GA1DArrayGenome.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+GA1DArrayGenome.o: /usr/include/ppc/endian.h /usr/include/stdlib.h
+GA1DArrayGenome.o: /usr/include/string.h ../ga/garandom.h ../ga/gatypes.h
+GA1DArrayGenome.o: ../ga/gaconfig.h
+GA1DArrayGenome.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GA1DArrayGenome.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GA1DArrayGenome.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GA1DArrayGenome.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+GA1DArrayGenome.o: /usr/include/stddef.h /usr/include/stdarg.h
+GA1DArrayGenome.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h
+GA1DArrayGenome.o: ../ga/GA1DArrayGenome.h ../ga/GAArray.h ../ga/GAGenome.h
+GA1DArrayGenome.o: ../ga/gaid.h ../ga/gaerror.h ../ga/GAEvalData.h
+GA1DArrayGenome.o: ../ga/GAAllele.h ../ga/GAAllele.C ../ga/GA1DArrayGenome.C
+GA1DArrayGenome.o: ../ga/GAMask.h
+GA2DArrayGenome.o: /usr/include/stdio.h /usr/include/sys/types.h
+GA2DArrayGenome.o: /usr/include/sys/cdefs.h /usr/include/machine/types.h
+GA2DArrayGenome.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+GA2DArrayGenome.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+GA2DArrayGenome.o: /usr/include/ppc/endian.h /usr/include/stdlib.h
+GA2DArrayGenome.o: /usr/include/string.h ../ga/garandom.h ../ga/gatypes.h
+GA2DArrayGenome.o: ../ga/gaconfig.h
+GA2DArrayGenome.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GA2DArrayGenome.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GA2DArrayGenome.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GA2DArrayGenome.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+GA2DArrayGenome.o: /usr/include/stddef.h /usr/include/stdarg.h
+GA2DArrayGenome.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h
+GA2DArrayGenome.o: ../ga/GA2DArrayGenome.h ../ga/GAArray.h ../ga/GAGenome.h
+GA2DArrayGenome.o: ../ga/gaid.h ../ga/gaerror.h ../ga/GAEvalData.h
+GA2DArrayGenome.o: ../ga/GAAllele.h ../ga/GAAllele.C ../ga/GA2DArrayGenome.C
+GA2DArrayGenome.o: ../ga/GAMask.h
+GA3DArrayGenome.o: /usr/include/stdio.h /usr/include/sys/types.h
+GA3DArrayGenome.o: /usr/include/sys/cdefs.h /usr/include/machine/types.h
+GA3DArrayGenome.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+GA3DArrayGenome.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+GA3DArrayGenome.o: /usr/include/ppc/endian.h /usr/include/stdlib.h
+GA3DArrayGenome.o: /usr/include/string.h ../ga/garandom.h ../ga/gatypes.h
+GA3DArrayGenome.o: ../ga/gaconfig.h
+GA3DArrayGenome.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GA3DArrayGenome.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GA3DArrayGenome.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GA3DArrayGenome.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+GA3DArrayGenome.o: /usr/include/stddef.h /usr/include/stdarg.h
+GA3DArrayGenome.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h
+GA3DArrayGenome.o: ../ga/GA3DArrayGenome.h ../ga/GAArray.h ../ga/GAGenome.h
+GA3DArrayGenome.o: ../ga/gaid.h ../ga/gaerror.h ../ga/GAEvalData.h
+GA3DArrayGenome.o: ../ga/GAAllele.h ../ga/GAAllele.C ../ga/GA3DArrayGenome.C
+GA3DArrayGenome.o: ../ga/GAMask.h
+GATreeBASE.o: ../ga/GATreeBASE.h ../ga/GANode.h ../ga/gaconfig.h
+GATreeBASE.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GATreeBASE.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GATreeBASE.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GATreeBASE.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+GATreeBASE.o: /usr/include/sys/types.h /usr/include/sys/cdefs.h
+GATreeBASE.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+GATreeBASE.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+GATreeBASE.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+GATreeBASE.o: /usr/include/stddef.h /usr/include/stdarg.h
+GATreeBASE.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h ../ga/gaerror.h
+GATreeBASE.o: ../ga/gatypes.h
+GATree.o: ../ga/GATree.h ../ga/gaerror.h ../ga/gatypes.h ../ga/gaconfig.h
+GATree.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GATree.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GATree.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GATree.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+GATree.o: /usr/include/sys/types.h /usr/include/sys/cdefs.h
+GATree.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+GATree.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+GATree.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+GATree.o: /usr/include/stddef.h /usr/include/stdarg.h
+GATree.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h ../ga/GATreeBASE.h
+GATree.o: ../ga/GANode.h ../ga/GATree.C
+GATreeGenome.o: /usr/include/stdio.h /usr/include/sys/types.h
+GATreeGenome.o: /usr/include/sys/cdefs.h /usr/include/machine/types.h
+GATreeGenome.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+GATreeGenome.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+GATreeGenome.o: /usr/include/ppc/endian.h /usr/include/stdlib.h
+GATreeGenome.o: ../ga/GATreeGenome.h ../ga/GATree.h ../ga/gaerror.h
+GATreeGenome.o: ../ga/gatypes.h ../ga/gaconfig.h
+GATreeGenome.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GATreeGenome.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GATreeGenome.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GATreeGenome.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+GATreeGenome.o: /usr/include/stddef.h /usr/include/stdarg.h
+GATreeGenome.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h
+GATreeGenome.o: ../ga/GATreeBASE.h ../ga/GANode.h ../ga/GATree.C
+GATreeGenome.o: ../ga/GAGenome.h /usr/include/string.h ../ga/gaid.h
+GATreeGenome.o: ../ga/GAEvalData.h ../ga/GATreeGenome.C
+GAListBASE.o: ../ga/GAListBASE.h ../ga/GANode.h ../ga/gaconfig.h
+GAListBASE.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GAListBASE.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GAListBASE.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GAListBASE.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+GAListBASE.o: /usr/include/sys/types.h /usr/include/sys/cdefs.h
+GAListBASE.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+GAListBASE.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+GAListBASE.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+GAListBASE.o: /usr/include/stddef.h /usr/include/stdarg.h
+GAListBASE.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h ../ga/gaerror.h
+GAListBASE.o: ../ga/gatypes.h
+GAList.o: ../ga/GAList.h
+GAListGenome.o: /usr/include/stdio.h /usr/include/sys/types.h
+GAListGenome.o: /usr/include/sys/cdefs.h /usr/include/machine/types.h
+GAListGenome.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+GAListGenome.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+GAListGenome.o: /usr/include/ppc/endian.h /usr/include/stdlib.h
+GAListGenome.o: ../ga/GAListGenome.h ../ga/GAList.h ../ga/GAGenome.h
+GAListGenome.o: /usr/include/string.h ../ga/gaid.h ../ga/gaconfig.h
+GAListGenome.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GAListGenome.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GAListGenome.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GAListGenome.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+GAListGenome.o: /usr/include/stddef.h /usr/include/stdarg.h
+GAListGenome.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h ../ga/gaerror.h
+GAListGenome.o: ../ga/gatypes.h ../ga/GAEvalData.h ../ga/GAListGenome.C
+GAListGenome.o: ../ga/GAMask.h

@@ -1,0 +1,25 @@
+kToothSpringConstant	250000	500000	1000000	2000000	4000000
+kLeftTMJSpringConstant	25000	50000	100000	200000	400000
+kRightTMJSpringConstant	25000	50000	100000	200000	400000
+
+kLeftTemporalisOrigin	0.02	0.01	0.02		
+kLeftTemporalisInsertion	0.005	0.005	0.005		
+kLeftMasseterOrigin	0.02	0.01	0.01		
+kLeftMasseterInsertion	0.02	0.01	0.01		
+kLeftMedialPterygoidOrigin	0.005	0.005	0.005		
+kLeftMedialPterygoidInsertion	0.005	0.005	0.005		
+kLeftLateralPterygoidOrigin	0.005	0.005	0.005		
+kLeftLateralPterygoidInsertion	0.005	0.005	0.005		
+kRightTemporalisOrigin	0.02	0.01	0.02		
+kRightTemporalisInsertion	0.005	0.005	0.005		
+kRightMasseterOrigin	0.02	0.01	0.01		
+kRightMasseterInsertion	0.02	0.01	0.01		
+kRightMedialPterygoidOrigin	0.005	0.005	0.005		
+kRightMedialPterygoidInsertion	0.005	0.005	0.005		
+kRightLateralPterygoidOrigin	0.005	0.005	0.005
+kRightLateralPterygoidInsertion	0.005	0.005	0.005
+
+kLeftTMJOrigin	0.005	0.005	0.005
+kRightTMJOrigin	0.005	0.005	0.005
+kLeftTMJInsertion	0.005	0.005	0.005
+kRightTMJInsertion	0.005	0.005	0.005

@@ -1,0 +1,35 @@
+# useful functions
+MKDEPEND    = makedepend -I/usr/include
+MKDIR       = mkdir -p
+CP          = cp
+RM          = rm -rf
+MV          = mv
+
+# GNU compiler flags (works with g++ and egcs)
+CXX         = g++
+PRELINK     =
+CXXFLAGS    = -Wall -fexceptions -O3
+CXX_INC_DIR = /usr/include/g++-3/
+LD          = g++ -w
+AR          = ar rv
+INSTALL     = install -c                                                        
+
+# set up a compilation rule for gnu make
+.SUFFIXES: .cc
+.cc.o:
+	$(CXX) $(CXXFLAGS) $(INC_DIRS) -c $<
+
+all: left_foot_up scaled_cycle gait_gen1
+
+left_foot_up: left_foot_up.o
+	$(CXX) -o $@ $^
+	left_foot_up
+        
+scaled_cycle: scaled_cycle.o
+	$(CXX) -o $@ $^
+	scaled_cycle
+        
+gait_gen1: gait_gen1.o    
+	$(CXX) -o $@ $^
+	gait_gen1
+

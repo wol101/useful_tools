@@ -1,0 +1,75 @@
+// wis - had to modify this to allow the right sort of reporting for my
+// fitness function
+
+// Heavily based on dmContactModel
+
+#ifndef ModifiedContactModel_h
+#define ModifiedContactModel_h
+
+#include <dm.h>
+#include <dmEnvironment.h>
+#include <LoggedForce.h>
+
+//============================================================================
+
+class DM_DLL_API ModifiedContactModel:public LoggedForce
+{
+public:
+	ModifiedContactModel ();
+	virtual ~ ModifiedContactModel ();
+
+	void setContactPoints (unsigned int num_contact_points,
+		 CartesianVector * contact_pos);
+	unsigned int getNumContactPoints () const
+	{
+		return m_num_contact_points;
+	}
+	bool getContactPoint (unsigned int index, CartesianVector pos) const;
+
+	void computeForce (dmABForKinStruct * val, SpatialVector force);
+	inline void reset ()
+	{
+		m_reset_flag = true;
+	}
+
+	// check to see whether there is any contact (returns true if there is)
+	bool AnyContact(void);
+
+	// copy the last calculated contact force into the passed vector
+	void GetContactForce(SpatialVector f);
+		
+	// rendering functions
+	void draw();
+private:
+	// not implemented
+	ModifiedContactModel (const ModifiedContactModel &);
+	ModifiedContactModel & operator = (const ModifiedContactModel &);
+
+private:
+	bool m_reset_flag;
+
+	//dmEnvironment *m_env;
+
+	unsigned int m_num_contact_points;
+	bool *m_contact_flag;
+	bool *m_sliding_flag;
+	CartesianVector *m_contact_pos;			// list of point locations to be checked 
+	CartesianVector *m_initial_contact_pos;		// ICS 1st pnt of contact for each
+
+	// temporary variables only used by computeContactForce
+	double ptemp, vtemp, temp;
+	double fe_normal_mag, fe_planar_mag;
+	CartesianVector normal, current_pos;
+	CartesianVector peC_pos, veC_pos, vnC_pos, fe, fn, nn;
+	CartesianVector p_planar, v_planar;
+	CartesianVector fe_normal, fe_planar;
+	
+	// force storage
+	SpatialVector m_contactForce;
+	
+	// drawing variables
+	bool m_drawValid;
+	CartesianVector *m_world_contact_pos;
+};
+
+#endif

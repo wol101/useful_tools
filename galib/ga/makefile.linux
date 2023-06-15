@@ -1,0 +1,294 @@
+# -*- Mode: makefile -*-
+# Copyright (c) 1994-1996 Massachusetts Institute of Technology
+# Copyright (c) 1996-1999 Matthew Wall
+# -----------------------------------------------------------------------------
+
+include ../makevars.linux
+include makefile.sources
+
+INC_DIRS= -I..
+
+$(LIB): $(OBJS) 
+	$(PRELINK)
+	$(AR) $(LIB) $?
+	@echo $(LIB) is now up-to-date
+.C.a:;
+
+clean:
+	$(RM) $(LIB)
+	$(RM) *.o *~ *.bak core ii_files ptrepository
+	$(RM) vc60.* ga.lib
+
+install:: $(LIB)
+	$(INSTALL) $(LIB) $(LIB_DEST_DIR)
+	$(RM) $(HDR_DEST_DIR)/ga; $(MKDIR) $(HDR_DEST_DIR)/ga
+	$(CP) $(HDRS) $(TMPL_SRCS) ../VERSION $(HDR_DEST_DIR)/ga
+
+remove:
+	$(RM) $(LIB_DEST_DIR)/$(LIB) $(HDR_DEST_DIR)/ga
+
+depend:
+	$(MKDEPEND) -fmakefile.linux -I$(CXX_INC_DIR) $(INC_DIRS) $(SRCS)
+
+# DO NOT DELETE THIS LINE -- make depend depends on it.
+
+garandom.o: ../ga/garandom.h /usr/include/stdlib.h
+garandom.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+garandom.o: /usr/include/sys/cdefs.h ../ga/gatypes.h ../ga/gaconfig.h
+garandom.o: /usr/include/time.h /usr/include/machine/limits.h
+garandom.o: /usr/include/ppc/limits.h /usr/include/math.h
+garandom.o: /usr/include/string.h /usr/include/unistd.h
+garandom.o: /usr/include/sys/types.h /usr/include/machine/types.h
+garandom.o: /usr/include/ppc/types.h /usr/include/machine/endian.h
+garandom.o: /usr/include/ppc/endian.h /usr/include/sys/unistd.h
+garandom.o: /usr/include/signal.h /usr/include/sys/signal.h
+garandom.o: /usr/include/machine/signal.h /usr/include/ppc/signal.h
+gaerror.o: /usr/include/string.h /usr/include/machine/ansi.h
+gaerror.o: /usr/include/ppc/ansi.h /usr/include/sys/cdefs.h ../ga/gaerror.h
+gaerror.o: ../ga/gatypes.h ../ga/gaconfig.h /usr/include/stdio.h
+gaerror.o: /usr/include/sys/types.h /usr/include/machine/types.h
+gaerror.o: /usr/include/ppc/types.h /usr/include/machine/endian.h
+gaerror.o: /usr/include/ppc/endian.h
+GAParameter.o: /usr/include/stdlib.h /usr/include/machine/ansi.h
+GAParameter.o: /usr/include/ppc/ansi.h /usr/include/sys/cdefs.h
+GAParameter.o: /usr/include/string.h /usr/include/ctype.h
+GAParameter.o: /usr/include/runetype.h ../ga/gaconfig.h ../ga/gaerror.h
+GAParameter.o: ../ga/gatypes.h ../ga/GAParameter.h
+GAStatistics.o: /usr/include/string.h /usr/include/machine/ansi.h
+GAStatistics.o: /usr/include/ppc/ansi.h /usr/include/sys/cdefs.h
+GAStatistics.o: ../ga/gaerror.h ../ga/gatypes.h ../ga/gaconfig.h
+GAStatistics.o: ../ga/GAStatistics.h ../ga/GAGenome.h /usr/include/stdlib.h
+GAStatistics.o: ../ga/gaid.h ../ga/GAEvalData.h ../ga/GAPopulation.h
+GAStatistics.o: ../ga/GASelector.h ../ga/GAScaling.h
+GABaseGA.o: /usr/include/stdio.h /usr/include/sys/types.h
+GABaseGA.o: /usr/include/sys/cdefs.h /usr/include/machine/types.h
+GABaseGA.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+GABaseGA.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+GABaseGA.o: /usr/include/ppc/endian.h /usr/include/string.h ../ga/GABaseGA.h
+GABaseGA.o: ../ga/gaconfig.h ../ga/gaid.h ../ga/GAParameter.h ../ga/gatypes.h
+GABaseGA.o: ../ga/GAStatistics.h ../ga/GAGenome.h /usr/include/stdlib.h
+GABaseGA.o: ../ga/gaerror.h ../ga/GAEvalData.h ../ga/GAPopulation.h
+GABaseGA.o: ../ga/GASelector.h ../ga/GAScaling.h ../ga/garandom.h
+GABaseGA.o: ../ga/gaversion.h
+GASStateGA.o: ../ga/GASStateGA.h ../ga/GABaseGA.h /usr/include/stdio.h
+GASStateGA.o: /usr/include/sys/types.h /usr/include/sys/cdefs.h
+GASStateGA.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+GASStateGA.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+GASStateGA.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+GASStateGA.o: /usr/include/string.h ../ga/gaconfig.h ../ga/gaid.h
+GASStateGA.o: ../ga/GAParameter.h ../ga/gatypes.h ../ga/GAStatistics.h
+GASStateGA.o: ../ga/GAGenome.h /usr/include/stdlib.h ../ga/gaerror.h
+GASStateGA.o: ../ga/GAEvalData.h ../ga/GAPopulation.h ../ga/GASelector.h
+GASStateGA.o: ../ga/GAScaling.h ../ga/garandom.h
+GASimpleGA.o: ../ga/GASimpleGA.h ../ga/GABaseGA.h /usr/include/stdio.h
+GASimpleGA.o: /usr/include/sys/types.h /usr/include/sys/cdefs.h
+GASimpleGA.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+GASimpleGA.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+GASimpleGA.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+GASimpleGA.o: /usr/include/string.h ../ga/gaconfig.h ../ga/gaid.h
+GASimpleGA.o: ../ga/GAParameter.h ../ga/gatypes.h ../ga/GAStatistics.h
+GASimpleGA.o: ../ga/GAGenome.h /usr/include/stdlib.h ../ga/gaerror.h
+GASimpleGA.o: ../ga/GAEvalData.h ../ga/GAPopulation.h ../ga/GASelector.h
+GASimpleGA.o: ../ga/GAScaling.h ../ga/garandom.h
+GAIncGA.o: ../ga/GAIncGA.h ../ga/GABaseGA.h /usr/include/stdio.h
+GAIncGA.o: /usr/include/sys/types.h /usr/include/sys/cdefs.h
+GAIncGA.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+GAIncGA.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+GAIncGA.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+GAIncGA.o: /usr/include/string.h ../ga/gaconfig.h ../ga/gaid.h
+GAIncGA.o: ../ga/GAParameter.h ../ga/gatypes.h ../ga/GAStatistics.h
+GAIncGA.o: ../ga/GAGenome.h /usr/include/stdlib.h ../ga/gaerror.h
+GAIncGA.o: ../ga/GAEvalData.h ../ga/GAPopulation.h ../ga/GASelector.h
+GAIncGA.o: ../ga/GAScaling.h ../ga/garandom.h
+GADemeGA.o: ../ga/garandom.h /usr/include/stdlib.h
+GADemeGA.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+GADemeGA.o: /usr/include/sys/cdefs.h ../ga/gatypes.h ../ga/gaconfig.h
+GADemeGA.o: ../ga/GADemeGA.h ../ga/GABaseGA.h /usr/include/stdio.h
+GADemeGA.o: /usr/include/sys/types.h /usr/include/machine/types.h
+GADemeGA.o: /usr/include/ppc/types.h /usr/include/machine/endian.h
+GADemeGA.o: /usr/include/ppc/endian.h /usr/include/string.h ../ga/gaid.h
+GADemeGA.o: ../ga/GAParameter.h ../ga/GAStatistics.h ../ga/GAGenome.h
+GADemeGA.o: ../ga/gaerror.h ../ga/GAEvalData.h ../ga/GAPopulation.h
+GADemeGA.o: ../ga/GASelector.h ../ga/GAScaling.h
+GADCrowdingGA.o: GADCrowdingGA.h ../ga/GABaseGA.h /usr/include/stdio.h
+GADCrowdingGA.o: /usr/include/sys/types.h /usr/include/sys/cdefs.h
+GADCrowdingGA.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+GADCrowdingGA.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+GADCrowdingGA.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+GADCrowdingGA.o: /usr/include/string.h ../ga/gaconfig.h ../ga/gaid.h
+GADCrowdingGA.o: ../ga/GAParameter.h ../ga/gatypes.h ../ga/GAStatistics.h
+GADCrowdingGA.o: ../ga/GAGenome.h /usr/include/stdlib.h ../ga/gaerror.h
+GADCrowdingGA.o: ../ga/GAEvalData.h ../ga/GAPopulation.h ../ga/GASelector.h
+GADCrowdingGA.o: ../ga/GAScaling.h GAList.h ../ga/GAListBASE.h ../ga/GANode.h
+GADCrowdingGA.o: ../ga/GAList.C ../ga/GAList.h garandom.h
+GASelector.o: ../ga/gaconfig.h ../ga/GAPopulation.h ../ga/gaid.h
+GASelector.o: ../ga/GASelector.h /usr/include/string.h
+GASelector.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+GASelector.o: /usr/include/sys/cdefs.h ../ga/GAScaling.h ../ga/gatypes.h
+GASelector.o: ../ga/GAGenome.h /usr/include/stdlib.h ../ga/gaerror.h
+GASelector.o: ../ga/GAEvalData.h ../ga/garandom.h
+GAScaling.o: /usr/include/math.h /usr/include/sys/cdefs.h ../ga/gaerror.h
+GAScaling.o: ../ga/gatypes.h ../ga/gaconfig.h ../ga/GAScaling.h
+GAScaling.o: /usr/include/string.h /usr/include/machine/ansi.h
+GAScaling.o: /usr/include/ppc/ansi.h ../ga/gaid.h ../ga/GAGenome.h
+GAScaling.o: /usr/include/stdlib.h ../ga/GAEvalData.h ../ga/GAPopulation.h
+GAScaling.o: ../ga/GASelector.h ../ga/GABaseGA.h /usr/include/stdio.h
+GAScaling.o: /usr/include/sys/types.h /usr/include/machine/types.h
+GAScaling.o: /usr/include/ppc/types.h /usr/include/machine/endian.h
+GAScaling.o: /usr/include/ppc/endian.h ../ga/GAParameter.h
+GAScaling.o: ../ga/GAStatistics.h
+GAPopulation.o: /usr/include/string.h /usr/include/machine/ansi.h
+GAPopulation.o: /usr/include/ppc/ansi.h /usr/include/sys/cdefs.h
+GAPopulation.o: /usr/include/math.h ../ga/GAPopulation.h ../ga/gaconfig.h
+GAPopulation.o: ../ga/gaid.h ../ga/GASelector.h ../ga/GAScaling.h
+GAPopulation.o: ../ga/gatypes.h ../ga/GAGenome.h /usr/include/stdlib.h
+GAPopulation.o: ../ga/gaerror.h ../ga/GAEvalData.h ../ga/garandom.h
+GAPopulation.o: ../ga/GABaseGA.h /usr/include/stdio.h
+GAPopulation.o: /usr/include/sys/types.h /usr/include/machine/types.h
+GAPopulation.o: /usr/include/ppc/types.h /usr/include/machine/endian.h
+GAPopulation.o: /usr/include/ppc/endian.h ../ga/GAParameter.h
+GAPopulation.o: ../ga/GAStatistics.h
+GAGenome.o: ../ga/GAGenome.h /usr/include/stdlib.h
+GAGenome.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+GAGenome.o: /usr/include/sys/cdefs.h /usr/include/string.h ../ga/gaid.h
+GAGenome.o: ../ga/gaconfig.h ../ga/gaerror.h ../ga/gatypes.h
+GAGenome.o: ../ga/GAEvalData.h
+GABinStr.o: /usr/include/stdio.h /usr/include/sys/types.h
+GABinStr.o: /usr/include/sys/cdefs.h /usr/include/machine/types.h
+GABinStr.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+GABinStr.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+GABinStr.o: /usr/include/ppc/endian.h /usr/include/stdlib.h
+GABinStr.o: /usr/include/string.h ../ga/gaerror.h ../ga/gatypes.h
+GABinStr.o: ../ga/gaconfig.h ../ga/GABinStr.h ../ga/garandom.h
+gabincvt.o: /usr/include/stdio.h /usr/include/sys/types.h
+gabincvt.o: /usr/include/sys/cdefs.h /usr/include/machine/types.h
+gabincvt.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+gabincvt.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+gabincvt.o: /usr/include/ppc/endian.h /usr/include/limits.h
+gabincvt.o: /usr/include/machine/limits.h /usr/include/ppc/limits.h
+gabincvt.o: /usr/include/sys/syslimits.h /usr/include/string.h
+gabincvt.o: ../ga/gaconfig.h ../ga/gaerror.h ../ga/gatypes.h ../ga/gabincvt.h
+GAAllele.o: /usr/include/string.h /usr/include/machine/ansi.h
+GAAllele.o: /usr/include/ppc/ansi.h /usr/include/sys/cdefs.h ../ga/GAAllele.h
+GAAllele.o: ../ga/gaconfig.h ../ga/garandom.h /usr/include/stdlib.h
+GAAllele.o: ../ga/gatypes.h ../ga/GAAllele.C ../ga/gaerror.h
+GAStringGenome.o: ../ga/GAStringGenome.h ../ga/GAAllele.h
+GAStringGenome.o: /usr/include/string.h /usr/include/machine/ansi.h
+GAStringGenome.o: /usr/include/ppc/ansi.h /usr/include/sys/cdefs.h
+GAStringGenome.o: ../ga/gaconfig.h ../ga/garandom.h /usr/include/stdlib.h
+GAStringGenome.o: ../ga/gatypes.h ../ga/GAAllele.C ../ga/GA1DArrayGenome.h
+GAStringGenome.o: ../ga/GAArray.h ../ga/GAGenome.h ../ga/gaid.h
+GAStringGenome.o: ../ga/gaerror.h ../ga/GAEvalData.h ../ga/GA1DArrayGenome.C
+GAStringGenome.o: /usr/include/stdio.h /usr/include/sys/types.h
+GAStringGenome.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+GAStringGenome.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+GAStringGenome.o: ../ga/GAMask.h
+GARealGenome.o: ../ga/GAAllele.C ../ga/GA1DArrayGenome.C /usr/include/stdio.h
+GARealGenome.o: /usr/include/sys/types.h /usr/include/sys/cdefs.h
+GARealGenome.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+GARealGenome.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+GARealGenome.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+GARealGenome.o: /usr/include/stdlib.h /usr/include/string.h ../ga/garandom.h
+GARealGenome.o: ../ga/gatypes.h ../ga/gaconfig.h ../ga/GA1DArrayGenome.h
+GARealGenome.o: ../ga/GAArray.h ../ga/GAGenome.h ../ga/gaid.h ../ga/gaerror.h
+GARealGenome.o: ../ga/GAEvalData.h ../ga/GAAllele.h ../ga/GAMask.h
+GA1DBinStrGenome.o: /usr/include/stdio.h /usr/include/sys/types.h
+GA1DBinStrGenome.o: /usr/include/sys/cdefs.h /usr/include/machine/types.h
+GA1DBinStrGenome.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+GA1DBinStrGenome.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+GA1DBinStrGenome.o: /usr/include/ppc/endian.h /usr/include/stdlib.h
+GA1DBinStrGenome.o: /usr/include/ctype.h /usr/include/runetype.h
+GA1DBinStrGenome.o: /usr/include/string.h ../ga/gaerror.h ../ga/gatypes.h
+GA1DBinStrGenome.o: ../ga/gaconfig.h ../ga/garandom.h
+GA1DBinStrGenome.o: ../ga/GA1DBinStrGenome.h ../ga/GABinStr.h
+GA1DBinStrGenome.o: ../ga/GAGenome.h ../ga/gaid.h ../ga/GAEvalData.h
+GA1DBinStrGenome.o: ../ga/GAMask.h
+GA2DBinStrGenome.o: /usr/include/stdio.h /usr/include/sys/types.h
+GA2DBinStrGenome.o: /usr/include/sys/cdefs.h /usr/include/machine/types.h
+GA2DBinStrGenome.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+GA2DBinStrGenome.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+GA2DBinStrGenome.o: /usr/include/ppc/endian.h /usr/include/stdlib.h
+GA2DBinStrGenome.o: /usr/include/ctype.h /usr/include/runetype.h
+GA2DBinStrGenome.o: /usr/include/string.h ../ga/gaerror.h ../ga/gatypes.h
+GA2DBinStrGenome.o: ../ga/gaconfig.h ../ga/garandom.h
+GA2DBinStrGenome.o: ../ga/GA2DBinStrGenome.h ../ga/GABinStr.h
+GA2DBinStrGenome.o: ../ga/GAGenome.h ../ga/gaid.h ../ga/GAEvalData.h
+GA2DBinStrGenome.o: ../ga/GAMask.h
+GA3DBinStrGenome.o: /usr/include/stdio.h /usr/include/sys/types.h
+GA3DBinStrGenome.o: /usr/include/sys/cdefs.h /usr/include/machine/types.h
+GA3DBinStrGenome.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+GA3DBinStrGenome.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+GA3DBinStrGenome.o: /usr/include/ppc/endian.h /usr/include/stdlib.h
+GA3DBinStrGenome.o: /usr/include/ctype.h /usr/include/runetype.h
+GA3DBinStrGenome.o: /usr/include/string.h ../ga/gaerror.h ../ga/gatypes.h
+GA3DBinStrGenome.o: ../ga/gaconfig.h ../ga/garandom.h
+GA3DBinStrGenome.o: ../ga/GA3DBinStrGenome.h ../ga/GABinStr.h
+GA3DBinStrGenome.o: ../ga/GAGenome.h ../ga/gaid.h ../ga/GAEvalData.h
+GA3DBinStrGenome.o: ../ga/GAMask.h
+GABin2DecGenome.o: /usr/include/stdio.h /usr/include/sys/types.h
+GABin2DecGenome.o: /usr/include/sys/cdefs.h /usr/include/machine/types.h
+GABin2DecGenome.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+GABin2DecGenome.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+GABin2DecGenome.o: /usr/include/ppc/endian.h /usr/include/stdlib.h
+GABin2DecGenome.o: /usr/include/ctype.h /usr/include/runetype.h
+GABin2DecGenome.o: /usr/include/string.h ../ga/gaerror.h ../ga/gatypes.h
+GABin2DecGenome.o: ../ga/gaconfig.h ../ga/GABin2DecGenome.h
+GABin2DecGenome.o: ../ga/GA1DBinStrGenome.h ../ga/GABinStr.h ../ga/garandom.h
+GABin2DecGenome.o: ../ga/GAGenome.h ../ga/gaid.h ../ga/GAEvalData.h
+GABin2DecGenome.o: ../ga/gabincvt.h
+GA1DArrayGenome.o: /usr/include/stdio.h /usr/include/sys/types.h
+GA1DArrayGenome.o: /usr/include/sys/cdefs.h /usr/include/machine/types.h
+GA1DArrayGenome.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+GA1DArrayGenome.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+GA1DArrayGenome.o: /usr/include/ppc/endian.h /usr/include/stdlib.h
+GA1DArrayGenome.o: /usr/include/string.h ../ga/garandom.h ../ga/gatypes.h
+GA1DArrayGenome.o: ../ga/gaconfig.h ../ga/GA1DArrayGenome.h ../ga/GAArray.h
+GA1DArrayGenome.o: ../ga/GAGenome.h ../ga/gaid.h ../ga/gaerror.h
+GA1DArrayGenome.o: ../ga/GAEvalData.h ../ga/GAAllele.h ../ga/GAAllele.C
+GA1DArrayGenome.o: ../ga/GA1DArrayGenome.C ../ga/GAMask.h
+GA2DArrayGenome.o: /usr/include/stdio.h /usr/include/sys/types.h
+GA2DArrayGenome.o: /usr/include/sys/cdefs.h /usr/include/machine/types.h
+GA2DArrayGenome.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+GA2DArrayGenome.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+GA2DArrayGenome.o: /usr/include/ppc/endian.h /usr/include/stdlib.h
+GA2DArrayGenome.o: /usr/include/string.h ../ga/garandom.h ../ga/gatypes.h
+GA2DArrayGenome.o: ../ga/gaconfig.h ../ga/GA2DArrayGenome.h ../ga/GAArray.h
+GA2DArrayGenome.o: ../ga/GAGenome.h ../ga/gaid.h ../ga/gaerror.h
+GA2DArrayGenome.o: ../ga/GAEvalData.h ../ga/GAAllele.h ../ga/GAAllele.C
+GA2DArrayGenome.o: ../ga/GA2DArrayGenome.C ../ga/GAMask.h
+GA3DArrayGenome.o: /usr/include/stdio.h /usr/include/sys/types.h
+GA3DArrayGenome.o: /usr/include/sys/cdefs.h /usr/include/machine/types.h
+GA3DArrayGenome.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+GA3DArrayGenome.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+GA3DArrayGenome.o: /usr/include/ppc/endian.h /usr/include/stdlib.h
+GA3DArrayGenome.o: /usr/include/string.h ../ga/garandom.h ../ga/gatypes.h
+GA3DArrayGenome.o: ../ga/gaconfig.h ../ga/GA3DArrayGenome.h ../ga/GAArray.h
+GA3DArrayGenome.o: ../ga/GAGenome.h ../ga/gaid.h ../ga/gaerror.h
+GA3DArrayGenome.o: ../ga/GAEvalData.h ../ga/GAAllele.h ../ga/GAAllele.C
+GA3DArrayGenome.o: ../ga/GA3DArrayGenome.C ../ga/GAMask.h
+GATreeBASE.o: ../ga/GATreeBASE.h ../ga/GANode.h ../ga/gaconfig.h
+GATreeBASE.o: ../ga/gaerror.h ../ga/gatypes.h
+GATree.o: ../ga/GATree.h ../ga/gaerror.h ../ga/gatypes.h ../ga/gaconfig.h
+GATree.o: ../ga/GATreeBASE.h ../ga/GANode.h ../ga/GATree.C
+GATreeGenome.o: /usr/include/stdio.h /usr/include/sys/types.h
+GATreeGenome.o: /usr/include/sys/cdefs.h /usr/include/machine/types.h
+GATreeGenome.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+GATreeGenome.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+GATreeGenome.o: /usr/include/ppc/endian.h /usr/include/stdlib.h
+GATreeGenome.o: ../ga/GATreeGenome.h ../ga/GATree.h ../ga/gaerror.h
+GATreeGenome.o: ../ga/gatypes.h ../ga/gaconfig.h ../ga/GATreeBASE.h
+GATreeGenome.o: ../ga/GANode.h ../ga/GATree.C ../ga/GAGenome.h
+GATreeGenome.o: /usr/include/string.h ../ga/gaid.h ../ga/GAEvalData.h
+GATreeGenome.o: ../ga/GATreeGenome.C
+GAListBASE.o: ../ga/GAListBASE.h ../ga/GANode.h ../ga/gaconfig.h
+GAListBASE.o: ../ga/gaerror.h ../ga/gatypes.h
+GAList.o: ../ga/GAList.h
+GAListGenome.o: /usr/include/stdio.h /usr/include/sys/types.h
+GAListGenome.o: /usr/include/sys/cdefs.h /usr/include/machine/types.h
+GAListGenome.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+GAListGenome.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+GAListGenome.o: /usr/include/ppc/endian.h /usr/include/stdlib.h
+GAListGenome.o: ../ga/GAListGenome.h ../ga/GAList.h ../ga/GAGenome.h
+GAListGenome.o: /usr/include/string.h ../ga/gaid.h ../ga/gaconfig.h
+GAListGenome.o: ../ga/gaerror.h ../ga/gatypes.h ../ga/GAEvalData.h
+GAListGenome.o: ../ga/GAListGenome.C ../ga/GAMask.h

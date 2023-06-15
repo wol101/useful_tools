@@ -1,0 +1,17 @@
+# OBJMangler file to swap the axes around for the dynamechs simulation
+
+ReadOBJFile Mandible "Mandible_orig.obj"
+ReadOBJFile Skull "Skull_orig.obj"
+
+# move x to y, y to z, and z to x
+
+RotateAxes Mandible 2 0 1
+RotateAxes Skull 2 0 1
+
+CreateNew Head
+Concatenate Head Skull
+Concatenate Head Mandible
+SetDisplay Head
+
+WriteOBJFile Mandible "Mandible.obj"
+WriteOBJFile Skull "Skull.obj"

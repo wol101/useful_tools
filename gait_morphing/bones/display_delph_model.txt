@@ -1,0 +1,29 @@
+# OBJMangler parameter file to display the Delph skeletal model
+
+ReadOBJFile pelvis original_bones/pelvis.obj          
+ReadOBJFile left_femur original_bones/left_femur.obj      
+ReadOBJFile right_femur original_bones/right_femur.obj
+ReadOBJFile left_tib_fib original_bones/left_tib_fib.obj
+ReadOBJFile right_tib_fib original_bones/right_tib_fib.obj
+ReadOBJFile left_foot original_bones/left_foot.obj       
+ReadOBJFile right_foot original_bones/right_foot.obj
+
+Move left_femur 0 0 -0.0835
+Move right_femur 0 0 0.0835
+
+Move left_tib_fib 0.396 0 -0.0835
+Move right_tib_fib 0.396 0 0.0835
+
+Move left_foot 0.826 0 -0.0835
+Move right_foot 0.826 0 0.0835
+
+CreateNew skeleton
+Concatenate skeleton pelvis
+Concatenate skeleton left_femur
+Concatenate skeleton right_femur
+Concatenate skeleton left_tib_fib
+Concatenate skeleton right_tib_fib
+Concatenate skeleton left_foot
+Concatenate skeleton right_foot
+
+SetDisplay skeleton

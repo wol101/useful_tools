@@ -1,0 +1,638 @@
+# makefile for the subprocess objective option
+
+# useful functions
+MKDEPEND    = makedepend
+MKDIR       = mkdir -p
+CP          = cp
+RM          = rm -rf
+MV          = mv
+
+# GNU compiler flags (works with g++ and egcs) - Darwin version
+CXX         = g++
+PRELINK     =
+CXXFLAGS    = -Wall -fexceptions -O3
+CXX_INC_DIR = /usr/include/gcc/darwin/2.95.2/g++/
+LD          = g++ -w
+AR          = ar rv
+INSTALL     = install -c                       
+
+# GNU compiler flags (works with g++ and egcs) - Linux version
+#CXX         = g++
+#PRELINK     =
+#CXXFLAGS    = -Wall -fexceptions -O3
+#CXX_INC_DIR = /usr/include/g++-3/
+#LD          = g++ -w
+#AR          = ar rv
+#INSTALL     = install -c                       
+
+# IRIX 6.x with new 32-bit libraries                                            
+#CXX         = CC
+#CXXFLAGS    = -g -fullwarn -n32 -DUSE_OLD_STREAMS -ptused 
+#CXX_INC_DIR = /usr/include/CC
+#LD          = ld
+#AR          = ar rv
+#INSTALL     = bsdinst -c
+
+# set up a compilation rule for gnu make
+.SUFFIXES: .cc
+.cc.o:
+	$(CXX) $(CXXFLAGS) $(INC_DIRS) -c $<
+
+
+DYN_DIR = /Users/wis/Unix/dynamechs/
+INC_DIRS= -I. -I$(DYN_DIR)dm -I$(DYN_DIR)dmu -I$(DYN_DIR)dmGL \
+	-I/usr/local/include/ -I/usr/local/include/GL/ \
+	-I/usr/X11R6/include/ -I/usr/X11R6/include/GL/
+DYN_LIBS = $(DYN_DIR)dmu/libdmu.a $(DYN_DIR)dmGL/libdmGL.a \
+	$(DYN_DIR)dm/libdm.a 
+LIBS = -lm 
+OPENGL_LIBS = -L/usr/local/lib -L/usr/X11R6/lib \
+	-lglut -lGLU -lGL -lXmu -lXext -lX11 
+
+all: objective
+	
+objective: \
+Simulation.o           Fitness.o              ModifiedContactModel.o\
+Controller.o           SinController.o        StepController.o\
+ControllerList.o       ObjectiveMain.o\
+LoggedForce.o          Util.o                 SquareController.o\
+ForceList.o            MuscleModel.o          \
+Segments.o             ParameterFile.o
+	$(CXX) -o $@ $^ $(DYN_LIBS) $(OPENGL_LIBS) $(LIBS)
+
+clean:
+	$(RM) objective
+	$(RM) *.o *~ *.bak core *.bck
+
+depend:
+	$(MKDEPEND) -fmakefile.darwin -I$(CXX_INC_DIR) $(INC_DIRS) \
+ObjectiveMain.cc        ModifiedContactModel.cc\
+Controller.cc           Simulation.cc           StepController.cc\
+ControllerList.cc       SinController.cc\
+Fitness.cc              LoggedForce.cc\
+ForceList.cc            MuscleModel.cc          Util.cc\
+SquareController.cc     Segments.cc             ParameterFile.cc
+
+# DO NOT DELETE THIS LINE -- make  depend  depends  on it.
+
+GA.o: /usr/include/stdio.h /usr/include/sys/types.h /usr/include/sys/cdefs.h
+GA.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+GA.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+GA.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+GA.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+GA.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+GA.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+GA.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h /usr/include/stddef.h
+GA.o: /usr/include/stdarg.h /usr/include/gcc/darwin/2.95.2/g++/iomanip.h
+GA.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h /usr/include/assert.h
+GA.o: /usr/include/gcc/darwin/2.95.2/g++/exception /usr/include/stdlib.h
+GA.o: /Users/wis/Unix/galib/ga/ga.h /Users/wis/Unix/galib/ga/gaconfig.h
+GA.o: /Users/wis/Unix/galib/ga/GASStateGA.h
+GA.o: /Users/wis/Unix/galib/ga/GABaseGA.h /usr/include/string.h
+GA.o: /Users/wis/Unix/galib/ga/gaid.h /Users/wis/Unix/galib/ga/GAParameter.h
+GA.o: /Users/wis/Unix/galib/ga/gatypes.h
+GA.o: /Users/wis/Unix/galib/ga/GAStatistics.h
+GA.o: /Users/wis/Unix/galib/ga/GAGenome.h /Users/wis/Unix/galib/ga/gaerror.h
+GA.o: /Users/wis/Unix/galib/ga/GAEvalData.h
+GA.o: /Users/wis/Unix/galib/ga/GAPopulation.h
+GA.o: /Users/wis/Unix/galib/ga/GASelector.h
+GA.o: /Users/wis/Unix/galib/ga/GAScaling.h /Users/wis/Unix/galib/ga/GAIncGA.h
+GA.o: /Users/wis/Unix/galib/ga/GADemeGA.h
+GA.o: /Users/wis/Unix/galib/ga/GADCrowdingGA.h
+GA.o: /Users/wis/Unix/galib/ga/GA2DBinStrGenome.h
+GA.o: /Users/wis/Unix/galib/ga/GABinStr.h /Users/wis/Unix/galib/ga/garandom.h
+GA.o: /Users/wis/Unix/galib/ga/GA3DBinStrGenome.h
+GA.o: /Users/wis/Unix/galib/ga/GABin2DecGenome.h
+GA.o: /Users/wis/Unix/galib/ga/GA1DBinStrGenome.h
+GA.o: /Users/wis/Unix/galib/ga/gabincvt.h
+GA.o: /Users/wis/Unix/galib/ga/GA1DArrayGenome.h
+GA.o: /Users/wis/Unix/galib/ga/GAArray.h /Users/wis/Unix/galib/ga/GAAllele.h
+GA.o: /Users/wis/Unix/galib/ga/GAAllele.C
+GA.o: /Users/wis/Unix/galib/ga/GA1DArrayGenome.C
+GA.o: /Users/wis/Unix/galib/ga/GAMask.h
+GA.o: /Users/wis/Unix/galib/ga/GA2DArrayGenome.h
+GA.o: /Users/wis/Unix/galib/ga/GA2DArrayGenome.C
+GA.o: /Users/wis/Unix/galib/ga/GA3DArrayGenome.h
+GA.o: /Users/wis/Unix/galib/ga/GA3DArrayGenome.C
+GA.o: /Users/wis/Unix/galib/ga/GAListGenome.h
+GA.o: /Users/wis/Unix/galib/ga/GAList.h /Users/wis/Unix/galib/ga/GAListBASE.h
+GA.o: /Users/wis/Unix/galib/ga/GANode.h /Users/wis/Unix/galib/ga/GAList.C
+GA.o: /Users/wis/Unix/galib/ga/GAListGenome.C
+GA.o: /Users/wis/Unix/galib/ga/GATreeGenome.h
+GA.o: /Users/wis/Unix/galib/ga/GATree.h /Users/wis/Unix/galib/ga/GATreeBASE.h
+GA.o: /Users/wis/Unix/galib/ga/GATree.C
+GA.o: /Users/wis/Unix/galib/ga/GATreeGenome.C
+GA.o: /Users/wis/Unix/galib/ga/GARealGenome.h
+GA.o: /Users/wis/Unix/galib/ga/GARealGenome.C Util.h /usr/include/math.h
+ObjectiveMain.o: /usr/include/stdio.h /usr/include/sys/types.h
+ObjectiveMain.o: /usr/include/sys/cdefs.h /usr/include/machine/types.h
+ObjectiveMain.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+ObjectiveMain.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+ObjectiveMain.o: /usr/include/ppc/endian.h
+ObjectiveMain.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+ObjectiveMain.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+ObjectiveMain.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+ObjectiveMain.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+ObjectiveMain.o: /usr/include/stddef.h /usr/include/stdarg.h
+ObjectiveMain.o: /usr/include/gcc/darwin/2.95.2/g++/iomanip.h
+ObjectiveMain.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h
+ObjectiveMain.o: /usr/include/assert.h /usr/include/unistd.h
+ObjectiveMain.o: /usr/include/sys/unistd.h /usr/include/signal.h
+ObjectiveMain.o: /usr/include/sys/signal.h /usr/include/machine/signal.h
+ObjectiveMain.o: /usr/include/ppc/signal.h /usr/local/include/GL/glut.h
+ObjectiveMain.o: /usr/local/include/GL/gl.h /usr/local/include/GL/glext.h
+ObjectiveMain.o: /usr/local/include/GL/glu.h
+ObjectiveMain.o: /Users/wis/Unix/dynamechs/dmGL/dmGLTime.h
+ObjectiveMain.o: /Users/wis/Unix/dynamechs/dmGL/dmGL.h
+ObjectiveMain.o: /usr/local/include/GL/gl.h /usr/local/include/GL/glu.h
+ObjectiveMain.o: /usr/include/math.h /usr/include/stdlib.h
+ObjectiveMain.o: /usr/include/time.h /usr/include/machine/limits.h
+ObjectiveMain.o: /usr/include/ppc/limits.h /usr/include/sys/time.h
+ObjectiveMain.o: /Users/wis/Unix/dynamechs/dmGL/dmGLMouse.h
+ObjectiveMain.o: /Users/wis/Unix/dynamechs/dmGL/dmGLPolarCamera_zup.h
+ObjectiveMain.o: /Users/wis/Unix/dynamechs/dmGL/dmGLPolarCamera.h
+ObjectiveMain.o: /Users/wis/Unix/dynamechs/dmGL/dmGLCamera.h
+ObjectiveMain.o: /Users/wis/Unix/dynamechs/dm/dmEnvironment.h
+ObjectiveMain.o: /Users/wis/Unix/dynamechs/dm/dm.h /usr/include/string.h
+ObjectiveMain.o: /Users/wis/Unix/dynamechs/dm/dmObject.h
+ObjectiveMain.o: /Users/wis/Unix/dynamechs/dm/dmArticulation.h
+ObjectiveMain.o: /Users/wis/Unix/dynamechs/dm/dmLink.h
+ObjectiveMain.o: /Users/wis/Unix/dynamechs/dm/dmSystem.h
+ObjectiveMain.o: /usr/include/gcc/darwin/2.95.2/g++/vector
+ObjectiveMain.o: /usr/include/gcc/darwin/2.95.2/g++/stl_algobase.h
+ObjectiveMain.o: /usr/include/gcc/darwin/2.95.2/g++/stl_config.h
+ObjectiveMain.o: /usr/include/gcc/darwin/2.95.2/g++/stl_relops.h
+ObjectiveMain.o: /usr/include/gcc/darwin/2.95.2/g++/stl_pair.h
+ObjectiveMain.o: /usr/include/gcc/darwin/2.95.2/g++/type_traits.h
+ObjectiveMain.o: /usr/include/limits.h /usr/include/sys/syslimits.h
+ObjectiveMain.o: /usr/include/gcc/darwin/2.95.2/g++/new.h
+ObjectiveMain.o: /usr/include/gcc/darwin/2.95.2/g++/new
+ObjectiveMain.o: /usr/include/gcc/darwin/2.95.2/g++/exception
+ObjectiveMain.o: /usr/include/gcc/darwin/2.95.2/g++/stl_iterator.h
+ObjectiveMain.o: /usr/include/gcc/darwin/2.95.2/g++/stl_alloc.h
+ObjectiveMain.o: /usr/include/gcc/darwin/2.95.2/g++/stl_construct.h
+ObjectiveMain.o: /usr/include/gcc/darwin/2.95.2/g++/stl_uninitialized.h
+ObjectiveMain.o: /usr/include/gcc/darwin/2.95.2/g++/stl_vector.h
+ObjectiveMain.o: /usr/include/gcc/darwin/2.95.2/g++/stl_bvector.h Fitness.h
+ObjectiveMain.o: Util.h Simulation.h ForceList.h Controller.h
+ObjectiveMain.o: ControllerList.h
+ModifiedContactModel.o: /Users/wis/Unix/dynamechs/dm/dm.h
+ModifiedContactModel.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+ModifiedContactModel.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+ModifiedContactModel.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+ModifiedContactModel.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+ModifiedContactModel.o: /usr/include/sys/types.h /usr/include/sys/cdefs.h
+ModifiedContactModel.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+ModifiedContactModel.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+ModifiedContactModel.o: /usr/include/machine/endian.h
+ModifiedContactModel.o: /usr/include/ppc/endian.h /usr/include/stddef.h
+ModifiedContactModel.o: /usr/include/stdarg.h
+ModifiedContactModel.o: /usr/include/gcc/darwin/2.95.2/g++/iomanip.h
+ModifiedContactModel.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h
+ModifiedContactModel.o: /usr/include/math.h /usr/include/stdlib.h
+ModifiedContactModel.o: /usr/include/string.h
+ModifiedContactModel.o: /Users/wis/Unix/dynamechs/dm/dmForce.h
+ModifiedContactModel.o: /Users/wis/Unix/dynamechs/dm/dmObject.h
+ModifiedContactModel.o: /Users/wis/Unix/dynamechs/dm/dmEnvironment.h
+ModifiedContactModel.o: ForceList.h /usr/include/gcc/darwin/2.95.2/g++/vector
+ModifiedContactModel.o: /usr/include/gcc/darwin/2.95.2/g++/stl_algobase.h
+ModifiedContactModel.o: /usr/include/gcc/darwin/2.95.2/g++/stl_config.h
+ModifiedContactModel.o: /usr/include/gcc/darwin/2.95.2/g++/stl_relops.h
+ModifiedContactModel.o: /usr/include/gcc/darwin/2.95.2/g++/stl_pair.h
+ModifiedContactModel.o: /usr/include/gcc/darwin/2.95.2/g++/type_traits.h
+ModifiedContactModel.o: /usr/include/limits.h /usr/include/machine/limits.h
+ModifiedContactModel.o: /usr/include/ppc/limits.h
+ModifiedContactModel.o: /usr/include/sys/syslimits.h
+ModifiedContactModel.o: /usr/include/gcc/darwin/2.95.2/g++/new.h
+ModifiedContactModel.o: /usr/include/gcc/darwin/2.95.2/g++/new
+ModifiedContactModel.o: /usr/include/gcc/darwin/2.95.2/g++/exception
+ModifiedContactModel.o: /usr/include/gcc/darwin/2.95.2/g++/stl_iterator.h
+ModifiedContactModel.o: /usr/include/gcc/darwin/2.95.2/g++/stl_alloc.h
+ModifiedContactModel.o: /usr/include/assert.h
+ModifiedContactModel.o: /usr/include/gcc/darwin/2.95.2/g++/stl_construct.h
+ModifiedContactModel.o: /usr/include/gcc/darwin/2.95.2/g++/stl_uninitialized.h
+ModifiedContactModel.o: /usr/include/gcc/darwin/2.95.2/g++/stl_vector.h
+ModifiedContactModel.o: /usr/include/gcc/darwin/2.95.2/g++/stl_bvector.h
+ModifiedContactModel.o: Simulation.h /usr/local/include/GL/gl.h
+ModifiedContactModel.o: ModifiedContactModel.h ./LoggedForce.h
+Controller.o: /usr/include/gcc/darwin/2.95.2/g++/iomanip.h
+Controller.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+Controller.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+Controller.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+Controller.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+Controller.o: /usr/include/sys/types.h /usr/include/sys/cdefs.h
+Controller.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+Controller.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+Controller.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+Controller.o: /usr/include/stddef.h /usr/include/stdarg.h
+Controller.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h Controller.h
+Controller.o: /Users/wis/Unix/dynamechs/dm/dmObject.h
+Controller.o: /Users/wis/Unix/dynamechs/dm/dm.h /usr/include/math.h
+Controller.o: /usr/include/stdlib.h /usr/include/string.h ControllerList.h
+Controller.o: /usr/include/gcc/darwin/2.95.2/g++/vector
+Controller.o: /usr/include/gcc/darwin/2.95.2/g++/stl_algobase.h
+Controller.o: /usr/include/gcc/darwin/2.95.2/g++/stl_config.h
+Controller.o: /usr/include/gcc/darwin/2.95.2/g++/stl_relops.h
+Controller.o: /usr/include/gcc/darwin/2.95.2/g++/stl_pair.h
+Controller.o: /usr/include/gcc/darwin/2.95.2/g++/type_traits.h
+Controller.o: /usr/include/limits.h /usr/include/machine/limits.h
+Controller.o: /usr/include/ppc/limits.h /usr/include/sys/syslimits.h
+Controller.o: /usr/include/gcc/darwin/2.95.2/g++/new.h
+Controller.o: /usr/include/gcc/darwin/2.95.2/g++/new
+Controller.o: /usr/include/gcc/darwin/2.95.2/g++/exception
+Controller.o: /usr/include/gcc/darwin/2.95.2/g++/stl_iterator.h
+Controller.o: /usr/include/gcc/darwin/2.95.2/g++/stl_alloc.h
+Controller.o: /usr/include/assert.h
+Controller.o: /usr/include/gcc/darwin/2.95.2/g++/stl_construct.h
+Controller.o: /usr/include/gcc/darwin/2.95.2/g++/stl_uninitialized.h
+Controller.o: /usr/include/gcc/darwin/2.95.2/g++/stl_vector.h
+Controller.o: /usr/include/gcc/darwin/2.95.2/g++/stl_bvector.h Simulation.h
+Controller.o: /usr/local/include/GL/gl.h
+Simulation.o: /Users/wis/Unix/dynamechs/dm/dm.h
+Simulation.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+Simulation.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+Simulation.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+Simulation.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+Simulation.o: /usr/include/sys/types.h /usr/include/sys/cdefs.h
+Simulation.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+Simulation.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+Simulation.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+Simulation.o: /usr/include/stddef.h /usr/include/stdarg.h
+Simulation.o: /usr/include/gcc/darwin/2.95.2/g++/iomanip.h
+Simulation.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h
+Simulation.o: /usr/include/math.h /usr/include/stdlib.h /usr/include/string.h
+Simulation.o: /Users/wis/Unix/dynamechs/dm/dmArticulation.h
+Simulation.o: /Users/wis/Unix/dynamechs/dm/dmLink.h
+Simulation.o: /Users/wis/Unix/dynamechs/dm/dmObject.h
+Simulation.o: /Users/wis/Unix/dynamechs/dm/dmSystem.h
+Simulation.o: /usr/include/gcc/darwin/2.95.2/g++/vector
+Simulation.o: /usr/include/gcc/darwin/2.95.2/g++/stl_algobase.h
+Simulation.o: /usr/include/gcc/darwin/2.95.2/g++/stl_config.h
+Simulation.o: /usr/include/gcc/darwin/2.95.2/g++/stl_relops.h
+Simulation.o: /usr/include/gcc/darwin/2.95.2/g++/stl_pair.h
+Simulation.o: /usr/include/gcc/darwin/2.95.2/g++/type_traits.h
+Simulation.o: /usr/include/limits.h /usr/include/machine/limits.h
+Simulation.o: /usr/include/ppc/limits.h /usr/include/sys/syslimits.h
+Simulation.o: /usr/include/gcc/darwin/2.95.2/g++/new.h
+Simulation.o: /usr/include/gcc/darwin/2.95.2/g++/new
+Simulation.o: /usr/include/gcc/darwin/2.95.2/g++/exception
+Simulation.o: /usr/include/gcc/darwin/2.95.2/g++/stl_iterator.h
+Simulation.o: /usr/include/gcc/darwin/2.95.2/g++/stl_alloc.h
+Simulation.o: /usr/include/assert.h
+Simulation.o: /usr/include/gcc/darwin/2.95.2/g++/stl_construct.h
+Simulation.o: /usr/include/gcc/darwin/2.95.2/g++/stl_uninitialized.h
+Simulation.o: /usr/include/gcc/darwin/2.95.2/g++/stl_vector.h
+Simulation.o: /usr/include/gcc/darwin/2.95.2/g++/stl_bvector.h
+Simulation.o: /Users/wis/Unix/dynamechs/dm/dmIntegrator.h
+Simulation.o: /Users/wis/Unix/dynamechs/dm/dmIntegEuler.h
+Simulation.o: /Users/wis/Unix/dynamechs/dmu/dmu.h LoadFile.h ForceList.h
+Simulation.o: ControllerList.h Simulation.h /usr/local/include/GL/gl.h
+StepController.o: /usr/include/assert.h StepController.h Controller.h
+StepController.o: /Users/wis/Unix/dynamechs/dm/dmObject.h
+StepController.o: /Users/wis/Unix/dynamechs/dm/dm.h
+StepController.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+StepController.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+StepController.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+StepController.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+StepController.o: /usr/include/sys/types.h /usr/include/sys/cdefs.h
+StepController.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+StepController.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+StepController.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+StepController.o: /usr/include/stddef.h /usr/include/stdarg.h
+StepController.o: /usr/include/gcc/darwin/2.95.2/g++/iomanip.h
+StepController.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h
+StepController.o: /usr/include/math.h /usr/include/stdlib.h
+StepController.o: /usr/include/string.h
+ControllerList.o: Controller.h /Users/wis/Unix/dynamechs/dm/dmObject.h
+ControllerList.o: /Users/wis/Unix/dynamechs/dm/dm.h
+ControllerList.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+ControllerList.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+ControllerList.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+ControllerList.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+ControllerList.o: /usr/include/sys/types.h /usr/include/sys/cdefs.h
+ControllerList.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+ControllerList.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+ControllerList.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+ControllerList.o: /usr/include/stddef.h /usr/include/stdarg.h
+ControllerList.o: /usr/include/gcc/darwin/2.95.2/g++/iomanip.h
+ControllerList.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h
+ControllerList.o: /usr/include/math.h /usr/include/stdlib.h
+ControllerList.o: /usr/include/string.h ControllerList.h
+ControllerList.o: /usr/include/gcc/darwin/2.95.2/g++/vector
+ControllerList.o: /usr/include/gcc/darwin/2.95.2/g++/stl_algobase.h
+ControllerList.o: /usr/include/gcc/darwin/2.95.2/g++/stl_config.h
+ControllerList.o: /usr/include/gcc/darwin/2.95.2/g++/stl_relops.h
+ControllerList.o: /usr/include/gcc/darwin/2.95.2/g++/stl_pair.h
+ControllerList.o: /usr/include/gcc/darwin/2.95.2/g++/type_traits.h
+ControllerList.o: /usr/include/limits.h /usr/include/machine/limits.h
+ControllerList.o: /usr/include/ppc/limits.h /usr/include/sys/syslimits.h
+ControllerList.o: /usr/include/gcc/darwin/2.95.2/g++/new.h
+ControllerList.o: /usr/include/gcc/darwin/2.95.2/g++/new
+ControllerList.o: /usr/include/gcc/darwin/2.95.2/g++/exception
+ControllerList.o: /usr/include/gcc/darwin/2.95.2/g++/stl_iterator.h
+ControllerList.o: /usr/include/gcc/darwin/2.95.2/g++/stl_alloc.h
+ControllerList.o: /usr/include/assert.h
+ControllerList.o: /usr/include/gcc/darwin/2.95.2/g++/stl_construct.h
+ControllerList.o: /usr/include/gcc/darwin/2.95.2/g++/stl_uninitialized.h
+ControllerList.o: /usr/include/gcc/darwin/2.95.2/g++/stl_vector.h
+ControllerList.o: /usr/include/gcc/darwin/2.95.2/g++/stl_bvector.h
+LoadFile.o: /Users/wis/Unix/dynamechs/dm/dm.h
+LoadFile.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+LoadFile.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+LoadFile.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+LoadFile.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+LoadFile.o: /usr/include/sys/types.h /usr/include/sys/cdefs.h
+LoadFile.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+LoadFile.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+LoadFile.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+LoadFile.o: /usr/include/stddef.h /usr/include/stdarg.h
+LoadFile.o: /usr/include/gcc/darwin/2.95.2/g++/iomanip.h
+LoadFile.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h /usr/include/math.h
+LoadFile.o: /usr/include/stdlib.h /usr/include/string.h
+LoadFile.o: /usr/local/include/GL/gl.h
+LoadFile.o: /Users/wis/Unix/dynamechs/dm/dmObject.h
+LoadFile.o: /Users/wis/Unix/dynamechs/dm/dmSystem.h
+LoadFile.o: /Users/wis/Unix/dynamechs/dm/dmArticulation.h
+LoadFile.o: /Users/wis/Unix/dynamechs/dm/dmLink.h
+LoadFile.o: /usr/include/gcc/darwin/2.95.2/g++/vector
+LoadFile.o: /usr/include/gcc/darwin/2.95.2/g++/stl_algobase.h
+LoadFile.o: /usr/include/gcc/darwin/2.95.2/g++/stl_config.h
+LoadFile.o: /usr/include/gcc/darwin/2.95.2/g++/stl_relops.h
+LoadFile.o: /usr/include/gcc/darwin/2.95.2/g++/stl_pair.h
+LoadFile.o: /usr/include/gcc/darwin/2.95.2/g++/type_traits.h
+LoadFile.o: /usr/include/limits.h /usr/include/machine/limits.h
+LoadFile.o: /usr/include/ppc/limits.h /usr/include/sys/syslimits.h
+LoadFile.o: /usr/include/gcc/darwin/2.95.2/g++/new.h
+LoadFile.o: /usr/include/gcc/darwin/2.95.2/g++/new
+LoadFile.o: /usr/include/gcc/darwin/2.95.2/g++/exception
+LoadFile.o: /usr/include/gcc/darwin/2.95.2/g++/stl_iterator.h
+LoadFile.o: /usr/include/gcc/darwin/2.95.2/g++/stl_alloc.h
+LoadFile.o: /usr/include/assert.h
+LoadFile.o: /usr/include/gcc/darwin/2.95.2/g++/stl_construct.h
+LoadFile.o: /usr/include/gcc/darwin/2.95.2/g++/stl_uninitialized.h
+LoadFile.o: /usr/include/gcc/darwin/2.95.2/g++/stl_vector.h
+LoadFile.o: /usr/include/gcc/darwin/2.95.2/g++/stl_bvector.h
+LoadFile.o: /Users/wis/Unix/dynamechs/dm/dmZScrewTxLink.h
+LoadFile.o: /Users/wis/Unix/dynamechs/dm/dmMDHLink.h
+LoadFile.o: /Users/wis/Unix/dynamechs/dm/dmRigidBody.h
+LoadFile.o: /Users/wis/Unix/dynamechs/dm/dmForce.h
+LoadFile.o: /Users/wis/Unix/dynamechs/dm/dmActuator.h
+LoadFile.o: /Users/wis/Unix/dynamechs/dm/dmRevoluteLink.h
+LoadFile.o: /Users/wis/Unix/dynamechs/dm/dmPrismaticLink.h
+LoadFile.o: /Users/wis/Unix/dynamechs/dm/dmSphericalLink.h
+LoadFile.o: /Users/wis/Unix/dynamechs/dm/dmMobileBaseLink.h
+LoadFile.o: /Users/wis/Unix/dynamechs/dm/dmRevDCMotor.h
+LoadFile.o: /Users/wis/Unix/dynamechs/dm/dmContactModel.h
+LoadFile.o: /Users/wis/Unix/dynamechs/dm/dmEnvironment.h
+LoadFile.o: /Users/wis/Unix/dynamechs/dmu/dmLoadFile.h
+LoadFile.o: /Users/wis/Unix/dynamechs/dmu/dmu.h
+LoadFile.o: /Users/wis/Unix/dynamechs/dmu/glLoadModels.h LoadFile.h
+LoadFile.o: SinController.h Controller.h SquareController.h MuscleModel.h
+LoadFile.o: ./LoggedForce.h Simulation.h ModifiedContactModel.h
+LoadFile.o: StepController.h
+SinController.o: /usr/include/assert.h SinController.h Controller.h
+SinController.o: /Users/wis/Unix/dynamechs/dm/dmObject.h
+SinController.o: /Users/wis/Unix/dynamechs/dm/dm.h
+SinController.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+SinController.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+SinController.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+SinController.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+SinController.o: /usr/include/sys/types.h /usr/include/sys/cdefs.h
+SinController.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+SinController.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+SinController.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+SinController.o: /usr/include/stddef.h /usr/include/stdarg.h
+SinController.o: /usr/include/gcc/darwin/2.95.2/g++/iomanip.h
+SinController.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h
+SinController.o: /usr/include/math.h /usr/include/stdlib.h
+SinController.o: /usr/include/string.h
+Fitness.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+Fitness.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+Fitness.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+Fitness.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+Fitness.o: /usr/include/sys/types.h /usr/include/sys/cdefs.h
+Fitness.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+Fitness.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+Fitness.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+Fitness.o: /usr/include/stddef.h /usr/include/stdarg.h
+Fitness.o: /usr/include/gcc/darwin/2.95.2/g++/iomanip.h
+Fitness.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h /usr/include/assert.h
+Fitness.o: /usr/include/gcc/darwin/2.95.2/g++/vector
+Fitness.o: /usr/include/gcc/darwin/2.95.2/g++/stl_algobase.h
+Fitness.o: /usr/include/gcc/darwin/2.95.2/g++/stl_config.h
+Fitness.o: /usr/include/gcc/darwin/2.95.2/g++/stl_relops.h
+Fitness.o: /usr/include/gcc/darwin/2.95.2/g++/stl_pair.h
+Fitness.o: /usr/include/gcc/darwin/2.95.2/g++/type_traits.h
+Fitness.o: /usr/include/string.h /usr/include/limits.h
+Fitness.o: /usr/include/machine/limits.h /usr/include/ppc/limits.h
+Fitness.o: /usr/include/sys/syslimits.h /usr/include/stdlib.h
+Fitness.o: /usr/include/gcc/darwin/2.95.2/g++/new.h
+Fitness.o: /usr/include/gcc/darwin/2.95.2/g++/new
+Fitness.o: /usr/include/gcc/darwin/2.95.2/g++/exception
+Fitness.o: /usr/include/gcc/darwin/2.95.2/g++/stl_iterator.h
+Fitness.o: /usr/include/gcc/darwin/2.95.2/g++/stl_alloc.h
+Fitness.o: /usr/include/gcc/darwin/2.95.2/g++/stl_construct.h
+Fitness.o: /usr/include/gcc/darwin/2.95.2/g++/stl_uninitialized.h
+Fitness.o: /usr/include/gcc/darwin/2.95.2/g++/stl_vector.h
+Fitness.o: /usr/include/gcc/darwin/2.95.2/g++/stl_bvector.h
+Fitness.o: /usr/include/math.h /usr/include/float.h
+Fitness.o: /usr/local/include/GL/glut.h /usr/local/include/GL/gl.h
+Fitness.o: /usr/local/include/GL/glext.h /usr/local/include/GL/glu.h
+Fitness.o: /Users/wis/Unix/dynamechs/dmGL/dmGLTime.h
+Fitness.o: /Users/wis/Unix/dynamechs/dmGL/dmGL.h /usr/local/include/GL/gl.h
+Fitness.o: /usr/local/include/GL/glu.h /usr/include/time.h
+Fitness.o: /usr/include/sys/time.h /Users/wis/Unix/dynamechs/dmGL/dmGLMouse.h
+Fitness.o: /Users/wis/Unix/dynamechs/dmGL/dmGLPolarCamera_zup.h
+Fitness.o: /Users/wis/Unix/dynamechs/dmGL/dmGLPolarCamera.h
+Fitness.o: /Users/wis/Unix/dynamechs/dmGL/dmGLCamera.h
+Fitness.o: /Users/wis/Unix/dynamechs/dm/dmEnvironment.h
+Fitness.o: /Users/wis/Unix/dynamechs/dm/dm.h
+Fitness.o: /Users/wis/Unix/dynamechs/dm/dmObject.h
+Fitness.o: /Users/wis/Unix/dynamechs/dm/dmArticulation.h
+Fitness.o: /Users/wis/Unix/dynamechs/dm/dmLink.h
+Fitness.o: /Users/wis/Unix/dynamechs/dm/dmSystem.h
+Fitness.o: /Users/wis/Unix/dynamechs/dm/dmMobileBaseLink.h
+Fitness.o: /Users/wis/Unix/dynamechs/dm/dmRigidBody.h
+Fitness.o: /Users/wis/Unix/dynamechs/dm/dmForce.h
+Fitness.o: /Users/wis/Unix/dynamechs/dmu/dmu.h ForceList.h Simulation.h
+Fitness.o: Controller.h ControllerList.h ./LoggedForce.h Util.h Fitness.h
+Fitness.o: ModifiedContactModel.h
+LoggedForce.o: /usr/include/stdio.h /usr/include/sys/types.h
+LoggedForce.o: /usr/include/sys/cdefs.h /usr/include/machine/types.h
+LoggedForce.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+LoggedForce.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+LoggedForce.o: /usr/include/ppc/endian.h
+LoggedForce.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+LoggedForce.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+LoggedForce.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+LoggedForce.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+LoggedForce.o: /usr/include/stddef.h /usr/include/stdarg.h
+LoggedForce.o: /usr/include/gcc/darwin/2.95.2/g++/iomanip.h
+LoggedForce.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h
+LoggedForce.o: /usr/include/assert.h /usr/include/string.h
+LoggedForce.o: /Users/wis/Unix/dynamechs/dm/dm.h /usr/include/math.h
+LoggedForce.o: /usr/include/stdlib.h /Users/wis/Unix/dynamechs/dm/dmForce.h
+LoggedForce.o: /Users/wis/Unix/dynamechs/dm/dmObject.h ./LoggedForce.h
+Objective.o: /usr/include/stdio.h /usr/include/sys/types.h
+Objective.o: /usr/include/sys/cdefs.h /usr/include/machine/types.h
+Objective.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+Objective.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+Objective.o: /usr/include/ppc/endian.h
+Objective.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+Objective.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+Objective.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+Objective.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+Objective.o: /usr/include/stddef.h /usr/include/stdarg.h
+Objective.o: /usr/include/gcc/darwin/2.95.2/g++/iomanip.h
+Objective.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h
+Objective.o: /usr/include/assert.h /Users/wis/Unix/galib/ga/ga.h
+Objective.o: /Users/wis/Unix/galib/ga/gaconfig.h
+Objective.o: /Users/wis/Unix/galib/ga/GASStateGA.h
+Objective.o: /Users/wis/Unix/galib/ga/GABaseGA.h /usr/include/string.h
+Objective.o: /Users/wis/Unix/galib/ga/gaid.h
+Objective.o: /Users/wis/Unix/galib/ga/GAParameter.h
+Objective.o: /Users/wis/Unix/galib/ga/gatypes.h
+Objective.o: /Users/wis/Unix/galib/ga/GAStatistics.h
+Objective.o: /Users/wis/Unix/galib/ga/GAGenome.h /usr/include/stdlib.h
+Objective.o: /Users/wis/Unix/galib/ga/gaerror.h
+Objective.o: /Users/wis/Unix/galib/ga/GAEvalData.h
+Objective.o: /Users/wis/Unix/galib/ga/GAPopulation.h
+Objective.o: /Users/wis/Unix/galib/ga/GASelector.h
+Objective.o: /Users/wis/Unix/galib/ga/GAScaling.h
+Objective.o: /Users/wis/Unix/galib/ga/GAIncGA.h
+Objective.o: /Users/wis/Unix/galib/ga/GADemeGA.h
+Objective.o: /Users/wis/Unix/galib/ga/GADCrowdingGA.h
+Objective.o: /Users/wis/Unix/galib/ga/GA2DBinStrGenome.h
+Objective.o: /Users/wis/Unix/galib/ga/GABinStr.h
+Objective.o: /Users/wis/Unix/galib/ga/garandom.h
+Objective.o: /Users/wis/Unix/galib/ga/GA3DBinStrGenome.h
+Objective.o: /Users/wis/Unix/galib/ga/GABin2DecGenome.h
+Objective.o: /Users/wis/Unix/galib/ga/GA1DBinStrGenome.h
+Objective.o: /Users/wis/Unix/galib/ga/gabincvt.h
+Objective.o: /Users/wis/Unix/galib/ga/GA1DArrayGenome.h
+Objective.o: /Users/wis/Unix/galib/ga/GAArray.h
+Objective.o: /Users/wis/Unix/galib/ga/GAAllele.h
+Objective.o: /Users/wis/Unix/galib/ga/GAAllele.C
+Objective.o: /Users/wis/Unix/galib/ga/GA1DArrayGenome.C
+Objective.o: /Users/wis/Unix/galib/ga/GAMask.h
+Objective.o: /Users/wis/Unix/galib/ga/GA2DArrayGenome.h
+Objective.o: /Users/wis/Unix/galib/ga/GA2DArrayGenome.C
+Objective.o: /Users/wis/Unix/galib/ga/GA3DArrayGenome.h
+Objective.o: /Users/wis/Unix/galib/ga/GA3DArrayGenome.C
+Objective.o: /Users/wis/Unix/galib/ga/GAListGenome.h
+Objective.o: /Users/wis/Unix/galib/ga/GAList.h
+Objective.o: /Users/wis/Unix/galib/ga/GAListBASE.h
+Objective.o: /Users/wis/Unix/galib/ga/GANode.h
+Objective.o: /Users/wis/Unix/galib/ga/GAList.C
+Objective.o: /Users/wis/Unix/galib/ga/GAListGenome.C
+Objective.o: /Users/wis/Unix/galib/ga/GATreeGenome.h
+Objective.o: /Users/wis/Unix/galib/ga/GATree.h
+Objective.o: /Users/wis/Unix/galib/ga/GATreeBASE.h
+Objective.o: /Users/wis/Unix/galib/ga/GATree.C
+Objective.o: /Users/wis/Unix/galib/ga/GATreeGenome.C
+Objective.o: /Users/wis/Unix/galib/ga/GARealGenome.h Util.h
+Objective.o: /usr/include/math.h
+ForceList.o: /Users/wis/Unix/dynamechs/dm/dmForce.h
+ForceList.o: /Users/wis/Unix/dynamechs/dm/dm.h
+ForceList.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+ForceList.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+ForceList.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+ForceList.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+ForceList.o: /usr/include/sys/types.h /usr/include/sys/cdefs.h
+ForceList.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+ForceList.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+ForceList.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+ForceList.o: /usr/include/stddef.h /usr/include/stdarg.h
+ForceList.o: /usr/include/gcc/darwin/2.95.2/g++/iomanip.h
+ForceList.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h /usr/include/math.h
+ForceList.o: /usr/include/stdlib.h /usr/include/string.h
+ForceList.o: /Users/wis/Unix/dynamechs/dm/dmObject.h ForceList.h
+ForceList.o: /usr/include/gcc/darwin/2.95.2/g++/vector
+ForceList.o: /usr/include/gcc/darwin/2.95.2/g++/stl_algobase.h
+ForceList.o: /usr/include/gcc/darwin/2.95.2/g++/stl_config.h
+ForceList.o: /usr/include/gcc/darwin/2.95.2/g++/stl_relops.h
+ForceList.o: /usr/include/gcc/darwin/2.95.2/g++/stl_pair.h
+ForceList.o: /usr/include/gcc/darwin/2.95.2/g++/type_traits.h
+ForceList.o: /usr/include/limits.h /usr/include/machine/limits.h
+ForceList.o: /usr/include/ppc/limits.h /usr/include/sys/syslimits.h
+ForceList.o: /usr/include/gcc/darwin/2.95.2/g++/new.h
+ForceList.o: /usr/include/gcc/darwin/2.95.2/g++/new
+ForceList.o: /usr/include/gcc/darwin/2.95.2/g++/exception
+ForceList.o: /usr/include/gcc/darwin/2.95.2/g++/stl_iterator.h
+ForceList.o: /usr/include/gcc/darwin/2.95.2/g++/stl_alloc.h
+ForceList.o: /usr/include/assert.h
+ForceList.o: /usr/include/gcc/darwin/2.95.2/g++/stl_construct.h
+ForceList.o: /usr/include/gcc/darwin/2.95.2/g++/stl_uninitialized.h
+ForceList.o: /usr/include/gcc/darwin/2.95.2/g++/stl_vector.h
+ForceList.o: /usr/include/gcc/darwin/2.95.2/g++/stl_bvector.h
+MuscleModel.o: /Users/wis/Unix/dynamechs/dm/dm.h
+MuscleModel.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+MuscleModel.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+MuscleModel.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+MuscleModel.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+MuscleModel.o: /usr/include/sys/types.h /usr/include/sys/cdefs.h
+MuscleModel.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+MuscleModel.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+MuscleModel.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+MuscleModel.o: /usr/include/stddef.h /usr/include/stdarg.h
+MuscleModel.o: /usr/include/gcc/darwin/2.95.2/g++/iomanip.h
+MuscleModel.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h
+MuscleModel.o: /usr/include/math.h /usr/include/stdlib.h
+MuscleModel.o: /usr/include/string.h /Users/wis/Unix/dynamechs/dmu/dmu.h
+MuscleModel.o: /Users/wis/Unix/dynamechs/dm/dmForce.h
+MuscleModel.o: /Users/wis/Unix/dynamechs/dm/dmObject.h
+MuscleModel.o: /Users/wis/Unix/dynamechs/dm/dmArticulation.h
+MuscleModel.o: /Users/wis/Unix/dynamechs/dm/dmLink.h
+MuscleModel.o: /Users/wis/Unix/dynamechs/dm/dmSystem.h
+MuscleModel.o: /usr/include/gcc/darwin/2.95.2/g++/vector
+MuscleModel.o: /usr/include/gcc/darwin/2.95.2/g++/stl_algobase.h
+MuscleModel.o: /usr/include/gcc/darwin/2.95.2/g++/stl_config.h
+MuscleModel.o: /usr/include/gcc/darwin/2.95.2/g++/stl_relops.h
+MuscleModel.o: /usr/include/gcc/darwin/2.95.2/g++/stl_pair.h
+MuscleModel.o: /usr/include/gcc/darwin/2.95.2/g++/type_traits.h
+MuscleModel.o: /usr/include/limits.h /usr/include/machine/limits.h
+MuscleModel.o: /usr/include/ppc/limits.h /usr/include/sys/syslimits.h
+MuscleModel.o: /usr/include/gcc/darwin/2.95.2/g++/new.h
+MuscleModel.o: /usr/include/gcc/darwin/2.95.2/g++/new
+MuscleModel.o: /usr/include/gcc/darwin/2.95.2/g++/exception
+MuscleModel.o: /usr/include/gcc/darwin/2.95.2/g++/stl_iterator.h
+MuscleModel.o: /usr/include/gcc/darwin/2.95.2/g++/stl_alloc.h
+MuscleModel.o: /usr/include/assert.h
+MuscleModel.o: /usr/include/gcc/darwin/2.95.2/g++/stl_construct.h
+MuscleModel.o: /usr/include/gcc/darwin/2.95.2/g++/stl_uninitialized.h
+MuscleModel.o: /usr/include/gcc/darwin/2.95.2/g++/stl_vector.h
+MuscleModel.o: /usr/include/gcc/darwin/2.95.2/g++/stl_bvector.h
+MuscleModel.o: /usr/local/include/GL/gl.h MuscleModel.h ./LoggedForce.h
+MuscleModel.o: Controller.h Util.h ForceList.h Simulation.h
+Util.o: /usr/include/stdio.h /usr/include/sys/types.h
+Util.o: /usr/include/sys/cdefs.h /usr/include/machine/types.h
+Util.o: /usr/include/ppc/types.h /usr/include/machine/ansi.h
+Util.o: /usr/include/ppc/ansi.h /usr/include/machine/endian.h
+Util.o: /usr/include/ppc/endian.h
+Util.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+Util.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+Util.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+Util.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h /usr/include/stddef.h
+Util.o: /usr/include/stdarg.h /usr/include/gcc/darwin/2.95.2/g++/iomanip.h
+Util.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h /usr/include/assert.h
+Util.o: /usr/include/string.h /usr/include/errno.h /usr/include/sys/errno.h
+Util.o: /usr/include/sys/wait.h /usr/include/unistd.h
+Util.o: /usr/include/sys/unistd.h /usr/include/signal.h
+Util.o: /usr/include/sys/signal.h /usr/include/machine/signal.h
+Util.o: /usr/include/ppc/signal.h Util.h /usr/include/math.h
+SquareController.o: /usr/include/assert.h SquareController.h Controller.h
+SquareController.o: /Users/wis/Unix/dynamechs/dm/dmObject.h
+SquareController.o: /Users/wis/Unix/dynamechs/dm/dm.h
+SquareController.o: /usr/include/gcc/darwin/2.95.2/g++/iostream.h
+SquareController.o: /usr/include/gcc/darwin/2.95.2/g++/streambuf.h
+SquareController.o: /usr/include/gcc/darwin/2.95.2/g++/libio.h
+SquareController.o: /usr/include/gcc/darwin/2.95.2/g++/_G_config.h
+SquareController.o: /usr/include/sys/types.h /usr/include/sys/cdefs.h
+SquareController.o: /usr/include/machine/types.h /usr/include/ppc/types.h
+SquareController.o: /usr/include/machine/ansi.h /usr/include/ppc/ansi.h
+SquareController.o: /usr/include/machine/endian.h /usr/include/ppc/endian.h
+SquareController.o: /usr/include/stddef.h /usr/include/stdarg.h
+SquareController.o: /usr/include/gcc/darwin/2.95.2/g++/iomanip.h
+SquareController.o: /usr/include/gcc/darwin/2.95.2/g++/fstream.h
+SquareController.o: /usr/include/math.h /usr/include/stdlib.h
+SquareController.o: /usr/include/string.h

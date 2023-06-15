@@ -1,0 +1,132 @@
+# OBJMangler parameter file to read the original Delph bone models
+# and rescale them to the adult female dimensions in the Kramer 1999 paper
+
+# The Delph bones sizes are as follows (from joint positions):
+# HAT 0.485 m (derived)
+# Femur length 0.396 m
+# Tib_fib length 0.43 m
+# Foot length (to metatarsal heads) 0.13 m
+# Pelvis distance between hip joints 0.0835 * 2 (= 0.167)
+
+# The Kramer woman sizes are as follows:
+# HAT 0.4475 m
+# Femur length 0.373 m
+# Tib_fib length 0.39 m
+# Foot length (to metatarsal heads) 0.11 m
+# Pelvis distance between hip joints 0.13 * 2 (= 0.26)
+
+# The Kramer Lucy sizes are as follows:
+# HAT 0.3516 m
+# Femur length 0.252 m
+# Tib_fib length 0.265 m
+# Foot length (to metatarsal heads) 0.08 m
+# Pelvis distance between hip joints 0.105 * 2 (= 0.21)
+
+# note current pelvis scaling is simply the femur scaling
+# hip joint width is not used in the current model
+# also note that the Kramer values for hip joint width seem very high
+
+ReadOBJFile pelvis original_bones/pelvis.obj          
+ReadOBJFile left_femur original_bones/left_femur.obj      
+ReadOBJFile right_femur original_bones/right_femur.obj
+ReadOBJFile left_tib_fib original_bones/left_tib_fib.obj
+ReadOBJFile right_tib_fib original_bones/right_tib_fib.obj
+ReadOBJFile left_foot original_bones/left_foot.obj       
+ReadOBJFile right_foot original_bones/right_foot.obj
+
+Stats pelvis
+Stats left_femur
+Stats right_femur
+Stats left_tib_fib
+Stats right_tib_fib
+Stats left_foot
+Stats right_foot
+
+Triangulate pelvis
+Triangulate left_femur
+Triangulate right_femur
+Triangulate left_tib_fib
+Triangulate right_tib_fib
+Triangulate left_foot
+Triangulate right_foot
+
+Stats pelvis
+Stats left_femur
+Stats right_femur
+Stats left_tib_fib
+Stats right_tib_fib
+Stats left_foot
+Stats right_foot
+
+Scale pelvis 2.0619 2.0619 2.0619 
+Scale left_femur 2.5253 2.5253 2.5253 
+Scale right_femur 2.5253 2.5253 2.5253 
+Scale left_tib_fib 2.5641 2.5641 2.5641 
+Scale right_tib_fib 2.5641 2.5641 2.5641
+Scale left_foot 9.0909 9.0909 9.0909 
+Scale right_foot 9.0909 9.0909 9.0909
+
+Stats pelvis
+Stats left_femur
+Stats right_femur
+Stats left_tib_fib
+Stats right_tib_fib
+Stats left_foot
+Stats right_foot
+
+WriteOBJFile pelvis unit/pelvis.obj          
+WriteOBJFile left_femur unit/left_femur.obj      
+WriteOBJFile right_femur unit/right_femur.obj
+WriteOBJFile left_tib_fib unit/left_tib_fib.obj
+WriteOBJFile right_tib_fib unit/right_tib_fib.obj
+WriteOBJFile left_foot unit/left_foot.obj       
+WriteOBJFile right_foot unit/right_foot.obj
+
+Scale pelvis 0.4475 0.4475 0.4475
+Scale left_femur 0.3730 0.3730 0.3730 
+Scale right_femur 0.3730 0.3730 0.3730 
+Scale left_tib_fib 0.3900 0.3900 0.3900 
+Scale right_tib_fib 0.3900 0.3900 0.3900 
+Scale left_foot 0.1100 0.1100 0.1100 
+Scale right_foot 0.1100 0.1100 0.1100 
+
+Stats pelvis
+Stats left_femur
+Stats right_femur
+Stats left_tib_fib
+Stats right_tib_fib
+Stats left_foot
+Stats right_foot
+
+WriteOBJFile pelvis scaled_to_woman/pelvis.obj          
+WriteOBJFile left_femur scaled_to_woman/left_femur.obj      
+WriteOBJFile right_femur scaled_to_woman/right_femur.obj
+WriteOBJFile left_tib_fib scaled_to_woman/left_tib_fib.obj
+WriteOBJFile right_tib_fib scaled_to_woman/right_tib_fib.obj
+WriteOBJFile left_foot scaled_to_woman/left_foot.obj       
+WriteOBJFile right_foot scaled_to_woman/right_foot.obj
+
+Scale pelvis 0.7857 0.7857 0.7857 
+Scale left_femur 0.6756 0.6756 0.6756 
+Scale right_femur 0.6756 0.6756 0.6756 
+Scale left_tib_fib 0.6795 0.6795 0.6795 
+Scale right_tib_fib 0.6795 0.6795 0.6795
+Scale left_foot 0.7273 0.7273 0.7273
+Scale right_foot 0.7273 0.7273 0.7273
+
+Stats pelvis
+Stats left_femur
+Stats right_femur
+Stats left_tib_fib
+Stats right_tib_fib
+Stats left_foot
+Stats right_foot
+
+WriteOBJFile pelvis scaled_to_lucy/pelvis.obj          
+WriteOBJFile left_femur scaled_to_lucy/left_femur.obj      
+WriteOBJFile right_femur scaled_to_lucy/right_femur.obj
+WriteOBJFile left_tib_fib scaled_to_lucy/left_tib_fib.obj
+WriteOBJFile right_tib_fib scaled_to_lucy/right_tib_fib.obj
+WriteOBJFile left_foot scaled_to_lucy/left_foot.obj       
+WriteOBJFile right_foot scaled_to_lucy/right_foot.obj
+

@@ -1,0 +1,348 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 38;
+	objects = {
+		014CEA460018CE2711CA2923 = {
+			buildRules = (
+			);
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				OPTIMIZATION_CFLAGS = "-O0";
+			};
+			isa = PBXBuildStyle;
+			name = Development;
+		};
+		014CEA470018CE2711CA2923 = {
+			buildRules = (
+			);
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+			};
+			isa = PBXBuildStyle;
+			name = Deployment;
+		};
+//010
+//011
+//012
+//013
+//014
+//020
+//021
+//022
+//023
+//024
+		0249A660FF388D4511CA2CEA = {
+			isa = PBXExecutableFileReference;
+			path = MonteCarlo;
+			refType = 3;
+		};
+		0249A662FF388D9811CA2CEA = {
+			children = (
+				0249A663FF388D9811CA2CEA,
+			);
+			isa = PBXGroup;
+			name = "External Frameworks and Libraries";
+			refType = 4;
+		};
+		0249A663FF388D9811CA2CEA = {
+			isa = PBXFileReference;
+			name = "libstdc++.a";
+			path = "/usr/lib/libstdc++.a";
+			refType = 0;
+		};
+		0249A664FF388D9811CA2CEA = {
+			fileRef = 0249A663FF388D9811CA2CEA;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+//020
+//021
+//022
+//023
+//024
+//080
+//081
+//082
+//083
+//084
+		08FB7793FE84155DC02AAC07 = {
+			buildStyles = (
+				014CEA460018CE2711CA2923,
+				014CEA470018CE2711CA2923,
+			);
+			isa = PBXProject;
+			mainGroup = 08FB7794FE84155DC02AAC07;
+			projectDirPath = "";
+			targets = (
+				08FB779FFE84155DC02AAC07,
+			);
+		};
+		08FB7794FE84155DC02AAC07 = {
+			children = (
+				08FB7795FE84155DC02AAC07,
+				F5CDC6A607DC8840017DA91F,
+				F556D06007DB6A2F01A80002,
+				C6859E8C029090F304C91782,
+				0249A662FF388D9811CA2CEA,
+				1AB674ADFE9D54B511CA2CBB,
+			);
+			isa = PBXGroup;
+			name = MonteCarlo;
+			refType = 4;
+		};
+		08FB7795FE84155DC02AAC07 = {
+			children = (
+				08FB7796FE84155DC02AAC07,
+				F5CDC69B07DC76D2017DA91F,
+				F5CDC69C07DC76D2017DA91F,
+			);
+			isa = PBXGroup;
+			name = Source;
+			refType = 4;
+		};
+		08FB7796FE84155DC02AAC07 = {
+			isa = PBXFileReference;
+			path = main.cpp;
+			refType = 4;
+		};
+		08FB779FFE84155DC02AAC07 = {
+			buildPhases = (
+				08FB77A0FE84155DC02AAC07,
+				08FB77A1FE84155DC02AAC07,
+				08FB77A3FE84155DC02AAC07,
+				08FB77A5FE84155DC02AAC07,
+				C6859E8D0290911004C91782,
+			);
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = "";
+				HEADER_SEARCH_PATHS = "";
+				INSTALL_PATH = "$(HOME)/bin";
+				LIBRARY_SEARCH_PATHS = "";
+				OTHER_CFLAGS = "";
+				OTHER_LDFLAGS = "";
+				OTHER_REZFLAGS = "";
+				PRODUCT_NAME = MonteCarlo;
+				REZ_EXECUTABLE = YES;
+				SECTORDER_FLAGS = "";
+				WARNING_CFLAGS = "-Wmost -Wno-four-char-constants -Wno-unknown-pragmas";
+			};
+			dependencies = (
+			);
+			isa = PBXToolTarget;
+			name = MonteCarlo;
+			productInstallPath = "$(HOME)/bin";
+			productName = MonteCarlo;
+			productReference = 0249A660FF388D4511CA2CEA;
+			shouldUseHeadermap = 1;
+		};
+		08FB77A0FE84155DC02AAC07 = {
+			buildActionMask = 2147483647;
+			files = (
+				F556D06807DB6A6F01A80002,
+				F5CDC69507DC72AF017DA91F,
+				F5CDC69D07DC76D2017DA91F,
+			);
+			isa = PBXHeadersBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08FB77A1FE84155DC02AAC07 = {
+			buildActionMask = 2147483647;
+			files = (
+				08FB77A2FE84155DC02AAC07,
+				F556D06707DB6A6F01A80002,
+				F5CDC69407DC72AF017DA91F,
+				F5CDC69E07DC76D2017DA91F,
+			);
+			isa = PBXSourcesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08FB77A2FE84155DC02AAC07 = {
+			fileRef = 08FB7796FE84155DC02AAC07;
+			isa = PBXBuildFile;
+			settings = {
+				ATTRIBUTES = (
+				);
+			};
+		};
+		08FB77A3FE84155DC02AAC07 = {
+			buildActionMask = 2147483647;
+			files = (
+				0249A664FF388D9811CA2CEA,
+			);
+			isa = PBXFrameworksBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		08FB77A5FE84155DC02AAC07 = {
+			buildActionMask = 2147483647;
+			files = (
+			);
+			isa = PBXRezBuildPhase;
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+//080
+//081
+//082
+//083
+//084
+//1A0
+//1A1
+//1A2
+//1A3
+//1A4
+		1AB674ADFE9D54B511CA2CBB = {
+			children = (
+				0249A660FF388D4511CA2CEA,
+			);
+			isa = PBXGroup;
+			name = Products;
+			refType = 4;
+		};
+//1A0
+//1A1
+//1A2
+//1A3
+//1A4
+//C60
+//C61
+//C62
+//C63
+//C64
+		C6859E8B029090EE04C91782 = {
+			isa = PBXFileReference;
+			path = MonteCarlo.1;
+			refType = 4;
+		};
+		C6859E8C029090F304C91782 = {
+			children = (
+				C6859E8B029090EE04C91782,
+			);
+			isa = PBXGroup;
+			name = Documentation;
+			refType = 4;
+		};
+		C6859E8D0290911004C91782 = {
+			buildActionMask = 8;
+			dstPath = /usr/share/man/man1/;
+			dstSubfolderSpec = 0;
+			files = (
+				C6859E900290913A04C91782,
+				F5CDC6A707DC8841017DA91F,
+			);
+			isa = PBXCopyFilesBuildPhase;
+			runOnlyForDeploymentPostprocessing = 1;
+		};
+		C6859E900290913A04C91782 = {
+			fileRef = C6859E8B029090EE04C91782;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+//C60
+//C61
+//C62
+//C63
+//C64
+//F50
+//F51
+//F52
+//F53
+//F54
+		F556D06007DB6A2F01A80002 = {
+			children = (
+				F5CDC69207DC72AF017DA91F,
+				F5CDC69307DC72AF017DA91F,
+				F556D06307DB6A6F01A80002,
+				F556D06407DB6A6F01A80002,
+			);
+			isa = PBXGroup;
+			name = "Other Source";
+			refType = 4;
+		};
+		F556D06307DB6A6F01A80002 = {
+			isa = PBXFileReference;
+			name = Random.cpp;
+			path = ../src/Random.cpp;
+			refType = 4;
+		};
+		F556D06407DB6A6F01A80002 = {
+			isa = PBXFileReference;
+			name = Random.h;
+			path = ../src/Random.h;
+			refType = 4;
+		};
+		F556D06707DB6A6F01A80002 = {
+			fileRef = F556D06307DB6A6F01A80002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F556D06807DB6A6F01A80002 = {
+			fileRef = F556D06407DB6A6F01A80002;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5CDC69207DC72AF017DA91F = {
+			isa = PBXFileReference;
+			name = DataFile.cpp;
+			path = ../src/DataFile.cpp;
+			refType = 4;
+		};
+		F5CDC69307DC72AF017DA91F = {
+			isa = PBXFileReference;
+			name = DataFile.h;
+			path = ../src/DataFile.h;
+			refType = 4;
+		};
+		F5CDC69407DC72AF017DA91F = {
+			fileRef = F5CDC69207DC72AF017DA91F;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5CDC69507DC72AF017DA91F = {
+			fileRef = F5CDC69307DC72AF017DA91F;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5CDC69B07DC76D2017DA91F = {
+			isa = PBXFileReference;
+			path = RangedVariable.h;
+			refType = 4;
+		};
+		F5CDC69C07DC76D2017DA91F = {
+			isa = PBXFileReference;
+			path = RangedVariable.cpp;
+			refType = 4;
+		};
+		F5CDC69D07DC76D2017DA91F = {
+			fileRef = F5CDC69B07DC76D2017DA91F;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5CDC69E07DC76D2017DA91F = {
+			fileRef = F5CDC69C07DC76D2017DA91F;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+		F5CDC6A607DC8840017DA91F = {
+			isa = PBXFileReference;
+			path = makefile;
+			refType = 4;
+		};
+		F5CDC6A707DC8841017DA91F = {
+			fileRef = F5CDC6A607DC8840017DA91F;
+			isa = PBXBuildFile;
+			settings = {
+			};
+		};
+	};
+	rootObject = 08FB7793FE84155DC02AAC07;
+}

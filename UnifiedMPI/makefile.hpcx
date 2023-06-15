@@ -1,0 +1,104 @@
+CXXFLAGS = -O3 -qarch=pwr4 -qtune=pwr4 -DBYTE_ORDER=BIG_ENDIAN -DNEED_BCOPY -D__linux__ 
+CFLAGS   = -O3 -qarch=pwr4 -qtune=pwr4 -DBYTE_ORDER=BIG_ENDIAN -DNEED_BCOPY -D__linux__ -qlanglvl=extc99
+LDFLAGS  = -O3 -qarch=pwr4 -qtune=pwr4 -DBYTE_ORDER=BIG_ENDIAN -DNEED_BCOPY -D__linux__
+CXX      = mpCC_r
+CC       = mpcc_r
+#CXXFLAGS = -O3 -ffast-math 
+#CFLAGS   = -O3 -ffast-math 
+#LDFLAGS  = 
+#CXX      = mpicxx
+#CC       = mpicc
+#CXXFLAGS = -static -fast
+#CFLAGS   = -static -fast
+#LDFLAGS  = -static
+#CXX      = CC
+#CC       = cc
+
+LIBS = -L"$(HOME)/Unix/lib" -lxml2 -lpthread -lm -lz
+INC_DIRS = -I../GaitSymODE/ode/include -I"$(HOME)/Unix/include" -I"$(HOME)/Unix/include/libxml2"
+
+MPISRC = UnifiedMPI.cpp
+
+GASRC = \
+GA.cpp      Mating.cpp     Population.cpp  Statistics.cpp\
+ExpressionParser.cpp  Genome.cpp  Objective.cpp  Random.cpp      XMLConverter.cpp
+
+GAITSYMSRC = \
+Body.cpp                DataTarget.cpp          GLUtils.cpp             NamedObject.cpp         TIFFWrite.cpp\
+CappedCylinderGeom.cpp  Geom.cpp                ObjectiveMain.cpp       ThreePointStrap.cpp     FixedJoint.cpp\
+CyclicDriver.cpp        Environment.cpp         HingeJoint.cpp          PlaneGeom.cpp           TwoPointStrap.cpp\
+CylinderWrapStrap.cpp   Face.cpp                Joint.cpp               Simulation.cpp          UGMMuscle.cpp\
+DampedSpringMuscle.cpp  FacetedObject.cpp       MAMuscle.cpp            StepDriver.cpp          SphereGeom.cpp\
+DataFile.cpp            GLUIRoutines.cpp        Muscle.cpp              Strap.cpp               FacetedSphere.cpp\
+FacetedConicSegment.cpp Contact.cpp             MAMuscleExtended.cpp    FloatingHingeJoint.cpp  ErrorHandler.cpp\
+MAMuscleComplete.cpp    Util.cpp                FacetedPolyline.cpp     NPointStrap.cpp         BallJoint.cpp\
+fec.cpp                 MAMuscleExtendedDamped.cpp
+
+ODECPPSRC = \
+array.cpp                               collision_trimesh_plane.cpp             obstack.cpp\
+box.cpp                                 collision_trimesh_ray.cpp               ode.cpp\
+capsule.cpp                             collision_trimesh_sphere.cpp            odeinit.cpp\
+collision_cylinder_box.cpp              collision_trimesh_trimesh.cpp           odemath.cpp\
+collision_cylinder_plane.cpp            collision_trimesh_trimesh_new.cpp       odeou.cpp\
+collision_cylinder_sphere.cpp           collision_util.cpp                      odetls.cpp\
+collision_cylinder_trimesh.cpp          convex.cpp                              plane.cpp\
+collision_kernel.cpp                    cylinder.cpp                            quickstep.cpp\
+collision_quadtreespace.cpp             error.cpp                               ray.cpp\
+collision_sapspace.cpp                  export-dif.cpp                          rotation.cpp\
+collision_space.cpp                     heightfield.cpp                         sphere.cpp\
+collision_transform.cpp                 joint.cpp                               step.cpp\
+collision_trimesh_box.cpp               lcp.cpp                                 stepfast.cpp\
+collision_trimesh_ccylinder.cpp         mass.cpp                                testing.cpp\
+collision_trimesh_disabled.cpp          mat.cpp                                 timer.cpp\
+collision_trimesh_distance.cpp          matrix.cpp                              util.cpp\
+collision_trimesh_gimpact.cpp           memory.cpp\
+collision_trimesh_opcode.cpp            misc.cpp\
+
+ODECSRC = \
+fastdot.c            fastlsolve.c\
+fastldlt.c           fastltsolve.c
+
+MPIOBJ = $(addsuffix .o, $(basename $(MPISRC) ) )
+GAOBJ = $(addsuffix .o, $(basename $(GASRC) ) )
+GAITSYMOBJ = $(addsuffix .o, $(basename $(GAITSYMSRC) ) )
+ODECPPOBJ = $(addsuffix .o, $(basename $(ODECPPSRC) ) )
+ODECOBJ = $(addsuffix .o, $(basename $(ODECSRC) ) )
+
+all: directories binaries 
+
+directories: bin obj
+ 
+binaries: bin/UnifiedMPI
+
+obj: 
+	-mkdir obj
+	-mkdir obj/ga
+	-mkdir obj/ode_cpp
+	-mkdir obj/ode_c
+	-mkdir obj/gaitsym
+	-mkdir obj/mpi
+
+bin: 
+	-mkdir bin
+
+obj/ga/%.o : ../GeneralGA/src/%.cpp
+	$(CXX) -DUSE_MPI $(CXXFLAGS) $(INC_DIRS)  -c $< -o $@
+
+obj/ode_cpp/%.o : ../GaitSymODE/ode/src/%.cpp
+	$(CXX) $(CXXFLAGS) $(INC_DIRS)  -c $< -o $@
+
+obj/ode_c/%.o : ../GaitSymODE/ode/src/%.c
+	$(CC) $(CFLAGS) $(INC_DIRS)  -c $< -o $@
+
+obj/gaitsym/%.o : ../GaitSymODE/src/%.cpp
+	$(CXX) -DUSE_MPI $(CXXFLAGS) $(INC_DIRS)  -c $< -o $@
+
+obj/mpi/%.o : %.cpp
+	$(CXX) $(CXXFLAGS) $(INC_DIRS)  -c $< -o $@
+
+bin/UnifiedMPI: $(addprefix obj/gaitsym/, $(GAITSYMOBJ) ) $(addprefix obj/ode_cpp/, $(ODECPPOBJ) ) $(addprefix obj/ode_c/, $(ODECOBJ) ) $(addprefix obj/ga/, $(GAOBJ) ) $(addprefix obj/mpi/, $(MPIOBJ) )
+	$(CXX) $(LDFLAGS) -o $@ $^ $(LIBS)
+        
+clean:
+	rm -rf obj bin
+	rm -f *~ *.bak *.bck *.tmp *.o 

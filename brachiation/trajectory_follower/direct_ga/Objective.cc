@@ -1,0 +1,45 @@
+#include <stdio.h>
+#include <iostream.h>
+#include <iomanip.h>
+#include <fstream.h>
+#include <assert.h>
+
+#include <ga/ga.h>
+#include <ga/GARealGenome.h>
+#include <ga/GAPopulation.h>
+
+#include "Util.h"
+
+#ifdef INLINE_OBJECTIVE
+#include "Fitness.h"
+extern Fitness gFitness;
+#endif
+
+float Objective(GAGenome & g);
+
+// the simulation objective
+
+float Objective(GAGenome & g)
+{
+#ifdef INLINE_OBJECTIVE
+	gFitness.SetGenome(&g);
+	return (float)gFitness.CalculateFitness();
+#else
+	ofstream outFile("genome.tmp");
+	GARealGenome & genome = (GARealGenome &) g;
+	float score;
+
+	outFile << genome;
+	outFile.close();
+	if (system("./objective") == 0)
+	{
+		ifstream inFile("score.tmp");
+		inFile >> score;
+		// cerr << score << "\n";
+		return score;
+	} else
+	{
+		return 0;
+	}
+#endif
+}

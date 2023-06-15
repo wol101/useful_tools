@@ -1,0 +1,5 @@
+#!/bin/sh
+for i
+do
+        ./convert_to_xan < "$i" > "$i".xan
+done

@@ -1,0 +1,12 @@
+HDRS= Bar.h             ForceList.h  LoggedForce.h  SinController.h \
+Controller.h      GripModel.h  MuscleModel.h  Util.h \
+ControllerList.h  LoadFile.h   Simulation.h
+
+SRCS= Bar.cpp             ForceList.cpp  LoggedForce.cpp  SinController.cpp \
+Controller.cpp      GripModel.cpp  MuscleModel.cpp  Util.cpp \
+ControllerList.cpp  LoadFile.cpp   Simulation.cpp   main.cpp
+
+OBJS= Bar.o             ForceList.o  LoggedForce.o  SinController.o \
+Controller.o      GripModel.o  MuscleModel.o  Util.o \
+ControllerList.o  LoadFile.o   Simulation.o   main.o
+

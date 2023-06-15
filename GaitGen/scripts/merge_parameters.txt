@@ -1,0 +1,310 @@
+# -------------------------------------------
+# General Modelling Parameters
+# -------------------------------------------
+kIntegrationStepsize    1
+
+# -------------------------------------------
+# Environment Information
+# -------------------------------------------
+kGravityVector  3
+kGroundPlanarSpringConstant 1
+kGroundNormalSpringConstant 1
+kGroundPlanarDamperConstant 1
+kGroundNormalDamperConstant 1
+kGroundStaticFrictionCoeff  1
+kGroundKineticFrictionCoeff 1
+
+# some generic values
+
+kDefaultJointLimitSpringConstant    1
+kDefaultJointLimitDamperConstant    1
+kDefaultJointFriction   1
+kDefaultMuscleActivationK   1
+kDefaultMuscleForcePerUnitArea  1
+kDefaultMuscleVMaxFactor    1
+
+kBMR    1
+
+# -------------------------------------------
+# Links
+# -------------------------------------------
+
+# -------------------------------------------
+# Torso
+# -------------------------------------------
+kTorsoPartName  1
+kTorsoGraphicFile   2
+kTorsoMass  1
+kTorsoMOI   9
+kTorsoCG    3
+kTorsoPosition  7
+kTorsoVelocity  6
+kTorsoVelocityRange 6
+kTorsoPositionRange 6
+
+# -------------------------------------------
+# LeftThigh
+# -------------------------------------------
+kLeftThighPartName	1
+kLeftThighGraphicFile	2
+kLeftThighMass	1
+kLeftThighMOI	9
+kLeftThighCG	3
+kLeftThighMDHA	1
+kLeftThighMDHAlpha	1
+kLeftThighMDHD	1
+kLeftThighMDHTheta	1
+kLeftThighInitialJointVelocity	1
+kLeftThighJointMin	1
+kLeftThighJointMax	1
+kLeftThighJointLimitSpringConstant	1
+kLeftThighJointLimitDamperConstant	1
+kLeftThighJointFriction	1
+
+# -------------------------------------------
+# RightThigh
+# -------------------------------------------
+kRightThighPartName	1
+kRightThighGraphicFile	2
+kRightThighMass	1
+kRightThighMOI	9
+kRightThighCG	3
+kRightThighMDHA	1
+kRightThighMDHAlpha	1
+kRightThighMDHD	1
+kRightThighMDHTheta	1
+kRightThighInitialJointVelocity	1
+kRightThighJointMin	1
+kRightThighJointMax	1
+kRightThighJointLimitSpringConstant	1
+kRightThighJointLimitDamperConstant	1
+kRightThighJointFriction	1
+
+# -------------------------------------------
+# LeftLeg
+# -------------------------------------------
+kLeftLegPartName	1
+kLeftLegGraphicFile	2
+kLeftLegMass	1
+kLeftLegMOI	9
+kLeftLegCG	3
+kLeftLegMDHA	1
+kLeftLegMDHAlpha	1
+kLeftLegMDHD	1
+kLeftLegMDHTheta	1
+kLeftLegInitialJointVelocity	1
+kLeftLegJointMin	1
+kLeftLegJointMax	1
+kLeftLegJointLimitSpringConstant	1
+kLeftLegJointLimitDamperConstant	1
+kLeftLegJointFriction	1
+
+# -------------------------------------------
+# RightLeg
+# -------------------------------------------
+kRightLegPartName	1
+kRightLegGraphicFile	2
+kRightLegMass	1
+kRightLegMOI	9
+kRightLegCG	3
+kRightLegMDHA	1
+kRightLegMDHAlpha	1
+kRightLegMDHD	1
+kRightLegMDHTheta	1
+kRightLegInitialJointVelocity	1
+kRightLegJointMin	1
+kRightLegJointMax	1
+kRightLegJointLimitSpringConstant	1
+kRightLegJointLimitDamperConstant	1
+kRightLegJointFriction	1
+
+# -------------------------------------------
+# LeftFoot
+# -------------------------------------------
+kLeftFootPartName	1
+kLeftFootGraphicFile	2
+kLeftFootMass	1
+kLeftFootMOI	9
+
+
+kLeftFootCG	3
+kLeftFootMDHA	1
+kLeftFootMDHAlpha	1
+kLeftFootMDHD	1
+kLeftFootMDHTheta	1
+kLeftFootInitialJointVelocity	1
+kLeftFootJointMin	1
+kLeftFootJointMax	1
+kLeftFootJointLimitSpringConstant	1
+kLeftFootJointLimitDamperConstant	1
+kLeftFootJointFriction	1
+
+# -------------------------------------------
+# RightFoot
+# -------------------------------------------
+kRightFootPartName	1
+kRightFootGraphicFile	2
+kRightFootMass	1
+kRightFootMOI	9
+kRightFootCG	3
+kRightFootMDHA	1
+kRightFootMDHAlpha	1
+kRightFootMDHD	1
+kRightFootMDHTheta	1
+kRightFootInitialJointVelocity	1
+kRightFootJointMin	1
+kRightFootJointMax	1
+kRightFootJointLimitSpringConstant	1
+kRightFootJointLimitDamperConstant	1
+kRightFootJointFriction	1
+
+# -------------------------------------------
+# Muscles
+# -------------------------------------------
+
+# -------------------------------------------
+# LeftHipExtensor
+# -------------------------------------------
+kLeftHipExtensorName	1
+kLeftHipExtensorOrigin	3
+kLeftHipExtensorInsertion	3
+kLeftHipExtensorPCA	1
+kLeftHipExtensorLength	1
+kLeftHipExtensorSpringConstant	1
+
+# -------------------------------------------
+# LeftHipFlexor
+# -------------------------------------------
+kLeftHipFlexorName	1
+kLeftHipFlexorOrigin	3
+kLeftHipFlexorInsertion	3
+kLeftHipFlexorPCA	1
+kLeftHipFlexorLength	1
+kLeftHipFlexorSpringConstant	1
+
+# -------------------------------------------
+# RightHipExtensor
+# -------------------------------------------
+kRightHipExtensorName	1
+kRightHipExtensorOrigin	3
+kRightHipExtensorInsertion	3
+kRightHipExtensorPCA	1
+kRightHipExtensorLength	1
+kRightHipExtensorSpringConstant	1
+
+# -------------------------------------------
+# RightHipFlexor
+# -------------------------------------------
+kRightHipFlexorName	1
+kRightHipFlexorOrigin	3
+kRightHipFlexorInsertion	3
+kRightHipFlexorPCA	1
+kRightHipFlexorLength	1
+kRightHipFlexorSpringConstant	1
+
+# -------------------------------------------
+# LeftKneeExtensor
+# -------------------------------------------
+kLeftKneeExtensorName	1
+kLeftKneeExtensorOrigin	3
+kLeftKneeExtensorMidPoint   3
+kLeftKneeExtensorInsertion	3
+kLeftKneeExtensorPCA	1
+kLeftKneeExtensorLength	1
+kLeftKneeExtensorSpringConstant	1
+
+# -------------------------------------------
+# LeftKneeFlexor
+# -------------------------------------------
+kLeftKneeFlexorName	1
+kLeftKneeFlexorOrigin	3
+kLeftKneeFlexorMidPoint 3
+kLeftKneeFlexorInsertion	3
+kLeftKneeFlexorPCA	1
+kLeftKneeFlexorLength	1
+
+# -------------------------------------------
+# RightKneeExtensor
+# -------------------------------------------
+kRightKneeExtensorName	1
+kRightKneeExtensorOrigin	3
+kRightKneeExtensorMidPoint  3
+kRightKneeExtensorInsertion	3
+kRightKneeExtensorPCA	1
+kRightKneeExtensorLength	1
+kRightKneeExtensorSpringConstant	1
+
+# -------------------------------------------
+# RightKneeFlexor
+# -------------------------------------------
+kRightKneeFlexorName	1
+kRightKneeFlexorOrigin	3
+kRightKneeFlexorMidPoint    3
+kRightKneeFlexorInsertion	3
+kRightKneeFlexorPCA	1
+kRightKneeFlexorLength	1
+kRightKneeFlexorSpringConstant	1
+
+# -------------------------------------------
+# LeftAnkleExtensor
+# -------------------------------------------
+kLeftAnkleExtensorName	1
+kLeftAnkleExtensorOrigin	3
+kLeftAnkleExtensorMidPoint  3
+kLeftAnkleExtensorInsertion	3
+kLeftAnkleExtensorPCA	1
+kLeftAnkleExtensorLength	1
+kLeftAnkleExtensorSpringConstant	1
+
+# -------------------------------------------
+# LeftAnkleFlexor
+# -------------------------------------------
+kLeftAnkleFlexorName	1
+kLeftAnkleFlexorOrigin	3
+kLeftAnkleFlexorMidPoint    3
+kLeftAnkleFlexorInsertion	3
+kLeftAnkleFlexorPCA	1
+kLeftAnkleFlexorLength	1
+kLeftAnkleFlexorSpringConstant	1
+
+# -------------------------------------------
+# RightAnkleExtensor
+# -------------------------------------------
+kRightAnkleExtensorName	1
+kRightAnkleExtensorOrigin	3
+kRightAnkleExtensorMidPoint 3
+kRightAnkleExtensorInsertion	3
+kRightAnkleExtensorPCA	1
+kRightAnkleExtensorLength	1
+kRightAnkleSpringConstant	1
+
+# -------------------------------------------
+# RightAnkleFlexor
+# -------------------------------------------
+kRightAnkleFlexorName	1
+kRightAnkleFlexorOrigin	3
+kRightAnkleFlexorMidPoint   3
+kRightAnkleFlexorInsertion	3
+kRightAnkleFlexorPCA	1
+kRightAnkleFlexorLength	1
+kRightAnkleFlexorSpringConstant	1
+
+# -------------------------------------------
+# Contact Models
+# -------------------------------------------
+
+# -------------------------------------------
+# LeftFoot
+# -------------------------------------------
+kLeftFootContactName	1
+kLeftFootNumContactPoints   1
+kLeftFootContactPositions   12
+
+# -------------------------------------------
+# RightFoot
+# -------------------------------------------
+
+kRightFootContactName	1
+kRightFootNumContactPoints  1
+kRightFootContactPositions  12
+

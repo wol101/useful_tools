@@ -1,0 +1,15 @@
+HDRS= Bar.h             ForceList.h  LoggedForce.h  SinController.h \
+Controller.h      FBGripModel.h  FBMuscleModel.h  Util.h \
+ControllerList.h  LoadFile.h   Simulation.h	Sensor.h \
+SensorList.h	IntegratingController.h
+
+SRCS= Bar.cpp             ForceList.cpp  LoggedForce.cpp  SinController.cpp \
+Controller.cpp      FBGripModel.cpp  FBMuscleModel.cpp  Util.cpp \
+ControllerList.cpp  LoadFile.cpp   Simulation.cpp   main.cpp \
+Sensor.cpp	SensorList.cpp	IntegratingController.cpp
+
+OBJS= Bar.o             ForceList.o  LoggedForce.o  SinController.o \
+Controller.o      FBGripModel.o  FBMuscleModel.o  Util.o \
+ControllerList.o  LoadFile.o   Simulation.o   main.o \
+Sensor.o	SensorList.o	IntegratingController.o
+

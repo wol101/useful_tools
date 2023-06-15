@@ -1,0 +1,219 @@
+#VRML V2.0 utf8
+
+#Creator formZ v 3.6.5
+#Date 05:31:09 PM Friday, March 23, 2001
+#User Edinburgh University:Biomedical Sciences:Z-0100-0039976
+
+DEF activeview Viewpoint {
+	fieldOfView 0.785398
+	jump TRUE
+	orientation 0.881412 0.236174 0.409065 1.1598
+	position 16.5989 -28.7502 19.1668
+	description "activeview"
+}
+DEF Color_1 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 0.381476 0.30518 0.762951
+	}
+}
+DEF Color_2 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 0.686656 0.30518 0.244144
+	}
+}
+DEF Color_3 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 0.183108 0.762951 0.30518
+	}
+}
+DEF Color_4 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 0.183108 0.457771 0.831067
+	}
+}
+DEF Color_5 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 0.457771 0.457771 0.15259
+	}
+}
+DEF Color_6 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 0.457771 0.30518 0.762951
+	}
+}
+DEF Color_7 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 1 0 0
+	}
+}
+DEF Color_8 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 0.762951 0.183108 0.762951
+	}
+}
+DEF Color_9 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 0.791669 0.793469 0.582925
+	}
+}
+DEF Color_10 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 0.762951 0.684092 0.55082
+	}
+}
+DEF Color_11 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 0.500008 0.500008 0.500008
+	}
+}
+DEF Color_12 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 0.786328 0.79205 0.809216
+	}
+}
+DEF Color_13 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 1 1 1
+	}
+}
+DEF Color_14 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 0.582193 0.650095 0.487953
+	}
+}
+DEF Color_15 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 0.541695 0.601236 0.762951
+	}
+}
+DEF Color_16 Appearance {
+	material Material {
+		ambientIntensity 0.5
+		diffuseColor 0.142809 0.230442 0.427634
+	}
+}
+DEF light_1 DirectionalLight {
+	ambientIntensity 0
+	color 1 1 1
+	direction -0.762853 0.321595 -0.560921
+	intensity 1
+	on TRUE
+}
+DEF object_11 Transform {
+	children [
+		Shape {
+			geometry IndexedFaceSet {
+				coord Coordinate {
+					point [
+						0 14.8096 19.5377 
+						0 14.6964 19.6027 
+						200 14.6964 19.6027 
+						200 14.8096 19.5377 
+						0 14.9358 19.5041 
+						200 14.9358 19.5041 
+						0 15.0663 19.5044 
+						200 15.0663 19.5044 
+						0 15.1923 19.5385 
+						200 15.1923 19.5385 
+						0 15.3052 19.604 
+						200 15.3052 19.604 
+						0 15.3973 19.6964 
+						200 15.3973 19.6964 
+						0 15.4623 19.8096 
+						200 15.4623 19.8096 
+						0 15.4959 19.9358 
+						200 15.4959 19.9358 
+						0 15.4956 20.0663 
+						200 15.4956 20.0663 
+						0 15.4615 20.1923 
+						200 15.4615 20.1923 
+						0 15.396 20.3052 
+						200 15.396 20.3052 
+						0 15.3036 20.3973 
+						200 15.3036 20.3973 
+						0 15.1904 20.4623 
+						200 15.1904 20.4623 
+						0 15.0642 20.4959 
+						200 15.0642 20.4959 
+						0 14.9337 20.4956 
+						200 14.9337 20.4956 
+						0 14.8077 20.4615 
+						200 14.8077 20.4615 
+						0 14.6948 20.396 
+						200 14.6948 20.396 
+						0 14.6027 20.3036 
+						200 14.6027 20.3036 
+						0 14.5377 20.1904 
+						200 14.5377 20.1904 
+						0 14.5041 20.0642 
+						200 14.5041 20.0642 
+						0 14.5044 19.9337 
+						200 14.5044 19.9337 
+						0 14.5385 19.8077 
+						200 14.5385 19.8077 
+						0 14.604 19.6948 
+						200 14.604 19.6948 
+					]
+				}
+				ccw TRUE
+				colorIndex []
+				colorPerVertex FALSE
+				convex FALSE
+				texCoordIndex []
+				coordIndex [
+					0 3 2 1 -1 
+					4 5 3 0 -1 
+					6 7 5 4 -1 
+					8 9 7 6 -1 
+					10 11 9 8 -1 
+					12 13 11 10 -1 
+					14 15 13 12 -1 
+					16 17 15 14 -1 
+					18 19 17 16 -1 
+					20 21 19 18 -1 
+					22 23 21 20 -1 
+					24 25 23 22 -1 
+					26 27 25 24 -1 
+					28 29 27 26 -1 
+					30 31 29 28 -1 
+					32 33 31 30 -1 
+					34 35 33 32 -1 
+					36 37 35 34 -1 
+					38 39 37 36 -1 
+					40 41 39 38 -1 
+					42 43 41 40 -1 
+					44 45 43 42 -1 
+					46 47 45 44 -1 
+					1 2 47 46 -1 
+					1 46 44 42 40 38 36 34 32 30 28 26 24 22 20 18 16 14 12 10 
+					8 6 4 0 -1 
+					47 2 3 5 7 9 11 13 15 17 19 21 23 25 27 29 31 33 35 37 
+					39 41 43 45 -1 
+				]
+				creaseAngle 0
+				normalIndex []
+				normalPerVertex TRUE
+				solid FALSE
+				texCoordIndex []
+			}
+			appearance USE Color_1
+		}
+	]
+	bboxCenter 0 0 0
+	bboxSize -1 -1 -1
+}

@@ -1,0 +1,70 @@
+// Fitness.h
+
+// holds the objective function for GA use
+
+#ifndef FITNESS_H
+#define FITNESS_H
+
+#include <vector>
+#include "Util.h"
+
+class GAGenome;
+
+struct GeneMapping
+{
+	char	name[NAME_SIZE];	// name of the controller
+	int	start;			// start gene
+	int	n;			// number of genes
+	int	index;			// controller index
+};
+
+class Fitness
+{
+	public:
+			
+	Fitness();	// default constructor
+	~Fitness();	// destructor
+	
+	void ReadInitialisationData();
+	double CalculateFitness();
+	
+	void SetGenome(GAGenome *g) { m_Genome = g; };
+	void SetKineticsFileName(char *name) { m_KineticsFileName = name; };
+	void SetTrajectoryFileName(char *name) { m_TrajectoryFileName = name; };
+	void SetTargetAndAchievedFileName(char *name) { m_TargetAndAchievedFileName = name; };
+	
+	protected:
+
+	void OutputKinetics();
+			
+	GAGenome			*m_Genome;
+	
+	int				m_GenomeLength;
+	double				m_RunLimit;
+	double				m_XPositionWeight;
+	double				m_YPositionWeight;
+	double				m_ZPositionWeight;
+	double				m_GripWeight;
+	double				m_FatalHeightThreshold;
+	double				m_PositionTolerance;
+	double				m_GripTolerance;
+	
+	std::vector<GeneMapping>	m_GeneMapping;
+	char				*m_ControlFileName;
+	char				*m_GeneMappingFileName;
+	char				*m_KineticsFileName;
+	char				*m_TrajectoryFileName;
+	char				*m_ConfigFileName;
+	char				*m_TargetAndAchievedFileName;
+	double 				*m_LeftHandX;
+	double 				*m_RightHandX;
+	double 				*m_LeftHandY;
+	double 				*m_RightHandY;
+	double 				m_LeftHandZ;
+	double 				m_RightHandZ;
+	double				*m_LeftGrip;
+	double				*m_RightGrip;
+	ofstream			m_OutputKinetics;
+};
+
+#endif // FITNESS_H

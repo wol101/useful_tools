@@ -1,0 +1,780 @@
+# DynaMechs V 3.0 ascii extended
+# tree parameter file
+
+Articulation 
+{
+    Name              ""
+    Graphics_Model    ""
+    Position          0.0   0.0     0.0
+    Orientation_Quat  0.0   0.0     0.0     1.0
+
+    MobileBaseLink 
+    {
+        Name                    "torso"
+        Graphics_Model          "torso.xan"
+
+        Mass                    15
+        Inertia                 17     0.0     0.0
+                                0.0     11     0.0
+                                0.0     0.0     17
+        Center_of_Gravity       0.0     0.0     0.0
+
+
+        Force_Objects
+            
+        MuscleModel
+        Name						"left_shoulder_extensor_origin"
+	    Local_Attachment			3.0 2.0 -1.5
+		Other_Body_Attachment		1.0 0.0 -0.5
+		Other_Body_Name				"left_arm"
+		Min_Muscle_Length			0.2
+		Damping_Factor				40
+		Control_Factor              600
+		Spring_Constant				100
+		Max_Force					200
+		IntegratingController
+		Name						"left_shoulder_extensor_controller_torso"
+		Controller_File				"left_shoulder_ext_cont.dat"
+
+        MuscleModel
+        Name						"left_shoulder_flexor_origin"
+	    Local_Attachment			3.0 2.0 1.5
+		Other_Body_Attachment		1.0 0.0 0.5
+		Other_Body_Name				"left_arm"
+		Min_Muscle_Length			0.2
+		Damping_Factor				40
+		Control_Factor              600
+		Spring_Constant				100
+		Max_Force					200
+		IntegratingController
+		Name						"left_shoulder_flexor_controller_torso"
+		Controller_File				"left_shoulder_flex_cont.dat"
+
+        MuscleModel
+        Name						"left_shoulder_adductor_origin"
+	    Local_Attachment			3.0 3.5 0.0
+		Other_Body_Attachment		1.0 0.5 0.0
+		Other_Body_Name				"left_arm"
+		Min_Muscle_Length			0.2
+		Damping_Factor				40
+		Control_Factor              600
+		Spring_Constant				100
+		Max_Force					200
+		IntegratingController
+		Name						"left_shoulder_adductor_controller_torso"
+		Controller_File				"left_shoulder_add_cont.dat"
+
+        MuscleModel
+        Name						"left_shoulder_abductor_origin"
+	    Local_Attachment			3.0 0.5 0.0
+		Other_Body_Attachment		1.0 -0.5 0.0
+		Other_Body_Name				"left_arm"
+		Min_Muscle_Length			0.2
+		Damping_Factor				40
+		Control_Factor              600
+		Spring_Constant				100
+		Max_Force					200
+		IntegratingController
+		Name						"left_shoulder_abductor_controller_torso"
+		Controller_File				"left_shoulder_abd_cont.dat"
+
+        MuscleModel
+        Name						"right_shoulder_extensor_origin"
+	    Local_Attachment			3.0 -2.0 -1.5
+		Other_Body_Attachment		1.0 0.0 -0.5
+		Other_Body_Name				"right_arm"
+		Min_Muscle_Length			0.2
+		Damping_Factor				40
+		Control_Factor              600
+		Spring_Constant				100
+		Max_Force					200
+		IntegratingController
+		Name						"right_shoulder_extensor_controller_torso"
+		Controller_File				"right_shoulder_ext_cont.dat"
+
+        MuscleModel
+        Name						"right_shoulder_flexor_origin"
+	    Local_Attachment			3.0 -2.0 1.5
+		Other_Body_Attachment		1.0 0.0 0.5
+		Other_Body_Name				"right_arm"
+		Min_Muscle_Length			0.2
+		Damping_Factor				40
+		Control_Factor              600
+		Spring_Constant				100
+		Max_Force					200
+		IntegratingController
+		Name						"right_shoulder_flexor_controller_torso"
+		Controller_File				"right_shoulder_flex_cont.dat"
+
+        MuscleModel
+        Name						"right_shoulder_adductor_origin"
+	    Local_Attachment			3.0 -3.5 0.0
+		Other_Body_Attachment		1.0 -0.5 0.0
+		Other_Body_Name				"right_arm"
+		Min_Muscle_Length			0.2
+		Damping_Factor				40
+		Control_Factor              600
+		Spring_Constant				100
+		Max_Force					200
+		IntegratingController
+		Name						"right_shoulder_adductor_controller_torso"
+		Controller_File				"right_shoulder_add_cont.dat"
+
+        MuscleModel
+        Name						"right_shoulder_abductor_origin"
+	    Local_Attachment			3.0 -0.5 0.0
+		Other_Body_Attachment		1.0 0.5 0.0
+		Other_Body_Name				"right_arm"
+		Min_Muscle_Length			0.2
+		Damping_Factor				40
+		Control_Factor              600
+		Spring_Constant				100
+		Max_Force					200
+		IntegratingController
+		Name						"right_shoulder_abductor_controller_torso"
+		Controller_File				"right_shoulder_abd_cont.dat"
+		
+		End_Of_Force_Objects
+			
+
+        Position                5.0     16.6    12.2
+        Orientation_Quat        0.0     -0.5     0.0     1.0
+        Velocity                0.0     0.0     0.0     0.0     0.0     0.0
+    }
+
+# left forelimb
+    Branch 
+    {
+        SphericalLink 
+        {
+            Name                "left_arm"
+            Graphics_Model      "arm.xan"
+
+            Mass                0.5
+            Inertia             0.1     0.0     0.0
+                                0.0     1.7     0.0
+                                0.0     0.0     1.7
+            Center_of_Gravity   1.5     0.0     0.0
+
+            Force_Objects
+            
+	        MuscleModel
+	        Name						"left_shoulder_extensor_insertion"
+			Local_Attachment			1.0 0.0 -0.5
+		    Other_Body_Attachment		3.0 2.0 -1.5
+			Other_Body_Name				"torso"
+			Min_Muscle_Length			0.2
+			Damping_Factor				40
+			Control_Factor              600
+			Spring_Constant				100
+			Max_Force					200
+			IntegratingController
+			Name						"left_shoulder_extensor_controller_left_arm"
+			Controller_File				"left_shoulder_ext_cont.dat"
+
+	        MuscleModel
+	        Name						"left_shoulder_flexor_insertion"
+			Local_Attachment			1.0 0.0 0.5
+		    Other_Body_Attachment		3.0 2.0 1.5
+			Other_Body_Name				"torso"
+			Min_Muscle_Length			0.2
+			Damping_Factor				40
+			Control_Factor              600
+			Spring_Constant				100
+			Max_Force					200
+			IntegratingController
+			Name						"left_shoulder_flexor_controller_left_arm"
+			Controller_File				"left_shoulder_flex_cont.dat"
+
+	        MuscleModel
+	        Name						"left_shoulder_adductor_insertion"
+			Local_Attachment			1.0 0.5 0.0
+		    Other_Body_Attachment		3.0 3.5 0.0
+			Other_Body_Name				"torso"
+			Min_Muscle_Length			0.2
+			Damping_Factor				40
+			Control_Factor              600
+			Spring_Constant				100
+			Max_Force					200
+			IntegratingController
+			Name						"left_shoulder_adductor_controller_left_arm"
+			Controller_File				"left_shoulder_add_cont.dat"
+
+	        MuscleModel
+	        Name						"left_shoulder_abductor_insertion"
+			Local_Attachment			1.0 -0.5 0.0
+		    Other_Body_Attachment		3.0 0.5 0.0
+			Other_Body_Name				"torso"
+			Min_Muscle_Length			0.2
+			Damping_Factor				40
+			Control_Factor              600
+			Spring_Constant				100
+			Max_Force					200
+			IntegratingController
+			Name						"left_shoulder_abductor_controller_left_arm"
+			Controller_File				"left_shoulder_abd_cont.dat"
+
+	        MuscleModel
+	        Name						"left_elbow_flexor_origin"
+			Local_Attachment			2.5 0.0 0.5
+		    Other_Body_Attachment		0.5 0.5 0.0
+			Other_Body_Name				"left_forearm"
+			Min_Muscle_Length			0.2
+			Damping_Factor				30
+			Control_Factor              400
+			Spring_Constant				50
+			Max_Force					200
+			IntegratingController
+			Name						"left_elbow_flexor_controller_left_arm"
+			Controller_File				"left_elbow_flexor_cont.dat"
+
+	        MuscleModel
+	        Name						"left_elbow_ext_origin"
+			Local_Attachment			3.0 0.0 -0.5
+		    Other_Body_Attachment		1.0 -0.5 0.0
+			Other_Body_Name				"left_forearm"
+			Min_Muscle_Length			0.2
+			Damping_Factor				30
+			Control_Factor              400
+			Spring_Constant				50
+			Max_Force					200
+			IntegratingController
+			Name						"left_elbow_ext_controller_left_arm"
+			Controller_File				"left_elbow_ext_cont.dat"
+
+            End_Of_Force_Objects
+			
+            Position_From_Inboard_Link  3.0     2.0     0.0
+            Initial_Joint_Angles        0.0     0.0     0.0
+            Initial_Angular_Velocity    0.0     0.0     0.0
+            Axes_Limits                 0.0    	0.0    	0.0
+            Joint_Limit_Spring_Constant 50.0
+            Joint_Limit_Damper_Constant 5.0
+
+            Joint_Friction       0.35
+        }
+
+        RevoluteLink 
+        {
+            Name                "left_forearm"
+            Graphics_Model      "forearm.xan"
+
+            Mass                0.5
+            Inertia             0.1     0.0     0.0
+                                0.0     1.7     0.0
+                                0.0     0.0     1.7
+            Center_of_Gravity   1.5     0.0     0.0
+
+            Force_Objects
+
+	        MuscleModel
+	        Name						"left_elbow_flexor_insertion"
+			Local_Attachment			0.5 0.5 0.0
+		    Other_Body_Attachment		2.5 0.0 0.5
+			Other_Body_Name				"left_arm"
+			Min_Muscle_Length			0.2
+			Damping_Factor				30
+			Control_Factor              400
+			Spring_Constant				50
+			Max_Force					200
+			IntegratingController
+			Name						"left_elbow_flexor_controller_left_forearm"
+			Controller_File				"left_elbow_flexor_cont.dat"
+
+	        MuscleModel
+	        Name						"left_elbow_ext_insertion"
+			Local_Attachment			1.0 -0.5 0.0
+		    Other_Body_Attachment		3.0 0.0 -0.5
+			Other_Body_Name				"left_arm"
+			Min_Muscle_Length			0.2
+			Damping_Factor				30
+			Control_Factor              400
+			Spring_Constant				50
+			Max_Force					200
+			IntegratingController
+			Name						"left_elbow_ext_controller_left_forearm"
+			Controller_File				"left_elbow_ext_cont.dat"
+
+	        MuscleModel
+	        Name						"left_wrist_flexor_origin"
+			Local_Attachment			2.5 0.0 0.5
+		    Other_Body_Attachment		0.5 0.0 0.5
+			Other_Body_Name				"left_hand"
+			Min_Muscle_Length			0.5
+			Damping_Factor				30
+			Control_Factor              400
+			Spring_Constant				50
+			Max_Force					200
+			IntegratingController
+			Name						"left_wrist_flexor_controller_left_forearm"
+			Controller_File				"left_wrist_flexor_cont.dat"
+
+	        MuscleModel
+	        Name						"left_wrist_ext_origin"
+			Local_Attachment			2.5 0.0 -0.5
+		    Other_Body_Attachment		0.5 0.0 -0.5
+			Other_Body_Name				"left_hand"
+			Min_Muscle_Length			0.5
+			Damping_Factor				30
+			Control_Factor              400
+			Spring_Constant				50
+			Max_Force					200
+			IntegratingController
+			Name						"left_wrist_ext_controller_left_forearm"
+			Controller_File				"left_wrist_ext_cont.dat"
+
+	        MuscleModel
+	        Name						"left_wrist_abd_origin"
+			Local_Attachment			2.5 0.5 0.0
+		    Other_Body_Attachment		0.5 0.5 0.0
+			Other_Body_Name				"left_hand"
+			Min_Muscle_Length			0.5
+			Damping_Factor				30
+			Control_Factor              400
+			Spring_Constant				50
+			Max_Force					200
+			IntegratingController
+			Name						"left_wrist_abd_controller_left_forearm"
+			Controller_File				"left_wrist_abd_cont.dat"
+
+	        MuscleModel
+	        Name						"left_wrist_add_origin"
+			Local_Attachment			2.5 -0.5 0.0
+		    Other_Body_Attachment		0.5 -0.5 0.0
+			Other_Body_Name				"left_hand"
+			Min_Muscle_Length			0.5
+			Damping_Factor				30
+			Control_Factor              400
+			Spring_Constant				50
+			Max_Force					200
+			IntegratingController
+			Name						"left_wrist_add_controller_left_forearm"
+			Controller_File				"left_wrist_add_cont.dat"
+
+			End_Of_Force_Objects
+
+            MDH_Parameters      3.0     1.57    0.0     0.0
+            Initial_Joint_Velocity      0.0
+            Joint_Limits        0 3.1 
+            Joint_Limit_Spring_Constant  50.0
+            Joint_Limit_Damper_Constant  5.0
+
+            Actuator_Type        0
+            Joint_Friction       0.35
+        }
+
+        SphericalLink 
+        {
+            Name                "left_hand"
+            Graphics_Model      "hand.xan"
+
+            Mass                0.5
+            Inertia             0.1     0.0     0.0
+                                0.0     1.7     0.0
+                                0.0     0.0     1.7
+            Center_of_Gravity   1.5     0.0     0.0
+
+            Force_Objects
+
+	        MuscleModel
+	        Name						"left_wrist_flexor_insertion"
+			Local_Attachment			0.5 0.0 0.5
+		    Other_Body_Attachment		2.5 0.0 0.5
+			Other_Body_Name				"left_forearm"
+			Min_Muscle_Length			0.5
+			Damping_Factor				30
+			Control_Factor              400
+			Spring_Constant				50
+			Max_Force					200
+			IntegratingController
+			Name						"left_wrist_flexor_controller_left_hand"
+			Controller_File				"left_wrist_flexor_cont.dat"
+
+	        MuscleModel
+	        Name						"left_wrist_ext_insertion"
+			Local_Attachment			0.5 0.0 -0.5
+		    Other_Body_Attachment		2.5 0.0 -0.5
+			Other_Body_Name				"left_forearm"
+			Min_Muscle_Length			0.5
+			Damping_Factor				30
+			Control_Factor              400
+			Spring_Constant				50
+			Max_Force					200
+			IntegratingController
+			Name						"left_wrist_ext_controller_left_hand"
+			Controller_File				"left_wrist_ext_cont.dat"
+
+	        MuscleModel
+	        Name						"left_wrist_abd_insertion"
+			Local_Attachment			0.5 0.5 0.0
+		    Other_Body_Attachment		2.5 0.5 0.0
+			Other_Body_Name				"left_forearm"
+			Min_Muscle_Length			0.5
+			Damping_Factor				30
+			Control_Factor              400
+			Spring_Constant				50
+			Max_Force					200
+			IntegratingController
+			Name						"left_wrist_abd_controller_left_hand"
+			Controller_File				"left_wrist_abd_cont.dat"
+
+	        MuscleModel
+	        Name						"left_wrist_add_insertion"
+			Local_Attachment			0.5 -0.5 0.0
+		    Other_Body_Attachment		2.5 -0.5 0.0
+			Other_Body_Name				"left_forearm"
+			Min_Muscle_Length			0.5
+			Damping_Factor				30
+			Control_Factor              400
+			Spring_Constant				50
+			Max_Force					200
+			IntegratingController
+			Name						"left_wrist_add_controller_left_hand"
+			Controller_File				"left_wrist_add_cont.dat"
+
+            GripModel
+			Name						"left_hand_grip"
+		    Number_of_Contact_Points	4
+			Contact_Locations			1		0.25 		0
+										1	  	-0.25		0
+										0.5   	0.25		0
+										0.5  	-0.25		0
+			Reach_Distance				0.2
+			Damping_Factor				50
+			Control_Factor              2000
+			Max_Force					2000
+		 	IntegratingController
+			Name						"left_hand_grip_controller"
+			Controller_File				"left_hand_grip_controller.dat"
+                      
+			End_Of_Force_Objects
+
+            Position_From_Inboard_Link  3.0     0.0     0.0
+            Initial_Joint_Angles        0.0     0.0     0.0
+            Initial_Angular_Velocity    0.0     0.0     0.0
+            Axes_Limits                 1.57    1.57    1.57
+            Joint_Limit_Spring_Constant 50.0
+            Joint_Limit_Damper_Constant 5.0
+
+            Joint_Friction       0.35
+        }
+    }
+
+# right forelimb
+    Branch 
+    {
+        SphericalLink 
+        {
+            Name                "right_arm"
+            Graphics_Model      "arm.xan"
+
+            Mass                0.5
+            Inertia             0.1     0.0     0.0
+                                0.0     1.7     0.0
+                                0.0     0.0     1.7
+            Center_of_Gravity   1.5     0.0     0.0
+
+            Force_Objects
+            
+	        MuscleModel
+	        Name						"right_shoulder_extensor_insertion"
+			Local_Attachment			1.0 0.0 -0.5
+		    Other_Body_Attachment		3.0 -2.0 -1.5
+			Other_Body_Name				"torso"
+			Min_Muscle_Length			0.2
+			Damping_Factor				40
+			Control_Factor              600
+			Spring_Constant				100
+			Max_Force					200
+			IntegratingController
+			Name						"right_shoulder_extensor_controller_right_arm"
+			Controller_File				"right_shoulder_ext_cont.dat"
+
+	        MuscleModel
+	        Name						"right_shoulder_flexor_insertion"
+			Local_Attachment			1.0 0.0 0.5
+		    Other_Body_Attachment		3.0 -2.0 1.5
+			Other_Body_Name				"torso"
+			Min_Muscle_Length			0.2
+			Damping_Factor				40
+			Control_Factor              600
+			Spring_Constant				100
+			Max_Force					200
+			IntegratingController
+			Name						"right_shoulder_flexor_controller_right_arm"
+			Controller_File				"right_shoulder_flex_cont.dat"
+
+	        MuscleModel
+	        Name						"right_shoulder_adductor_insertion"
+			Local_Attachment			1.0 -0.5 0.0
+		    Other_Body_Attachment		3.0 -3.5 0.0
+			Other_Body_Name				"torso"
+			Min_Muscle_Length			0.2
+			Damping_Factor				40
+			Control_Factor              600
+			Spring_Constant				100
+			Max_Force					200
+			IntegratingController
+			Name						"right_shoulder_adductor_controller_right_arm"
+			Controller_File				"right_shoulder_add_cont.dat"
+
+	        MuscleModel
+	        Name						"right_shoulder_abductor_insertion"
+			Local_Attachment			1.0 0.5 0.0
+		    Other_Body_Attachment		3.0 -0.5 0.0
+			Other_Body_Name				"torso"
+			Min_Muscle_Length			0.2
+			Damping_Factor				40
+			Control_Factor              600
+			Spring_Constant				100
+			Max_Force					200
+			IntegratingController
+			Name						"right_shoulder_abductor_controller_right_arm"
+			Controller_File				"right_shoulder_abd_cont.dat"
+
+	        MuscleModel
+	        Name						"right_elbow_flexor_origin"
+			Local_Attachment			2.5 0.0 0.5
+		    Other_Body_Attachment		0.5 0.5 0.0
+			Other_Body_Name				"right_forearm"
+			Min_Muscle_Length			0.2
+			Damping_Factor				30
+			Control_Factor              400
+			Spring_Constant				50
+			Max_Force					200
+			IntegratingController
+			Name						"right_elbow_flexor_controller_right_arm"
+			Controller_File				"right_elbow_flexor_cont.dat"
+
+	        MuscleModel
+	        Name						"right_elbow_ext_origin"
+			Local_Attachment			3.0 0.0 -0.5
+		    Other_Body_Attachment		1.0 -0.5 0.0
+			Other_Body_Name				"right_forearm"
+			Min_Muscle_Length			0.2
+			Damping_Factor				30
+			Control_Factor              400
+			Spring_Constant				50
+			IntegratingController
+			Max_Force					200
+			Name						"right_elbow_ext_controller_right_arm"
+			Controller_File				"right_elbow_ext_cont.dat"
+
+			End_Of_Force_Objects
+
+            Position_From_Inboard_Link  3.0     -2.0     0.0
+            Initial_Joint_Angles        0.0     0.0     0.0
+            Initial_Angular_Velocity    0.0     0.0     0.0
+            Axes_Limits                 0.0    	0.0    	0.0
+            Joint_Limit_Spring_Constant 50.0
+            Joint_Limit_Damper_Constant 5.0
+
+            Joint_Friction       0.35
+        }
+
+        RevoluteLink 
+        {
+            Name                "right_forearm"
+            Graphics_Model      "forearm.xan"
+
+            Mass                0.5
+            Inertia             0.1     0.0     0.0
+                                0.0     1.7     0.0
+                                0.0     0.0     1.7
+            Center_of_Gravity   1.5     0.0     0.0
+
+            Force_Objects
+
+	        MuscleModel
+	        Name						"right_elbow_flexor_insertion"
+			Local_Attachment			0.5 0.5 0.0
+		    Other_Body_Attachment		2.5 0.0 0.5
+			Other_Body_Name				"right_arm"
+			Min_Muscle_Length			0.2
+			Damping_Factor				30
+			Control_Factor              400
+			Spring_Constant				50
+			Max_Force					200
+			IntegratingController
+			Name						"right_elbow_flexor_controller_right_forearm"
+			Controller_File				"right_elbow_flexor_cont.dat"
+
+	        MuscleModel
+	        Name						"right_elbow_ext_insertion"
+			Local_Attachment			1.0 -0.5 0.0
+		    Other_Body_Attachment		3.0 0.0 -0.5
+			Other_Body_Name				"right_arm"
+			Min_Muscle_Length			0.2
+			Damping_Factor				30
+			Control_Factor              400
+			Spring_Constant				50
+			Max_Force					200
+			IntegratingController
+			Name						"right_elbow_ext_controller_right_forearm"
+			Controller_File				"right_elbow_ext_cont.dat"
+
+	        MuscleModel
+	        Name						"right_wrist_flexor_origin"
+			Local_Attachment			2.5 0.0 0.5
+		    Other_Body_Attachment		0.5 0.0 0.5
+			Other_Body_Name				"right_hand"
+			Min_Muscle_Length			0.5
+			Damping_Factor				30
+			Control_Factor              400
+			Spring_Constant				50
+			Max_Force					200
+			IntegratingController
+			Name						"right_wrist_flexor_controller_right_forearm"
+			Controller_File				"right_wrist_flexor_cont.dat"
+
+	        MuscleModel
+	        Name						"right_wrist_ext_origin"
+			Local_Attachment			2.5 0.0 -0.5
+		    Other_Body_Attachment		0.5 0.0 -0.5
+			Other_Body_Name				"right_hand"
+			Min_Muscle_Length			0.5
+			Damping_Factor				30
+			Control_Factor              400
+			Spring_Constant				50
+			Max_Force					200
+			IntegratingController
+			Name						"right_wrist_ext_controller_right_forearm"
+			Controller_File				"right_wrist_ext_cont.dat"
+
+	        MuscleModel
+	        Name						"right_wrist_abd_origin"
+			Local_Attachment			2.5 0.5 0.0
+		    Other_Body_Attachment		0.5 0.5 0.0
+			Other_Body_Name				"right_hand"
+			Min_Muscle_Length			0.5
+			Damping_Factor				30
+			Control_Factor              400
+			Spring_Constant				50
+			Max_Force					200
+			IntegratingController
+			Name						"right_wrist_abd_controller_right_forearm"
+			Controller_File				"right_wrist_abd_cont.dat"
+
+	        MuscleModel
+	        Name						"right_wrist_add_origin"
+			Local_Attachment			2.5 -0.5 0.0
+		    Other_Body_Attachment		0.5 -0.5 0.0
+			Other_Body_Name				"right_hand"
+			Min_Muscle_Length			0.5
+			Damping_Factor				30
+			Control_Factor              400
+			Spring_Constant				50
+			Max_Force					200
+			IntegratingController
+			Name						"right_wrist_add_controller_right_forearm"
+			Controller_File				"right_wrist_add_cont.dat"
+
+			End_Of_Force_Objects
+
+            MDH_Parameters      3.0     1.57    0.0     0.0
+            Initial_Joint_Velocity      0.0
+            Joint_Limits        0 3.1 
+            Joint_Limit_Spring_Constant  50.0
+            Joint_Limit_Damper_Constant  5.0
+
+            Actuator_Type        0
+            Joint_Friction       0.35
+        }
+
+        SphericalLink 
+        {
+            Name                "right_hand"
+            Graphics_Model      "hand.xan"
+
+            Mass                0.5
+            Inertia             0.1     0.0     0.0
+                                0.0     1.7     0.0
+                                0.0     0.0     1.7
+            Center_of_Gravity   1.5     0.0     0.0
+
+            Force_Objects
+
+	        MuscleModel
+	        Name						"right_wrist_flexor_insertion"
+			Local_Attachment			0.5 0.0 0.5
+		    Other_Body_Attachment		2.5 0.0 0.5
+			Other_Body_Name				"right_forearm"
+			Min_Muscle_Length			0.5
+			Damping_Factor				30
+			Control_Factor              400
+			Spring_Constant				50
+			Max_Force					200
+			IntegratingController
+			Name						"right_wrist_flexor_controller_right_hand"
+			Controller_File				"right_wrist_flexor_cont.dat"
+
+	        MuscleModel
+	        Name						"right_wrist_ext_insertion"
+			Local_Attachment			0.5 0.0 -0.5
+		    Other_Body_Attachment		2.5 0.0 -0.5
+			Other_Body_Name				"right_forearm"
+			Min_Muscle_Length			0.5
+			Damping_Factor				30
+			Control_Factor              400
+			Spring_Constant				50
+			Max_Force					200
+			IntegratingController
+			Name						"right_wrist_ext_controller_right_hand"
+			Controller_File				"right_wrist_ext_cont.dat"
+
+	        MuscleModel
+	        Name						"right_wrist_abd_insertion"
+			Local_Attachment			0.5 0.5 0.0
+		    Other_Body_Attachment		2.5 0.5 0.0
+			Other_Body_Name				"right_forearm"
+			Min_Muscle_Length			0.5
+			Damping_Factor				30
+			Control_Factor              400
+			Spring_Constant				50
+			Max_Force					200
+			IntegratingController
+			Name						"right_wrist_abd_controller_right_hand"
+			Controller_File				"right_wrist_abd_cont.dat"
+
+	        MuscleModel
+	        Name						"right_wrist_add_insertion"
+			Local_Attachment			0.5 -0.5 0.0
+		    Other_Body_Attachment		2.5 -0.5 0.0
+			Other_Body_Name				"right_forearm"
+			Min_Muscle_Length			0.5
+			Damping_Factor				30
+			Control_Factor              400
+			Spring_Constant				50
+			Max_Force					200
+			IntegratingController
+			Name						"right_wrist_add_controller_right_hand"
+			Controller_File				"right_wrist_add_cont.dat"
+
+            GripModel
+			Name						"right_hand_grip"
+		    Number_of_Contact_Points	4
+			Contact_Locations			1		0.25 		0
+										1	  	-0.25		0
+										0.5   	0.25		0
+										0.5  	-0.25		0
+			Reach_Distance				0.2
+			Damping_Factor				50
+			Control_Factor              2000
+			Max_Force					2000
+		 	IntegratingController
+			Name						"right_hand_grip_controller"
+			Controller_File				"right_hand_grip_controller.dat"
+
+			End_Of_Force_Objects
+
+            Position_From_Inboard_Link  3.0     0.0     0.0
+            Initial_Joint_Angles        0.0     0.0     0.0
+            Initial_Angular_Velocity    0.0     0.0     0.0
+            Axes_Limits                 1.57    1.57    1.57
+            Joint_Limit_Spring_Constant 50.0
+            Joint_Limit_Damper_Constant 5.0
+
+            Joint_Friction       0.35
+        }
+    }
+}

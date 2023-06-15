@@ -1,0 +1,307 @@
+// this routine does the GA - it runs objective as a separate process
+// to overcome memory leak problems in the simulation code
+
+#include <stdio.h>
+#include <iostream.h>
+#include <iomanip.h>
+#include <fstream.h>
+#include <assert.h>
+#include <exception>
+#include <stdlib.h>
+
+#include <ga/ga.h>
+#include <ga/GARealGenome.h>
+#include <ga/GARealGenome.C>
+#include <ga/GAPopulation.h>
+#include <ga/GASelector.h>
+
+#include "Util.h"
+
+float Objective(GAGenome & g);
+int GARealGaussianMutatorScaled(GAGenome & g, float pmut);
+int GACustomisedMutator(GAGenome & g, float pmut);
+
+double gGaussianSD;
+
+int main(int /*argc */ , char ** /*argv */ )
+{
+	char buffer[NAME_SIZE];
+	ofstream *outp;
+	int i, j;
+	GAPopulation pop;
+	ifstream controlFile("ControlFile.dat");
+	bool err;
+	int innerLoop;
+	int outerLoop;
+	double lowerBound;
+	double upperBound;
+	int genomeLength;
+	int populationSize;
+	int nReplacement;
+	int nMigration;
+	int nPopulations;
+	double pMutation;
+	double pCrossover;
+	char crossoverType[NAME_SIZE];
+	char mutationType[NAME_SIZE];
+	char gaType[NAME_SIZE];
+	char selectionScheme[NAME_SIZE];
+	int outputPopFlag = 0;
+	int elitistFlag = 0;
+
+	// read in my parameters 
+
+	err = ReadParameter(controlFile, "genomeLength", genomeLength);
+	if (!err) cout << "genomeLength   = " << genomeLength << "\n";
+	err = ReadParameter(controlFile, "innerLoop", innerLoop);
+	if (!err) cout << "innerLoop      = " << innerLoop << "\n";
+	err = ReadParameter(controlFile, "outerLoop", outerLoop);
+	if (!err) cout << "outerLoop      = " << outerLoop << "\n";
+	err = ReadParameter(controlFile, "lowerBound", lowerBound);
+	if (!err) cout << "lowerBound     = " << lowerBound << "\n";
+	err = ReadParameter(controlFile, "upperBound", upperBound);
+	if (!err) cout << "upperBound     = " << upperBound << "\n";
+	err = ReadParameter(controlFile, "gaussianSD", gGaussianSD);
+	if (!err) cout << "gaussianSD     = " << gGaussianSD << "\n";
+	err = ReadParameter(controlFile, "populationSize", populationSize);
+	if (!err) cout << "populationSize = " << populationSize << "\n";
+	err = ReadParameter(controlFile, "nPopulations", nPopulations);
+	if (!err) cout << "nPopulations    = " << nPopulations << "\n";
+	err = ReadParameter(controlFile, "nReplacement", nReplacement);
+	if (!err) cout << "nReplacement   = " << nReplacement << "\n";
+	err = ReadParameter(controlFile, "nMigration", nMigration);
+	if (!err) cout << "nMigration     = " << nMigration << "\n";
+	err = ReadParameter(controlFile, "pMutation", pMutation);
+	if (!err) cout << "pMutation      = " << pMutation << "\n";
+	err = ReadParameter(controlFile, "pCrossover", pCrossover);
+	if (!err) cout << "pCrossover     = " << pCrossover << "\n";
+	err = ReadParameter(controlFile, "crossoverType", crossoverType);
+	if (!err) cout << "crossoverType  = " << crossoverType << "\n";
+	err = ReadParameter(controlFile, "mutationType", mutationType);
+	if (!err) cout << "mutationType   = " << mutationType << "\n";
+	err = ReadParameter(controlFile, "gaType", gaType);
+	if (!err) cout << "gaType         = " << gaType << "\n";
+	err = ReadParameter(controlFile, "selectionScheme", selectionScheme);
+	if (!err) cout << "selectionScheme= " << selectionScheme << "\n";
+	err = ReadParameter(controlFile, "elitistFlag", elitistFlag);
+	if (!err) cout << "elitistFlag    = " << elitistFlag << "\n";
+	err = ReadParameter(controlFile, "outputPopFlag", outputPopFlag);
+	if (!err) cout << "outputPopFlag  = " << outputPopFlag << "\n";
+	cout.flush();
+
+// This genome uses a bounded set of continous numbers.  The default arguments
+// are INCLUSIVE for both the lower and upper bounds, so in this case the 
+// allele set is [-1, 1] and any element of the genome may assume a value [-1, 1].
+
+	GARealAlleleSet alleles(lowerBound, upperBound);
+
+// NB need to set the genome here and in the read loop
+	GARealGenome genome(genomeLength, alleles, Objective);
+// the defaults are UniformInitializer, ElementComparator, GARealGassianMutator, UniformCrossover
+// NB any changes also have to be made later in the program
+
+	// set crossover type
+	if (strcmp(crossoverType, "UniformCrossover") == 0)
+		genome.crossover(GARealGenome::UniformCrossover);
+	if (strcmp(crossoverType, "EvenOddCrossover") == 0)
+		genome.crossover(GARealGenome::EvenOddCrossover);
+	if (strcmp(crossoverType, "OnePointCrossover") == 0)
+		genome.crossover(GARealGenome::OnePointCrossover);
+	if (strcmp(crossoverType, "TwoPointCrossover") == 0)
+		genome.crossover(GARealGenome::TwoPointCrossover);
+	if (strcmp(crossoverType, "PartialMatchCrossover") == 0)
+		genome.crossover(GARealGenome::PartialMatchCrossover);
+	if (strcmp(crossoverType, "OrderCrossover") == 0)
+		genome.crossover(GARealGenome::OrderCrossover);
+	if (strcmp(crossoverType, "CycleCrossover") == 0)
+		genome.crossover(GARealGenome::CycleCrossover);
+	if (strcmp(crossoverType, "BlendCrossover") == 0)
+		genome.crossover(GARealBlendCrossover);
+
+	// set mutation type
+	if (strcmp(mutationType, "FlipMutator") == 0)
+		genome.mutator(GARealGenome::FlipMutator);
+	if (strcmp(mutationType, "SwapMutator") == 0)
+		genome.mutator(GARealGenome::SwapMutator);
+	if (strcmp(mutationType, "GaussianMutator") == 0)
+		genome.mutator(GARealGaussianMutator);
+	if (strcmp(mutationType, "ScaledGaussianMutator") == 0)
+		genome.mutator(GARealGaussianMutatorScaled);
+	if (strcmp(mutationType, "CustomisedMutator") == 0)
+		genome.mutator(GACustomisedMutator);
+	
+	// set GA type
+	GAGeneticAlgorithm *ga = 0;
+	if (strcmp(gaType, "SimpleGA") == 0)
+	{
+		ga = new GASimpleGA(genome);
+		((GASimpleGA *)ga)->populationSize(populationSize);
+		if (elitistFlag) ((GASimpleGA *)ga)->elitist(gaTrue);
+		else ((GASimpleGA *)ga)->elitist(gaFalse);
+	}
+	if (strcmp(gaType, "DemeGA") == 0)
+	{
+		ga = new GADemeGA(genome);
+		((GADemeGA *)ga)->populationSize(populationSize);
+		((GADemeGA *)ga)->nPopulations(nPopulations);
+		((GADemeGA *)ga)->nReplacement(GADemeGA::ALL, nReplacement);
+		((GADemeGA *)ga)->nMigration(nMigration);
+	}
+	if (strcmp(gaType, "SteadyStateGA") == 0)
+	{
+		ga = new GASteadyStateGA(genome);
+		((GASteadyStateGA *)ga)->populationSize(populationSize);
+		((GASteadyStateGA *)ga)->nReplacement(nReplacement);
+	}
+	assert(ga);
+	
+	// set selection scheme
+	if (strcmp(selectionScheme, "RankSelector") == 0)
+		ga->selector(GARankSelector());
+	if (strcmp(selectionScheme, "RouletteWheelSelector") == 0)
+		ga->selector(GARouletteWheelSelector());
+	if (strcmp(selectionScheme, "TournamentSelector") == 0)
+		ga->selector(GATournamentSelector());
+	if (strcmp(selectionScheme, "DSSelector") == 0)
+		ga->selector(GADSSelector());
+	if (strcmp(selectionScheme, "SRSSelector") == 0)
+		ga->selector(GASRSSelector());
+	if (strcmp(selectionScheme, "UniformSelector") == 0)
+		ga->selector(GAUniformSelector());
+
+	// set some parameters
+	ga->pMutation(pMutation);
+	ga->pCrossover(pCrossover);
+	
+	// set some standard parameters
+	ga->recordDiversity(gaTrue);
+	ga->selectScores(GAStatistics::AllScores);
+	ga->scoreFrequency(1);
+	ga->flushFrequency(1);
+	ga->scoreFilename("Generations.dat");
+
+	ga->initialize();
+	
+	// evolutionary loop
+	for (i = 0; i < outerLoop; i++)
+	{
+		for (j = 0; j < innerLoop; j++)
+		{
+			ga->step();
+		}
+		if (outputPopFlag)
+		{
+			sprintf(buffer, "Pop_%03d", i);
+			outp = new ofstream(buffer);
+			(*outp) << ga->population();
+			delete outp;
+		}
+		sprintf(buffer, "Best_%03d", i);
+		outp = new ofstream(buffer);
+		(*outp) << ga->statistics().bestIndividual();
+		delete outp;
+	}
+
+	delete ga;
+	return 0;
+}
+
+// altered so the Gaussian SD is controlled by a global value
+
+/* ----------------------------------------------------------------------------
+   Operator specializations
+---------------------------------------------------------------------------- */
+// The Gaussian mutator picks a new value based on a Gaussian distribution
+// around the current value.  We respect the bounds (if any).
+//*** need to figure out a way to make the stdev other than 1.0 
+int GARealGaussianMutatorScaled(GAGenome & g, float pmut)
+{
+	GA1DArrayAlleleGenome < float >&child = DYN_CAST(GA1DArrayAlleleGenome < float >&, g);
+	register int n, i;
+	if (pmut <= 0.0)
+		return (0);
+
+	float nMut = pmut * (float) (child.length());
+	int length = child.length() - 1;
+	if (nMut < 1.0)
+	{					 // we have to do a flip test on each element
+		nMut = 0;
+		for (i = length; i >= 0; i--)
+		{
+			float value = child.gene(i);
+			if (GAFlipCoin(pmut))
+			{
+				if (child.alleleset(i).type() == (int) GAAllele::ENUMERATED ||
+				    child.alleleset(i).type() == (int) GAAllele::DISCRETIZED)
+					value = child.alleleset(i).allele();
+				else if (child.alleleset(i).type() == (int) GAAllele::BOUNDED)
+				{
+					value += GAUnitGaussian() * gGaussianSD;
+					value = GAMax(child.alleleset(i).lower(), value);
+					value = GAMin(child.alleleset(i).upper(), value);
+				}
+				child.gene(i, value);
+				nMut++;
+			}
+		}
+	} else
+	{					 // only mutate the ones we need to
+		for (n = 0; n < nMut; n++)
+		{
+			int idx = GARandomInt(0, length);
+			float value = child.gene(idx);
+			if (child.alleleset(idx).type() == (int) GAAllele::ENUMERATED ||
+			    child.alleleset(idx).type() == (int) GAAllele::DISCRETIZED)
+				value = child.alleleset(idx).allele();
+			else if (child.alleleset(idx).type() == (int) GAAllele::BOUNDED)
+			{
+				value += GAUnitGaussian() * gGaussianSD;
+				value = GAMax(child.alleleset(idx).lower(), value);
+				value = GAMin(child.alleleset(idx).upper(), value);
+			}
+			child.gene(idx, value);
+		}
+	}
+	return ((int) nMut);
+}
+
+// a customised mutator for this particular problem
+int GACustomisedMutator(GAGenome & g, float pmut)
+{
+	GA1DArrayAlleleGenome < float >&child = DYN_CAST(GA1DArrayAlleleGenome < float >&, g);
+	int nMut;
+	float *store;
+	int i;
+	int originStart, originEnd;
+	int segmentLength;
+	int destinationStart;
+	
+	// start with a scaled gauusian mutator
+	nMut = GARealGaussianMutatorScaled(g, pmut);
+	
+	// now do my shuffle mutation
+	if (GAFlipCoin(pmut))
+	{
+		originStart = GARandomInt(0, child.length() - 1);
+		originEnd = GARandomInt(0, child.length() - 1);
+		segmentLength = abs(originEnd - originStart) + 1;
+		store = new float[segmentLength];
+		destinationStart = GARandomInt(0, child.length() - segmentLength);
+		if (originStart < originEnd)
+		{
+			for (i = 0; i < segmentLength; i++)
+				store[i] = child.gene(originStart + i);
+		}
+		else
+		{
+			for (i = 0; i < segmentLength; i++)
+				store[i] = child.gene(originStart - i);
+		}
+		for (i = 0; i < segmentLength; i++)
+			child.gene(destinationStart + i, store[i]);
+		delete [] store;
+	}
+		
+	return nMut; // don't reaaly know what gets done with nMut	
+}
+

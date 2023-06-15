@@ -1,0 +1,69 @@
+# remember to set up the gnu compilers
+# module swap PrgEnv-pgi PrgEnv-gnu
+# and the extras needed for quad core nodes
+# module load xtpe-quadcore
+
+CXXFLAGS = -static -ffast-math -O3 -DdDOUBLE
+LDFLAGS  = -static
+CXX      = CC
+CC       = cc
+
+LIBS = -L"$(HOME)/Unix/lib" -lode -lxml2 -lpthread -lm -lz
+INC_DIRS = -I"$(HOME)/Unix/include" -I/usr/include/libxml2
+
+MPISRC = UnifiedMPI.cpp KinematicMatch.cpp
+
+GASRC = \
+GA.cpp      Mating.cpp     Population.cpp  Statistics.cpp\
+ExpressionParser.cpp  Genome.cpp  Objective.cpp  Random.cpp      XMLConverter.cpp
+
+GAITSYMSRC = \
+Body.cpp                DataTarget.cpp          GLUtils.cpp             NamedObject.cpp         TIFFWrite.cpp\
+CappedCylinderGeom.cpp  Geom.cpp                ObjectiveMain.cpp       ThreePointStrap.cpp     FixedJoint.cpp\
+CyclicDriver.cpp        Environment.cpp         HingeJoint.cpp          PlaneGeom.cpp           TwoPointStrap.cpp\
+CylinderWrapStrap.cpp   Face.cpp                Joint.cpp               Simulation.cpp          UGMMuscle.cpp\
+DampedSpringMuscle.cpp  FacetedObject.cpp       MAMuscle.cpp            StepDriver.cpp          SphereGeom.cpp\
+DataFile.cpp            GLUIRoutines.cpp        Muscle.cpp              Strap.cpp               FacetedSphere.cpp\
+FacetedConicSegment.cpp Contact.cpp             MAMuscleExtended.cpp    FloatingHingeJoint.cpp  ErrorHandler.cpp\
+MAMuscleComplete.cpp    Util.cpp                FacetedPolyline.cpp     NPointStrap.cpp         BallJoint.cpp\
+fec.cpp                 MAMuscleExtendedDamped.cpp  StrokeFont.cpp\
+DataTargetScalar.cpp    DataTargetQuaternion.cpp  DataTargetVector.cpp  Driver.cpp              Marker.cpp\
+TrimeshGeom.cpp         RayGeom.cpp             Reporter.cpp            TorqueReporter.cpp
+
+MPIOBJ = $(addsuffix .o, $(basename $(MPISRC) ) )
+GAOBJ = $(addsuffix .o, $(basename $(GASRC) ) )
+GAITSYMOBJ = $(addsuffix .o, $(basename $(GAITSYMSRC) ) )
+ODECPPOBJ = $(addsuffix .o, $(basename $(ODECPPSRC) ) )
+ODECOBJ = $(addsuffix .o, $(basename $(ODECSRC) ) )
+
+all: directories binaries 
+
+directories: bin obj
+ 
+binaries: bin/UnifiedKinematicMatch
+
+obj: 
+	-mkdir obj
+	-mkdir obj/ga
+	-mkdir obj/gaitsym
+	-mkdir obj/mpi
+
+bin: 
+	-mkdir bin
+
+obj/ga/%.o : ../GeneralGA/src/%.cpp
+	$(CXX) -DUSE_MPI $(CXXFLAGS) $(INC_DIRS)  -c $< -o $@
+
+obj/gaitsym/%.o : ../GaitSymODE/src/%.cpp
+	$(CXX) -DUSE_MPI $(CXXFLAGS) $(INC_DIRS)  -c $< -o $@
+
+obj/mpi/%.o : %.cpp
+	$(CXX) $(CXXFLAGS) $(INC_DIRS)  -c $< -o $@
+
+bin/UnifiedKinematicMatch: $(addprefix obj/gaitsym/, $(GAITSYMOBJ) )  $(addprefix obj/ga/, $(GAOBJ) ) $(addprefix obj/mpi/, $(MPIOBJ) )
+	$(CXX) $(LDFLAGS) -o $@ $^ $(LIBS)
+        
+clean:
+	rm -rf obj bin
+	rm -f *~ *.bak *.bck *.tmp *.o 
+	

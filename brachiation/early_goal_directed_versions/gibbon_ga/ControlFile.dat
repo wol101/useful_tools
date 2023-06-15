@@ -1,0 +1,14 @@
+innerLoop                   20
+outerLoop                   400
+lowerBound                  -1.0
+upperBound                  1.0
+genomeLength                154
+runLimit                    20
+bothContactDuration         1
+positionOnBarWeight         1
+torsoXPositionWeight        1
+contactScoreWeight          1
+energyWeight                -0.0001
+bothContactTimeWeight       -1
+gaussianSD                  0.001
+

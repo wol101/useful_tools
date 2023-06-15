@@ -1,0 +1,4 @@
+ReadDICOM DirectoryName "/Users/wis/Synchronised/Research/Bird Running/CT Scans/Emu 1/DICOM"
+Contour IsoValues 350
+Normals
+Render OBJFileName "emu1_contour_350.obj" WindowSize 1600 1000

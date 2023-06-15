@@ -1,0 +1,8 @@
+population_size     10
+score_frequency     1
+flush_frequency     1
+select_scores       255
+mutation_probability          0.5
+crossover_probability         0.9
+replacement_percentage       0.5
+number_of_best       1

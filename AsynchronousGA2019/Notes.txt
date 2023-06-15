@@ -1,0 +1,4 @@
+GAASIO.cpp [probably]
+
+Under some situations - probably when there is a big backlog of requests - a client can get sent the XML when they requested a genome.
+

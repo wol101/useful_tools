@@ -1,0 +1,31 @@
+BATCH_ISOSURFACE_SRC = \
+DataFile.cpp                    PipelineObject.cpp              vtkASCIIPointCloudReader.cpp\
+InputFileParser.cpp             main.cpp                        vtkNrrdReader.cpp
+
+BATCH_ISOSURFACE_OBJ = $(addsuffix .o, $(basename $(BATCH_ISOSURFACE_SRC) ) )
+BATCH_ISOSURFACE_SHDR = $(addsuffix .h, $(basename $(BATCH_ISOSURFACE_SRC) ) ) 
+
+BINARIES = bin/batch_isosurface
+
+all: directories binaries 
+
+directories: bin obj 
+
+binaries: $(BINARIES)
+
+obj: 
+	-mkdir obj
+
+bin:
+	-mkdir bin
+	 
+obj/%.o : %.cpp
+	$(CXX) $(CXXFLAGS) $(INC_DIRS)  -c $< -o $@
+
+bin/batch_isosurface: $(addprefix obj/, $(GAITSYMOBJ) ) 
+	$(CXX) $(LDFLAGS) -o $@ $^ $(LIBS)
+
+clean:
+	rm -rf obj bin
+	rm -rf distribution
+	rm -rf build*
